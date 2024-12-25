@@ -27,3 +27,27 @@ Route::get('layouts/blank', [StaterkitController::class, 'layout_blank'])->name(
 
 // locale Route
 Route::get('lang/{locale}', [LanguageController::class, 'swap']);
+
+
+
+//___________________________________________________________________
+
+
+Route::get('/contracts',  'App\Http\Controllers\ContractsController@index')->name('contracts.index');
+
+Route::get('/contracts/update',  'App\Http\Controllers\ContractsController@update');
+Route::get('/contracts/delete',  'App\Http\Controllers\ContractsController@delete');
+Route::get('/contracts/restore',  'App\Http\Controllers\ContractsController@restore');
+Route::get('/contracts/first_or_create',  'App\Http\Controllers\ContractsController@firstOrCreate');
+Route::get('/contracts/update_or_create',  'App\Http\Controllers\ContractsController@updateOrCreate');
+
+Route::get('/users',  'App\Http\Controllers\UsersController@index')->name('users.index');
+Route::get('/about',  'App\Http\Controllers\AboutController@index')->name('about.index');
+Route::get('/',  'App\Http\Controllers\MainController@index')->name('main.index');
+
+
+Route::get('/payment_order/list',  'App\Http\Controllers\PaymentOrdersController@list')->name('payment_orders.list');
+Route::get('/payment_order/add',  'App\Http\Controllers\PaymentOrdersController@add')->name('payment_orders.add');
+Route::get('/payment_order/edit',  'App\Http\Controllers\PaymentOrdersController@edit')->name('payment_orders.edit');
+Route::get('/payment_order/preview',  'App\Http\Controllers\PaymentOrdersController@preview')->name('payment_orders.preview');
+Route::get('/payment_order/print',  'App\Http\Controllers\PaymentOrdersController@print')->name('payment_orders.print');

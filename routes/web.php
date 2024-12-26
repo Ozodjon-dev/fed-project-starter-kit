@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaterkitController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\PaymentOrdersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,7 @@ use App\Http\Controllers\LanguageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 
 Route::get('/', [StaterkitController::class, 'home'])->name('home');
 Route::get('home', [StaterkitController::class, 'home'])->name('home');
@@ -46,8 +48,8 @@ Route::get('/about',  'App\Http\Controllers\AboutController@index')->name('about
 Route::get('/',  'App\Http\Controllers\MainController@index')->name('main.index');
 
 
-Route::get('/payment_order/list',  'App\Http\Controllers\PaymentOrdersController@list')->name('payment_orders.list');
-Route::get('/payment_order/add',  'App\Http\Controllers\PaymentOrdersController@add')->name('payment_orders.add');
-Route::get('/payment_order/edit',  'App\Http\Controllers\PaymentOrdersController@edit')->name('payment_orders.edit');
-Route::get('/payment_order/preview',  'App\Http\Controllers\PaymentOrdersController@preview')->name('payment_orders.preview');
-Route::get('/payment_order/print',  'App\Http\Controllers\PaymentOrdersController@print')->name('payment_orders.print');
+Route::get('/payment_order/list',  [PaymentOrdersController::class, 'list'])->name('payment_orders.list');
+Route::get('/payment_order/add',  [PaymentOrdersController::class, 'add'])->name('payment_orders.add');
+Route::get('/payment_order/edit',  [PaymentOrdersController::class, 'edit'])->name('payment_orders.edit');
+Route::get('/payment_order/preview',  [PaymentOrdersController::class, 'preview'])->name('payment_orders.preview');
+Route::get('/payment_order/print',  [PaymentOrdersController::class, 'print'])->name('payment_orders.print');

@@ -6,44 +6,33 @@
       "icon": "home",
       "slug": "home"
     },
-    {
-      "name": "Page Layouts",
-      "icon": "mail",
-      "slug": "",
-      "badge": "5",
-      "badgeClass": "badge rounded-pill badge-light-danger ms-auto me-1",
-      "submenu": [
-        {
-          "url": "layouts/collapsed-menu",
-          "name": "Collapsed Menu",
-          "icon": "circle",
-          "slug": "collapsed-menu"
-        },
-        {
-          "url": "layouts/full",
-          "name": "Layout Full",
-          "icon": "circle",
-          "slug": "layout-full"
-        },
-        {
-          "url": "layouts/without-menu",
-          "name": "Without Menu",
-          "icon": "circle",
-          "slug": "without-menu"
-        },
-        {
-          "url": "layouts/empty",
-          "name": "Layout Empty",
-          "icon": "circle",
-          "slug": "layout-empty"
-        },
-        {
-          "url": "layouts/blank",
-          "name": "Layout Blank",
-          "icon": "circle",
-          "slug": "layout-blank"
-        }
-      ]
-    }
+      {
+          "name": "Платежное поручение",
+          "icon": "layout",
+          "dropdown": "1",
+          "slug": "",
+          "submenu": [
+              {
+                  "url": "payment_order/list",
+                  "name": "payment_order list",
+                  "slug": "payment_order-list"
+              },
+              {
+                  "url": "payment_order/preview",
+                  "name": "payment_order preview",
+                  "slug": "payment_order-preview"
+              },
+              {
+                  "url": "payment_order/edit",
+                  "name": "payment_order edit",
+                  "slug": "payment_order-edit"
+              },
+              {
+                  "url": "payment_order/add",
+                  "name": "payment_order add",
+                  "slug": "payment_order-add"
+              }
+          ]
+      }
   ]
 }

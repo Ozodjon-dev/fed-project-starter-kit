@@ -33,6 +33,25 @@
           "slug": "layout-blank"
         }
       ]
-    }
+    },
+    {
+          "name": "Payment orders",
+          "icon": "layout",
+          "dropdown": "1",
+          "slug": "payment_orders",
+          "submenu": [
+              {
+                  "url": "payment_order/add",
+                  "name": "Add payment orders",
+                  "slug": "payment_orders.add"
+              },
+              {
+                  "url": "payment_order/list",
+                  "name": "List payment orders",
+                  "slug": "payment_orders.list"
+              }
+          ]
+      }
+
   ]
 }

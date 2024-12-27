@@ -325,9 +325,9 @@
             <div class="col-xl-3 col-md-4 col-12">
                 <div class="card">
                     <div class="card-body">
-                        <button class="btn btn-primary w-100 mb-75" disabled>Отправить</button>
+                        <button class="btn btn-outline-primary w-100 mb-75" disabled>Отправить</button>
                         <a href="{{url('/payment_order/preview')}}" class="btn btn-outline-primary w-100 mb-75">Предварительный просмотр</a>
-                        <button type="button" class="btn btn-outline-primary w-100">Сохранять</button>
+                        <button type="button" class="btn btn-primary w-100 mb-75">Сохранять</button>
                     </div>
                 </div>
                 <div class="mt-2">

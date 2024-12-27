@@ -186,6 +186,8 @@ return [
     "Payment orders" => "Payment orders",
     "Add payment orders" => "Add payment orders",
     "List payment orders" => "List payment orders",
-    "Book registration of contracts" => "Book registration of contracts",
-
+    "Contracts" => "Contracts",
+    "Documents" => "Documents",
+    "Add contracts" => "Add contracts",
+    "List contracts" => "List contracts",
 ];

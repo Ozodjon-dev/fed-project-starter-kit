@@ -7,40 +7,49 @@
             "slug": "home"
         },
         {
-            "name": "Payment orders",
-            "icon": "layout",
-            "dropdown": "1",
-            "slug": "payment_orders",
-            "submenu": [
-                {
-                    "url": "payment_order/add",
-                    "name": "Add payment orders",
-                    "icon": "plus",
-                    "slug": "payment_orders.add"
-                },
-                {
-                    "url": "payment_order/list",
-                    "name": "List payment orders",
-                    "icon": "list",
-                    "slug": "payment_orders.list"
-                }
-            ]
-        },
-        {
-            "name": "Book registration of contracts",
-            "icon": "book",
+            "name": "Documents",
+            "icon": "folder",
             "dropdown": "1",
             "slug": "",
             "submenu": [
                 {
-                    "url": "",
-                    "name": "",
-                    "slug": ""
+                    "name": "Payment orders",
+                    "icon": "layout",
+                    "slug": "",
+                    "submenu": [
+                        {
+                            "url": "payment_order/add",
+                            "name": "Add payment orders",
+                            "icon": "plus",
+                            "slug": "payment_orders.add"
+                        },
+                        {
+                            "url": "payment_order/list",
+                            "name": "List payment orders",
+                            "icon": "list",
+                            "slug": "payment_orders.list"
+                        }
+                    ]
                 },
                 {
-                    "url": "",
-                    "name": "",
-                    "slug": ""
+                    "name": "Contracts",
+                    "icon": "file",
+                    "dropdown": "1",
+                    "slug": "",
+                    "submenu": [
+                        {
+                            "url": "contract/add",
+                            "name": "Add contracts",
+                            "icon": "plus",
+                            "slug": "contracts.add"
+                        },
+                        {
+                            "url": "contract/list",
+                            "name": "List contracts",
+                            "icon": "list",
+                            "slug": "contracts.list"
+                        }
+                    ]
                 }
             ]
         }

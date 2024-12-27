@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaterkitController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PaymentOrdersController;
+use App\Http\Controllers\ContractsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,9 +48,14 @@ Route::get('/users',  'App\Http\Controllers\UsersController@index')->name('users
 Route::get('/about',  'App\Http\Controllers\AboutController@index')->name('about.index');
 Route::get('/',  'App\Http\Controllers\MainController@index')->name('main.index');
 
-
+// payment orders Route
 Route::get('/payment_order/list',  [PaymentOrdersController::class, 'list'])->name('payment_orders.list');
 Route::get('/payment_order/add',  [PaymentOrdersController::class, 'add'])->name('payment_orders.add');
 Route::get('/payment_order/edit',  [PaymentOrdersController::class, 'edit'])->name('payment_orders.edit');
 Route::get('/payment_order/preview',  [PaymentOrdersController::class, 'preview'])->name('payment_orders.preview');
 Route::get('/payment_order/print',  [PaymentOrdersController::class, 'print'])->name('payment_orders.print');
+
+// contracts Route
+Route::get('/contract/list',  [ContractsController::class, 'list'])->name('contracts.list');
+Route::get('/contract/add',  [ContractsController::class, 'add'])->name('contracts.add');
+Route::get('/contract/edit',  [ContractsController::class, 'edit'])->name('contracts.edit');

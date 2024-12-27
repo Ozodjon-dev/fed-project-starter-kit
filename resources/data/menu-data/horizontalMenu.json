@@ -1,57 +1,48 @@
 {
-  "menu": [
-    {
-      "url": "home",
-      "name": "Home",
-      "icon": "home",
-      "slug": "home"
-    },
-    {
-      "name": "Page Layouts",
-      "icon": "layout",
-      "dropdown": "1",
-      "slug": "",
-      "submenu": [
+    "menu": [
         {
-          "url": "layouts/full",
-          "name": "Layout Full",
-          "slug": "layout-full"
+            "url": "home",
+            "name": "Home",
+            "icon": "home",
+            "slug": "home"
         },
         {
-          "url": "layouts/without-menu",
-          "name": "Without Menu",
-          "slug": "without-menu"
+            "name": "Payment orders",
+            "icon": "layout",
+            "dropdown": "1",
+            "slug": "payment_orders",
+            "submenu": [
+                {
+                    "url": "payment_order/add",
+                    "name": "Add payment orders",
+                    "icon": "plus",
+                    "slug": "payment_orders.add"
+                },
+                {
+                    "url": "payment_order/list",
+                    "name": "List payment orders",
+                    "icon": "list",
+                    "slug": "payment_orders.list"
+                }
+            ]
         },
         {
-          "url": "layouts/empty",
-          "name": "Layout Empty",
-          "slug": "layout-empty"
-        },
-        {
-          "url": "layouts/blank",
-          "name": "Layout Blank",
-          "slug": "layout-blank"
+            "name": "Layout ",
+            "icon": "list",
+            "dropdown": "1",
+            "slug": "",
+            "submenu": [
+                {
+                    "url": "",
+                    "name": "",
+                    "slug": ""
+                },
+                {
+                    "url": "",
+                    "name": "",
+                    "slug": ""
+                }
+            ]
         }
-      ]
-    },
-    {
-          "name": "Payment orders",
-          "icon": "layout",
-          "dropdown": "1",
-          "slug": "payment_orders",
-          "submenu": [
-              {
-                  "url": "payment_order/add",
-                  "name": "Add payment orders",
-                  "slug": "payment_orders.add"
-              },
-              {
-                  "url": "payment_order/list",
-                  "name": "List payment orders",
-                  "slug": "payment_orders.list"
-              }
-          ]
-      }
-
-  ]
+    ]
 }

@@ -27,8 +27,8 @@
             ]
         },
         {
-            "name": "Layout ",
-            "icon": "list",
+            "name": "Book registration of contracts",
+            "icon": "book",
             "dropdown": "1",
             "slug": "",
             "submenu": [

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    "Home" => "Home",
+    "Home" => "Главная",
     "Starter Kit" => "Starter Kit",
     "Apps & Pages" => "Apps & Pages",
     "User Interface" => "User Interface",
@@ -183,11 +183,11 @@ return [
     'Accordion' => 'Accordion',
     "Offcanvas" => "Offcanvas",
     "message" => "Cake sesame snaps cupcake gingerbread danish I love gingerbread. Apple pie pie jujubes chupa chups muffin halvah lollipop. Chocolate cake oat cake tiramisu marzipan sugar plum. Donut sweet pie oat cake dragée fruitcake cotton candy lemon drops.",
-    "Payment orders" => "Payment orders",
-    "Add payment orders" => "Add payment orders",
-    "List payment orders" => "List payment orders",
-    "Contracts" => "Contracts",
-    "Documents" => "Documents",
-    "Add contracts" => "Add contracts",
-    "List contracts" => "List contracts",
+    "Payment orders" => "Плат. поручение",
+    "Add payment orders" => "Добавить плат. поручение",
+    "List payment orders" => "Список плат. поручений",
+    "Contracts" => "Договор",
+    "Documents" => "Документы",
+    "Add contracts" => "Добавить договор",
+    "List contracts" => "Список договоров",
 ];

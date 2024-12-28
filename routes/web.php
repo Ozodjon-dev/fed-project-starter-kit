@@ -18,7 +18,7 @@ use App\Http\Controllers\ContractsController;
 */
 
 
-Route::get('/', [StaterkitController::class, 'home'])->name('home');
+//Route::get('/', [StaterkitController::class, 'home'])->name('home');
 Route::get('home', [StaterkitController::class, 'home'])->name('home');
 // Route Components
 Route::get('layouts/collapsed-menu', [StaterkitController::class, 'collapsed_menu'])->name('collapsed-menu');

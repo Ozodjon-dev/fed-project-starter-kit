@@ -44,11 +44,11 @@
         <div class="">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                  y="0px"
-                 viewBox="0 0 1500 1500"
-                 style="position: relative; left: 100%; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%);"
-                 xml:space="preserve">
-    <polygon id="Shadow_3_" style="fill:#E0E0E0;"
-             points="224.62,497.536 48.066,395.599 309.986,244.51 486.539,346.447 	"/>
+                 viewBox="0 0 1350 1350"
+                 style="position: relative; left: 83%; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%);"
+                 xml:space="preserve"><g>
+                    <polygon id="Shadow_3_" style="fill:#E0E0E0;"
+                             points="224.62,497.536 48.066,395.599 309.986,244.51 486.539,346.447 	"/>
                 </g>
                 <g id="Files">
                     <g id="Boxes_1_">

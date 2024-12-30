@@ -329,7 +329,7 @@
                       <div style="min-width: 90px">
                           Операция
                       </div>
-                      <select class="form-select btn w-100 mb-75 ms-1">
+                      <select class="form-select mb-75 ms-1 shadow-lg rounded">
                           <option value="">159.000-100.000</option>
                           <option value="">231.000-100.000</option>
                       </select>
@@ -338,7 +338,7 @@
                       <div style="min-width: 150px">
                           Дебет
                       </div>
-                      <select class="form-select btn w-100 mb-75 ms-1">
+                      <select class="form-select mb-75 ms-1 shadow-lg rounded">
                           <option value="">159.000</option>
                           <option value="">100.000</option>
                       </select>
@@ -347,7 +347,7 @@
                       <div style="min-width: 150px">
                           Кредит
                       </div>
-                      <select class="form-select btn w-100 ms-1">
+                      <select class="form-select mb-75 ms-1 shadow-lg rounded">
                           <option value="">159.000</option>
                           <option value="">100.000</option>
                       </select>
@@ -357,7 +357,7 @@
                       <div class="col" style="min-width: 90px">
                           Договор
                       </div>
-                      <select class="form-select btn w-100 mb-75 ms-1">
+                      <select class="form-select mb-75 ms-1 shadow-lg rounded">
                           <option value="">№ 71 от 2024.12.21</option>
                           <option value="">№ 74 от 2024.11.18</option>
                       </select>
@@ -366,7 +366,7 @@
                       <div style="min-width: 90px">
                           Статья
                       </div>
-                      <select class="form-select btn w-100 mb-75 ms-1">
+                      <select class="form-select mb-75 ms-1 shadow-lg rounded">
                           <option value="">42 52 110</option>
                           <option value="">43 54 990</option>
                       </select>

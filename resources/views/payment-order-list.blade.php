@@ -38,7 +38,7 @@
     </nav>
 
 
-    <div class="table-responsive shadow-lg rounded container-fluid" style="font-size: inherit">
+    <div class="table-responsive rounded container-fluid" style="font-size: small">
         <table class="table table table-bordered table-sm" style="text-align: center">
             <thead>
             <tr class="align-middle align-content-center">

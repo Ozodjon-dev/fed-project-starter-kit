@@ -1,16 +1,29 @@
-@extends('layouts/contentLayoutMaster')
+@extends('layouts/fullLayoutMaster')
 @section('title', 'Список договоров')
 @section('content')
     <nav class="navbar navbar-expand-lg">
 
             <div class="collapse navbar-collapse" id="navbarScroll">
-                <div class="input-group">
+                <div class=" ms-lg-75">
+                    <form class="d-flex">
+                        <button onclick="location.href='{{ route('main.index') }}'"
+                                class="btn btn-sm btn-secondary shadow" type="button"><b>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-back-up">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M9 14l-4 -4l4 -4" />
+                                    <path d="M5 10h11a4 4 0 1 1 0 8h-1" />
+                                </svg>
+                            </b>
+                        </button>
+                    </form>
+                </div>
+                <div class="input-group ms-lg-75">
                     <input type="text" class="form-control shadow-sm" placeholder="Поиск">
                     <button type="submit" class="btn btn-secondary shadow me-3">Поиск</button>
                 </div>
                 <div>
-                    <form class="d-flex">
-                        <button onclick="location.href='{{ route('payment_orders.add') }}'"
+                    <form class="d-flex me-lg-75">
+                        <button onclick="location.href='{{ route('contracts.add') }}'"
                                 class="btn btn-sm btn-secondary shadow" type="button"><b>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="38" height="24" fill="currentColor"
                                      class="bi bi-plus-square" viewBox="0 0 16 16">
@@ -26,7 +39,7 @@
     </nav>
 
 
-    <div class="table-responsive shadow-lg rounded">
+    <div class="table-responsive rounded">
         <table class="table table-responsive table-bordered table-sm"  style="text-align: center">
             <thead>
             <tr class="align-middle align-content-center">

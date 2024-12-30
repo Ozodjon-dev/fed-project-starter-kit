@@ -324,43 +324,92 @@
             <!-- Invoice Add Right starts -->
             <div class="col-xl-3 col-md-4 col-12">
                 <div class="card">
+                    <div class="col card-body">
+                        <div class="d-flex">
+                            <div style="min-width: 90px">
+                                Операция
+                            </div>
+                            <select class="form-select btn w-100 mb-75 ms-1">
+                                <option value="">159.000-100.000</option>
+                                <option value="">231.000-100.000</option>
+                            </select>
+                        </div>
+                        <div class="d-flex">
+                            <div style="min-width: 150px">
+                                Дебет
+                            </div>
+                            <select class="form-select btn w-100 mb-75 ms-1">
+                                <option value="">159.000</option>
+                                <option value="">100.000</option>
+                            </select>
+                        </div>
+                        <div class="d-flex">
+                            <div style="min-width: 150px">
+                                Кредит
+                            </div>
+                            <select class="form-select btn w-100 ms-1">
+                                <option value="">159.000</option>
+                                <option value="">100.000</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="d-flex">
+                            <div style="min-width: 90px">
+                                Договор
+                            </div>
+                            <select class="form-select btn w-100 mb-75 ms-1">
+                                <option value="">№ 71 от 2024.12.21</option>
+                                <option value="">№ 74 от 2024.11.18</option>
+                            </select>
+                        </div>
+                        <div class="d-flex">
+                            <div style="min-width: 90px">
+                                Статья
+                            </div>
+                            <select class="form-select btn w-100 mb-75 ms-1">
+                                <option value="">42 52 110</option>
+                                <option value="">43 54 990</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
                     <div class="card-body">
-                        <button class="btn btn-outline-primary w-100 mb-75" disabled>Отправить</button>
                         <a href="{{url('/payment_order/preview')}}" class="btn btn-outline-primary w-100 mb-75">Предварительный просмотр</a>
                         <button type="button" class="btn btn-primary w-100 mb-75">Сохранять</button>
                     </div>
                 </div>
-                <div class="mt-2">
-                    <p class="mb-50">Accept payments via</p>
-                    <select class="form-select">
-                        <option value="Bank Account">Bank Account</option>
-                        <option value="Paypal">Paypal</option>
-                        <option value="UPI Transfer">UPI Transfer</option>
-                    </select>
-                    <div class="invoice-terms mt-1">
-                        <div class="d-flex justify-content-between">
-                            <label class="invoice-terms-title mb-0" for="paymentTerms">Payment Terms</label>
-                            <div class="form-check form-switch">
-                                <input type="checkbox" class="form-check-input" checked id="paymentTerms"/>
-                                <label class="form-check-label" for="paymentTerms"></label>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between py-1">
-                            <label class="invoice-terms-title mb-0" for="clientNotes">Client Notes</label>
-                            <div class="form-check form-switch">
-                                <input type="checkbox" class="form-check-input" checked id="clientNotes"/>
-                                <label class="form-check-label" for="clientNotes"></label>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <label class="invoice-terms-title mb-0" for="paymentStub">Payment Stub</label>
-                            <div class="form-check form-switch">
-                                <input type="checkbox" class="form-check-input" id="paymentStub"/>
-                                <label class="form-check-label" for="paymentStub"></label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="mt-2">--}}
+{{--                    <p class="mb-50">Accept payments via</p>--}}
+{{--                    <select class="form-select">--}}
+{{--                        <option value="Bank Account">Bank Account</option>--}}
+{{--                        <option value="Paypal">Paypal</option>--}}
+{{--                        <option value="UPI Transfer">UPI Transfer</option>--}}
+{{--                    </select>--}}
+{{--                    <div class="invoice-terms mt-1">--}}
+{{--                        <div class="d-flex justify-content-between">--}}
+{{--                            <label class="invoice-terms-title mb-0" for="paymentTerms">Payment Terms</label>--}}
+{{--                            <div class="form-check form-switch">--}}
+{{--                                <input type="checkbox" class="form-check-input" checked id="paymentTerms"/>--}}
+{{--                                <label class="form-check-label" for="paymentTerms"></label>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex justify-content-between py-1">--}}
+{{--                            <label class="invoice-terms-title mb-0" for="clientNotes">Client Notes</label>--}}
+{{--                            <div class="form-check form-switch">--}}
+{{--                                <input type="checkbox" class="form-check-input" checked id="clientNotes"/>--}}
+{{--                                <label class="form-check-label" for="clientNotes"></label>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex justify-content-between">--}}
+{{--                            <label class="invoice-terms-title mb-0" for="paymentStub">Payment Stub</label>--}}
+{{--                            <div class="form-check form-switch">--}}
+{{--                                <input type="checkbox" class="form-check-input" id="paymentStub"/>--}}
+{{--                                <label class="form-check-label" for="paymentStub"></label>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
             <!-- Invoice Add Right ends -->
         </div>

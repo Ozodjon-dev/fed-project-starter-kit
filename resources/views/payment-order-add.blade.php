@@ -325,7 +325,7 @@
             <div class="col-xl-3 col-md-4 col-12">
                 <div class="card">
                     <div class="col card-body">
-                        <div class="d-flex">
+                        <div class="d-flex align-items-center">
                             <div style="min-width: 90px">
                                 Операция
                             </div>
@@ -334,7 +334,7 @@
                                 <option value="">231.000-100.000</option>
                             </select>
                         </div>
-                        <div class="d-flex">
+                        <div class="d-flex align-items-center">
                             <div style="min-width: 150px">
                                 Дебет
                             </div>
@@ -343,7 +343,7 @@
                                 <option value="">100.000</option>
                             </select>
                         </div>
-                        <div class="d-flex">
+                        <div class="d-flex align-items-center">
                             <div style="min-width: 150px">
                                 Кредит
                             </div>
@@ -353,8 +353,8 @@
                             </select>
                         </div>
                         <hr>
-                        <div class="d-flex">
-                            <div style="min-width: 90px">
+                        <div class="d-flex align-items-center">
+                            <div class="col" style="min-width: 90px">
                                 Договор
                             </div>
                             <select class="form-select btn w-100 mb-75 ms-1">
@@ -362,7 +362,7 @@
                                 <option value="">№ 74 от 2024.11.18</option>
                             </select>
                         </div>
-                        <div class="d-flex">
+                        <div class="d-flex align-items-center">
                             <div style="min-width: 90px">
                                 Статья
                             </div>

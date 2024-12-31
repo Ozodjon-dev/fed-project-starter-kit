@@ -190,4 +190,8 @@ return [
     "Documents" => "Документы",
     "Add contracts" => "Добавить договор",
     "List contracts" => "Список договоров",
+    "Reference books" => "Справочники",
+    "Counterparties" => "Контрагенты",
+    "Add counterparty" => "Добавить контрагент",
+    "List counterparties" => "Список контрагенты"
 ];

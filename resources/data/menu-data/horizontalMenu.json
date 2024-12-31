@@ -7,6 +7,53 @@
             "slug": "home"
         },
         {
+            "name": "Reference books",
+            "icon": "info",
+            "dropdown": "1",
+            "slug": "",
+            "submenu": [
+                {
+                    "name": "Counterparties",
+                    "icon": "user",
+                    "slug": "",
+                    "submenu": [
+                        {
+                            "url": "payment_order/add",
+                            "name": "Add counterparty",
+                            "icon": "plus",
+                            "slug": "payment_orders.add"
+                        },
+                        {
+                            "url": "payment_order/list",
+                            "name": "List counterparties",
+                            "icon": "list",
+                            "slug": "payment_orders.list"
+                        }
+                    ]
+                },
+                {
+                    "name": "Contracts",
+                    "icon": "file",
+                    "dropdown": "1",
+                    "slug": "",
+                    "submenu": [
+                        {
+                            "url": "contract/add",
+                            "name": "Add contracts",
+                            "icon": "plus",
+                            "slug": "contracts.add"
+                        },
+                        {
+                            "url": "contract/list",
+                            "name": "List contracts",
+                            "icon": "list",
+                            "slug": "contracts.list"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Documents",
             "icon": "folder",
             "dropdown": "1",

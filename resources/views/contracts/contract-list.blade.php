@@ -44,15 +44,17 @@
             <thead>
             <tr class="align-middle align-content-center">
                 <th scope="col">#</th>
-                <th scope="col">Номер</th>
-                <th scope="col" style="min-width: 100px">Дата</th>
-                <th scope="col">Получатель</th>
+                <th scope="col">№</th>
+                <th scope="col" style="min-width: 100px">Дата дог.</th>
+                <th scope="col">Рег. №</th>
+                <th scope="col" style="min-width: 100px">Дата рег.</th>
+                <th scope="col">Контрагент</th>
                 <th scope="col">Номер счета</th>
                 <th scope="col">Наименование банка</th>
-                <th scope="col">Код банка</th>
                 <th scope="col">ИНН</th>
-                <th class="col">Детали платежа</th>
+                <th class="col">Предмет договора</th>
                 <th scope="col" style="min-width: 150px">Сумма</th>
+                <th scope="col">Статус</th>
                 <th scope="col"></th>
             </tr>
             </thead>
@@ -61,15 +63,15 @@
                 <th>1</th>
                 <td>12</td>
                 <td>2024-12-12</td>
-                <td>O`R Moliya Vazirligi</td>
+                <td>45</td>
+                <td>2024-12-12</td>
+                <td>"Amirsoy" MCHJ</td>
                 <td>23402000300100001010</td>
                 <td>O‘R MB TSHBB HKKM</td>
-                <td>00014</td>
                 <td>201122919</td>
-                <td>08102 to‘lov, 1000108608262663450938092 40% daromad. 2023 yil dekabr oyi uchun. 08102 to‘lov,
-                    1000218602262873111103093 12% daromad solig‘i. 2024 yil mart oyi uchun.
-                </td>
+                <td>ЁММ етказиб бериш</td>
                 <td>62 465 253,70</td>
+                <td>Создан</td>
                 <td    style="align-items: center">
                     <div class="btn-group me-2">
                         <button type="button" class="btn btn-sm btn-outline-secondary shadow" >
@@ -102,14 +104,15 @@
                 <th>2</th>
                 <td>13</td>
                 <td>2024-12-25</td>
+                <td>46</td>
+                <td>2024-12-25</td>
                 <td>"AUTOGRAF" MCHJ</td>
                 <td>23402240300115001010</td>
                 <td>"Sanoat qurilish bank" ATB</td>
-                <td>00014</td>
                 <td>201122919</td>
-                <td>40% daromad. 2023 yil dekabr oyi uchun. 08102 to‘lov,12% daromad solig‘i. 2024 yil mart oyi uchun.
-                </td>
+                <td>Связь</td>
                 <td>10 000 000,00</td>
+                <td>Создан</td>
                 <td>
                     <div class="btn-group me-2">
                         <button type="button" class="btn btn-sm btn-outline-secondary shadow">
@@ -142,16 +145,15 @@
                 <th>3</th>
                 <td>14</td>
                 <td>2024-12-31</td>
+                <td>47</td>
+                <td>2024-12-31</td>
                 <td>Yakkasaroy TETK</td>
                 <td>23409000300100001010</td>
                 <td>"KAPITALBANK" AITB</td>
-                <td>00014</td>
                 <td>201122919</td>
-                <td>2023 yil dekabr oyi uchun. 08102 to‘lov, 1000218602262873111103093 12% daromad solig‘i. 2024 yil
-                    mart
-                    oyi uchun.
-                </td>
+                <td>Шиномонтаж</td>
                 <td>114 000 000,00</td>
+                <td>Создан</td>
                 <td>
                     <div class="btn-group me-2">
                         <button type="button" class="btn btn-sm btn-outline-secondary shadow">
@@ -183,4 +185,12 @@
             </tbody>
         </table>
     </div>
+@endsection
+@section('vendor-script')
+    <script src="{{ asset(mix('vendors/js/forms/cleave/cleave.min.js'))}}"></script>
+    <script src="{{ asset(mix('vendors/js/forms/cleave/addons/cleave-phone.us.js'))}}"></script>
+@endsection
+
+@section('page-script')
+    <script src="{{ asset(mix('js/scripts/forms/form-input-mask.js')) }}"></script>
 @endsection

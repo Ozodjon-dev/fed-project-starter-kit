@@ -1,38 +1,104 @@
 {
-  "menu": [
-    {
-      "url": "home",
-      "name": "Home",
-      "icon": "home",
-      "slug": "home"
-    },
-      {
-          "name": "Платежное поручение",
-          "icon": "layout",
-          "dropdown": "1",
-          "slug": "",
-          "submenu": [
-              {
-                  "url": "payment_order/list",
-                  "name": "payment_order list",
-                  "slug": "payment_order-list"
-              },
-              {
-                  "url": "payment_order/preview",
-                  "name": "payment_order preview",
-                  "slug": "payment_order-preview"
-              },
-              {
-                  "url": "payment_order/edit",
-                  "name": "payment_order edit",
-                  "slug": "payment_order-edit"
-              },
-              {
-                  "url": "payment_order/add",
-                  "name": "payment_order add",
-                  "slug": "payment_order-add"
-              }
-          ]
-      }
-  ]
+    "menu": [
+        {
+            "url": "home",
+            "name": "Home",
+            "icon": "home",
+            "slug": "home"
+        },
+        {
+            "name": "Reference books",
+            "icon": "info",
+            "dropdown": "1",
+            "slug": "",
+            "submenu": [
+                {
+                    "name": "Payment orders",
+                    "icon": "layout",
+                    "slug": "",
+                    "submenu": [
+                        {
+                            "url": "payment_order/add",
+                            "name": "Add payment orders",
+                            "icon": "plus",
+                            "slug": "payment_orders.add"
+                        },
+                        {
+                            "url": "payment_order/list",
+                            "name": "List payment orders",
+                            "icon": "list",
+                            "slug": "payment_orders.list"
+                        }
+                    ]
+                },
+                {
+                    "name": "Contracts",
+                    "icon": "file",
+                    "dropdown": "1",
+                    "slug": "",
+                    "submenu": [
+                        {
+                            "url": "contract/add",
+                            "name": "Add contracts",
+                            "icon": "plus",
+                            "slug": "contracts.add"
+                        },
+                        {
+                            "url": "contract/list",
+                            "name": "List contracts",
+                            "icon": "list",
+                            "slug": "contracts.list"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Documents",
+            "icon": "folder",
+            "dropdown": "1",
+            "slug": "",
+            "submenu": [
+                {
+                    "name": "Payment orders",
+                    "icon": "layout",
+                    "slug": "",
+                    "submenu": [
+                        {
+                            "url": "payment_order/add",
+                            "name": "Add payment orders",
+                            "icon": "plus",
+                            "slug": "payment_orders.add"
+                        },
+                        {
+                            "url": "payment_order/list",
+                            "name": "List payment orders",
+                            "icon": "list",
+                            "slug": "payment_orders.list"
+                        }
+                    ]
+                },
+                {
+                    "name": "Contracts",
+                    "icon": "file",
+                    "dropdown": "1",
+                    "slug": "",
+                    "submenu": [
+                        {
+                            "url": "contract/add",
+                            "name": "Add contracts",
+                            "icon": "plus",
+                            "slug": "contracts.add"
+                        },
+                        {
+                            "url": "contract/list",
+                            "name": "List contracts",
+                            "icon": "list",
+                            "slug": "contracts.list"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

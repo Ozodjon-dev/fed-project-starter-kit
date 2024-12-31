@@ -141,15 +141,13 @@
                                 </div>
                                 <div class="row">
                                     <div class="d-flex align-items-center mb-1" style="max-width: 1200px">
-                                        <div class="d-flex align-items-center" style="min-width: 230px">
+                                        <div class="d-flex align-items-center" style="min-width: 237px">
                                             <span class="title">СУММА</span>
                                         </div>
-                                        <input type="number"
-                                               class="form-control col-lg-2 col-12 mb-lg-0 mb-0 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
-                                               style="max-width: 340px" placeholder="0,00">
-
+                                        <div class="col-xl-4 col-md-6 col-sm-12 mb-2" style="min-width: 340px">
+                                            <input type="text" class="form-control numeral-mask col-12 mb-lg-0 mt-lg-0 shadow-lg rounded" placeholder="10,000" id="numeral-formatting" />
+                                        </div>
                                     </div>
-
                                 </div>
 
                             </div>
@@ -379,37 +377,6 @@
                         <button type="button" class="btn btn-primary w-100 mb-75">Сохранять</button>
                     </div>
                 </div>
-{{--                <div class="mt-2">--}}
-{{--                    <p class="mb-50">Accept payments via</p>--}}
-{{--                    <select class="form-select">--}}
-{{--                        <option value="Bank Account">Bank Account</option>--}}
-{{--                        <option value="Paypal">Paypal</option>--}}
-{{--                        <option value="UPI Transfer">UPI Transfer</option>--}}
-{{--                    </select>--}}
-{{--                    <div class="invoice-terms mt-1">--}}
-{{--                        <div class="d-flex justify-content-between">--}}
-{{--                            <label class="invoice-terms-title mb-0" for="paymentTerms">Payment Terms</label>--}}
-{{--                            <div class="form-check form-switch">--}}
-{{--                                <input type="checkbox" class="form-check-input" checked id="paymentTerms"/>--}}
-{{--                                <label class="form-check-label" for="paymentTerms"></label>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex justify-content-between py-1">--}}
-{{--                            <label class="invoice-terms-title mb-0" for="clientNotes">Client Notes</label>--}}
-{{--                            <div class="form-check form-switch">--}}
-{{--                                <input type="checkbox" class="form-check-input" checked id="clientNotes"/>--}}
-{{--                                <label class="form-check-label" for="clientNotes"></label>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex justify-content-between">--}}
-{{--                            <label class="invoice-terms-title mb-0" for="paymentStub">Payment Stub</label>--}}
-{{--                            <div class="form-check form-switch">--}}
-{{--                                <input type="checkbox" class="form-check-input" id="paymentStub"/>--}}
-{{--                                <label class="form-check-label" for="paymentStub"></label>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
             </div>
             <!-- Invoice Add Right ends -->
         </div>
@@ -484,8 +451,11 @@
     <script src="{{asset('vendors/js/forms/repeater/jquery.repeater.min.js')}}"></script>
     <script src="{{asset('vendors/js/forms/select/select2.full.min.js')}}"></script>
     <script src="{{asset('vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
+    <script src="{{ asset(mix('vendors/js/forms/cleave/cleave.min.js'))}}"></script>
+    <script src="{{ asset(mix('vendors/js/forms/cleave/addons/cleave-phone.us.js'))}}"></script>
 @endsection
 
 @section('page-script')
     <script src="{{asset('js/scripts/pages/app-invoice.js')}}"></script>
+    <script src="{{ asset(mix('js/scripts/forms/form-input-mask.js')) }}"></script>
 @endsection

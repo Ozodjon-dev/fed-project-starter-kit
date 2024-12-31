@@ -50,7 +50,7 @@
                 <th scope="col">Наименование банка</th>
                 <th scope="col">Код банка</th>
                 <th scope="col">ИНН</th>
-                <th class="col">Детали платежа</th>
+                <th scope="col">Детали платежа</th>
                 <th scope="col" style="min-width: 150px">Сумма</th>
                 <th scope="col">Дебет</th>
                 <th scope="col">Кредит</th>

@@ -140,17 +140,14 @@
                               </div>
                               <div class="row">
                                   <div class="d-flex align-items-center mb-1" style="max-width: 1200px">
-                                      <div class="d-flex align-items-center" style="min-width: 230px">
+                                      <div class="d-flex align-items-center" style="min-width: 237px">
                                           <span class="title">СУММА</span>
                                       </div>
-                                      <input type="number"
-                                             class="form-control col-lg-2 col-12 mb-lg-0 mb-0 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
-                                             style="max-width: 340px" placeholder="0,00">
-
+                                      <div class="col-xl-4 col-md-6 col-sm-12 mb-2" style="min-width: 340px">
+                                          <input type="text" class="form-control numeral-mask col-12 mb-lg-0 mt-lg-0 shadow-lg rounded" placeholder="10,000" id="numeral-formatting" />
+                                      </div>
                                   </div>
-
                               </div>
-
                           </div>
                       </div>
 
@@ -539,8 +536,11 @@ We would appreciate payment of this invoice by 05/11/2019</textarea
 @section('vendor-script')
 <script src="{{asset('vendors/js/forms/repeater/jquery.repeater.min.js')}}"></script>
 <script src="{{asset('vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
+<script src="{{ asset(mix('vendors/js/forms/cleave/cleave.min.js'))}}"></script>
+<script src="{{ asset(mix('vendors/js/forms/cleave/addons/cleave-phone.us.js'))}}"></script>
 @endsection
 
 @section('page-script')
 <script src="{{asset('js/scripts/pages/app-invoice.js')}}"></script>
+<script src="{{ asset(mix('js/scripts/forms/form-input-mask.js')) }}"></script>
 @endsection

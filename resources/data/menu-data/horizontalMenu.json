@@ -10,7 +10,7 @@
             "name": "Reference books",
             "icon": "info",
             "dropdown": "1",
-            "slug": "",
+            "slug": "counterparties",
             "submenu": [
                 {
                     "name": "Counterparties",
@@ -18,36 +18,16 @@
                     "slug": "",
                     "submenu": [
                         {
-                            "url": "payment_order/add",
+                            "url": "counterparty/add",
                             "name": "Add counterparty",
                             "icon": "plus",
-                            "slug": "payment_orders.add"
+                            "slug": "counterparties.add"
                         },
                         {
-                            "url": "payment_order/list",
+                            "url": "counterparty/list",
                             "name": "List counterparties",
                             "icon": "list",
-                            "slug": "payment_orders.list"
-                        }
-                    ]
-                },
-                {
-                    "name": "Contracts",
-                    "icon": "file",
-                    "dropdown": "1",
-                    "slug": "",
-                    "submenu": [
-                        {
-                            "url": "contract/add",
-                            "name": "Add contracts",
-                            "icon": "plus",
-                            "slug": "contracts.add"
-                        },
-                        {
-                            "url": "contract/list",
-                            "name": "List contracts",
-                            "icon": "list",
-                            "slug": "contracts.list"
+                            "slug": "counterparties.list"
                         }
                     ]
                 }

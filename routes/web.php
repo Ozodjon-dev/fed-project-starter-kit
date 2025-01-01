@@ -5,6 +5,7 @@ use App\Http\Controllers\StaterkitController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PaymentOrdersController;
 use App\Http\Controllers\ContractsController;
+use App\Http\Controllers\CounterpartiesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,4 +59,9 @@ Route::get('/payment_order/print',  [PaymentOrdersController::class, 'print'])->
 // contracts Route
 Route::get('/contract/list',  [ContractsController::class, 'list'])->name('contracts.list');
 Route::get('/contract/add',  [ContractsController::class, 'add'])->name('contracts.add');
+Route::get('/contract/edit',  [ContractsController::class, 'edit'])->name('contracts.edit');
+
+// counterparties Route
+Route::get('/counterparty/list',  [CounterpartiesController::class, 'list'])->name('counterparties.list');
+Route::get('/counterparty/add',  [CounterpartiesController::class, 'add'])->name('counterparties.add');
 Route::get('/contract/edit',  [ContractsController::class, 'edit'])->name('contracts.edit');

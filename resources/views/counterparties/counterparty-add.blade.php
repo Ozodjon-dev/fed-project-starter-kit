@@ -23,17 +23,10 @@
                             <div class="d-flex invoice-number-date mt-md-0 mt-0">
                                 <div class="d-flex align-items-center ">
                                     <span class="title" style="min-width: 230px">Наименование контрагента</span>
-                                    <input type="text" placeholder="O`zbekiston Respublikasi Iqtisodiyot va moliya vazirligi" style="min-width: 600px"
+                                    <input type="text" placeholder="'O‘ZBEKISTON RESPUBLIKASI IQTISODIYOT VA MOLIYA VAZIRLIGI' DAVLAT MUASSASASI" style="min-width: 765px"
                                            class="form-control invoice-edit-input ms-50 shadow-lg rounded"/>
                                 </div>
                                 <div style="min-width: px"></div>
-                                <div class="invoice-number-date mt-md-0 mt-0 ms-lg-75">
-                                    <div class="d-flex align-items-center ">
-                                        <span class="title" style="min-width: px">Код банка</span>
-                                        <input type="text" style="max-width: 70px"
-                                               class="form-control invoice-edit-input ms-50 shadow-lg rounded"/>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
@@ -47,17 +40,27 @@
                                            class="form-control invoice-edit-input ms-50 shadow-lg rounded"/>
                                 </div>
                             </div>
-                            <div style="min-width: px"></div>
-                            <div class="invoice-number-date mt-md-0 mt-0 ms-lg-75">
+                        </div>
+                    </div>
+                    <div class="card-body invoice-padding pb-0">
+                        <div class="d-flex">
+                            <div class="invoice-number-date mt-md-0 mt-0">
                                 <div class="d-flex align-items-center ">
-                                    <span class="title">Наименование банка</span>
+                                    <span class="title"  style="min-width: 230px">Наименование банка</span>
                                     <input type="text" style="min-width: 500px"
                                            class="form-control invoice-edit-input ms-50 shadow-lg rounded"/>
                                 </div>
+
                             </div>
-
+                            <div style="min-width: px"></div>
+                            <div class="invoice-number-date mt-md-0 mt-0 ms-lg-75">
+                                <div class="d-flex align-items-center ">
+                                    <span class="title">Код банка</span>
+                                    <input type="text"
+                                           class="form-control invoice-edit-input ms-50 shadow-lg rounded"/>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                     <!-- Header ends -->
 

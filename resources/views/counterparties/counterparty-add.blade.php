@@ -1,6 +1,6 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Добавить договор')
+@section('title', 'Добавить контрагент')
 
 @section('vendor-style')
     <link rel="stylesheet" href="{{asset('vendors/css/pickers/flatpickr/flatpickr.min.css')}}">
@@ -20,19 +20,19 @@
                     <!-- Header starts -->
                     <div class="card-body invoice-padding pb-0">
                         <div class="d-flex">
-                            <div class="invoice-number-date mt-md-0 mt-0">
+                            <div class="d-flex invoice-number-date mt-md-0 mt-0">
                                 <div class="d-flex align-items-center ">
-                                    <span class="title" style="min-width: 230px">Номер договора:</span>
-                                    <input type="text" placeholder="7856/MV"
-                                           class="form-control invoice-edit-input  ms-50 shadow-lg form-control rounded"/>
+                                    <span class="title" style="min-width: 230px">Наименование контрагента</span>
+                                    <input type="text" placeholder="O`zbekiston Respublikasi Iqtisodiyot va moliya vazirligi" style="min-width: 600px"
+                                           class="form-control invoice-edit-input ms-50 shadow-lg rounded"/>
                                 </div>
-                            </div>
-                            <div style="min-width: 285px"></div>
-                            <div class="invoice-number-date mt-md-0 mt-0 ms-lg-75">
-                                <div class="d-flex align-items-center ">
-                                    <span class="title" style="min-width: 150px">Регистрационный номер договора:</span>
-                                    <input type="text" placeholder="7856"
-                                           class="form-control invoice-edit-input ms-50 shadow-lg form-control rounded"/>
+                                <div style="min-width: px"></div>
+                                <div class="invoice-number-date mt-md-0 mt-0 ms-lg-75">
+                                    <div class="d-flex align-items-center ">
+                                        <span class="title" style="min-width: px">Код банка</span>
+                                        <input type="text" style="max-width: 70px"
+                                               class="form-control invoice-edit-input ms-50 shadow-lg rounded"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -42,19 +42,20 @@
                         <div class="d-flex">
                             <div class="invoice-number-date mt-md-0 mt-0">
                                 <div class="d-flex align-items-center ">
-                                    <span class="title" style="min-width: 230px">Дата договора:</span>
+                                    <span class="title" style="min-width: 230px">ИНН или ПНФЛ</span>
                                     <input type="text"
-                                           class="form-control invoice-edit-input date-picker ms-50 shadow-lg form-control rounded"/>
+                                           class="form-control invoice-edit-input ms-50 shadow-lg rounded"/>
                                 </div>
                             </div>
-                            <div style="min-width: 285px"></div>
+                            <div style="min-width: px"></div>
                             <div class="invoice-number-date mt-md-0 mt-0 ms-lg-75">
                                 <div class="d-flex align-items-center ">
-                                    <span class="title" style="min-width: 150px">Дата регистрации:</span>
-                                    <input type="text"
-                                           class="form-control invoice-edit-input date-picker ms-50 shadow-lg form-control rounded"/>
+                                    <span class="title">Наименование банка</span>
+                                    <input type="text" style="min-width: 500px"
+                                           class="form-control invoice-edit-input ms-50 shadow-lg rounded"/>
                                 </div>
                             </div>
+
                         </div>
 
                     </div>
@@ -69,57 +70,52 @@
 
                         <div class="invoice-number-date mt-md-0 mt-2">
                             <div class="d-flex align-items-center mb-1">
-                                <div class="d-flex align-items-center" style="min-width: 230px">
-
-                                    <span class="title">Контрагент:</span>
+                                <div class="align-items-center" style="min-width: 230px">
+                                    <span class="title">Расчетный счет-1</span>
                                 </div>
-
-
-                                <select class="form-select ms-50 form-control rounded shadow-lg">
-                                    <option value="">1-организация</option>
-                                    <option value="">2-организация</option>
-                                </select>
+                                <input type="number"
+                                       class="form-control col-lg-2 col-12 mb-lg-0 mb-0 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
+                                       style="max-width: 340px" placeholder="">
 
                             </div>
                         </div>
-                        <div class="mt-md-0 mt-2 mb-2">
-
+                        <div class="invoice-number-date mt-md-0 mt-2">
                             <div class="d-flex align-items-center mb-1">
-
-                                <div class="d-flex align-items-center" style="max-width: 230px">
-                                    <span class="title">Предмет договора, заголовок (краткое содержание)</span>
+                                <div class="align-items-center" style="min-width: 230px">
+                                    <span class="title">Расчетный счет-2</span>
                                 </div>
+                                <input type="number"
+                                       class="form-control col-lg-2 col-12 mb-lg-0 mb-0 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
+                                       style="max-width: 340px" placeholder="">
 
-                                <textarea class="form-control ms-50 form-control shadow-lg rounded">
+                            </div>
+                        </div>
+                        <div class="invoice-number-date mt-md-0 mt-2">
+                            <div class="d-flex align-items-center mb-1">
+                                <div class="align-items-center" style="min-width: 230px">
+                                    <span class="title">Расчетный счет-3</span>
+                                </div>
+                                <input type="number"
+                                       class="form-control col-lg-2 col-12 mb-lg-0 mb-0 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
+                                       style="max-width: 340px" placeholder="">
 
-                                </textarea>
+                            </div>
+                        </div>
+                        <div class="invoice-number-date mt-md-0 mt-2">
+                            <div class="d-flex align-items-center mb-1">
+                                <div class="align-items-center" style="min-width: 230px">
+                                    <span class="title">Расчетный счет-4</span>
+                                </div>
+                                <input type="number"
+                                       class="form-control col-lg-2 col-12 mb-lg-0 mb-0 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
+                                       style="max-width: 340px" placeholder="">
 
                             </div>
                         </div>
 
 
-                            <div class="d-flex">
-                                <div class="row">
-                                    <div class="d-flex align-items-center mb-1" style="max-width: 1200px">
-                                        <div class="d-flex align-items-center" style="min-width: 230px">
-                                            <span class="title">СУММА</span>
-                                        </div>
-                                        <input type="number"
-                                               class="form-control col-lg-2 col-12 mb-lg-0 mb-0 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
-                                               style="max-width: 340px" placeholder="0,00">
 
-                                    </div>
 
-                                </div>
-                                <div style="min-width: 285px"></div>
-                                <div class="invoice-number-date mt-md-0 mt-0 ms-lg-75">
-                                    <div class="d-flex align-items-center ">
-                                        <span class="title" style="min-width: 150px">Сроки действия договора:</span>
-                                        <input type="text" placeholder="7856"
-                                               class="form-control invoice-edit-input date-picker ms-50 shadow-lg form-control rounded"/>
-                                    </div>
-                                </div>
-                            </div>
                     </div>
                 </div>
             </div>

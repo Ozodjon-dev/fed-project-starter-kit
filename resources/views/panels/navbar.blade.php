@@ -3,25 +3,11 @@
         class="header-navbar navbar-expand-lg navbar navbar-fixed align-items-center navbar-shadow navbar-brand-center {{ $configData['navbarColor'] }}"
         data-nav="brand-center">
         <div class="navbar-header d-xl-block d-none">
+
             <ul class="nav navbar-nav">
+
                 <li class="nav-item">
                     <a class="navbar-brand" href="{{ url('/') }}">
-            <span class="brand-logo">
-              <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                   xmlns:xlink="http://www.w3.org/1999/xlink" height="24">
-                <defs>
-                  <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
-                    <stop stop-color="#000000" offset="0%"></stop>
-                    <stop stop-color="#FFFFFF" offset="100%"></stop>
-                  </lineargradient>
-                  <lineargradient id="linearGradient-2" x1="64.0437835%" y1="46.3276743%" x2="37.373316%" y2="100%">
-                    <stop stop-color="#EEEEEE" stop-opacity="0" offset="0%"></stop>
-                    <stop stop-color="#FFFFFF" offset="100%"></stop>
-                  </lineargradient>
-                </defs>
-
-              </svg>
-            </span>
                         <h2 class="brand-text mb-0">FED</h2>
                     </a>
                 </li>
@@ -154,6 +140,15 @@
                         </li>
                     </ul>
                 </div>
+{{--                <strong>Database Connected: </strong>--}}
+{{--                    <?php--}}
+{{--                    try {--}}
+{{--                        \DB::connection()->getPDO();--}}
+{{--                        echo \DB::connection()->getDatabaseName();--}}
+{{--                    } catch (\Exception $e) {--}}
+{{--                        echo 'None';--}}
+{{--                    }--}}
+{{--                    ?>--}}
             </nav>
 
             {{-- Search Start Here --}}

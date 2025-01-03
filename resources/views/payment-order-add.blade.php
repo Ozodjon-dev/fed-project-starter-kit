@@ -445,6 +445,7 @@
         </div>
         <!-- /Add New Customer Sidebar -->
     </section>
+
 @endsection
 
 @section('vendor-script')

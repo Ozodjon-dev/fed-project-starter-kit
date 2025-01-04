@@ -365,8 +365,7 @@
                                 Статья
                             </div>
                             <select class="form-select mb-75 ms-1 shadow-lg rounded">
-                                <option value="">42 52 110</option>
-                                <option value="">43 54 990</option>
+                                <option value="">4111100 - Основная заработная плата</option>
                             </select>
                         </div>
                     </div>

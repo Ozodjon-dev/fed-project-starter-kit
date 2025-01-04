@@ -323,64 +323,15 @@
 
             <!-- Invoice Add Right starts -->
             <div class="col-xl-3 col-md-4 col-12">
-                <div class="card">
-                    <div class="col card-body">
-                        <div class="d-flex align-items-center">
-                            <div style="min-width: 90px">
-                                Операция
-                            </div>
-                            <select class="form-select mb-75 ms-1 shadow-lg rounded">
-                                <option value="">159.000-100.000</option>
-                                <option value="">231.000-100.000</option>
-                            </select>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div style="min-width: 150px">
-                                Дебет
-                            </div>
-                            <select class="form-select mb-75 ms-1 shadow-lg rounded">
-                                <option value="">159.000</option>
-                                <option value="">100.000</option>
-                            </select>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div style="min-width: 150px">
-                                Кредит
-                            </div>
-                            <select class="form-select mb-75 ms-1 shadow-lg rounded">
-                                <option value="">159.000</option>
-                                <option value="">100.000</option>
-                            </select>
-                        </div>
-                        <hr>
-                        <div class="d-flex align-items-center">
-                            <div class="col" style="min-width: 90px">
-                                Договор
-                            </div>
-                            <select class="form-select mb-75 ms-1 shadow-lg rounded">
-                                <option value="">№ 71 от 2024.12.21</option>
-                                <option value="">№ 74 от 2024.11.18</option>
-                            </select>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div style="min-width: 90px">
-                                Статья
-                            </div>
-                            <select class="form-select mb-75 ms-1 shadow-lg rounded">
-                                @foreach($classificators as $classificator)
-                                    <option value="">
-                                    {{ $classificator->article }} - {{ $classificator->details }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="card">
                     <div class="card-body">
                         <a href="{{url('/payment_order/preview')}}" class="btn btn-outline-primary w-100 mb-75">Предварительный
                             просмотр</a>
-                        <button type="button" class="btn btn-primary w-100 mb-75">Сохранять</button>
+                        <button class="btn btn-primary w-100 mb-75" data-bs-toggle="modal"
+                                data-bs-target="#send-invoice-sidebar">
+                            Следующий >>>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -451,7 +402,78 @@
         </div>
         <!-- /Add New Customer Sidebar -->
     </section>
+    <!-- Send Invoice Sidebar -->
 
+    <div class="modal modal-slide-in fade" id="send-invoice-sidebar" aria-hidden="true">
+        <div class="modal-dialog sidebar-lg">
+            <div class="modal-content p-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
+                <div class="modal-header mb-1">
+                    <h5 class="modal-title">
+                        <span class="align-middle">Сохранить</span>
+                    </h5>
+                </div>
+                <div class="modal-body flex-grow-1">
+                    <form>
+                        <div class="d-flex align-items-center">
+                            <div style="min-width: 90px">
+                                Операция
+                            </div>
+                            <select class="form-select mb-75 ms-1 shadow-lg rounded">
+                                <option value="">159.000-100.000</option>
+                                <option value="">231.000-100.000</option>
+                            </select>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div style="min-width: 150px">
+                                Дебет
+                            </div>
+                            <select class="form-select mb-75 ms-1 shadow-lg rounded">
+                                <option value="">159.000</option>
+                                <option value="">100.000</option>
+                            </select>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div style="min-width: 150px">
+                                Кредит
+                            </div>
+                            <select class="form-select mb-75 ms-1 shadow-lg rounded">
+                                <option value="">159.000</option>
+                                <option value="">100.000</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="d-flex align-items-center">
+                            <div class="col" style="min-width: 90px">
+                                Договор
+                            </div>
+                            <select class="form-select mb-75 ms-1 shadow-lg rounded">
+                                <option value="">№ 71 от 2024.12.21</option>
+                                <option value="">№ 74 от 2024.11.18</option>
+                            </select>
+                        </div>
+                        <div class="mb-1">
+                            <label for="invoice-from" class="form-label">Статья</label>
+                            <select class="form-select mb-75 shadow-lg rounded">
+                                @foreach($classificators as $classificator)
+                                    <option value="">
+                                        {{ $classificator->article }} - {{ $classificator->details }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-1 d-flex flex-wrap mt-2">
+                            <button type="button" class="btn btn-primary me-1" data-bs-dismiss="modal">Сохранить
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Отмена
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Send Invoice Sidebar -->
 @endsection
 
 @section('vendor-script')

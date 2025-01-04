@@ -145,7 +145,9 @@
                                             <span class="title">СУММА</span>
                                         </div>
                                         <div class="col-xl-4 col-md-6 col-sm-12 mb-2" style="min-width: 340px">
-                                            <input type="text" class="form-control numeral-mask col-12 mb-lg-0 mt-lg-0 shadow-lg rounded" placeholder="10,000" id="numeral-formatting" />
+                                            <input type="text"
+                                                   class="form-control numeral-mask col-12 mb-lg-0 mt-lg-0 shadow-lg rounded"
+                                                   placeholder="10,000" id="numeral-formatting"/>
                                         </div>
                                     </div>
                                 </div>
@@ -365,14 +367,19 @@
                                 Статья
                             </div>
                             <select class="form-select mb-75 ms-1 shadow-lg rounded">
-                                <option value="">4111100 - Основная заработная плата</option>
+                                @foreach($classificators as $classificator)
+                                    <option value="">
+                                    {{ $classificator->article }} - {{ $classificator->details }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{url('/payment_order/preview')}}" class="btn btn-outline-primary w-100 mb-75">Предварительный просмотр</a>
+                        <a href="{{url('/payment_order/preview')}}" class="btn btn-outline-primary w-100 mb-75">Предварительный
+                            просмотр</a>
                         <button type="button" class="btn btn-primary w-100 mb-75">Сохранять</button>
                     </div>
                 </div>

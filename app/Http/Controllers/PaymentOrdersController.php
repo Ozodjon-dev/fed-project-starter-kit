@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classificator;
 use App\Models\Contract;
+use Illuminate\Support\Facades\DB;
 
 class PaymentOrdersController extends Controller
 {
     public function list()
     {
+
         return view('payment-order-list');
     }
 
     public function add()
     {
-        return view('payment-order-add');
+        $classificators = Classificator::all();
+        return view('payment-order-add', compact('classificators'));
     }
 
     public function edit()

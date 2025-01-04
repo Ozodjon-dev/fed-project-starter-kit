@@ -410,7 +410,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
                 <div class="modal-header mb-1">
                     <h5 class="modal-title">
-                        <span class="align-middle">Сохранить</span>
+                        <span class="align-middle">Проводка</span>
                     </h5>
                 </div>
                 <div class="modal-body flex-grow-1">

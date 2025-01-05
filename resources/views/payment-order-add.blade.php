@@ -285,7 +285,7 @@
 
 
                         </div>
-                        <div class="mt-md-0 mt-2 mb-2">
+                        <div class="mt-md-0 mt-2 mb-2">˘
 
                             <div class="d-flex align-items-center mb-1 invoice-print">
 
@@ -462,11 +462,14 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="mb-1 d-flex flex-wrap mt-2">
-                            <button type="button" class="btn btn-primary me-1" data-bs-dismiss="modal">Сохранить
-                            </button>
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Отмена
-                            </button>
+                        <div class="mb-1 flex-wrap mt-2 card-body">
+                            <div class="card">
+                                    <a href="" class="btn btn-outline-primary w-100 mb-75" data-bs-dismiss="modal">Отмена</a>
+                                    <button class="btn btn-primary w-100 mb-75" data-bs-toggle="modal"
+                                            data-bs-target="#send-invoice-sidebar">
+                                        Сохранить
+                                    </button>
+                            </div>
                         </div>
                     </form>
                 </div>

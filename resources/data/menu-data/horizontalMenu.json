@@ -60,7 +60,7 @@
                 },
                 {
                     "name": "Contracts",
-                    "icon": "file",
+                    "icon": "file-text",
                     "dropdown": "1",
                     "slug": "",
                     "submenu": [

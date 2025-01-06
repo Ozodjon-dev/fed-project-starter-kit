@@ -245,7 +245,7 @@
                                         <span class="title">Сумма прописью</span>
                                     </div>
                                     <input type="text"
-                                           class="form-control ms-50 form-control shadow-lg rounded"
+                                           class="form-control ms-50 shadow-lg rounded"
                                            style="max-width: 1000px" required>
                                 </div>
                             </div>
@@ -255,10 +255,12 @@
                                         <span class="title">Детали</span>
                                         <span class="title ms-50">платежа</span>
                                     </div>
-                                    <textarea class="form-control ms-50 form-control shadow-lg rounded" required>
-                                </textarea>
+                                    <textarea class="form-control ms-50 shadow-lg rounded" required>
+                                    </textarea>
                                 </div>
+
                             </div>
+
                             <div class="container" style="height: 25px"></div>
                             <div class="mt-md-0 mt-2 mb-2 ms-50">
 

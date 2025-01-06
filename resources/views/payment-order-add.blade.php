@@ -473,14 +473,12 @@
                             </select>
                         </div>
                         <div class="mb-1 flex-wrap mt-2 card-body">
-                            <div class="card">
-                                <a href="" class="btn btn-outline-primary w-100 mb-75"
-                                   data-bs-dismiss="modal">Отмена</a>
-                                <button class="btn btn-primary w-100 mb-75" data-bs-toggle="modal"
-                                        data-bs-target="#send-invoice-sidebar">
-                                    Сохранить
-                                </button>
-                            </div>
+                            <a href="" class="btn btn-outline-primary w-100 mb-75"
+                               data-bs-dismiss="modal">Отмена</a>
+                            <button class="btn btn-primary w-100 mb-75" data-bs-toggle="modal"
+                                    data-bs-target="#send-invoice-sidebar">
+                                Сохранить
+                            </button>
                         </div>
                     </form>
                 </div>

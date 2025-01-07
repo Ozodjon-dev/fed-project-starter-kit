@@ -126,7 +126,7 @@
             <div class="col-xl-3 col-md-4 col-12">
                 <div class="card">
                     <div class="card-body">
-                        <button type="button" class="btn btn-primary w-100 mb-75">Сохранять</button>
+                        <button type="button" class="btn btn-primary w-100 mb-75">Сохранить</button>
                     </div>
                 </div>
             </div>

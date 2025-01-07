@@ -10,7 +10,7 @@
             "name": "Reference books",
             "icon": "info",
             "dropdown": "1",
-            "slug": "counterparties",
+            "slug": "contractors",
             "submenu": [
                 {
                     "name": "Counterparties",
@@ -18,16 +18,16 @@
                     "slug": "",
                     "submenu": [
                         {
-                            "url": "counterparty/add",
-                            "name": "Add counterparty",
+                            "url": "contractor/add",
+                            "name": "Add contractors",
                             "icon": "plus",
-                            "slug": "counterparties.add"
+                            "slug": "contractors.add"
                         },
                         {
-                            "url": "counterparty/list",
-                            "name": "List counterparties",
+                            "url": "contractor/list",
+                            "name": "List contractors",
                             "icon": "list",
-                            "slug": "counterparties.list"
+                            "slug": "contractors.list"
                         }
                     ]
                 }

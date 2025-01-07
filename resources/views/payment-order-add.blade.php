@@ -13,10 +13,8 @@
 @endsection
 
 @section('content')
-    <form class="needs-validation">
+    <form class="needs-validation" action="">
         <section class="invoice-add-wrapper">
-
-
             <div class="row invoice-add">
                 <!-- Invoice Add Left starts -->
                 <div class="col-xl-9 col-md-8 col-12">
@@ -38,7 +36,7 @@
                                                 class="input-group input-group-merge invoice-edit-input-group shadow-lg">
 
                                                 <input type="text"
-                                                       class="form-control form-control rounded"
+                                                       class="form-control rounded"
                                                        required placeholder="53634"/>
                                             </div>
 
@@ -217,7 +215,7 @@
                                                 <span class="title ms-50">получателя:</span>
                                             </div>
                                             <input
-                                                class="form-control col-lg-2 col-12 mb-lg-0 mt-lg-0 ms-50 form-control shadow-lg rounded"
+                                                class="form-control col-lg-2 col-12 mb-lg-0 mt-lg-0 ms-50 shadow-lg rounded"
                                                 style="max-width: 340px" required>
                                             <div class="d-flex align-items-end ms-75" style="min-width: 210px">
                                                 <div class="col">
@@ -227,7 +225,7 @@
                                                 <span class="title ms-50">получателя:</span>
                                             </div>
                                             <input
-                                                class="form-control col-1 mb-lg-0 mt-lg-0 ms-50 form-control shadow-lg rounded"
+                                                class="col-1 mb-lg-0 mt-lg-0 ms-50 form-control shadow-lg rounded"
                                                 style="max-width: 199px" required>
                                         </div>
 
@@ -251,12 +249,16 @@
                             </div>
                             <div class="mt-md-0 mt-2 mb-2">
                                 <div class="d-flex align-items-center mb-1">
+
                                     <div class="d-flex align-items-center" style="min-width: 230px">
                                         <span class="title">Детали</span>
                                         <span class="title ms-50">платежа</span>
                                     </div>
-                                    <textarea class="form-control ms-50 shadow-lg rounded" required>
-                                    </textarea>
+
+                                    <textarea class="ms-50 form-control shadow-lg rounded">
+
+                                </textarea>
+
                                 </div>
 
                             </div>
@@ -332,15 +334,13 @@
                                     data-bs-target="#send-invoice-sidebar">
                                 Следующий
                                 <svg height="13px" width="13px"
-                                     viewBox="0 0 185.343 185.343" xml:space="preserve">
-<g>
-    <g>
-        <path style="fill:#FFFFFF;" d="M51.707,185.343c-2.741,0-5.493-1.044-7.593-3.149c-4.194-4.194-4.194-10.981,0-15.175
+                                     viewBox="0 0 185.343 185.343" xml:space="preserve"><g>
+                                        <g>
+                                            <path style="fill:#FFFFFF;" d="M51.707,185.343c-2.741,0-5.493-1.044-7.593-3.149c-4.194-4.194-4.194-10.981,0-15.175
 			l74.352-74.347L44.114,18.32c-4.194-4.194-4.194-10.987,0-15.175c4.194-4.194,10.987-4.194,15.18,0l81.934,81.934
 			c4.194,4.194,4.194,10.987,0,15.175l-81.934,81.939C57.201,184.293,54.454,185.343,51.707,185.343z"/>
-    </g>
-</g>
-</svg>
+                                        </g>
+                                    </g></svg>
                             </button>
                         </div>
                     </div>
@@ -349,9 +349,9 @@
             </div>
 
         </section>
-    </form>
-    <!-- Send Invoice Sidebar -->
-    <form class="needs-validation" novalidate>
+                    </form>
+        <!-- Send Invoice Sidebar -->
+            <form class="needs-validation" novalidate>
         <div class="modal modal-slide-in fade" id="send-invoice-sidebar" aria-hidden="true">
             <div class="modal-dialog sidebar-lg">
                 <div class="modal-content p-0">

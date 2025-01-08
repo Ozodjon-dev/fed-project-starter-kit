@@ -9,6 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Contractor extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+
     protected $guarded = [];
 }

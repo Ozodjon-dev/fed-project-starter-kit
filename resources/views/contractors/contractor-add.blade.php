@@ -14,7 +14,7 @@
 @section('content')
     <section class="invoice-add-wrapper">
         <form class="needs-validation" action="{{ route('contractors.store') }}" method="post">
-            @csrf
+            {{ csrf_field() }}
             <div class="row invoice-add">
                 <!-- Invoice Add Left starts -->
                 <div class="col-xl-9 col-md-8 col-12">
@@ -41,8 +41,13 @@
                                     <div class="d-flex align-items-center ">
                                         <label class="title" for="bank_name" style="min-width: 230px">Наименование
                                             банка</label>
-                                        <input type="text" style="min-width: 500px" id="bank_name" name="bank_name" required
-                                               class="form-control invoice-edit-input ms-50 shadow-lg rounded"/>
+                                        <select
+                                            class="form-select col-lg-2 col-12 mb-lg-0 mb-2 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
+                                            style="max-width: 765px" name="bank_name" id="bank_name" required>
+                                            @foreach($banks as $bank)
+                                                <option value="{{ $bank->bank_name }}">{{ $bank->bank_name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -75,8 +80,13 @@
                                 <div class="invoice-number-date mt-md-0 mt-0">
                                     <div class="d-flex align-items-center">
                                         <label class="title" for="bank_code" style="min-width: 230px">Код банка</label>
-                                        <input type="number" id="bank_code" name="bank_code" required
-                                               class="form-control invoice-edit-input ms-50 shadow-lg rounded"/>
+                                        <select
+                                            class="form-select col-lg-2 col-12 mb-lg-0 mb-2 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
+                                            style="max-width: 340px" name="bank_code" id="bank_code" required>
+                                            @foreach($banks as $bank)
+                                            <option value="{{ $bank->bank_code }}">{{ $bank->bank_code }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>

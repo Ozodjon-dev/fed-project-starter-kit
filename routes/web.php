@@ -64,4 +64,6 @@ Route::get('/contract/edit',  [ContractsController::class, 'edit'])->name('contr
 // contractors Route
 Route::get('/contractor/list',  [ContractorsController::class, 'list'])->name('contractors.list');
 Route::get('/contractor/add',  [ContractorsController::class, 'add'])->name('contractors.add');
+Route::post('/contractor',  [ContractorsController::class, 'store'])->name('contractors.store');
+
 Route::get('/contract/edit',  [ContractsController::class, 'edit'])->name('contracts.edit');

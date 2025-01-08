@@ -14,7 +14,7 @@
 @section('content')
     <section class="invoice-add-wrapper">
         <form class="needs-validation" action="{{ route('contractors.store') }}" method="post">
-            {{ csrf_field() }}
+            @csrf
             <div class="row invoice-add">
                 <!-- Invoice Add Left starts -->
                 <div class="col-xl-9 col-md-8 col-12">
@@ -45,7 +45,7 @@
                                             class="form-select col-lg-2 col-12 mb-lg-0 mb-2 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
                                             style="max-width: 765px" name="bank_name" id="bank_name" required>
                                             @foreach($banks as $bank)
-                                                <option value="{{ $bank->bank_name }}">{{ $bank->bank_name }}</option>
+                                                <option value="{{ $bank->bank_name }}">{{ $bank->bank_code }} - {{ $bank->bank_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>

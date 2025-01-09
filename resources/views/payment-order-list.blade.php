@@ -1,4 +1,4 @@
-@extends('layouts/fullLayoutMaster')
+@extends('layouts/contentLayoutMaster')
 @section('title', 'Список платёжных поручений')
 @section('content')
     <nav class="navbar navbar-expand-lg">
@@ -38,19 +38,19 @@
     </nav>
 
 
-    <div class="table-responsive rounded container-fluid" style="font-size: small">
+    <div class="table-responsive rounded" style="font-size: small">
         <table class="table table table-bordered table-sm" style="text-align: center">
             <thead>
             <tr class="align-middle align-content-center">
                 <th scope="col">#</th>
                 <th scope="col">Номер</th>
-                <th scope="col" style="min-width: 100px">Дата</th>
+                <th scope="col" style="min-width: 85px">Дата</th>
                 <th scope="col">Получатель</th>
                 <th scope="col">Номер счета</th>
                 <th scope="col">Наименование банка</th>
                 <th scope="col">Код банка</th>
                 <th scope="col">ИНН</th>
-                <th scope="col">Детали платежа</th>
+                <th scope="col" style="min-width: 450px">Детали платежа</th>
                 <th scope="col" style="min-width: 150px">Сумма</th>
                 <th scope="col">Дебет</th>
                 <th scope="col">Кредит</th>

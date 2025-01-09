@@ -1,4 +1,4 @@
-@extends('layouts/fullLayoutMaster')
+@extends('layouts/contentLayoutMaster')
 @section('title', 'Список договоров')
 @section('content')
     <nav class="navbar navbar-expand-lg">

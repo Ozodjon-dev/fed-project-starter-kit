@@ -40,6 +40,7 @@
             </div>
         </div>
     </nav>
+    <div class="table-responsive rounded">
         <table class="table table table-bordered table-sm" style="text-align: center">
             <thead>
             <tr class="align-middle align-content-center">
@@ -123,7 +124,7 @@
             </tbody>
 
         </table>
-
+    </div>
 
     <!-- Modal Themes start -->
 

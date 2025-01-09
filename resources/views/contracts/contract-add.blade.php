@@ -76,8 +76,9 @@
 
 
                                 <select class="form-select ms-50 form-control rounded shadow-lg">
-                                    <option value="">1-организация</option>
-                                    <option value="">2-организация</option>
+                                    @foreach($contractors as $contractor)
+                                    <option value="">{{ $contractor->name }}</option>
+                                    @endforeach
                                 </select>
 
                             </div>

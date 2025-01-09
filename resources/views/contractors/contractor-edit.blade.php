@@ -92,13 +92,13 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-4 col-12">
                     <div class="card">
                         <div class="card-body">
                             <button type="submit" class="btn btn-primary w-100 mb-75">Редактировать</button>
+                            <button onclick="location.href='{{ route('contractors.list') }}'" type="button" class="btn btn-outline-primary w-100 mb-25">Отмена</button>
                         </div>
                     </div>
                 </div>

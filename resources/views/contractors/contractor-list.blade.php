@@ -31,8 +31,8 @@
                             class="btn btn-sm btn-secondary shadow" type="button"><b>
                             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="24" fill="currentColor"
                                  class="bi bi-plus-square" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                                <path style="fill:#FFFFFF;"
+                                      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
                             </svg>
                         </b>
                     </button>
@@ -71,7 +71,8 @@
                             </form>
                             <div class="d-inline-block ms-1">
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn-dropbox btn-danger btn-bitbucket rounded" data-bs-toggle="modal"
+                                <button type="button" class="btn-dropbox btn-danger btn-bitbucket rounded"
+                                        data-bs-toggle="modal"
                                         data-bs-target="#danger">
                                     <svg width="16" height="16" fill="currentColor"
                                          class="bi bi-trash3-fill" viewBox="0 0 16 16">
@@ -116,6 +117,20 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="d-inline-block ms-1">
+                                <!-- Button trigger modal -->
+                                <a href="{{ route('contractors.show', $contractor->id) }}">
+                                    <button type="button" class="btn-dropbox btn-success btn-bitbucket rounded"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#danger">
+                                        <svg height="16" viewBox="0 0 512 512" width="16" xmlns="http://www.w3.org/2000/svg">
+
+                                            <path style="fill:#FFFFFF" d="m490.84 238.6c-26.46-40.92-60.79-75.68-99.27-100.53-42.57-27.52-89.57-42.07-135.91-42.07-42.52 0-84.33 12.15-124.27 36.11-40.73 24.43-77.63 60.12-109.68 106.07a31.92 31.92 0 0 0 -.64 35.54c26.41 41.33 60.4 76.14 98.28 100.65 42.65 27.63 88.55 41.63 136.31 41.63 46.71 0 93.81-14.43 136.2-41.72 38.46-24.77 72.72-59.66 99.08-100.92a32.2 32.2 0 0 0 -.1-34.76zm-234.84 113.4a96 96 0 1 1 96-96 96.11 96.11 0 0 1 -96 96z"/>
+                                        </svg>
+
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </td>

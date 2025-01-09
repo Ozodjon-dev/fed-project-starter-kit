@@ -58,20 +58,13 @@
             @foreach($contractors as $contractor)
                 <tr>
                     <th>{{ $contractor->id }}</th>
-                    <td>{{ $contractor->name}}</td>
+                    <td><a href="{{ route('contractors.show', $contractor->id) }}">{{ $contractor->name}}</a></td>
                     <td>{{ $contractor->bank_name}}</td>
                     <td>{{ $contractor->bank_account }}</td>
                     <td>{{ $contractor->tin }}</td>
                     <td>{{ $contractor->bank_code }}</td>
                     <td style="align-items: center">
                         <div class="btn-group me-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary shadow">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                     class="bi bi-copy" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                          d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
-                                </svg>
-                            </button>
                             <button type="button" class="btn btn-sm btn-outline-secondary shadow">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-pencil-square" viewBox="0 0 16 16">

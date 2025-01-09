@@ -41,6 +41,5 @@ class ContractorsController extends Controller
     {
         return view('contracts/contractor-edit');
     }
-
 }
 

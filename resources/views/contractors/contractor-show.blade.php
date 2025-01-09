@@ -1,5 +1,5 @@
 @extends('layouts/contentLayoutMaster')
-@section('title', 'Контрагент:')
+@section('title', 'Контрагент')
 @section('content')
     <nav class="navbar navbar-expand-lg">
 
@@ -27,7 +27,7 @@
             </div>
             <div>
                 <form class="d-flex me-lg-75">
-                    <button onclick="location.href='{{ route('payment_orders.add') }}'"
+                    <button onclick="location.href='{{ route('contractors.add') }}'"
                             class="btn btn-sm btn-secondary shadow" type="button"><b>
                             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="24" fill="currentColor"
                                  class="bi bi-plus-square" viewBox="0 0 16 16">

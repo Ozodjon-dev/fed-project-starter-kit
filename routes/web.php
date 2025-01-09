@@ -66,5 +66,8 @@ Route::get('/contractor/list',  [ContractorsController::class, 'list'])->name('c
 Route::get('/contractor/add',  [ContractorsController::class, 'add'])->name('contractors.add');
 Route::post('/contractor',  [ContractorsController::class, 'store'])->name('contractors.store');
 Route::get('/contractor/{id}',  [ContractorsController::class, 'show'])->name('contractors.show');
+Route::get('/contractor/{id}/edit',  [ContractorsController::class, 'edit'])->name('contractors.edit');
+Route::patch('/contractor/{id}',  [ContractorsController::class, 'update'])->name('contractors.update');
+Route::delete('/contractor/{id}',  [ContractorsController::class, 'destroy'])->name('contractors.delete');
 
 Route::get('/contract/edit',  [ContractsController::class, 'edit'])->name('contracts.edit');

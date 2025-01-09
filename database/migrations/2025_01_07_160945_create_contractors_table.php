@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('tin')->unique();
             $table->string('bank_code');
             $table->timestamps();
+            $table->softDeletes()->nullable();
         });
     }
 

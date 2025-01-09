@@ -32,14 +32,39 @@ class ContractorsController extends Controller
         return redirect()->route('contractors.list');
     }
 
-    public function show($id){
+    public function show($id)
+    {
         $contractor = Contractor::findOrFail($id);
         return view('contractors/contractor-show', compact('contractor'));
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('contracts/contractor-edit');
+        $contractor = Contractor::findOrFail($id);
+        $banks = DB::table('banks')->get();
+        return view('contractors/contractor-edit', compact('contractor', 'banks'));
+    }
+
+    public function update($id)
+    {
+        $contractor = Contractor::findOrFail($id);
+        $data = request()->validate([
+            'name' => 'required',
+            'bank_name' => 'required',
+            'bank_account' => 'required',
+            'tin' => 'required',
+            'bank_code' => 'required'
+        ]);
+        $contractor->update($data);
+        return redirect()->route('contractors.show', $id);
+    }
+
+    public function destroy($id)
+    {
+        $contractor = Contractor::findOrFail($id);
+        $contractor->delete();
+        return redirect()->route('contractors.list');
+
     }
 }
 

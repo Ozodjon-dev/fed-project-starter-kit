@@ -67,11 +67,11 @@
                         <div class="btn-group me-2">
                             <form action="{{ route('contractors.edit', $contractor->id) }}">
                                 <input type="submit" value="Редактировать"
-                                       class="btn btn-primary btn-sm" data-bs-toggle="modal">
+                                       class="btn-adn btn-primary rounded" data-bs-toggle="modal">
                             </form>
                             <div class="d-inline-block ms-1">
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-danger btn-bitbucket" data-bs-toggle="modal"
+                                <button type="button" class="btn-dropbox btn-danger btn-bitbucket rounded" data-bs-toggle="modal"
                                         data-bs-target="#danger">
                                     <svg width="16" height="16" fill="currentColor"
                                          class="bi bi-trash3-fill" viewBox="0 0 16 16">

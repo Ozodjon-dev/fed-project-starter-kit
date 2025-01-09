@@ -1,7 +1,7 @@
 @extends('layouts/contentLayoutMaster')
 @section('title', 'Список контрагентов')
 @section('content')
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand">
 
         <div class="collapse navbar-collapse" id="navbarScroll">
             <div class=" ms-lg-75">
@@ -40,7 +40,6 @@
             </div>
         </div>
     </nav>
-    <div class="table-responsive rounded container-fluid" style="font-size: small">
         <table class="table table table-bordered table-sm" style="text-align: center">
             <thead>
             <tr class="align-middle align-content-center">
@@ -124,7 +123,6 @@
             </tbody>
 
         </table>
-    </div>
 
 
     <!-- Modal Themes start -->

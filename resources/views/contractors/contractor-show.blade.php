@@ -71,7 +71,7 @@
                         </form>
                         <div class="d-inline-block ms-1">
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn-dropbox btn-danger btn-bitbucket rounded" data-bs-toggle="modal"
+                            <button type="button" class="btn-adn btn-danger rounded" data-bs-toggle="modal"
                                     data-bs-target="#danger">
                                 <svg width="16" height="16" fill="currentColor"
                                      class="bi bi-trash3-fill" viewBox="0 0 16 16">

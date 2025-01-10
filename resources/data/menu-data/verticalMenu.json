@@ -10,44 +10,43 @@
             "name": "Reference books",
             "icon": "info",
             "dropdown": "1",
-            "slug": "",
+            "slug": "contractors",
             "submenu": [
                 {
-                    "name": "Payment orders",
-                    "icon": "layout",
+                    "name": "Contractors",
+                    "icon": "user",
                     "slug": "",
                     "submenu": [
                         {
-                            "url": "payment_order/add",
-                            "name": "Add payment orders",
+                            "url": "contractor/add",
+                            "name": "Add contractors",
                             "icon": "plus",
-                            "slug": "payment_orders.add"
+                            "slug": "contractors.add"
                         },
                         {
-                            "url": "payment_order/list",
-                            "name": "List payment orders",
+                            "url": "contractor/list",
+                            "name": "List contractors",
                             "icon": "list",
-                            "slug": "payment_orders.list"
+                            "slug": "contractors.list"
                         }
                     ]
                 },
                 {
-                    "name": "Contracts",
-                    "icon": "file",
-                    "dropdown": "1",
+                    "name": "Contracts categories",
+                    "icon": "grid",
                     "slug": "",
                     "submenu": [
                         {
-                            "url": "contract/add",
-                            "name": "Add contracts",
+                            "url": "contracts_category/add",
+                            "name": "Add category",
                             "icon": "plus",
-                            "slug": "contracts.add"
+                            "slug": "contractors.add"
                         },
                         {
-                            "url": "contract/list",
-                            "name": "List contracts",
+                            "url": "contracts_category/list",
+                            "name": "List of categories",
                             "icon": "list",
-                            "slug": "contracts.list"
+                            "slug": "contractors.list"
                         }
                     ]
                 }
@@ -80,7 +79,7 @@
                 },
                 {
                     "name": "Contracts",
-                    "icon": "file",
+                    "icon": "file-text",
                     "dropdown": "1",
                     "slug": "",
                     "submenu": [

@@ -1,12 +1,14 @@
 @extends('layouts/contentLayoutMaster')
+
 @section('title', 'Список контрагентов')
+
 @section('content')
     <nav class="navbar navbar-expand">
         <div class="collapse navbar-collapse" id="navbarScroll">
             <div class=" ms-lg-75">
                 <form class="d-flex">
                     <button onclick="location.href='{{ route('main.index') }}'"
-                            class="btn btn-sm btn-secondary shadow" type="button"
+                            class="btn btn-sm btn-primary shadow" type="button"
                             style="height: 37px; align-items: center"><b>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -22,12 +24,12 @@
             </div>
             <div class="input-group ms-lg-75">
                 <input type="text" class="form-control shadow-sm" placeholder="Поиск">
-                <button type="submit" class="btn btn-secondary shadow me-3">Поиск</button>
+                <button type="submit" class="btn btn-primary shadow me-3">Поиск</button>
             </div>
             <div>
                 <form class="d-flex me-lg-75">
                     <button onclick="location.href='{{ route('contractors.add') }}'"
-                            class="btn btn-sm btn-secondary shadow" type="button"><b>
+                            class="btn btn-sm btn-primary shadow" type="button"><b>
                             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="24" fill="currentColor"
                                  class="bi bi-plus-square" viewBox="0 0 16 16">
                                 <path style="fill:#FFFFFF;"
@@ -39,7 +41,7 @@
             </div>
         </div>
     </nav>
-    <div class="table-responsive rounded" style="font-size: small"  >
+    <div class="table-responsive rounded" style="font-size: small">
         <table class="table table-bordered table-sm" style="text-align: center">
             <thead>
             <tr class="align-middle align-content-center">
@@ -67,7 +69,7 @@
                             <div class="d-inline-block ms-1" style="align-items: center">
                                 <!-- Button trigger modal -->
                                 <a href="{{ route('contractors.show', $contractor->id) }}">
-                                    <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-success">
+                                    <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-primary">
                                         <i data-feather="eye"></i>
                                     </button>
                                 </a>
@@ -78,30 +80,12 @@
             @endforeach
             </tbody>
         </table>
-        <div>
-            {{ $contractors->links() }}
-        </div>
-        <div class="col-md-6 col-sm-12">
-                <div class="card-body">
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination mt-2">
-                            <li class="page-item prev-item"><a class="page-link" href=""></a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item active" aria-current="page">
-                                <a class="page-link" href="#">{{ $contractors->links() }}</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item"><a class="page-link" href="#">6</a></li>
-                            <li class="page-item"><a class="page-link" href="#">7</a></li>
-                            <li class="page-item next-item"><a class="page-link" href="#"></a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
 
+
+    </div>
+    <div>
+        {{ $contractors->links() }}
+    </div>
 
     <!-- Modal Themes start -->
 

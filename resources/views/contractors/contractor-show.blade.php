@@ -23,12 +23,12 @@
             </div>
             <div class="input-group ms-lg-75">
                 <input type="text" class="form-control shadow-sm" placeholder="Поиск">
-                <button type="submit" class="btn btn-secondary shadow me-3">Поиск</button>
+                <button type="submit" class="btn btn-primary shadow me-3">Поиск</button>
             </div>
             <div>
                 <form class="d-flex me-lg-75">
                     <button onclick="location.href='{{ route('contractors.add') }}'"
-                            class="btn btn-sm btn-secondary shadow" type="button"><b>
+                            class="btn btn-sm btn-primary shadow" type="button"><b>
                             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="24" fill="currentColor"
                                  class="bi bi-plus-square" viewBox="0 0 16 16">
                                 <path
@@ -66,12 +66,12 @@
                 <td>
                     <div class="btn-group me-2" style="max-width: 65px">
                         <form action="{{ route('contractors.edit', $contractor->id) }}">
-                            <button type="submit" class="btn btn-icon btn-icon rounded-circle btn-flat-success">
+                            <button type="submit" class="btn btn-icon btn-icon rounded-circle btn-flat-primary">
                                 <i data-feather="edit"></i>
                             </button>
                         </form>
                         <div class="d-inline-block ms-1">
-                            <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-success" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-primary" data-bs-toggle="modal"
                                     data-bs-target="#danger">
                                 <i data-feather="trash"></i>
                             </button>
@@ -86,12 +86,12 @@
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="myModalLabel120">Внимание!</h5>
+                                            <h5 class="modal-title" id="myModalLabel120"><strong>Внимание!</strong></h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            Вы действительно хотите удалить этот контрагент?
+                                            <strong>Вы действительно хотите удалить этот контрагент?</strong>
                                         </div>
                                         <div class="d-flex">
                                             <form class="ms-1 mb-2"

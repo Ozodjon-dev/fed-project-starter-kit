@@ -191,7 +191,10 @@ return [
     "Add contracts" => "Добавить договор",
     "List contracts" => "Список договоров",
     "Reference books" => "Справочники",
-    "Counterparties" => "Контрагенты",
+    "Contractors" => "Контрагенты",
     "Add contractors" => "Добавить контрагент",
-    "List contractors" => "Список контрагенты"
+    "List contractors" => "Список контрагенты",
+    "Contracts categories" => "Категории контрактов",
+    "Add category" => "Добавить категорию",
+    "List of categories" => "Список категорий",
 ];

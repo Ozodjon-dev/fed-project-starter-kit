@@ -83,6 +83,24 @@
 
                             </div>
                         </div>
+
+                        <div class="invoice-number-date mt-md-0 mt-2">
+                            <div class="d-flex align-items-center mb-1">
+                                <div class="d-flex align-items-center" style="min-width: 230px">
+
+                                    <span class="title">Категория:</span>
+                                </div>
+
+
+                                <select class="form-select ms-50 form-control rounded shadow-lg">
+                                    @foreach($contractors as $contractor)
+                                        <option value="">{{ $contractor->name }}</option>
+                                    @endforeach
+                                </select>
+
+                            </div>
+                        </div>
+
                         <div class="mt-md-0 mt-2 mb-2">
 
                             <div class="d-flex align-items-center mb-1">

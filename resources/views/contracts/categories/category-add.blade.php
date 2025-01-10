@@ -1,11 +1,12 @@
 @extends('layouts/contentLayoutMaster')
 
-    @section('title', 'Редактирование категории')
+@section('title', 'Добавить категорию')
 
 @section('vendor-style')
     <link rel="stylesheet" href="{{asset('vendors/css/pickers/flatpickr/flatpickr.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/css/forms/select/select2.min.css')}}">
 @endsection
+
 @section('page-style')
     <link rel="stylesheet" href="{{asset('css/base/plugins/forms/pickers/form-flat-pickr.css')}}">
     <link rel="stylesheet" href="{{asset('css/base/pages/app-invoice.css')}}">
@@ -13,26 +14,27 @@
 
 @section('content')
     <section class="invoice-add-wrapper">
-        <form class="needs-validation" action="{{ route('contract_categories.update', $category->id) }}" method="post">
+        <form class="needs-validation" action="{{ route('contract_categories.store') }}" method="post">
             @csrf
-            @method('patch')
             <div class="row invoice-add">
-                <!-- Invoice Add Left starts -->
                 <div class="col-xl-9 col-md-8 col-12">
                     <div class="card invoice-preview-card">
-                        <!-- Header starts -->
-                        <div class="card-body invoice-padding pb-0">
-                            <div class="d-flex">
-                                <div class="d-flex invoice-number-date mt-md-0 mt-0">
-                                    <div class="d-flex align-items-center ">
-                                        <label class="title" for="name" style="min-width: 230px">
-                                            Название категории:</label>
-                                        <input type="text" id="name" name="name" required value="{{ $category->name }}"
-                                               placeholder=""
-                                               style="min-width: 765px"
-                                               class="form-control invoice-edit-input ms-50 shadow-lg rounded"/>
+
+                        <!-- Address and Contact starts -->
+                        <div class="card-body invoice-padding ">
+
+                            <div class="d-flex align-items-end">
+                                <div><p class="d-flex align-items-end" style="align-items: center"></p></div>
+                            </div>
+
+                            <div class="invoice-number-date mt-md-0 mt-2">
+                                <div class="d-flex align-items-center mb-1">
+                                    <div class="d-flex align-items-center" style="min-width: 230px">
+                                        <label class="title">Название категории:</label>
                                     </div>
-                                    <div style="min-width: px"></div>
+
+                                    <input class="form-input ms-50 form-control rounded shadow-lg" type="text" id="name"
+                                           name="name" required>
                                 </div>
                             </div>
                         </div>
@@ -41,8 +43,7 @@
                 <div class="col-xl-3 col-md-4 col-12">
                     <div class="card">
                         <div class="card-body">
-                            <button type="submit" class="btn btn-primary w-100 mb-75">Редактировать</button>
-                            <button onclick="location.href='{{ route('contract_categories.list') }}'" type="button" class="btn btn-outline-primary w-100 mb-25">Отмена</button>
+                            <button type="submit" class="btn btn-primary w-100 mb-75">Сохранить</button>
                         </div>
                     </div>
                 </div>

@@ -13,7 +13,7 @@
             "slug": "contractors",
             "submenu": [
                 {
-                    "name": "Counterparties",
+                    "name": "Contractors",
                     "icon": "user",
                     "slug": "",
                     "submenu": [
@@ -26,6 +26,25 @@
                         {
                             "url": "contractor/list",
                             "name": "List contractors",
+                            "icon": "list",
+                            "slug": "contractors.list"
+                        }
+                    ]
+                },
+                {
+                    "name": "Contracts categories",
+                    "icon": "grid",
+                    "slug": "",
+                    "submenu": [
+                        {
+                            "url": "contracts_category/add",
+                            "name": "Add category",
+                            "icon": "plus",
+                            "slug": "contractors.add"
+                        },
+                        {
+                            "url": "contracts_category/list",
+                            "name": "List of categories",
                             "icon": "list",
                             "slug": "contractors.list"
                         }

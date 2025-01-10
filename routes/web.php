@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContractCategoriesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaterkitController;
 use App\Http\Controllers\LanguageController;
@@ -70,4 +71,11 @@ Route::get('/contractor/{id}/edit',  [ContractorsController::class, 'edit'])->na
 Route::patch('/contractor/{id}',  [ContractorsController::class, 'update'])->name('contractors.update');
 Route::delete('/contractor/{id}',  [ContractorsController::class, 'destroy'])->name('contractors.delete');
 
-Route::get('/contract/edit',  [ContractsController::class, 'edit'])->name('contracts.edit');
+// contractors Route
+Route::get('/contracts_category/list',  [ContractCategoriesController::class, 'list'])->name('contract_categories.list');
+Route::get('/contracts_category/add',  [ContractCategoriesController::class, 'add'])->name('contract_categories.add');
+Route::post('/contracts_category/add',  [ContractCategoriesController::class, 'store'])->name('contract_categories.store');
+Route::get('/contracts_category/{id}',  [ContractCategoriesController::class, 'show'])->name('contract_categories.show');
+Route::get('/contracts_category/{id}/edit',  [ContractCategoriesController::class, 'edit'])->name('contract_categories.edit');
+Route::patch('/contracts_category/{id}',  [ContractCategoriesController::class, 'update'])->name('contract_categories.update');
+Route::delete('/contracts_category/{id}',  [ContractCategoriesController::class, 'destroy'])->name('contract_categories.delete');

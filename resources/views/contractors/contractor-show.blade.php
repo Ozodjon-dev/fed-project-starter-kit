@@ -4,10 +4,10 @@
     <nav class="navbar navbar-expand-lg">
 
         <div class="collapse navbar-collapse" id="navbarScroll">
-            <div class=" ms-lg-75">
+            <div class="">
                 <form class="d-flex">
                     <button onclick="location.href='{{ route('contractors.list') }}'"
-                            class="btn btn-sm btn-secondary shadow" type="button"
+                            class="btn btn-sm btn-primary shadow" type="button"
                             style="height: 37px; align-items: center"><b>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -23,10 +23,10 @@
             </div>
             <div class="input-group ms-lg-75">
                 <input type="text" class="form-control shadow-sm" placeholder="Поиск">
-                <button type="submit" class="btn btn-primary shadow me-3">Поиск</button>
+                <button type="submit" class="btn btn-primary shadow me-1">Поиск</button>
             </div>
             <div>
-                <form class="d-flex me-lg-75">
+                <form class="d-flex">
                     <button onclick="location.href='{{ route('contractors.add') }}'"
                             class="btn btn-sm btn-primary shadow" type="button"><b>
                             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="24" fill="currentColor"

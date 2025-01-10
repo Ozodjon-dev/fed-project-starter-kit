@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contractors', function (Blueprint $table) {
+        Schema::create('contract_categories', function (Blueprint $table) {
             $table->id()->autoIncrement()->unsigned()->primary();
             $table->string('name');
-            $table->string('bank_name');
-            $table->string('bank_account');
-            $table->string('tin')->unique();
-            $table->string('bank_code');
             $table->timestamps();
-            $table->softDeletes()->nullable();
+            $table->softDeletes();
         });
     }
 
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contractors');
+        Schema::dropIfExists('contract_categories');
     }
 };

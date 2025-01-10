@@ -2,7 +2,6 @@
 @section('title', 'Список контрагентов')
 @section('content')
     <nav class="navbar navbar-expand">
-
         <div class="collapse navbar-collapse" id="navbarScroll">
             <div class=" ms-lg-75">
                 <form class="d-flex">
@@ -40,8 +39,8 @@
             </div>
         </div>
     </nav>
-    <div class="table-responsive rounded">
-        <table class="table table table-bordered table-sm" style="text-align: center">
+    <div class="table-responsive rounded" style="font-size: small"  >
+        <table class="table table-bordered table-sm" style="text-align: center">
             <thead>
             <tr class="align-middle align-content-center">
                 <th scope="col">#</th>
@@ -58,77 +57,18 @@
             @foreach($contractors as $contractor)
                 <tr>
                     <th>{{ $contractor->id }}</th>
-                    <td><a href="{{ route('contractors.show', $contractor->id) }}">{{ $contractor->name}}</a></td>
+                    <td>{{ $contractor->name}}</td>
                     <td>{{ $contractor->bank_name}}</td>
                     <td>{{ $contractor->bank_account }}</td>
                     <td>{{ $contractor->tin }}</td>
                     <td>{{ $contractor->bank_code }}</td>
-                    <td style="align-items: center">
-                        <div class="btn-group me-2">
-                            <form action="{{ route('contractors.edit', $contractor->id) }}">
-                                <input type="submit" value="Редактировать"
-                                       class="btn-adn btn-primary rounded" data-bs-toggle="modal">
-                            </form>
-                            <div class="d-inline-block ms-1">
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn-dropbox btn-danger btn-bitbucket rounded"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#danger">
-                                    <svg width="16" height="16" fill="currentColor"
-                                         class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
-                                    </svg>
-                                </button>
-                                <!-- Modal -->
-                                <div
-                                    class="modal fade modal-danger text-start"
-                                    id="danger"
-                                    tabindex="-1"
-                                    aria-labelledby="myModalLabel120"
-                                    aria-hidden="true"
-                                >
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="myModalLabel120">Внимание!</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Вы действительно хотите удалить этот контрагент?
-                                            </div>
-                                            <div class="d-flex">
-                                                <form class="ms-1 mb-2"
-                                                      action="{{ route('contractors.delete', $contractor->id) }}"
-                                                      method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <input type="submit" value="Удалить"
-                                                           class="btn btn-outline-danger">
-                                                </form>
-                                                <form class="ms-1 mb-2" action="" method="post">
-                                                    <input type="button" value="Отмена" data-bs-dismiss="modal"
-                                                           aria-label="Close"
-                                                           class="btn btn-danger">
-                                                </form>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-inline-block ms-1">
+                    <td>
+                        <div class="btn-group me-2" style="max-width: 45px">
+                            <div class="d-inline-block ms-1" style="align-items: center">
                                 <!-- Button trigger modal -->
                                 <a href="{{ route('contractors.show', $contractor->id) }}">
-                                    <button type="button" class="btn-dropbox btn-success btn-bitbucket rounded"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#danger">
-                                        <svg height="16" viewBox="0 0 512 512" width="16" xmlns="http://www.w3.org/2000/svg">
-
-                                            <path style="fill:#FFFFFF" d="m490.84 238.6c-26.46-40.92-60.79-75.68-99.27-100.53-42.57-27.52-89.57-42.07-135.91-42.07-42.52 0-84.33 12.15-124.27 36.11-40.73 24.43-77.63 60.12-109.68 106.07a31.92 31.92 0 0 0 -.64 35.54c26.41 41.33 60.4 76.14 98.28 100.65 42.65 27.63 88.55 41.63 136.31 41.63 46.71 0 93.81-14.43 136.2-41.72 38.46-24.77 72.72-59.66 99.08-100.92a32.2 32.2 0 0 0 -.1-34.76zm-234.84 113.4a96 96 0 1 1 96-96 96.11 96.11 0 0 1 -96 96z"/>
-                                        </svg>
-
+                                    <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-success">
+                                        <i data-feather="eye"></i>
                                     </button>
                                 </a>
                             </div>

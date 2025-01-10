@@ -77,9 +77,31 @@
                 </tr>
             @endforeach
             </tbody>
-
         </table>
-    </div>
+        <div>
+            {{ $contractors->links() }}
+        </div>
+        <div class="col-md-6 col-sm-12">
+                <div class="card-body">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination mt-2">
+                            <li class="page-item prev-item"><a class="page-link" href=""></a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item active" aria-current="page">
+                                <a class="page-link" href="#">{{ $contractors->links() }}</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item"><a class="page-link" href="#">6</a></li>
+                            <li class="page-item"><a class="page-link" href="#">7</a></li>
+                            <li class="page-item next-item"><a class="page-link" href="#"></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
 
     <!-- Modal Themes start -->
 

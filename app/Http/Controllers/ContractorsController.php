@@ -9,7 +9,7 @@ class ContractorsController extends Controller
 {
     public function list()
     {
-        $contractors = Contractor::all();
+        $contractors = Contractor::paginate(10);
         return view('contractors/contractor-list', compact('contractors'));
     }
 

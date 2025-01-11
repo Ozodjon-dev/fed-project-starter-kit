@@ -10,6 +10,35 @@
 @section('page-style')
     <link rel="stylesheet" href="{{asset('css/base/plugins/forms/pickers/form-flat-pickr.css')}}">
     <link rel="stylesheet" href="{{asset('css/base/pages/app-invoice.css')}}">
+    <style>
+        /* Responsivlik uchun qo'shimchalar */
+        @media (max-width: 768px) {
+            .invoice-add-wrapper {
+                padding: 15px;
+            }
+            .invoice-add {
+                flex-direction: column;
+            }
+            .col-xl-9, .col-md-8 {
+                max-width: 100%;
+            }
+            .col-xl-3, .col-md-4 {
+                max-width: 100%;
+                margin-top: 15px;
+            }
+            .invoice-number-date .d-flex {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .invoice-number-date .d-flex .title {
+                margin-bottom: 8px;
+            }
+            .form-input {
+                width: 100%;
+                margin-top: 5px;
+            }
+        }
+    </style>
 @endsection
 
 @section('content')

@@ -8,12 +8,6 @@ use Illuminate\Http\Request;
 
 class ContractorsController extends Controller
 {
-//    public function list()
-//    {
-//
-//        $contractors = Contractor::paginate(10);
-//        return view('contractors/contractor-list', compact('contractors'));
-//    }
     public function list(Request $request)
     {
         $search = $request->input('search'); // Qidiruv so'zi

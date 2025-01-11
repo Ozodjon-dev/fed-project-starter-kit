@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contract;
+use App\Models\ContractCategory;
 use App\Models\Contractor;
 
 class ContractsController extends Controller
@@ -15,7 +16,8 @@ class ContractsController extends Controller
     public function add()
     {
         $contractors = Contractor::all()->sortBy('name');
-        return view('contracts/contract-add', compact('contractors'));
+        $categories = ContractCategory::all()->sortBy('name');
+        return view('contracts/contract-add', compact('contractors', 'categories'));
     }
 
     public function edit()

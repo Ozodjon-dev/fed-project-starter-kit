@@ -4,13 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Models\Contractor;
 use App\Models\ContractCategory;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ContractCategoriesController extends Controller
 {
-    public function list()
+//    public function list()
+//    {
+//        $categories = ContractCategory::paginate(10);
+//        return view('contracts/categories/category-list', compact('categories'));
+//    }
+    public function list(Request $request)
     {
-        $categories = ContractCategory::paginate(10);
+        $search = $request->input('search'); // Qidiruv so'zi
+
+        // Qidiruv parametriga asosan contractorsni filtrlash
+        $categories = ContractCategory::when($search, function ($query, $search) {
+            return $query->where('name', 'like', "%{$search}%");
+        })
+            ->paginate(10); // Sahifalashni qo‘shish
+
+        // Jadvalni ko'rsatish
         return view('contracts/categories/category-list', compact('categories'));
     }
 

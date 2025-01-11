@@ -22,8 +22,8 @@
                 </form>
             </div>
             <div class="input-group ms-lg-75">
-                <input type="text" class="form-control shadow-sm" placeholder="Поиск">
-                <button type="submit" class="btn btn-primary shadow me-1">Поиск</button>
+                <input type="text" disabled class="form-control shadow-sm" placeholder="Поиск">
+                <button type="submit" class="btn btn-primary shadow me-1" disabled>Поиск</button>
             </div>
             <div>
                 <form class="d-flex">

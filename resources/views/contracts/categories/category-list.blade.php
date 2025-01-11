@@ -23,13 +23,16 @@
                 </form>
             </div>
             <div class="input-group ms-lg-75">
-                <input type="text" class="form-control shadow-sm" placeholder="Поиск">
-                <button type="submit" class="btn btn-primary shadow me-1">Поиск</button>
+                <form method="GET" action="{{ route('contract_categories.list') }}" class="w-100 d-flex">
+                    <input type="text" class="form-control shadow-sm ms-1" placeholder="Поиск" name="search"
+                           value="{{ request('search') }}">
+                    <button type="submit" class="btn btn-primary shadow ms-1">Поиск</button>
+                </form>
             </div>
             <div>
                 <form class="d-flex">
                     <button onclick="location.href='{{ route('contract_categories.add') }}'"
-                            class="btn btn-sm btn-primary shadow" type="button"><b>
+                            class="btn btn-sm btn-primary ms-1 shadow" type="button"><b>
                             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="24" fill="currentColor"
                                  class="bi bi-plus-square" viewBox="0 0 16 16">
                                 <path style="fill:#FFFFFF;"

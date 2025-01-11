@@ -35,7 +35,7 @@
                                     </div>
 
                                     <input class="form-input ms-50 form-control rounded shadow-lg" type="text" id="name"
-                                           name="name" required>
+                                           name="name" value="{{ $category->name }}" required>
                                 </div>
                             </div>
                         </div>
@@ -45,6 +45,7 @@
                     <div class="card">
                         <div class="card-body">
                             <button type="submit" class="btn btn-primary w-100 mb-75">Редактировать</button>
+                            <button onclick="location.href='{{ route('contract_categories.list') }}'" type="button" class="btn btn-outline-primary w-100 mb-25">Отмена</button>
                         </div>
                     </div>
                 </div>

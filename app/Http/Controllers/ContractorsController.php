@@ -4,14 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Models\Contractor;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class ContractorsController extends Controller
 {
-    public function list()
+//    public function list()
+//    {
+//
+//        $contractors = Contractor::paginate(10);
+//        return view('contractors/contractor-list', compact('contractors'));
+//    }
+    public function list(Request $request)
     {
-        $contractors = Contractor::paginate(10);
+        $search = $request->input('search'); // Qidiruv so'zi
+
+        // Qidiruv parametriga asosan contractorsni filtrlash
+        $contractors = Contractor::when($search, function ($query, $search) {
+            return $query->where('name', 'like', "%{$search}%")
+                ->orWhere('bank_name', 'like', "%{$search}%")
+                ->orWhere('bank_account', 'like', "%{$search}%")
+                ->orWhere('tin', 'like', "%{$search}%")
+                ->orWhere('bank_code', 'like', "%{$search}%");
+        })
+            ->paginate(10); // Sahifalashni qo‘shish
+
+        // Jadvalni ko'rsatish
         return view('contractors/contractor-list', compact('contractors'));
     }
+
 
     public function add()
     {

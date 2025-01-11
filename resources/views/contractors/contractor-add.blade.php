@@ -26,7 +26,7 @@
                                     <label class="title" for="name">Наименование контрагента</label>
                                     <input type="text" id="name" name="name" required
                                            placeholder="'O‘ZBEKISTON RESPUBLIKASI IQTISODIYOT VA MOLIYA VAZIRLIGI' DAVLAT MUASSASASI"
-                                           class="form-control shadow-lg rounded" />
+                                           class="form-control rounded" />
                                 </div>
                             </div>
                         </div>
@@ -36,11 +36,8 @@
                             <div class="row">
                                 <div class="col-12">
                                     <label class="title" for="bank_name">Наименование банка</label>
-                                    <select class="form-select shadow-lg rounded" name="bank_name" id="bank_name" required>
-                                        @foreach($banks as $bank)
-                                            <option value="{{ $bank->bank_name }}">{{ $bank->bank_code }} - {{ $bank->bank_name }}</option>
-                                        @endforeach
-                                    </select>
+                                    <input type="text" id="bank_name" name="bank_name" readonly
+                                           class="form-control rounded" />
                                 </div>
                             </div>
                         </div>
@@ -51,20 +48,23 @@
                                 <div class="col-md-4">
                                     <label class="title" for="bank_account">Расчетный счет</label>
                                     <input type="number" id="bank_account" name="bank_account" required
-                                           class="form-control shadow-lg rounded" placeholder="" />
+                                           class="form-control rounded" placeholder="" />
                                 </div>
                                 <div class="col-md-4">
                                     <label class="title" for="bank_code">Код банка</label>
-                                    <select class="form-select shadow-lg rounded" name="bank_code" id="bank_code" required>
+                                    <select class="form-select rounded" name="bank_code" id="bank_code" required>
+                                        <option value="" disabled selected>Выберите код банка</option>
                                         @foreach($banks as $bank)
-                                            <option value="{{ $bank->bank_code }}">{{ $bank->bank_code }}</option>
+                                            <option value="{{ $bank->bank_code }}" data-bank-name="{{ $bank->bank_name }}">
+                                                {{ $bank->bank_code }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="title" for="tin">ИНН или ПНФЛ</label>
                                     <input type="number" id="tin" name="tin" required
-                                           class="form-control shadow-lg rounded" placeholder="" />
+                                           class="form-control rounded" placeholder="" />
                                 </div>
                             </div>
                         </div>
@@ -92,5 +92,21 @@
 @endsection
 
 @section('page-script')
-    <script src="{{asset('js/scripts/pages/app-invoice.js')}}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Select2 initialization for "Код банка" with search functionality
+            $('#bank_code').select2({
+                placeholder: 'Выберите код банка',
+                allowClear: true,
+                width: '100%'
+            });
+
+            // Synchronize "Код банка" with "Наименование банка"
+            $('#bank_code').on('change', function () {
+                const selectedOption = $(this).find(':selected'); // Get the selected option
+                const bankName = selectedOption.data('bank-name'); // Extract "data-bank-name"
+                $('#bank_name').val(bankName); // Update "Наименование банка"
+            });
+        });
+    </script>
 @endsection

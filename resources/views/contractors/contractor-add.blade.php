@@ -43,7 +43,7 @@
                         </div>
 
                         <!-- Bank Account, Bank Code, INN -->
-                        <div class="card-body invoice-padding pb-10">
+                        <div class="card-body invoice-padding pb-xl-3">
                             <div class="row">
                                 <div class="col-md-4">
                                     <label class="title" for="bank_account">Расчетный счет</label>

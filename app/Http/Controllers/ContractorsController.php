@@ -39,7 +39,7 @@ class ContractorsController extends Controller
             'name' => 'required',
             'bank_name' => 'required',
             'bank_account' => 'required',
-            'tin' => 'required',
+            'tin' => 'required|max:9',
             'bank_code' => 'required'
         ]);
         Contractor::create($data);

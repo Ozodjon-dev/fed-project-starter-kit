@@ -20,85 +20,73 @@
                 <!-- Invoice Add Left starts -->
                 <div class="col-xl-9 col-md-8 col-12">
                     <div class="card invoice-preview-card">
-                        <!-- Header starts -->
+                        <!-- Контрагент Name -->
                         <div class="card-body invoice-padding pb-0">
-                            <div class="d-flex">
-                                <div class="d-flex invoice-number-date mt-md-0 mt-0">
-                                    <div class="d-flex align-items-center ">
-                                        <label class="title" for="name" style="min-width: 230px">Наименование
-                                            контрагента</label>
-                                        <input type="text" id="name" name="name" required value="{{ $contractor->name }}"
-                                               placeholder="'O‘ZBEKISTON RESPUBLIKASI IQTISODIYOT VA MOLIYA VAZIRLIGI' DAVLAT MUASSASASI"
-                                               style="min-width: 765px"
-                                               class="form-control invoice-edit-input ms-50 shadow-lg rounded"/>
-                                    </div>
-                                    <div style="min-width: px"></div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="title" for="name">Наименование контрагента</label>
+                                    <input type="text" id="name" name="name" required value="{{ $contractor->name }}"
+                                           placeholder="'O‘ZBEKISTON RESPUBLIKASI IQTISODIYOT VA MOLIYA VAZIRLIGI' DAVLAT MUASSASASI"
+                                           class="form-control rounded"/>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Bank Account, Bank Code, INN -->
                         <div class="card-body invoice-padding pb-0">
-                            <div class="d-flex">
-                                <div class="invoice-number-date mt-md-0 mt-0">
-                                    <div class="d-flex align-items-center ">
-                                        <label class="title" for="bank_name" style="min-width: 230px">Наименование
-                                            банка</label>
-                                        <select
-                                            class="form-select col-lg-2 col-12 mb-lg-0 mb-2 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
-                                            style="max-width: 765px" name="bank_name" id="bank_name" required>
-                                            @foreach($banks as $bank)
-                                                <option value="{{ $bank->bank_name }}">{{ $bank->bank_code }} - {{ $bank->bank_name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label class="title" for="bank_account">Расчетный счет</label>
+                                    <input type="number" id="bank_account" name="bank_account"
+                                           value="{{ $contractor->bank_account }}" required
+                                           class="form-control rounded" placeholder=""/>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="title" for="tin">ИНН или ПНФЛ</label>
+                                    <input type="number" id="tin" name="tin" value="{{ $contractor->tin }}" required
+                                           class="form-control rounded" placeholder=""/>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="title" for="bank_code">Код банка</label>
+                                    <select class="form-select rounded" name="bank_code" id="bank_code" required>
+                                        <option value="{{ $contractor->bank_code }}" disabled selected>Выберите код
+                                            банка
+                                        </option>
+                                        @foreach($banks as $bank)
+                                            <option value="{{ $bank->bank_code }}"
+                                                    data-bank-name="{{ $bank->bank_name }}">
+                                                {{ $bank->bank_code }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body invoice-padding pb-0">
-                            <div class="invoice-number-date mt-md-0 mt-2">
-                                <div class="d-flex align-items-center">
-                                    <div class="align-items-center" style="min-width: 230px">
-                                        <label class="title" for="bank_account">Расчетный счет</label>
-                                    </div>
-                                    <input type="number" id="bank_account" name="bank_account" required value="{{ $contractor->bank_account }}"
-                                           class="form-control col-lg-2 col-12 mb-lg-0 mb-0 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
-                                           style="max-width: 340px" placeholder="">
+
+
+                        <!-- Bank Name -->
+                        <div class="card-body invoice-padding pb-xl-3">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="title" for="bank_name">Наименование банка</label>
+                                    <input type="text" id="bank_name" name="bank_name" readonly
+                                           value="{{ $contractor->bank_name }}"
+                                           class="form-control rounded"/>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body invoice-padding pb-0">
-                            <div class="d-flex">
-                                <div class="invoice-number-date mt-md-0 mt-0">
-                                    <div class="d-flex align-items-center">
-                                        <label class="title" for="tin" style="min-width: 230px">ИНН или ПНФЛ</label>
-                                        <input type="number" id="tin" name="tin" required value="{{ $contractor->tin }}"
-                                               class="form-control invoice-edit-input ms-50 shadow-lg rounded"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body invoice-padding pb-0">
-                            <div class="d-flex mb-2">
-                                <div class="invoice-number-date mt-md-0 mt-0">
-                                    <div class="d-flex align-items-center">
-                                        <label class="title" for="bank_code" style="min-width: 230px">Код банка</label>
-                                        <select
-                                            class="form-select col-lg-2 col-12 mb-lg-0 mb-2 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
-                                            style="max-width: 340px" name="bank_code" id="bank_code" required>
-                                            @foreach($banks as $bank)
-                                                <option value="{{ $bank->bank_code }}">{{ $bank->bank_code }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
+
+                <!-- Invoice Add Right starts -->
                 <div class="col-xl-3 col-md-4 col-12">
                     <div class="card">
                         <div class="card-body">
                             <button type="submit" class="btn btn-primary w-100 mb-75">Редактировать</button>
-                            <button onclick="location.href='{{ route('contractors.list') }}'" type="button" class="btn btn-outline-primary w-100 mb-25">Отмена</button>
+                            <button onclick="location.href='{{ route('contractors.list') }}'" type="button"
+                                    class="btn btn-outline-primary w-100">Отмена
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -114,5 +102,21 @@
 @endsection
 
 @section('page-script')
-    <script src="{{asset('js/scripts/pages/app-invoice.js')}}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Select2 initialization for "Код банка" with search functionality
+            $('#bank_code').select2({
+                placeholder: 'Выберите код банка',
+                allowClear: true,
+                width: '100%'
+            });
+
+            // Synchronize "Код банка" with "Наименование банка"
+            $('#bank_code').on('change', function () {
+                const selectedOption = $(this).find(':selected'); // Get the selected option
+                const bankName = selectedOption.data('bank-name'); // Extract "data-bank-name"
+                $('#bank_name').val(bankName); // Update "Наименование банка"
+            });
+        });
+    </script>
 @endsection

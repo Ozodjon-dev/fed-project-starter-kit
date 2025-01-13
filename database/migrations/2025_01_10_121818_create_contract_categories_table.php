@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('contract_categories', function (Blueprint $table) {
-            $table->id()->autoIncrement()->unsigned()->primary();
+            $table->id();
             $table->string('name');
             $table->timestamps();
             $table->softDeletes()->nullable();

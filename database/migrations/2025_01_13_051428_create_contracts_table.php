@@ -13,18 +13,18 @@ return new class extends Migration {
     public function up()
     {
         Schema::create('contracts', function (Blueprint $table) {
-            $table->id()->autoIncrement()->primary()->unsigned();
+            $table->id();
             $table->string('registration_number');
-            $table->date('registration_date');
+            $table->timestamp('registration_date');
             $table->string('type');
             $table->string('number');
-            $table->date('date');
+            $table->timestamp('date');
             $table->string('contractor');
             $table->string('category');
             $table->string('details');
             $table->string('article');
             $table->string('amount');
-            $table->date('term');
+            $table->timestamp('term');
             $table->string('status');
             $table->timestamps();
             $table->softDeletes()->nullable();

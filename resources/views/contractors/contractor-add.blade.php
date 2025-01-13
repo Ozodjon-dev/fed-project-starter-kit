@@ -31,23 +31,17 @@
                             </div>
                         </div>
 
-                        <!-- Bank Name -->
-                        <div class="card-body invoice-padding pb-0">
-                            <div class="row">
-                                <div class="col-12">
-                                    <label class="title" for="bank_name">Наименование банка</label>
-                                    <input type="text" id="bank_name" name="bank_name" readonly
-                                           class="form-control rounded" />
-                                </div>
-                            </div>
-                        </div>
-
                         <!-- Bank Account, Bank Code, INN -->
-                        <div class="card-body invoice-padding pb-xl-3">
+                        <div class="card-body invoice-padding pb-0">
                             <div class="row">
                                 <div class="col-md-4">
                                     <label class="title" for="bank_account">Расчетный счет</label>
                                     <input type="number" id="bank_account" name="bank_account" required
+                                           class="form-control rounded" placeholder="" />
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="title" for="tin">ИНН или ПНФЛ</label>
+                                    <input type="number" id="tin" name="tin" required
                                            class="form-control rounded" placeholder="" />
                                 </div>
                                 <div class="col-md-4">
@@ -61,10 +55,17 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-md-4">
-                                    <label class="title" for="tin">ИНН или ПНФЛ</label>
-                                    <input type="number" id="tin" name="tin" required
-                                           class="form-control rounded" placeholder="" />
+                            </div>
+                        </div>
+
+
+                        <!-- Bank Name -->
+                        <div class="card-body invoice-padding pb-xl-3">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="title" for="bank_name">Наименование банка</label>
+                                    <input type="text" id="bank_name" name="bank_name" readonly
+                                           class="form-control rounded" />
                                 </div>
                             </div>
                         </div>

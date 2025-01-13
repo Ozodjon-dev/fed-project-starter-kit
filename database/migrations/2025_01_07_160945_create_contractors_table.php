@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('contractors', function (Blueprint $table) {
-            $table->id()->autoIncrement()->unsigned()->primary();
+            $table->id();
             $table->string('name');
             $table->string('bank_name');
             $table->string('bank_account');
-            $table->string('tin')->unique();
-            $table->string('bank_code');
+            $table->string('tin', 9)->unique();
+            $table->string('bank_code',5);
             $table->timestamps();
             $table->softDeletes()->nullable();
         });

@@ -36,21 +36,20 @@
                         <div class="card-body invoice-padding pb-0">
                             <div class="row">
                                 <div class="col-md-4">
+                                    <label class="title" for="tin">ИНН или ПНФЛ</label>
+                                    <input type="number" id="tin" name="tin" value="{{ $contractor->tin }}" required
+                                           class="form-control rounded" placeholder=""/>
+                                </div>
+                                <div class="col-md-4">
                                     <label class="title" for="bank_account">Расчетный счет</label>
                                     <input type="number" id="bank_account" name="bank_account"
                                            value="{{ $contractor->bank_account }}" required
                                            class="form-control rounded" placeholder=""/>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="title" for="tin">ИНН или ПНФЛ</label>
-                                    <input type="number" id="tin" name="tin" value="{{ $contractor->tin }}" required
-                                           class="form-control rounded" placeholder=""/>
-                                </div>
-                                <div class="col-md-4">
                                     <label class="title" for="bank_code">Код банка</label>
-                                    <select class="form-select rounded" name="bank_code" id="bank_code" required>
-                                        <option value="{{ $contractor->bank_code }}" disabled selected>Выберите код
-                                            банка
+                                    <select class="form-select rounded" name="bank_code" id="bank_code">
+                                        <option value="{{ $contractor->bank_code }}" selected>{{ $contractor->bank_code }}
                                         </option>
                                         @foreach($banks as $bank)
                                             <option value="{{ $bank->bank_code }}"

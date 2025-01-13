@@ -38,16 +38,16 @@ Route::get('lang/{locale}', [LanguageController::class, 'swap']);
 //___________________________________________________________________
 
 
-Route::get('/contracts',  'App\Http\Controllers\ContractsController@index')->name('contracts.index');
-
-Route::get('/contracts/update',  'App\Http\Controllers\ContractsController@update');
-Route::get('/contracts/delete',  'App\Http\Controllers\ContractsController@delete');
-Route::get('/contracts/restore',  'App\Http\Controllers\ContractsController@restore');
-Route::get('/contracts/first_or_create',  'App\Http\Controllers\ContractsController@firstOrCreate');
-Route::get('/contracts/update_or_create',  'App\Http\Controllers\ContractsController@updateOrCreate');
-
-Route::get('/users',  'App\Http\Controllers\UsersController@index')->name('users.index');
-Route::get('/about',  'App\Http\Controllers\AboutController@index')->name('about.index');
+//Route::get('/contracts',  'App\Http\Controllers\ContractsController@index')->name('contracts.index');
+//
+//Route::get('/contracts/update',  'App\Http\Controllers\ContractsController@update');
+//Route::get('/contracts/delete',  'App\Http\Controllers\ContractsController@delete');
+//Route::get('/contracts/restore',  'App\Http\Controllers\ContractsController@restore');
+//Route::get('/contracts/first_or_create',  'App\Http\Controllers\ContractsController@firstOrCreate');
+//Route::get('/contracts/update_or_create',  'App\Http\Controllers\ContractsController@updateOrCreate');
+//
+//Route::get('/users',  'App\Http\Controllers\UsersController@index')->name('users.index');
+//Route::get('/about',  'App\Http\Controllers\AboutController@index')->name('about.index');
 Route::get('/',  'App\Http\Controllers\MainController@index')->name('main.index');
 
 // payment orders Route
@@ -60,6 +60,7 @@ Route::get('/payment_order/print',  [PaymentOrdersController::class, 'print'])->
 // contracts Route
 Route::get('/contract/list',  [ContractsController::class, 'list'])->name('contracts.list');
 Route::get('/contract/add',  [ContractsController::class, 'add'])->name('contracts.add');
+Route::post('/contract/add',  [ContractsController::class, 'store'])->name('contracts.store');
 Route::get('/contract/edit',  [ContractsController::class, 'edit'])->name('contracts.edit');
 
 // contractors Route

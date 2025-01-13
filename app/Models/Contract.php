@@ -13,5 +13,10 @@ class Contract extends Model
 
     protected $table = 'Contracts';
     protected $guarded = [];
+    protected $fillable = [
+        'registration_number', 'registration_date', 'type', 'number',
+        'date', 'contractor', 'category', 'details', 'classificator',
+        'amount', 'term'
+    ];
 
 }

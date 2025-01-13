@@ -13,7 +13,7 @@
 
 @section('content')
     <section class="invoice-add-wrapper">
-        <form class="needs-validation" action="" method="post">
+        <form class="needs-validation" action="{{ route('contracts.store') }}" method="post">
             @csrf
             <div class="row invoice-add">
                 <!-- Invoice Add Left starts -->
@@ -28,7 +28,7 @@
                                         <label for="registration_number" class="title"
                                                style="min-width: 180px; margin-right: 10px;">Регистрационный
                                             номер договора:</label>
-                                        <input type="text" id="registration_number" placeholder="7856" required
+                                        <input type="text" name="registration_number" id="registration_number" placeholder="7856" required
                                                class="form-control invoice-edit-input rounded"/>
                                     </div>
                                 </div>
@@ -37,28 +37,26 @@
                                         <label for="registration_date" class="title"
                                                style="min-width: 180px; margin-right: 10px;">Дата
                                             регистрации:</label>
-                                        <input type="text" id="registration_date" required
+                                        <input type="date" name="registration_date" id="registration_date" required
                                                class="form-control invoice-edit-input date-picker rounded"/>
                                     </div>
                                 </div>
-
-
                                 <!-- Section: Тип договора -->
                                 <div class="d-flex flex-wrap mt-1 w-100">
-                                    <label class="title mb-1" style="min-width: 190px">Отметите тип договора:</label>
+                                    <label class="title mb-1" for="type" style="min-width: 190px">Отметите тип договора:</label>
                                     <div class="form-check">
                                         <input class="form-check-input styled-checkbox" type="radio"
-                                               id="contract_type_annual" name="contract_type" value="Годовой">
+                                               id="contract_type_annual" name="type" value="Годовой">
                                         <label class="form-check-label" for="contract_type_annual">Годовой</label>
                                     </div>
                                     <div class="form-check ms-xl-5">
                                         <input class="form-check-input styled-checkbox" type="radio"
-                                               id="contract_type_pink" name="contract_type" value="Разовый">
+                                               id="contract_type_pink" name="type" value="Разовый">
                                         <label class="form-check-label" for="contract_type_pink">Разовый</label>
                                     </div>
                                     <div class="form-check  ms-xl-5">
                                         <input class="form-check-input styled-checkbox" type="radio"
-                                               id="contract_type_import" name="contract_type"
+                                               id="contract_type_import" name="type"
                                                value="Импортные контракты">
                                         <label class="form-check-label" for="contract_type_import">Импортные
                                             контракты</label>
@@ -77,7 +75,7 @@
                                         <label for="contract_number" class="title"
                                                style="min-width: 180px; margin-right: 10px;">Номер
                                             договора:</label>
-                                        <input type="text" id="contract_number" placeholder="7856/MV" required
+                                        <input type="text" name="number" id="number" placeholder="7856/MV" required
                                                class="form-control invoice-edit-input rounded"/>
                                     </div>
                                 </div>
@@ -86,7 +84,7 @@
                                         <label for="contract_date" class="title"
                                                style="min-width: 180px; margin-right: 10px;">Дата
                                             договора:</label>
-                                        <input type="text" id="contract_date" required
+                                        <input type="date" name="date" id="date" required
                                                class="form-control invoice-edit-input date-picker rounded"/>
                                     </div>
                                 </div>
@@ -96,7 +94,7 @@
                                             id="contractor">
                                         <option value="" disabled selected>Выберите контрагент</option>
                                         @foreach($contractors as $contractor)
-                                            <option value="{{ $contractor->name }}"
+                                            <option  name="contractor" id="" value="{{ $contractor->name }}"
                                                     data-name="{{ $contractor->name }}">{{ $contractor->name }}</option>
                                         @endforeach
                                     </select>
@@ -106,7 +104,7 @@
                                     <select class="form-select rounded w-100" name="category" id="category" required>
                                         <option value="" disabled selected>Выберите категория</option>
                                         @foreach($categories as $category)
-                                            <option value="{{ $category->name }}"
+                                            <option name="category" id="" value="{{ $category->name }}"
                                                     data-name="{{ $category->name }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
@@ -118,7 +116,7 @@
                                     <label for="contract_subject" class="title"
                                            style="max-width: 180px; margin-right: 10px;">Предмет договора,
                                         заголовок (краткое содержание)</label>
-                                    <textarea id="contract_subject" required
+                                    <textarea name="details" id="details" required
                                               class="form-control rounded w-100"></textarea>
                                 </div>
                             </div>
@@ -131,7 +129,7 @@
                                             class="form-select rounded">
                                         <option value="" disabled selected>Выберите статья</option>
                                         @foreach($classificators as $classificator)
-                                            <option value="{{ $classificator->article }}"
+                                            <option name="article" id="" value="{{ $classificator->article }}"
                                                     data-article="{{ $classificator->article }}">
                                                 {{ $classificator->article }} - {{ $classificator->details }}
                                             </option>
@@ -144,7 +142,7 @@
                                     <div class="col-xl-4">
                                         <input type="text"
                                                class="form-control numeral-mask col-12 rounded"
-                                               placeholder="0,000.00" id="numeral-formatting" required/>
+                                               placeholder="0,000.00" name="amount" id="amount" required/>
                                     </div>
                                 </div>
                                 <div class="invoice-number-date mt-md-0 mt-0 w-100 w-md-auto">
@@ -152,7 +150,7 @@
                                         <label for="contract_duration" class="title"
                                                style="min-width: 180px; margin-right: 10px;">Сроки действия
                                             договора:</label>
-                                        <input type="text" id="contract_duration" placeholder="7856" required
+                                        <input type="text" name="term" id="term" placeholder="7856" required
                                                class="form-control invoice-edit-input date-picker rounded"/>
                                     </div>
                                 </div>

@@ -45,6 +45,7 @@ class ContractsController extends Controller
 
     public function store(Request $request)
     {
+        $classificators = Classificator::all()->sortBy('article');
         $validated = $request->validate([
             'registration_number' => 'required|string|max:255',
             'registration_date' => 'required|date',
@@ -54,15 +55,15 @@ class ContractsController extends Controller
             'contractor' => 'required|string',
             'category' => 'required|string',
             'details' => 'required|string',
-            'classificator' => 'required|string',
-            'amount' => 'required|numeric',
+            'article' => 'required|string',
+            'amount' => 'required',
             'term' => 'required|date',
         ]);
-        dd($validated);
+
         // Saqlash jarayoni
         Contract::create($validated);
 
-        return redirect()->route('contracts.list')->with('success', 'Dover saqlandi');
+        return redirect()->route('contracts.list', compact('classificators'))->with('success', 'Dover saqlandi');
     }
 
 

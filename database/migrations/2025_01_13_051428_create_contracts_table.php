@@ -15,17 +15,17 @@ return new class extends Migration {
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
             $table->string('registration_number');
-            $table->timestamp('registration_date');
+            $table->date('registration_date');
             $table->string('type');
             $table->string('number');
-            $table->timestamp('date');
+            $table->date('date');
             $table->string('contractor');
             $table->string('category');
-            $table->string('details');
+            $table->text('details');
             $table->string('article');
-            $table->string('amount');
-            $table->timestamp('term');
-            $table->string('status');
+            $table->decimal('amount', 15, 2);
+            $table->date('term');
+            $table->string('status')->nullable();
             $table->timestamps();
             $table->softDeletes()->nullable();
         });

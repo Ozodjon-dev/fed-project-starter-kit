@@ -72,7 +72,7 @@
                             <div class="d-flex flex-wrap">
                                 <div class="invoice-number-date mb-1 mt-md-0 mt-0 w-100 w-md-auto">
                                     <div class="d-flex align-items-center">
-                                        <label for="contract_number" class="title"
+                                        <label for="number" class="title"
                                                style="min-width: 180px; margin-right: 10px;">Номер
                                             договора:</label>
                                         <input type="text" name="number" id="number" placeholder="7856/MV" required
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="invoice-number-date mb-1 mt-md-0 mt-0 w-100 w-md-auto">
                                     <div class="d-flex align-items-center">
-                                        <label for="contract_date" class="title"
+                                        <label for="date" class="title"
                                                style="min-width: 180px; margin-right: 10px;">Дата
                                             договора:</label>
                                         <input type="date" name="date" id="date" required
@@ -92,9 +92,9 @@
                                     <label for="contractor" class="title" style="min-width: 180px; margin-right: 10px;">Контрагент:</label>
                                     <select class="form-select rounded w-100" required name="contractor"
                                             id="contractor">
-                                        <option value="" disabled selected>Выберите контрагент</option>
+                                        <option disabled selected>Выберите контрагент</option>
                                         @foreach($contractors as $contractor)
-                                            <option  name="contractor" id="" value="{{ $contractor->name }}"
+                                            <option value="{{ $contractor->name }}"
                                                     data-name="{{ $contractor->name }}">{{ $contractor->name }}</option>
                                         @endforeach
                                     </select>
@@ -104,7 +104,7 @@
                                     <select class="form-select rounded w-100" name="category" id="category" required>
                                         <option value="" disabled selected>Выберите категория</option>
                                         @foreach($categories as $category)
-                                            <option name="category" id="" value="{{ $category->name }}"
+                                            <option value="{{ $category->name }}"
                                                     data-name="{{ $category->name }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
@@ -113,7 +113,7 @@
 
                             <div class="mt-md-0 mt-2 w-100">
                                 <div class="d-flex align-items-center mb-1">
-                                    <label for="contract_subject" class="title"
+                                    <label for="details" class="title"
                                            style="max-width: 180px; margin-right: 10px;">Предмет договора,
                                         заголовок (краткое содержание)</label>
                                     <textarea name="details" id="details" required
@@ -123,13 +123,13 @@
 
                             <div class="d-flex flex-wrap w-100 mb-1">
                                 <div class="d-flex align-items-center mb-1 w-100 w-md-auto">
-                                    <label for="contract_amount" class="title"
+                                    <label for="article" class="title"
                                            style="min-width: 180px; margin-right: 10px;">Статья</label>
-                                    <select type="" id="classificator" name="classificator"
+                                    <select type="" name="article" id="article"
                                             class="form-select rounded">
-                                        <option value="" disabled selected>Выберите статья</option>
+                                        <option disabled selected>Выберите статья</option>
                                         @foreach($classificators as $classificator)
-                                            <option name="article" id="" value="{{ $classificator->article }}"
+                                            <option value="{{ $classificator->article }}"
                                                     data-article="{{ $classificator->article }}">
                                                 {{ $classificator->article }} - {{ $classificator->details }}
                                             </option>
@@ -137,20 +137,20 @@
                                     </select>
                                 </div>
                                 <div class="d-flex align-items-center mb-1 w-100 w-md-auto">
-                                    <label for="contract_amount" class="title"
+                                    <label for="amount" class="title"
                                            style="min-width: 180px; margin-right: 10px;">СУММА</label>
                                     <div class="col-xl-4">
                                         <input type="text"
-                                               class="form-control numeral-mask col-12 rounded"
+                                               class="form-control col-12 rounded"
                                                placeholder="0,000.00" name="amount" id="amount" required/>
                                     </div>
                                 </div>
                                 <div class="invoice-number-date mt-md-0 mt-0 w-100 w-md-auto">
                                     <div class="d-flex align-items-center">
-                                        <label for="contract_duration" class="title"
+                                        <label for="term" class="title"
                                                style="min-width: 180px; margin-right: 10px;">Сроки действия
                                             договора:</label>
-                                        <input type="text" name="term" id="term" placeholder="7856" required
+                                        <input type="date" name="term" id="term" placeholder="7856" required
                                                class="form-control invoice-edit-input date-picker rounded"/>
                                     </div>
                                 </div>
@@ -200,7 +200,7 @@
             });
 
             // Initialize Select2 for the "Статья" dropdown with search functionality
-            $('#classificator').select2({
+            $('#article').select2({
                 placeholder: 'Выберите статья',
                 allowClear: true,
                 width: '100%'

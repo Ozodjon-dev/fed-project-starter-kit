@@ -125,10 +125,10 @@
                     <td>{{ $contract->amount }}</td>
                     <td>
                         <div class="progress" style="height: 20px;">
-                            <div class="progress-bar {{ $progressColor }} font-weight-bold" role="progressbar" style="width: {{ max(0, min($progress, 100)) }}%; color: black;" aria-valuenow="{{ $progress }}" aria-valuemin="0" aria-valuemax="100" data-bs-toggle="tooltip" title="{{ $remainingDays > 0 ? $remainingDays . ' день(ей) осталось' : '' }}">
+                            <div class="progress-bar {{ $progressColor }} font-weight-bold" role="progressbar" style="width: {{ max(0, min($progress, 100)) }}%; color: black;" aria-valuenow="{{ $progress }}" aria-valuemin="0" aria-valuemax="100" data-bs-toggle="tooltip" title="{{ $remainingDays > 0 ? 'осталось дней: '. $remainingDays : '' }}">
                                 <!-- Faqat muddat tugaganda yozuv bo'ladi -->
                                 @if ($remainingDays <= 0)
-                                    <span style="color: black;">Срок истек</span>
+                                    <span style="color: #000537;">Срок истек</span>
                                 @else
                                     <!-- Bu yerda hech qanday yozuv bo'lmaydi -->
                                 @endif

@@ -101,7 +101,7 @@
                                 </div>
                                 <div class="d-flex align-items-center mb-1 w-100">
                                     <label for="category" class="title" style="min-width: 180px; margin-right: 10px;">Категория:</label>
-                                    <select class="form-select rounded w-100" name="category" id="category" required>
+                                    <select class="form-select rounded w-100" name="category" id="category">
                                         <option value="" disabled selected>Выберите категория</option>
                                         @foreach($categories as $category)
                                             <option value="{{ $category->name }}"
@@ -116,7 +116,7 @@
                                     <label for="details" class="title"
                                            style="max-width: 180px; margin-right: 10px;">Предмет договора,
                                         заголовок (краткое содержание)</label>
-                                    <textarea name="details" id="details" required
+                                    <textarea name="details" id="details"
                                               class="form-control rounded w-100"></textarea>
                                 </div>
                             </div>
@@ -140,9 +140,11 @@
                                     <label for="amount" class="title"
                                            style="min-width: 180px; margin-right: 10px;">СУММА</label>
                                     <div class="col-xl-4">
-                                        <input type="text"
+                                        <input type="number"
                                                class="form-control col-12 rounded"
-                                               placeholder="0,000.00" name="amount" id="amount" required/>
+                                               placeholder="0,000.00"
+                                               name="amount"
+                                               id="amount">
                                     </div>
                                 </div>
                                 <div class="invoice-number-date mt-md-0 mt-0 w-100 w-md-auto">
@@ -150,8 +152,8 @@
                                         <label for="term" class="title"
                                                style="min-width: 180px; margin-right: 10px;">Сроки действия
                                             договора:</label>
-                                        <input type="date" name="term" id="term" placeholder="7856" required
-                                               class="form-control invoice-edit-input date-picker rounded"/>
+                                        <input type="date" name="term" id="term" placeholder="7856"
+                                               class="form-control invoice-edit-input date-picker rounded">
                                     </div>
                                 </div>
                             </div>

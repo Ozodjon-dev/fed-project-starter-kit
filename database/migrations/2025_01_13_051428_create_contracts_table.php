@@ -20,11 +20,14 @@ return new class extends Migration {
             $table->string('number');
             $table->date('date');
             $table->string('contractor');
-            $table->string('category');
-            $table->text('details');
-            $table->string('article');
-            $table->decimal('amount', 15, 2);
-            $table->date('term');
+            $table->string('category')->nullable();
+            $table->text('details')->nullable();
+            $table->string('article')->nullable();
+            $table->decimal('amount', 20, 2)
+                ->default(0.00)
+                ->unsigned()
+                ->index();
+            $table->date('term')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
             $table->softDeletes()->nullable();

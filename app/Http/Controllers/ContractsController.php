@@ -7,6 +7,7 @@ use App\Models\Contract;
 use App\Models\ContractCategory;
 use App\Models\Contractor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ContractsController extends Controller
 {
@@ -34,24 +35,60 @@ class ContractsController extends Controller
             'number' => 'required|string|max:255',
             'date' => 'required|date',
             'contractor' => 'required|string',
-            'category' => 'required|string',
-            'details' => 'required|string',
-            'article' => 'required|string',
-            'amount' => 'required',
-            'term' => 'required|date',
+            'category' => '',
+            'details' => '',
+            'article' => '',
+            'amount' => '',
+            'term' => '',
         ]);
 
         // Saqlash jarayoni
         Contract::create($validated);
 
-        return redirect()->route('contracts.list', compact('classificators'))->with('success', 'Dover saqlandi');
+        return redirect()->route('contracts.list', compact('classificators'))->with('success', 'Контракт успешно сохранен 😊');
     }
 
-
-    public function edit()
+    public function show($id)
     {
-        return view('contracts/contract-edit');
+        $contract = Contract::findOrFail($id);
+        return view('contracts/contract-show', compact('contract'));
     }
 
+    public function edit($id)
+    {
+        $contract = Contract::findOrFail($id);
+        $contractors = Contractor::all()->sortBy('name');
+        $categories = ContractCategory::all()->sortBy('name');
+        $classificators = Classificator::all()->sortBy('article');
+        return view('contracts/contract-edit', compact('contract', 'categories', 'classificators', 'contractors'));
+    }
+
+    public function update($id)
+    {
+        $contract = Contract::findOrFail($id);
+        $validated = request()->validate([
+            'registration_number' => 'required|string|max:255',
+            'registration_date' => 'required|date',
+            'type' => 'required|string',
+            'number' => 'required|string|max:255',
+            'date' => 'required|date',
+            'contractor' => 'required|string',
+            'category' => '',
+            'details' => '',
+            'article' => '',
+            'amount' => '',
+            'term' => '',
+        ]);
+        $contract->update($validated);
+        return redirect()->route('contracts.show', $id)->with('success', 'Контракт успешно отредактирован 😊');
+    }
+
+    public function destroy($id)
+    {
+        $contract = Contract::findOrFail($id);
+        $contract->delete();
+        return redirect()->route('contracts.list')->with('success', 'Контракт успешно удален 😊');
+
+    }
 }
 

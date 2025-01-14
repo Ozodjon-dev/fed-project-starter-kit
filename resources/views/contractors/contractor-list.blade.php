@@ -3,7 +3,37 @@
 @section('title', 'Список контрагентов')
 
 @section('content')
-    <nav class="navbar navbar-expand">
+
+    @if (session('success'))
+    <div class="d-inline-block">
+        <!-- Modal -->
+        <div class="modal fade text-center modal-size-xs" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <span class="modal-body rounded">
+                        {{ session('success') }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- JavaScript kodini qo'shish: Modalni avtomatik ochish va yopish --}}
+    <script>
+        // Sahifa yuklanganda modalni avtomatik ochish
+        document.addEventListener('DOMContentLoaded', function () {
+            var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+
+            // 3 soniya o‘tgach, modalni yopish
+            setTimeout(function () {
+                successModal.hide();
+            }, 3000); // 3000 millisekund = 3 soniya
+        });
+    </script>
+@endif
+
+<nav class="navbar navbar-expand">
         <div class="navbar-collapse">
             <button onclick="location.href='{{ route('main.index') }}'"
                     class="btn btn-sm btn-primary shadow" type="button"
@@ -22,7 +52,7 @@
 
             <div class="d-flex w-100 justify-content-between">
                 <!-- Qidiruv Formasi -->
-                <div class="input-group w-100 w-lg-auto me-2">
+                <div class="input-group w-100 w-lg-auto me-1">
                     <form method="GET" action="{{ route('contractors.list') }}" class="w-100 d-flex">
                         <input type="text" class="form-control shadow-sm ms-1" placeholder="Поиск" name="search"
                                value="{{ request('search') }}">

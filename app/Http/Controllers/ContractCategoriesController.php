@@ -40,7 +40,7 @@ class ContractCategoriesController extends Controller
             'name' => 'required'
         ]);
         ContractCategory::create($data);
-        return redirect()->route('contract_categories.list');
+        return redirect()->route('contract_categories.list')->with('success', 'Категория успешно сохранена 😊');
     }
 
     public function show($id)
@@ -62,14 +62,14 @@ class ContractCategoriesController extends Controller
             'name' => 'required'
         ]);
         $category->update($data);
-        return redirect()->route('contract_categories.show', $id);
+        return redirect()->route('contract_categories.show', $id)->with('success', 'Категория успешно отредактирована 😊');
     }
 
     public function destroy($id)
     {
         $category = ContractCategory::findOrFail($id);
         $category->delete();
-        return redirect()->route('contract_categories.list');
+        return redirect()->route('contract_categories.list')->with('success', 'Категория успешно удалена 😊');
 
     }
 }

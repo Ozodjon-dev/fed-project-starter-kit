@@ -60,8 +60,11 @@ Route::get('/payment_order/print',  [PaymentOrdersController::class, 'print'])->
 // contracts Route
 Route::get('/contract/list',  [ContractsController::class, 'list'])->name('contracts.list');
 Route::get('/contract/add',  [ContractsController::class, 'add'])->name('contracts.add');
-Route::post('/contract/add',  [ContractsController::class, 'store'])->name('contracts.store');
-Route::get('/contract/edit',  [ContractsController::class, 'edit'])->name('contracts.edit');
+Route::post('/contract',  [ContractsController::class, 'store'])->name('contracts.store');
+Route::get('/contract/{id}',  [ContractsController::class, 'show'])->name('contracts.show');
+Route::get('/contract/{id}/edit',  [ContractsController::class, 'edit'])->name('contracts.edit');
+Route::patch('/contract/{id}',  [ContractsController::class, 'update'])->name('contracts.update');
+Route::delete('/contract/{id}',  [ContractsController::class, 'destroy'])->name('contracts.delete');
 
 // contractors Route
 Route::get('/contractor/list',  [ContractorsController::class, 'list'])->name('contractors.list');
@@ -72,7 +75,7 @@ Route::get('/contractor/{id}/edit',  [ContractorsController::class, 'edit'])->na
 Route::patch('/contractor/{id}',  [ContractorsController::class, 'update'])->name('contractors.update');
 Route::delete('/contractor/{id}',  [ContractorsController::class, 'destroy'])->name('contractors.delete');
 
-// contractors Route
+// contract categories Route
 Route::get('/contracts_category/list',  [ContractCategoriesController::class, 'list'])->name('contract_categories.list');
 Route::get('/contracts_category/add',  [ContractCategoriesController::class, 'add'])->name('contract_categories.add');
 Route::post('/contracts_category/add',  [ContractCategoriesController::class, 'store'])->name('contract_categories.store');

@@ -1,6 +1,37 @@
 @extends('layouts/contentLayoutMaster')
 @section('title', 'Контрагент')
 @section('content')
+
+    @if (session('success'))
+        <div class="d-inline-block">
+            <!-- Modal -->
+            <div class="modal fade text-center modal-size-xs" id="successModal" tabindex="-1"
+                 aria-labelledby="successModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <span class="modal-body rounded">
+                        {{ session('success') }}
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- JavaScript kodini qo'shish: Modalni avtomatik ochish va yopish --}}
+        <script>
+            // Sahifa yuklanganda modalni avtomatik ochish
+            document.addEventListener('DOMContentLoaded', function () {
+                var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+
+                // 3 soniya o‘tgach, modalni yopish
+                setTimeout(function () {
+                    successModal.hide();
+                }, 3000); // 3000 millisekund = 3 soniya
+            });
+        </script>
+    @endif
+
     <nav class="navbar navbar-expand-lg">
 
         <div class="collapse navbar-collapse" id="navbarScroll">
@@ -71,7 +102,8 @@
                             </button>
                         </form>
                         <div class="d-inline-block ms-1">
-                            <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-primary" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-primary"
+                                    data-bs-toggle="modal"
                                     data-bs-target="#danger">
                                 <i data-feather="trash"></i>
                             </button>

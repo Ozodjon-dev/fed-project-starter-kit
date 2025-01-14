@@ -26,7 +26,6 @@ class ContractorsController extends Controller
         return view('contractors/contractor-list', compact('contractors'));
     }
 
-
     public function add()
     {
         $banks = DB::table('banks')->get();
@@ -43,7 +42,7 @@ class ContractorsController extends Controller
             'bank_code' => 'required'
         ]);
         Contractor::create($data);
-        return redirect()->route('contractors.list');
+        return redirect()->route('contractors.list')->with('success', 'Контрагент успешно сохранен 😊');
     }
 
     public function show($id)
@@ -70,14 +69,14 @@ class ContractorsController extends Controller
             'bank_code' => 'required'
         ]);
         $contractor->update($data);
-        return redirect()->route('contractors.show', $id);
+        return redirect()->route('contractors.show', $id)->with('success', 'Контрагент успешно отредактирован 😊');
     }
 
     public function destroy($id)
     {
         $contractor = Contractor::findOrFail($id);
         $contractor->delete();
-        return redirect()->route('contractors.list');
+        return redirect()->route('contractors.list')->with('success', 'Контрагент успешно удален 😊');
 
     }
 }

@@ -3,6 +3,37 @@
 @section('title', 'Список категорий')
 
 @section('content')
+
+    {{-- Modalni tekshirish va ko'rsatish --}}
+    @if (session('success'))
+        <div class="d-inline-block">
+            <!-- Modal -->
+            <div class="modal fade text-center modal-size-xs" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <span class="modal-body rounded">
+                        {{ session('success') }}
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- JavaScript kodini qo'shish: Modalni avtomatik ochish va yopish --}}
+        <script>
+            // Sahifa yuklanganda modalni avtomatik ochish
+            document.addEventListener('DOMContentLoaded', function () {
+                var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+
+                // 3 soniya o‘tgach, modalni yopish
+                setTimeout(function () {
+                    successModal.hide();
+                }, 3000); // 3000 millisekund = 3 soniya
+            });
+        </script>
+    @endif
+
     <nav class="navbar navbar-expand">
         <div class="navbar-collapse" id="navbarScroll">
             <div class="">
@@ -22,7 +53,7 @@
                     </button>
                 </form>
             </div>
-            <div class="input-group ms-lg-75">
+            <div class="input-group ms-0">
                 <form method="GET" action="{{ route('contract_categories.list') }}" class="w-100 d-flex">
                     <input type="text" class="form-control shadow-sm ms-1" placeholder="Поиск" name="search"
                            value="{{ request('search') }}">

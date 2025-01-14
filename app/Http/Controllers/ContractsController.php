@@ -12,7 +12,8 @@ class ContractsController extends Controller
 {
     public function list()
     {
-        return view('contracts/contract-list');
+        $contracts = Contract::all();
+        return view('contracts/contract-list', compact('contracts'));
     }
 
     public function add()
@@ -22,26 +23,6 @@ class ContractsController extends Controller
         $classificators = Classificator::all()->sortBy('article');
         return view('contracts/contract-add', compact('contractors', 'categories', 'classificators'));
     }
-
-//    public function store()
-//    {
-//        $data = request()->validate([
-//            'registration_number' => 'required',
-//            'registration_date' => 'required',
-//            'type' => 'required',
-//            'number' => 'required',
-//            'date' => 'required',
-//            'contractor' => 'required',
-//            'category' => 'required',
-//            'details' => 'required',
-//            'article' => 'required',
-//            'amount' => 'required',
-//            'term' => 'required',
-//            'status' => 'required',
-//        ]);
-//        Contract::create($data);
-//        return redirect()->route('contracts.list');
-//    }
 
     public function store(Request $request)
     {

@@ -65,6 +65,7 @@ Route::get('/contract/{id}',  [ContractsController::class, 'show'])->name('contr
 Route::get('/contract/{id}/edit',  [ContractsController::class, 'edit'])->name('contracts.edit');
 Route::patch('/contract/{id}',  [ContractsController::class, 'update'])->name('contracts.update');
 Route::delete('/contract/{id}',  [ContractsController::class, 'destroy'])->name('contracts.delete');
+Route::get('/contracts/export', [ContractsController::class, 'exportContracts'])->name('contracts.export');
 
 // contractors Route
 Route::get('/contractor/list',  [ContractorsController::class, 'list'])->name('contractors.list');

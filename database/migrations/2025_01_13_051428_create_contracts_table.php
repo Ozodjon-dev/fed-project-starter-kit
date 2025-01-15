@@ -25,6 +25,7 @@ return new class extends Migration {
             $table->string('article')->nullable();
             $table->decimal('amount', 20, 2)
                 ->default(0.00)
+                ->nullable()
                 ->unsigned()
                 ->index();
             $table->date('term')->nullable();

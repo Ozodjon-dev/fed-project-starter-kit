@@ -19,4 +19,5 @@ class Contract extends Model
         'amount', 'term'
     ];
 
+
 }

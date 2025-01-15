@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ContractExport;
 use App\Models\Classificator;
 use App\Models\Contract;
 use App\Models\ContractCategory;
 use App\Models\Contractor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ContractsController extends Controller
 {
     public function list()
     {
-        $contracts = Contract::all();
+        $contracts = Contract::Paginate(10);
         return view('contracts/contract-list', compact('contracts'));
     }
 
@@ -38,13 +40,19 @@ class ContractsController extends Controller
             'category' => '',
             'details' => '',
             'article' => '',
-            'amount' => '',
+            'amount' => 'nullable|numeric', // Even if amount is empty, it checks it as a numeric value
             'term' => '',
         ]);
 
-        // Saqlash jarayoni
+        // If the amount value is not entered, change it to 0.00
+        if (empty($validated['amount'])) {
+            $validated['amount'] = 0.00;
+        }
+
+        // Storage process
         Contract::create($validated);
 
+        // After saving the new contract, return to the list
         return redirect()->route('contracts.list', compact('classificators'))->with('success', 'Контракт успешно сохранен 😊');
     }
 
@@ -76,9 +84,15 @@ class ContractsController extends Controller
             'category' => '',
             'details' => '',
             'article' => '',
-            'amount' => '',
+            'amount' => 'nullable|numeric', // Even if amount is empty, it checks it as a numeric value
             'term' => '',
         ]);
+
+        // If the amount value is not entered, change it to 0.00
+        if (empty($validated['amount'])) {
+            $validated['amount'] = 0.00;
+        }
+
         $contract->update($validated);
         return redirect()->route('contracts.show', $id)->with('success', 'Контракт успешно отредактирован 😊');
     }
@@ -89,6 +103,12 @@ class ContractsController extends Controller
         $contract->delete();
         return redirect()->route('contracts.list')->with('success', 'Контракт успешно удален 😊');
 
+    }
+
+    // Export contracts in Excel format
+    public function exportContracts()
+    {
+        return Excel::download(new ContractExport, 'contracts.xlsx');
     }
 }
 

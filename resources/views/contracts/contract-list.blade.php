@@ -73,17 +73,15 @@
             <thead>
             <tr class="align-middle align-content-center">
                 <th scope="col">#</th>
-                <th scope="col">Рег. №</th>
-                <th scope="col" style="min-width: 100px">Дата рег.</th>
                 <th scope="col">Тип договора</th>
-                <th scope="col" style="min-width: 100px">Номер</th>
-                <th scope="col">Дата договора</th>
+                <th scope="col">Номер</th>
+                <th scope="col" style="max-width: 90px">Дата договора</th>
                 <th scope="col">Контрагент</th>
                 <th scope="col">Категория</th>
                 <th scope="col">Предмет</th>
                 <th class="col">Статья</th>
                 <th scope="col" style="min-width: 150px">Сумма</th>
-                <th scope="col">Срок договора</th>
+                <th scope="col" style="min-width: 150px">Срок договора</th>
                 <th scope="col">Статус</th>
                 <th scope="col"></th>
             </tr>
@@ -108,9 +106,7 @@
                 @endphp
                 <tr>
                     <th>{{ $contract->id }}</th>
-                    <td>{{ $contract->registration_number }}</td>
-                    <td>{{ $contract->registration_date }}</td>
-                    <td>{{ $contract->type }}</td>
+                    <td style="max-width: 100px">{{ $contract->type }}</td>
                     <td>{{ $contract->number }}</td>
                     <td>{{ $contract->date }}</td>
                     <td>{{ $contract->contractor }}</td>

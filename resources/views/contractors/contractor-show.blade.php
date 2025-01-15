@@ -53,8 +53,9 @@
             </div>
         </form>
 
-        <a href="{{ route('contractors.add') }}" class="btn btn-icon btn-success ms-1 btn-sm">
-            <i data-feather="plus"></i>
+        <a href="{{ route('contractors.add') }}" class="btn btn-icon btn-primary ms-auto btn-sm"
+           style="border-radius: 50%">
+            <i data-feather="plus" class="text-white"></i>
         </a>
     </div>
 

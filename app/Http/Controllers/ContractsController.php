@@ -28,7 +28,8 @@ class ContractsController extends Controller
                 ->orWhere('details', 'like', "%{$search}%")
                 ->orWhere('article', 'like', "%{$search}%")
                 ->orWhere('amount', 'like', "%{$search}%")
-                ->orWhere('term', 'like', "%{$search}%");
+                ->orWhere('term', 'like', "%{$search}%")
+                ->orWhere('status', 'like', "%{$search}%");
         })
             ->paginate(10);
 

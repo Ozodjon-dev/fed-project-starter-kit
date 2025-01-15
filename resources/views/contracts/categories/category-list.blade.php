@@ -55,9 +55,9 @@
             </div>
         </form>
 
-
-        <a href="{{ route('contract_categories.add') }}" class="btn btn-icon btn-success ms-1 btn-sm">
-            <i data-feather="plus"></i>
+        <a href="{{ route('contract_categories.add') }}" class="btn btn-icon btn-primary ms-auto btn-sm"
+           style="border-radius: 50%">
+            <i data-feather="plus" class="text-white"></i>
         </a>
     </div>
 
@@ -76,16 +76,11 @@
                 <tr>
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->name}}</td>
-                    <td style="max-width: 45px">
-                        <div class="btn-group me-2" style="max-width: 45px">
-                            <div class="d-inline-block ms-1" style="align-items: center">
-                                <a href="{{ route('contract_categories.show', $category->id) }}">
-                                    <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-primary">
-                                        <i data-feather="eye"></i>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
+                    <td style="max-width: 50px">
+                        <a href="{{ route('contract_categories.show', $category->id) }}" type="button"
+                           class="btn btn-icon rounded-circle btn-flat-primary">
+                            <i data-feather="eye"></i>
+                        </a>
                     </td>
                 </tr>
             @endforeach

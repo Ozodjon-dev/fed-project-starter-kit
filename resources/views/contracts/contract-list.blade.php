@@ -60,11 +60,13 @@
             </div>
         </form>
 
-
-        <a href="{{ route('contracts.add') }}" class="btn btn-icon btn-success ms-1 btn-sm">
-            <i data-feather="plus"></i>
+        <!-- Move the plus button to the right -->
+        <a href="{{ route('contracts.add') }}" class="btn btn-icon btn-primary ms-auto btn-sm"
+           style="border-radius: 50%">
+            <i data-feather="plus" class="text-white"></i>
         </a>
     </div>
+
 
     <div class="table-responsive rounded">
         <table class="table table-responsive table-bordered table-sm" style="text-align: center">
@@ -82,6 +84,7 @@
                 <th class="col">Статья</th>
                 <th scope="col" style="min-width: 150px">Сумма</th>
                 <th scope="col">Срок договора</th>
+                <th scope="col">Статус</th>
                 <th scope="col"></th>
             </tr>
             </thead>
@@ -131,15 +134,17 @@
                         <small class="text-muted">{{ $contract->term }}</small>
                     </td>
                     <td>
-                        <div class="btn-group me-2" style="max-width: 45px">
-                            <div class="d-inline-block ms-1" style="align-items: center">
-                                <a href="{{ route('contracts.show', $contract->id) }}">
-                                    <button type="button" class="btn btn-icon rounded-circle btn-flat-primary">
-                                        <i data-feather="eye"></i>
-                                    </button>
-                                </a>
+                        <div class="invoice_status">
+                            <div class="invoice_status" role="status">
+
                             </div>
                         </div>
+                    </td>
+                    <td style="max-width: 50px">
+                        <a href="{{ route('contracts.show', $contract->id) }}" type="button"
+                           class="btn btn-icon rounded-circle btn-flat-primary">
+                            <i data-feather="eye"></i>
+                        </a>
                     </td>
                 </tr>
             @endforeach

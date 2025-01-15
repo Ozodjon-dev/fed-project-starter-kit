@@ -54,8 +54,9 @@
         </form>
 
 
-        <a href="{{ route('contractors.add') }}" class="btn btn-icon btn-success ms-1 btn-sm">
-            <i data-feather="plus"></i>
+        <a href="{{ route('contractors.add') }}" class="btn btn-icon btn-primary ms-auto btn-sm"
+           style="border-radius: 50%">
+            <i data-feather="plus" class="text-white"></i>
         </a>
     </div>
 
@@ -85,14 +86,11 @@
                         <td>{{ $contractor->bank_account }}</td>
                         <td>{{ $contractor->tin }}</td>
                         <td>{{ $contractor->bank_code }}</td>
-                        <td>
-                            <div class="btn-group me-2" style="max-width: 16px">
-                                <a href="{{ route('contractors.show', $contractor->id) }}">
-                                    <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-primary">
-                                        <i data-feather="eye"></i>
-                                    </button>
-                                </a>
-                            </div>
+                        <td style="max-width: 50px">
+                            <a href="{{ route('contractors.show', $contractor->id) }}" type="button"
+                               class="btn btn-icon rounded-circle btn-flat-primary">
+                                <i data-feather="eye"></i>
+                            </a>
                         </td>
                     </tr>
                 @endforeach

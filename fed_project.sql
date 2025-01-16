@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Янв 16 2025 г., 14:33
--- Версия сервера: 9.1.0
+-- Время создания: Янв 16 2025 г., 19:39
+-- Версия сервера: 8.0.39
 -- Версия PHP: 8.3.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -1291,11 +1291,11 @@ INSERT INTO `classificator` (`ID`, `article`, `details`) VALUES
 
 CREATE TABLE `contractors` (
                                `id` bigint UNSIGNED NOT NULL,
-                               `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                               `bank_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                               `bank_account` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                               `tin` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL,
-                               `bank_code` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+                               `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                               `bank_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                               `bank_account` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                               `tin` varchar(9) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                               `bank_code` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
                                `created_at` timestamp NULL DEFAULT NULL,
                                `updated_at` timestamp NULL DEFAULT NULL,
                                `deleted_at` timestamp NULL DEFAULT NULL
@@ -1308,7 +1308,10 @@ CREATE TABLE `contractors` (
 INSERT INTO `contractors` (`id`, `name`, `bank_name`, `bank_account`, `tin`, `bank_code`, `created_at`, `updated_at`, `deleted_at`) VALUES
                                                                                                                                         (1, '\'O‘ZBEKISTON RESPUBLIKASI IQTISODIYOT VA MOLIYA VAZIRLIGI\' DAVLAT MUASSASASI', 'Клиринговый центр розничных платежей Центрального банка', '1321231231231231', '232323233', '00002', '2025-01-15 05:46:43', '2025-01-15 05:46:43', NULL),
                                                                                                                                         (2, 'YaTT \"Pulatov R.X.\"', 'Клиринговый центр мгновенных платежей Центрального банка', '45453453', '45453453', '00003', '2025-01-15 11:29:42', '2025-01-15 11:29:42', NULL),
-                                                                                                                                        (3, 'avtotexxizmat MCHJ', 'Мубарекский филиал АКБ \"Агробанк\"', '34534534', '3456345', '00187', '2025-01-15 11:53:09', '2025-01-15 11:53:09', NULL);
+                                                                                                                                        (3, 'avtotexxizmat MCHJ', 'Мубарекский филиал АКБ \"Агробанк\"', '34534534', '3456345', '00187', '2025-01-15 11:53:09', '2025-01-15 11:53:09', NULL),
+                                                                                                                                        (4, 'jhgcvjvh', 'Расчетно-кассовый центр Центрального банка по Андижанской области', '78768969869869868', '207273386', '00016', '2025-01-16 18:00:07', '2025-01-16 18:00:07', NULL),
+                                                                                                                                        (5, 'fsdfsdefsdfsdf', 'Дустликский филиал АКБ \"Агробанк\"', '2343423423423423', '207273426', '00129', '2025-01-16 18:00:27', '2025-01-16 18:00:27', NULL),
+                                                                                                                                        (6, '\'O‘ZBEKISTON RESPUBLIKASI IQTISODIYOT VA MOLIYA VAZIRLIGI\' DAVLAT MUASSASASI', 'Ферганский филлиал АИКБ \"Ипак Йули\"', '11112222333344445555', '222222222', '01168', '2025-01-16 19:02:11', '2025-01-16 19:02:55', NULL);
 
 -- --------------------------------------------------------
 
@@ -1318,18 +1321,18 @@ INSERT INTO `contractors` (`id`, `name`, `bank_name`, `bank_account`, `tin`, `ba
 
 CREATE TABLE `contracts` (
                              `id` bigint UNSIGNED NOT NULL,
-                             `registration_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                             `registration_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
                              `registration_date` date NOT NULL,
-                             `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                             `number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                             `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                             `number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
                              `date` date NOT NULL,
-                             `contractor` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                             `category` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-                             `details` text COLLATE utf8mb4_unicode_ci,
-                             `article` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                             `contractor` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                             `category` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                             `details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+                             `article` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
                              `amount` decimal(20,2) UNSIGNED DEFAULT '0.00',
                              `term` date DEFAULT NULL,
-                             `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                             `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
                              `created_at` timestamp NULL DEFAULT NULL,
                              `updated_at` timestamp NULL DEFAULT NULL,
                              `deleted_at` timestamp NULL DEFAULT NULL
@@ -1362,7 +1365,7 @@ INSERT INTO `contracts` (`id`, `registration_number`, `registration_date`, `type
 
 CREATE TABLE `contract_categories` (
                                        `id` bigint UNSIGNED NOT NULL,
-                                       `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                       `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
                                        `created_at` timestamp NULL DEFAULT NULL,
                                        `updated_at` timestamp NULL DEFAULT NULL,
                                        `deleted_at` timestamp NULL DEFAULT NULL
@@ -1387,11 +1390,11 @@ INSERT INTO `contract_categories` (`id`, `name`, `created_at`, `updated_at`, `de
 
 CREATE TABLE `failed_jobs` (
                                `id` bigint UNSIGNED NOT NULL,
-                               `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                               `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-                               `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-                               `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-                               `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+                               `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                               `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                               `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                               `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                               `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
                                `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1403,7 +1406,7 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `migrations` (
                               `id` int UNSIGNED NOT NULL,
-                              `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                              `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
                               `batch` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1448,8 +1451,8 @@ INSERT INTO `organizations` (`ID`, `organization_name`, `taxpayer_identification
 --
 
 CREATE TABLE `password_resets` (
-                                   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                                   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                                   `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
                                    `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1461,11 +1464,11 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `personal_access_tokens` (
                                           `id` bigint UNSIGNED NOT NULL,
-                                          `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                          `tokenable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
                                           `tokenable_id` bigint UNSIGNED NOT NULL,
-                                          `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                                          `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-                                          `abilities` text COLLATE utf8mb4_unicode_ci,
+                                          `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                                          `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                                          `abilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
                                           `last_used_at` timestamp NULL DEFAULT NULL,
                                           `created_at` timestamp NULL DEFAULT NULL,
                                           `updated_at` timestamp NULL DEFAULT NULL
@@ -1479,11 +1482,11 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `users` (
                          `id` bigint UNSIGNED NOT NULL,
-                         `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                         `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                         `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                         `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
                          `email_verified_at` timestamp NULL DEFAULT NULL,
-                         `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                         `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                         `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                         `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
                          `created_at` timestamp NULL DEFAULT NULL,
                          `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1611,7 +1614,7 @@ ALTER TABLE `classificator`
 -- AUTO_INCREMENT для таблицы `contractors`
 --
 ALTER TABLE `contractors`
-    MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+    MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `contracts`

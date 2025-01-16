@@ -1,4 +1,4 @@
-@extends('layouts/contentLayoutMaster')
+@extends('layouts.contentLayoutMaster')
 
 @section('title', 'Создать платежное поручение')
 
@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{asset('vendors/css/pickers/flatpickr/flatpickr.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/css/forms/select/select2.min.css')}}">
 @endsection
+
 @section('page-style')
     <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-validation.css')) }}">
     <link rel="stylesheet" href="{{asset('css/base/plugins/forms/pickers/form-flat-pickr.css')}}">
@@ -13,8 +14,9 @@
 @endsection
 
 @section('content')
-    <form class="needs-validation" action="">
-        <section class="invoice-add-wrapper">
+    <section class="invoice-add-wrapper">
+        <form class="needs-validation" action="">
+            @csrf
             <div class="row invoice-add">
                 <!-- Invoice Add Left starts -->
                 <div class="col-xl-9 col-md-8 col-12">
@@ -161,13 +163,15 @@
                                 </div>
                             </div>
                             <div class="d-flex align-items-center">
-                                <div class="d-flex align-items-center" style="min-width: 230px">
-                                    <span class="title">Наименование</span>
-                                    <span class="title ms-50"> получателя:</span>
-                                </div>
-                                <select class="form-select ms-50 form-control shadow-lg rounded" required>
-                                    <option value="">1-организация</option>
-                                    <option value="">2-организация</option>
+                                <label for="contractor" class="title" style="min-width: 230px">Наименование
+                                    получателя:</label>
+                                <select class="form-select rounded ms-5 w-100" required name="contractor"
+                                        id="contractor">
+                                    <option disabled selected>Выберите контрагент</option>
+                                    @foreach($contractors as $contractor)
+                                        <option value="{{ $contractor->name }}"
+                                                data-name="{{ $contractor->name }}">{{ $contractor->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <h6 class="invoice-to-title"><b></b></h6>
@@ -348,82 +352,87 @@
                 <!-- Invoice Add Right ends -->
             </div>
 
-        </section>
-                    </form>
-        <!-- Send Invoice Sidebar -->
-            <form class="needs-validation" novalidate>
-        <div class="modal modal-slide-in fade" id="send-invoice-sidebar" aria-hidden="true">
-            <div class="modal-dialog sidebar-lg">
-                <div class="modal-content p-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
-                    <div class="modal-header mb-1">
-                        <h5 class="modal-title">
-                            <span class="align-middle">Проводка</span>
-                        </h5>
-                    </div>
-                    <div class="modal-body flex-grow-1">
-                        <form>
-                            <div class="d-flex align-items-center">
-                                <div style="min-width: 90px">
-                                    Операция
+
+            <!-- Send Invoice Sidebar -->
+
+            <div class="modal modal-slide-in fade" id="send-invoice-sidebar" aria-hidden="true">
+                <div class="modal-dialog sidebar-lg">
+                    <div class="modal-content p-0">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
+                        <div class="modal-header mb-1">
+                            <h5 class="modal-title">
+                                <span class="align-middle">Проводка</span>
+                            </h5>
+                        </div>
+                        <div class="modal-body flex-grow-1">
+                            <form>
+                                <div class="d-flex align-items-center">
+                                    <div style="min-width: 90px">
+                                        Операция
+                                    </div>
+                                    <select class="form-select mb-75 ms-1 shadow-lg rounded" required>
+                                        <option value="">159.000-100.000</option>
+                                        <option value="">231.000-100.000</option>
+                                    </select>
                                 </div>
-                                <select class="form-select mb-75 ms-1 shadow-lg rounded" required>
-                                    <option value="">159.000-100.000</option>
-                                    <option value="">231.000-100.000</option>
-                                </select>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <div style="min-width: 150px">
-                                    Дебет
+                                <div class="d-flex align-items-center mb-1 w-100">
+                                    <label for="chart_of_account" class="title" style="min-width: 150px">Дебет</label>
+                                    <select class="form-select rounded w-100" name="chart_of_account"
+                                            id="chart_of_account">
+                                        <option disabled selected>Выберите счет</option>
+                                        @foreach($chart_of_accounts as $chart_of_account)
+                                            <option value="{{ $chart_of_account->number }}"
+                                                    data-number="{{ $chart_of_account->number }}">
+                                                {{ $chart_of_account->number }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
-                                <select class="form-select mb-75 ms-1 shadow-lg rounded" required>
-                                    <option value="">159.000</option>
-                                    <option value="">100.000</option>
-                                </select>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <div style="min-width: 150px">
-                                    Кредит
+
+                                <div class="d-flex align-items-center">
+                                    <div style="min-width: 150px">
+                                        Кредит
+                                    </div>
+                                    <select class="form-select mb-75 ms-1 shadow-lg rounded" required>
+                                        <option value="">159.000</option>
+                                        <option value="">100.000</option>
+                                    </select>
                                 </div>
-                                <select class="form-select mb-75 ms-1 shadow-lg rounded" required>
-                                    <option value="">159.000</option>
-                                    <option value="">100.000</option>
-                                </select>
-                            </div>
-                            <hr>
-                            <div class="d-flex align-items-center">
-                                <div class="col" style="min-width: 90px">
-                                    Договор
+                                <hr>
+                                <div class="d-flex align-items-center">
+                                    <div class="col" style="min-width: 90px">
+                                        Договор
+                                    </div>
+                                    <select class="form-select mb-75 ms-1 shadow-lg rounded" required>
+                                        <option value="">№ 71 от 2024.12.21</option>
+                                        <option value="">№ 74 от 2024.11.18</option>
+                                    </select>
                                 </div>
-                                <select class="form-select mb-75 ms-1 shadow-lg rounded" required>
-                                    <option value="">№ 71 от 2024.12.21</option>
-                                    <option value="">№ 74 от 2024.11.18</option>
-                                </select>
-                            </div>
-                            <div class="mb-1">
-                                <label for="invoice-from" class="form-label">Статья</label>
-                                <select class="form-select mb-75 shadow-lg rounded" required>
-                                    @foreach($classificators as $classificator)
-                                        <option value="">
-                                            {{ $classificator->article }} - {{ $classificator->details }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="mb-1 flex-wrap mt-2 card-body">
-                                <a href="" class="btn btn-outline-primary w-100 mb-75"
-                                   data-bs-dismiss="modal">Отмена</a>
-                                <button class="btn btn-primary w-100 mb-75" data-bs-toggle="modal"
-                                        data-bs-target="#send-invoice-sidebar" type="submit">
-                                    Сохранить
-                                </button>
-                            </div>
-                        </form>
+                                <div class="mb-1">
+                                    <label for="invoice-from" class="form-label">Статья</label>
+                                    <select class="form-select mb-75 shadow-lg rounded" required>
+                                        @foreach($classificators as $classificator)
+                                            <option value="">
+                                                {{ $classificator->article }} - {{ $classificator->details }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mb-1 flex-wrap mt-2 card-body">
+                                    <a href="" class="btn btn-outline-primary w-100 mb-75"
+                                       data-bs-dismiss="modal">Отмена</a>
+                                    <button class="btn btn-primary w-100 mb-75" data-bs-toggle="modal"
+                                            data-bs-target="#send-invoice-sidebar" type="submit">
+                                        Сохранить
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </section>
     <!-- /Send Invoice Sidebar -->
 @endsection
 
@@ -433,11 +442,36 @@
     <script src="{{asset('vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
     <script src="{{ asset(mix('vendors/js/forms/cleave/cleave.min.js'))}}"></script>
     <script src="{{ asset(mix('vendors/js/forms/cleave/addons/cleave-phone.us.js'))}}"></script>
-    <script src="{{ asset(mix('vendors/js/forms/validation/jquery.validate.min.js')) }}"></script>
 @endsection
 
 @section('page-script')
     <script src="{{asset('js/scripts/pages/app-invoice.js')}}"></script>
-    <script src="{{ asset(mix('js/scripts/forms/form-input-mask.js')) }}"></script>
-    <script src="{{ asset(mix('js/scripts/forms/form-validation.js')) }}"></script>
+    <script src="{{ asset('js/scripts/forms/form-input-mask.js') }}"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Modal ko'rsatilgandan keyin Select2'ni ishga tushiramiz
+            $('#send-invoice-sidebar').on('shown.bs.modal', function () {
+                // "Счет" select elementini qayta ishlatish
+                $('#chart_of_account').select2({
+                    placeholder: 'Выберите счет',
+                    allowClear: true,
+                    width: '100%'  // Bu yerda width 100% bo'lishi kerak
+                });
+
+                // "Договор" select elementini qayta ishlatish
+                $('#classificator').select2({
+                    placeholder: 'Выберите счет',
+                    allowClear: true,
+                    width: '100%'
+                });
+            });
+            $('#contractor').select2({
+                placeholder: 'Выберите получателя',
+                allowClear: true,
+                width: '100%'
+            });
+        });
+
+    </script>
 @endsection

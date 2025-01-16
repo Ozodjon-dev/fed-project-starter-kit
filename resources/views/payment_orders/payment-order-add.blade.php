@@ -58,122 +58,83 @@
                         <!-- Header ends -->
 
                         <hr class="invoice-spacing"/>
-
-                        <!-- Address and Contact starts -->
                         <div class="card-body invoice-padding pt-0">
-
-                            <div class="d-flex align-items-end">
-                                <div><p class="d-flex align-items-end" style="align-items: center"></p></div>
+                            <!-- Address and Contact starts -->
+                            <div class="d-flex align-items-center">
+                                <label for="contractor" class="title" style="min-width: 235px">Наименование
+                                    плательщика:</label>
+                                <input type="text" id="contractor" name="contractor" readonly
+                                       class="form-control rounded">
                             </div>
 
-                            <div class="invoice-number-date mt-md-0 mt-2">
-                                <div class="d-flex align-items-center mb-1">
-                                    <div class="d-flex align-items-center" style="min-width: 230px">
-                                        <span class="title">Наименование</span>
-                                        <span class="title ms-50"> плательщика:</span>
-                                    </div>
-
-
-                                    <select class="form-select ms-50 form-control rounded shadow-lg">
-                                        <option value="">1-организация</option>
-                                        <option value="">2-организация</option>
-                                    </select>
-
-                                </div>
-                            </div>
                             <h6 class="invoice-to-title"><b></b></h6>
 
                             <div class="row row-bill-to invoice-spacing">
-                                <div class="col ps-0">
-
-                                    <h6 class=""><b>ДЕБЕТ</b></h6>
-                                    <div class="row">
+                                <div class="col-lg-auto mb-md-2 col-bill-to ps-0">
+                                    <h6 class=""><b>КРЕДИТ</b></h6>
+                                    <div class="d-flex">
                                         <div class="d-flex align-items-center mb-1" style="max-width: 1200px">
-                                            <div class="d-flex align-items-center" style="min-width: 230px">
-                                                <span class="title">Расчетный</span>
-                                                <span class="title ms-50">счет</span>
-                                                <span class="title ms-50">плательщика:</span>
+                                            <label class="d-flex align-items-center" for="beneficiary_bank_account"
+                                                   style="min-width: 235px">
+                                                Расчетный счет плательщика:
+                                            </label>
+                                            <input style="min-width: 340px" type="text" id="beneficiary_bank_account"
+                                                   name="beneficiary_bank_account" readonly
+                                                   class="form-control rounded">
+
+                                        </div>
+                                        <div class="d-flex mb-1">
+                                            <div class="col" style="min-width: 93px">
                                             </div>
-                                            <select
-                                                class="form-select col-lg-2 col-12 mb-lg-0 mb-2 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
-                                                style="max-width: 340px">
-                                                <option value="">20209000800976644826</option>
-                                                <option value="">20209000800976644026</option>
-                                                <option value="">3-счет</option>
-                                                <option value="">4-счет</option>
-                                            </select>
-                                            <div class="d-flex align-items-end ms-75" style="min-width: 210px">
-                                                <div class="col">
-                                                </div>
-                                                <span class="title">ИНН</span>
-                                                <span class="title ms-50">плательщика:</span>
+                                            <label class="d-flex align-items-center" for="beneficiary_tin"
+                                                   style="min-width: 134px">ИНН плательщика:</label>
+                                            <input class="form-control rounded w-100" name="beneficiary_tin"
+                                                   id="beneficiary_tin" style="min-width: 200px" required/>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mb-1">
+                                        <div class="d-flex align-items-center mb-0" style="max-width: 1200px">
+                                            <label class="d-flex align-items-center" for="beneficiary_bank_name"
+                                                   style="min-width: 235px">Наимен. банка плательщика:</label>
+                                            <input style="min-width: 340px" type="text" id="beneficiary_bank_name"
+                                                   name="beneficiary_bank_name" readonly
+                                                   class="form-control rounded">
+                                            <div class="col" style="min-width: 52px">
                                             </div>
-                                            <select
-                                                class="form-select col-lg-2 col-1 mb-lg-0 mb-2 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
-                                                style="max-width: 199px">
-                                                <option value="">207256888</option>
-                                                <option value="">201111755</option>
-                                            </select>
+                                        </div>
+                                        <div class="d-flex">
+                                            <label class="d-flex align-items-center" for="beneficiary_bank_code"
+                                                   style="min-width: 175px">Код банка плательщика:</label>
+                                            <input type="text" id="beneficiary_bank_code" name="beneficiary_bank_code"
+                                                   readonly
+                                                   class="form-control rounded"
+                                                   style="min-width: 200px" required>
                                         </div>
 
                                     </div>
                                     <div class="row">
-                                        <div class="d-flex align-items-center mb-1" style="max-width: 1200px">
-                                            <div class="d-flex align-items-center" style="min-width: 230px">
-                                                <span class="title">Наимен.</span>
-                                                <span class="title ms-50">банка</span>
-                                                <span class="title ms-50">плательшика:</span>
-                                            </div>
-                                            <select
-                                                class="form-select col-lg-2 col-12 mb-lg-0 mb-2 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
-                                                style="max-width: 340px">
-                                                <option value="">РКЦ ЦБ по г. Ташкенту</option>
-                                                <option value="">20209000800976644026</option>
-                                                <option value="">3-счет</option>
-                                                <option value="">4-счет</option>
-                                            </select>
-                                            <div class="d-flex align-items-end ms-75" style="min-width: 210px">
-                                                <div class="col">
-                                                </div>
-                                                <span class="title">Код</span>
-                                                <span class="title ms-50">банка</span>
-                                                <span class="title ms-50">плательщика:</span>
-                                            </div>
-                                            <select
-                                                class="form-select col-lg-2 col-1 mb-lg-0 mb-2 mt-lg-0 mt-2 ms-50 shadow-lg form-control rounded"
-                                                style="max-width: 199px">
-                                                <option value="">00014</option>
-                                            </select>
-                                        </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="d-flex align-items-center mb-1" style="max-width: 1200px">
+                                        <div class="d-flex align-items-center" style="max-width: 1200px">
                                             <div class="d-flex align-items-center" style="min-width: 237px">
                                                 <span class="title">СУММА</span>
                                             </div>
                                             <div class="col-xl-4 col-md-6 col-sm-12 mb-2" style="min-width: 340px">
                                                 <input type="text"
-                                                       class="form-control numeral-mask col-12 mb-lg-0 mt-lg-0 shadow-lg rounded"
+                                                       class="form-control numeral-mask col-12 mb-lg-0 mt-lg-0rounded"
                                                        placeholder="10,000" id="numeral-formatting" required/>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
+
+
                             <div class="d-flex align-items-center">
-                                <label for="contractor" class="title" style="min-width: 230px">Наименование
+                                <label for="contractor" class="title" style="min-width: 235px">Наименование
                                     получателя:</label>
-                                <select class="form-select rounded ms-5 w-100" required name="contractor"
-                                        id="contractor">
-                                    <option disabled selected>Выберите контрагент</option>
-                                    @foreach($contractors as $contractor)
-                                        <option value="{{ $contractor->name }}"
-                                                data-name="{{ $contractor->name }}">{{ $contractor->name }}</option>
-                                    @endforeach
-                                </select>
+                                <input type="text" id="contractor" name="contractor" readonly
+                                       class="form-control rounded">
                             </div>
+
                             <h6 class="invoice-to-title"><b></b></h6>
 
                             <div class="row row-bill-to invoice-spacing">
@@ -181,64 +142,46 @@
 
 
                                     <h6 class=""><b>КРЕДИТ</b></h6>
-                                    <div class="row">
+                                    <div class="d-flex">
                                         <div class="d-flex align-items-center mb-1" style="max-width: 1200px">
-                                            <div class="d-flex align-items-center" style="min-width: 230px">
-                                                <span class="title">Расчетный</span>
-                                                <span class="title ms-50">счет</span>
-                                                <span class="title ms-50">получателя:</span>
-                                            </div>
-                                            <select
-                                                class="form-select col-lg-2 ms-50 form-control shadow-lg rounded"
-                                                style="max-width: 340px" required>
-                                                <option value="">20209000800976644826</option>
-                                                <option value="">20209000800976644026</option>
-                                                <option value="">3-счет</option>
-                                                <option value="">4-счет</option>
-                                            </select>
-                                            <div class="d-flex align-items-end ms-75" style="min-width: 210px">
-                                                <div class="col">
-                                                </div>
-                                                <span class="title">ИНН</span>
-                                                <span class="title ms-50">получателя:</span>
-                                            </div>
-                                            <select
-                                                class="form-select col-lg-2 col-1 mb-lg-0 mb-0 mt-lg-0 mt-2 ms-50 form-control shadow-lg rounded"
-                                                style="max-width: 199px" required>
-                                                <option value="">207256888</option>
-                                                <option value="">201111755</option>
-                                            </select>
-                                        </div>
+                                            <label class="d-flex align-items-center" for="beneficiary_bank_account"
+                                                   style="min-width: 235px">
+                                                Расчетный счет получателя:
+                                            </label>
+                                            <input style="min-width: 340px" type="text" id="beneficiary_bank_account"
+                                                   name="beneficiary_bank_account" readonly
+                                                   class="form-control rounded">
 
+                                        </div>
+                                        <div class="d-flex mb-1">
+                                            <div class="col" style="min-width: 105px">
+                                            </div>
+                                            <label class="d-flex align-items-center" for="beneficiary_tin"
+                                                   style="min-width: 122px">ИНН получателя:</label>
+                                            <input class="form-control rounded w-100" name="beneficiary_tin"
+                                                   id="beneficiary_tin" style="min-width: 200px" required/>
+                                        </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="d-flex">
                                         <div class="d-flex align-items-center mb-0" style="max-width: 1200px">
-                                            <div class="d-flex align-items-center" style="min-width: 230px">
-                                                <span class="title">Наимен.</span>
-                                                <span class="title ms-50">банка</span>
-                                                <span class="title ms-50">получателя:</span>
+                                            <label class="d-flex align-items-center" for="beneficiary_bank_name"
+                                                   style="min-width: 235px">Наимен. банка получателя:</label>
+                                            <input style="min-width: 340px" type="text" id="beneficiary_bank_name"
+                                                   name="beneficiary_bank_name" readonly
+                                                   class="form-control rounded">
+                                            <div class="col" style="min-width: 65px">
                                             </div>
-                                            <input
-                                                class="form-control col-lg-2 col-12 mb-lg-0 mt-lg-0 ms-50 shadow-lg rounded"
-                                                style="max-width: 340px" required>
-                                            <div class="d-flex align-items-end ms-75" style="min-width: 210px">
-                                                <div class="col">
-                                                </div>
-                                                <span class="title">Код</span>
-                                                <span class="title ms-50">банка</span>
-                                                <span class="title ms-50">получателя:</span>
-                                            </div>
-                                            <input
-                                                class="col-1 mb-lg-0 mt-lg-0 ms-50 form-control shadow-lg rounded"
-                                                style="max-width: 199px" required>
                                         </div>
-
+                                        <div class="d-flex">
+                                            <label class="d-flex align-items-center" for="beneficiary_bank_code"
+                                                   style="min-width: 162px">Код банка получателя:</label>
+                                            <input type="text" id="beneficiary_bank_code" name="beneficiary_bank_code"
+                                                   readonly
+                                                   class="form-control rounded"
+                                                   style="min-width: 200px" required>
+                                        </div>
                                     </div>
-
-
                                 </div>
-
-
                             </div>
 
                             <div class="mt-md-0 mt-2">
@@ -401,7 +344,8 @@
                                         @foreach($contracts as $contract)
                                             <option value="{{ $contract->number }}"
                                                     data-number="{{ $contract->number }}">
-                                                № {{ $contract->number }} от {{ $contract->date }} с {{ $contract->contractor }}
+                                                № {{ $contract->number }} от {{ $contract->date }}
+                                                с {{ $contract->contractor }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -410,7 +354,8 @@
                                     <label for="article" class="title">Статья</label>
                                     <select class="form-select mb-75 rounded" name="article" id="article">
                                         @foreach($classificators as $classificator)
-                                            <option value="{{ $classificator->article }}" data-article="{{ $classificator->article }}">
+                                            <option value="{{ $classificator->article }}"
+                                                    data-article="{{ $classificator->article }}">
                                                 {{ $classificator->article }} - {{ $classificator->details }}
                                             </option>
                                         @endforeach
@@ -447,7 +392,23 @@
     <script src="{{ asset('js/scripts/forms/form-input-mask.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Modal ochilganda Select2 qayta boshlash
+            document.getElementById('beneficiary_tin').addEventListener('input', function () {
+                const contractors = @json($contractors);
+                const tinValue = this.value;
+                const matchedContractor = contractors.find(contractor => contractor.tin === tinValue);
+
+                if (matchedContractor) {
+                    document.getElementById('beneficiary_bank_name').value = matchedContractor.bank_name;
+                    document.getElementById('beneficiary_bank_code').value = matchedContractor.bank_code;
+                    document.getElementById('beneficiary_bank_account').value = matchedContractor.bank_account;
+                    document.getElementById('contractor').value = matchedContractor.name;
+                } else {
+                    document.getElementById('beneficiary_bank_name').value = '';
+                    document.getElementById('beneficiary_bank_code').value = '';
+                    document.getElementById('beneficiary_bank_account').value = '';
+                    document.getElementById('contractor').value = '';
+                }
+            });
             $('#send-invoice-sidebar').on('shown.bs.modal', function () {
                 $('#debit_chart_of_account').select2({
                     placeholder: 'Выберите счет',
@@ -456,7 +417,6 @@
                     width: '100%'
                 });
             });
-
             $('#send-invoice-sidebar').on('shown.bs.modal', function () {
                 $('#credit_chart_of_account').select2({
                     placeholder: 'Выберите счет',
@@ -465,7 +425,6 @@
                     width: '100%'
                 });
             });
-
             $('#send-invoice-sidebar').on('shown.bs.modal', function () {
                 $('#contract').select2({
                     placeholder: 'Выберите счет',
@@ -474,7 +433,6 @@
                     width: '100%'
                 });
             });
-
             $('#send-invoice-sidebar').on('shown.bs.modal', function () {
                 $('#article').select2({
                     placeholder: 'Выберите счет',
@@ -484,12 +442,6 @@
                 });
             });
 
-            // Contractor select2 init qilish
-            $('#contractor').select2({
-                placeholder: 'Выберите получателя',
-                allowClear: true,
-                width: '100%'
-            });
         });
     </script>
 

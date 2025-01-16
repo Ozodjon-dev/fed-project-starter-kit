@@ -65,7 +65,7 @@
                                 <div class="col-12">
                                     <label class="title" for="bank_name">Наименование банка</label>
                                     <input type="text" id="bank_name" name="bank_name" readonly
-                                           class="form-control rounded" />
+                                           class="form-control rounded">
                                 </div>
                             </div>
                         </div>

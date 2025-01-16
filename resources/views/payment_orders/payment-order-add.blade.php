@@ -61,9 +61,9 @@
                         <div class="card-body invoice-padding pt-0">
                             <!-- Address and Contact starts -->
                             <div class="d-flex align-items-center">
-                                <label for="contractor" class="title" style="min-width: 235px">Наименование
+                                <label for="applicant" class="title" style="min-width: 235px">Наименование
                                     плательщика:</label>
-                                <input type="text" id="contractor" name="contractor" readonly
+                                <input type="text" id="applicant" name="applicant" readonly
                                        class="form-control rounded">
                             </div>
 
@@ -74,38 +74,38 @@
                                     <h6 class=""><b>КРЕДИТ</b></h6>
                                     <div class="d-flex">
                                         <div class="d-flex align-items-center mb-1" style="max-width: 1200px">
-                                            <label class="d-flex align-items-center" for="beneficiary_bank_account"
+                                            <label class="d-flex align-items-center" for="applicant_bank_account"
                                                    style="min-width: 235px">
                                                 Расчетный счет плательщика:
                                             </label>
-                                            <input style="min-width: 340px" type="text" id="beneficiary_bank_account"
-                                                   name="beneficiary_bank_account" readonly
+                                            <input style="min-width: 340px" type="text" id="applicant_bank_account"
+                                                   name="applicant_bank_account" readonly
                                                    class="form-control rounded">
 
                                         </div>
                                         <div class="d-flex mb-1">
                                             <div class="col" style="min-width: 93px">
                                             </div>
-                                            <label class="d-flex align-items-center" for="beneficiary_tin"
+                                            <label class="d-flex align-items-center" for="applicant_tin"
                                                    style="min-width: 134px">ИНН плательщика:</label>
-                                            <input class="form-control rounded w-100" name="beneficiary_tin"
-                                                   id="beneficiary_tin" style="min-width: 200px" required/>
+                                            <input class="form-control rounded w-100" name="applicant_tin"
+                                                   id="applicant_tin" style="min-width: 200px" required/>
                                         </div>
                                     </div>
                                     <div class="d-flex mb-1">
                                         <div class="d-flex align-items-center mb-0" style="max-width: 1200px">
-                                            <label class="d-flex align-items-center" for="beneficiary_bank_name"
+                                            <label class="d-flex align-items-center" for="applicant_bank_name"
                                                    style="min-width: 235px">Наимен. банка плательщика:</label>
-                                            <input style="min-width: 340px" type="text" id="beneficiary_bank_name"
-                                                   name="beneficiary_bank_name" readonly
+                                            <input style="min-width: 340px" type="text" id="applicant_bank_name"
+                                                   name="applicant_bank_name" readonly
                                                    class="form-control rounded">
                                             <div class="col" style="min-width: 52px">
                                             </div>
                                         </div>
                                         <div class="d-flex">
-                                            <label class="d-flex align-items-center" for="beneficiary_bank_code"
+                                            <label class="d-flex align-items-center" for="applicant_bank_code"
                                                    style="min-width: 175px">Код банка плательщика:</label>
-                                            <input type="text" id="beneficiary_bank_code" name="beneficiary_bank_code"
+                                            <input type="text" id="applicant_bank_code" name="applicant_bank_code"
                                                    readonly
                                                    class="form-control rounded"
                                                    style="min-width: 200px" required>

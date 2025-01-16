@@ -366,53 +366,51 @@
                         </div>
                         <div class="modal-body flex-grow-1">
                             <form>
-                                <div class="d-flex align-items-center">
-                                    <div style="min-width: 90px">
-                                        Операция
-                                    </div>
-                                    <select class="form-select mb-75 ms-1 shadow-lg rounded" required>
-                                        <option value="">159.000-100.000</option>
-                                        <option value="">231.000-100.000</option>
-                                    </select>
-                                </div>
-                                <div class="d-flex align-items-center mb-1 w-100">
-                                    <label for="chart_of_account" class="title" style="min-width: 150px">Дебет</label>
+                                <div class="align-items-center mb-1 w-100">
+                                    <label for="chart_of_account" class="title">Дебет</label>
                                     <select class="form-select rounded w-100" name="chart_of_account"
-                                            id="chart_of_account">
+                                            id="debit_chart_of_account">
                                         <option disabled selected>Выберите счет</option>
                                         @foreach($chart_of_accounts as $chart_of_account)
                                             <option value="{{ $chart_of_account->number }}"
                                                     data-number="{{ $chart_of_account->number }}">
-                                                {{ $chart_of_account->number }}
+                                                {{ $chart_of_account->number }} - {{ $chart_of_account->name }}
                                             </option>
                                         @endforeach
                                     </select>
                                 </div>
-
-                                <div class="d-flex align-items-center">
-                                    <div style="min-width: 150px">
-                                        Кредит
-                                    </div>
-                                    <select class="form-select mb-75 ms-1 shadow-lg rounded" required>
-                                        <option value="">159.000</option>
-                                        <option value="">100.000</option>
+                                <div class="align-items-center mb-1 w-100">
+                                    <label for="chart_of_account" class="title">Кредит</label>
+                                    <select class="form-select rounded w-100" name="chart_of_account"
+                                            id="credit_chart_of_account">
+                                        <option disabled selected>Выберите счет</option>
+                                        @foreach($chart_of_accounts as $chart_of_account)
+                                            <option value="{{ $chart_of_account->number }}"
+                                                    data-number="{{ $chart_of_account->number }}">
+                                                {{ $chart_of_account->number }} - {{ $chart_of_account->name }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <hr>
-                                <div class="d-flex align-items-center">
-                                    <div class="col" style="min-width: 90px">
-                                        Договор
-                                    </div>
-                                    <select class="form-select mb-75 ms-1 shadow-lg rounded" required>
-                                        <option value="">№ 71 от 2024.12.21</option>
-                                        <option value="">№ 74 от 2024.11.18</option>
+                                <div class="align-items-center mb-1 w-100">
+                                    <label for="contract" class="title">Договор</label>
+                                    <select class="form-select rounded w-100" name="contract"
+                                            id="contract">
+                                        <option disabled selected>Выберите договор</option>
+                                        @foreach($contracts as $contract)
+                                            <option value="{{ $contract->number }}"
+                                                    data-number="{{ $contract->number }}">
+                                                № {{ $contract->number }} от {{ $contract->date }} с {{ $contract->contractor }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-1">
-                                    <label for="invoice-from" class="form-label">Статья</label>
-                                    <select class="form-select mb-75 shadow-lg rounded" required>
+                                    <label for="article" class="title">Статья</label>
+                                    <select class="form-select mb-75 rounded" name="article" id="article">
                                         @foreach($classificators as $classificator)
-                                            <option value="">
+                                            <option value="{{ $classificator->article }}" data-article="{{ $classificator->article }}">
                                                 {{ $classificator->article }} - {{ $classificator->details }}
                                             </option>
                                         @endforeach
@@ -448,30 +446,51 @@
     <script src="{{asset('js/scripts/pages/app-invoice.js')}}"></script>
     <script src="{{ asset('js/scripts/forms/form-input-mask.js') }}"></script>
     <script>
-
         document.addEventListener('DOMContentLoaded', function () {
-            // Modal ko'rsatilgandan keyin Select2'ni ishga tushiramiz
+            // Modal ochilganda Select2 qayta boshlash
             $('#send-invoice-sidebar').on('shown.bs.modal', function () {
-                // "Счет" select elementini qayta ishlatish
-                $('#chart_of_account').select2({
+                $('#debit_chart_of_account').select2({
                     placeholder: 'Выберите счет',
                     allowClear: true,
-                    width: '100%'  // Bu yerda width 100% bo'lishi kerak
-                });
-
-                // "Договор" select elementini qayta ishlatish
-                $('#classificator').select2({
-                    placeholder: 'Выберите счет',
-                    allowClear: true,
+                    dropdownParent: $('#send-invoice-sidebar'), // Modal ichida ishlash
                     width: '100%'
                 });
             });
+
+            $('#send-invoice-sidebar').on('shown.bs.modal', function () {
+                $('#credit_chart_of_account').select2({
+                    placeholder: 'Выберите счет',
+                    allowClear: true,
+                    dropdownParent: $('#send-invoice-sidebar'), // Modal ichida ishlash
+                    width: '100%'
+                });
+            });
+
+            $('#send-invoice-sidebar').on('shown.bs.modal', function () {
+                $('#contract').select2({
+                    placeholder: 'Выберите счет',
+                    allowClear: true,
+                    dropdownParent: $('#send-invoice-sidebar'), // Modal ichida ishlash
+                    width: '100%'
+                });
+            });
+
+            $('#send-invoice-sidebar').on('shown.bs.modal', function () {
+                $('#article').select2({
+                    placeholder: 'Выберите счет',
+                    allowClear: true,
+                    dropdownParent: $('#send-invoice-sidebar'), // Modal ichida ishlash
+                    width: '100%'
+                });
+            });
+
+            // Contractor select2 init qilish
             $('#contractor').select2({
                 placeholder: 'Выберите получателя',
                 allowClear: true,
                 width: '100%'
             });
         });
-
     </script>
+
 @endsection

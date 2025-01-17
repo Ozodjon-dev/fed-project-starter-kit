@@ -18,14 +18,11 @@
         <form class="needs-validation" action="">
             @csrf
             <div class="row invoice-add">
-                <!-- Invoice Add Left starts -->
                 <div class="col-xl-9 col-md-8 col-12">
                     <div class="card invoice-preview-card">
-                        <!-- Header starts -->
                         <div class="card-body invoice-padding pb-0">
                             <div class="d-flex justify-content-between flex-md-row flex-column invoice-spacing mt-0">
                                 <div class="container">
-
                                     <div class="logo-wrapper mt-0" style="justify-content: center">
                                         <h3 class="text-uppercase"><b>
                                                 Платежное поручение №
@@ -33,30 +30,26 @@
                                         </h3>
                                         <div class="ms-1 align-items-center">
                                             <h6 class="invoice-title"></h6>
-
                                             <div
-                                                class="input-group input-group-merge invoice-edit-input-group shadow-lg">
-
+                                                class="input-group input-group-merge invoice-edit-input-group">
                                                 <input type="text"
                                                        class="form-control rounded"
                                                        required placeholder="53634"/>
                                             </div>
-
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="invoice-number-date mt-md-0 mt-0">
                                 <div class="d-flex align-items-center ">
-                                    <span class="title" style="min-width: 230px">Дата:</span>
+                                    <div style="min-width: 230px">
+                                        <label class="title" for="">Дата:</label>
+                                    </div>
                                     <input type="text"
-                                           class="form-control invoice-edit-input date-picker ms-50 shadow-lg form-control rounded"/>
+                                           class="form-control invoice-edit-input date-picker ms-50 rounded"/>
                                 </div>
                             </div>
                         </div>
-                        <!-- Header ends -->
-
                         <hr class="invoice-spacing"/>
                         <div class="card-body invoice-padding pt-0">
                             <!-- Address and Contact starts -->
@@ -66,9 +59,7 @@
                                 <input type="text" id="applicant" name="applicant" readonly
                                        class="form-control rounded">
                             </div>
-
                             <h6 class="invoice-to-title"><b></b></h6>
-
                             <div class="row row-bill-to invoice-spacing">
                                 <div class="col-lg-auto mb-md-2 col-bill-to ps-0">
                                     <h6 class=""><b>ДЕБЕТ</b></h6>
@@ -78,9 +69,17 @@
                                                    style="min-width: 235px">
                                                 Расчетный счет плательщика:
                                             </label>
-                                            <input style="min-width: 450px" type="text" id="applicant_bank_account"
-                                                   name="applicant_bank_account" readonly
-                                                   class="form-control rounded">
+                                            <select style="min-width: 450px" name="applicant_bank_account"
+                                                    id="applicant_bank_account"
+                                                    class="form-select rounded">
+                                                <option disabled selected>Выберите расчетный счет</option>
+                                                @foreach($organizations as $organization)
+                                                    <option value="{{ $organization->bank_account }}"
+                                                            data-account="{{ $organization->bank_account }}">
+                                                        {{ $organization->bank_account }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
 
                                         </div>
                                         <div class="d-flex mb-1">
@@ -89,7 +88,7 @@
                                             <label class="d-flex align-items-center" for="applicant_tin"
                                                    style="min-width: 50px">ИНН:</label>
                                             <input class="form-control rounded w-100" name="applicant_tin"
-                                                   id="applicant_tin" style="min-width: 200px" required/>
+                                                   id="applicant_tin" style="min-width: 200px" readonly required/>
                                         </div>
                                     </div>
                                     <div class="d-flex mb-1">
@@ -116,14 +115,13 @@
                                                    style="min-width: 235px">СУММА</label>
                                             <div class="col-xl-4 col-md-6 col-sm-12 mb-2" style="min-width: 450px">
                                                 <input type="text"
-                                                       class="form-control numeral-mask col-12 mb-lg-0 mt-lg-0rounded"
-                                                       placeholder="0,000.00" id="numeral-formatting" required/>
+                                                       class="form-control col-12 mb-lg-0 mt-lg-0 rounded"
+                                                       placeholder="0,000.00" id="word-numeral-formatting" required/>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
 
                             <div class="d-flex align-items-center">
                                 <label for="contractor" class="title" style="min-width: 235px">Наименование
@@ -137,13 +135,12 @@
                             <div class="row row-bill-to invoice-spacing">
                                 <div class="col-lg-auto mb-md-2 col-bill-to ps-0">
 
-
                                     <h6 class=""><b>КРЕДИТ</b></h6>
                                     <div class="d-flex">
                                         <div class="d-flex align-items-center mb-1" style="max-width: 1200px">
                                             <label class="d-flex align-items-center" for="beneficiary_bank_account"
                                                    style="min-width: 235px">
-                                                Расчетный счет плательщика:
+                                                Расчетный счет получателя:
                                             </label>
                                             <input style="min-width: 450px" type="text" id="beneficiary_bank_account"
                                                    name="beneficiary_bank_account" readonly
@@ -156,13 +153,14 @@
                                             <label class="d-flex align-items-center" for="beneficiary_tin"
                                                    style="min-width: 50px">ИНН:</label>
                                             <input class="form-control rounded w-100" name="beneficiary_tin"
-                                                   id="beneficiary_tin" style="min-width: 200px" required/>
+                                                   id="beneficiary_tin" style="min-width: 200px" required
+                                                   placeholder="введите ИНН"/>
                                         </div>
                                     </div>
                                     <div class="d-flex mb-1">
                                         <div class="d-flex align-items-center mb-0" style="max-width: 1200px">
                                             <label class="d-flex align-items-center" for="beneficiary_bank_name"
-                                                   style="min-width: 235px">Наимен. банка плательщика:</label>
+                                                   style="min-width: 235px">Наимен. банка получателя:</label>
                                             <input style="min-width: 450px" type="text" id="beneficiary_bank_name"
                                                    name="beneficiary_bank_name" readonly
                                                    class="form-control rounded">
@@ -183,59 +181,43 @@
                             <div class="mt-md-0 mt-2">
                                 <div class="d-flex align-items-center mb-1">
                                     <div class="d-flex align-items-center" style="min-width: 230px">
-                                        <span class="title">Сумма прописью</span>
+                                        <label class="title">Сумма прописью</label>
                                     </div>
-                                    <input type="text"
-                                           class="form-control ms-50 shadow-lg rounded"
-                                           style="max-width: 1000px" required>
+                                    <textarea type="text"
+                                              class="form-control ms-50 rounded"
+                                              style="max-width: 1000px" id="amountInWords" readonly required></textarea>
                                 </div>
                             </div>
                             <div class="mt-md-0 mt-2 mb-2">
                                 <div class="d-flex align-items-center mb-1">
-
                                     <div class="d-flex align-items-center" style="min-width: 230px">
-                                        <span class="title">Детали</span>
-                                        <span class="title ms-50">платежа</span>
+                                        <label class="title" for="">Детали платежа</label>
                                     </div>
-
-                                    <textarea class="ms-50 form-control shadow-lg rounded">
-
-                                </textarea>
-
+                                    <textarea class="ms-50 form-control rounded text-sm-start">
+                                    </textarea>
                                 </div>
-
                             </div>
-
                             <div class="container" style="height: 25px"></div>
                             <div class="mt-md-0 mt-2 mb-2 ms-50">
-
                                 <div class="d-flex align-items-center mb-1">
-
                                     <div class="d-flex align-items-center" style="min-width: 230px">
                                         <span class="title"></span>
                                         <span class="title ms-50"></span>
                                     </div>
                                     <span class="title">Руководитель __________________________</span>
                                     <span class="title ms-5">Главный бухгалтер __________________________</span>
-
                                 </div>
                                 <div class="d-flex align-items-center mb-1">
-
                                 </div>
                             </div>
                             <div class="mt-md-0 mt-2 ms-50">
-
-
                             </div>
                             <div class="mt-md-0 mt-2 mb-2">
-
                                 <div class="d-flex align-items-center mb-1 invoice-print">
-
                                     <div class="d-flex align-items-center" style="min-width: 230px">
                                         <span class="title"></span>
                                         <span class="title ms-50"></span>
                                     </div>
-
                                     <div class="form-control ms-50 mt-md-0" style="height: 100px">
                                         <div class="row invoice-print">
                                             <div class="col">
@@ -255,19 +237,12 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                        <!-- Address and Contact ends -->
-
-
                     </div>
                 </div>
 
-                <!-- Invoice Add Left ends -->
-
-                <!-- Invoice Add Right starts -->
                 <div class="col-xl-3 col-md-4 col-12">
                     <div class="card">
                         <div class="card-body">
@@ -288,11 +263,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Invoice Add Right ends -->
             </div>
-
-
-            <!-- Send Invoice Sidebar -->
 
             <div class="modal modal-slide-in fade" id="send-invoice-sidebar" aria-hidden="true">
                 <div class="modal-dialog sidebar-lg">
@@ -372,7 +343,6 @@
             </div>
         </form>
     </section>
-    <!-- /Send Invoice Sidebar -->
 @endsection
 
 @section('vendor-script')
@@ -388,6 +358,23 @@
     <script src="{{ asset('js/scripts/forms/form-input-mask.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('applicant_bank_account').addEventListener('input', function () {
+                const organizations = @json($organizations);
+                const bankAccountValue = this.value;
+                const matchedOrganization = organizations.find(organization => organization.bank_account === bankAccountValue);
+
+                if (matchedOrganization) {
+                    document.getElementById('applicant_bank_name').value = matchedOrganization.bank_name;
+                    document.getElementById('applicant_bank_code').value = matchedOrganization.bank_code;
+                    document.getElementById('applicant_tin').value = matchedOrganization.tin;
+                    document.getElementById('applicant').value = matchedOrganization.name;
+                } else {
+                    document.getElementById('applicant_bank_name').value = '';
+                    document.getElementById('applicant_bank_code').value = '';
+                    document.getElementById('applicant_tin').value = '';
+                    document.getElementById('applicant').value = '';
+                }
+            });
             document.getElementById('beneficiary_tin').addEventListener('input', function () {
                 const contractors = @json($contractors);
                 const tinValue = this.value;
@@ -405,6 +392,12 @@
                     document.getElementById('contractor').value = '';
                 }
             });
+            $('#bank_account').select2({
+                placeholder: 'Выберите расчетный счет',
+                allowClear: true,
+                dropdownParent: $('#send-invoice-sidebar'), // Modal ichida ishlash
+                width: '100%'
+            });
             $('#send-invoice-sidebar').on('shown.bs.modal', function () {
                 $('#debit_chart_of_account').select2({
                     placeholder: 'Выберите счет',
@@ -412,24 +405,18 @@
                     dropdownParent: $('#send-invoice-sidebar'), // Modal ichida ishlash
                     width: '100%'
                 });
-            });
-            $('#send-invoice-sidebar').on('shown.bs.modal', function () {
                 $('#credit_chart_of_account').select2({
                     placeholder: 'Выберите счет',
                     allowClear: true,
                     dropdownParent: $('#send-invoice-sidebar'), // Modal ichida ishlash
                     width: '100%'
                 });
-            });
-            $('#send-invoice-sidebar').on('shown.bs.modal', function () {
                 $('#contract').select2({
                     placeholder: 'Выберите счет',
                     allowClear: true,
                     dropdownParent: $('#send-invoice-sidebar'), // Modal ichida ishlash
                     width: '100%'
                 });
-            });
-            $('#send-invoice-sidebar').on('shown.bs.modal', function () {
                 $('#article').select2({
                     placeholder: 'Выберите счет',
                     allowClear: true,
@@ -437,8 +424,117 @@
                     width: '100%'
                 });
             });
+        });
 
+        document.addEventListener('DOMContentLoaded', function () {
+            const amountInput = document.getElementById('word-numeral-formatting');
+            const amountInWordsInput = document.getElementById('amountInWords');
+            amountInput.addEventListener('input', function () {
+                const amount = parseFloat(this.value.replace(/,/g, ''));
+                if (!isNaN(amount)) {
+                    const words = numberToWords(amount); // Convert number to words
+                    amountInWordsInput.value = words;
+                } else {
+                    amountInWordsInput.value = '';
+                }
+            });
+
+            function numberToWords(number) {
+                const dictionary = {
+                    0: 'ноль',
+                    1: 'один',
+                    2: 'два',
+                    3: 'три',
+                    4: 'четыре',
+                    5: 'пять',
+                    6: 'шесть',
+                    7: 'семь',
+                    8: 'восемь',
+                    9: 'девять',
+                    10: 'десять',
+                    11: 'одиннадцать',
+                    12: 'двенадцать',
+                    13: 'тринадцать',
+                    14: 'четырнадцать',
+                    15: 'пятнадцать',
+                    16: 'шестнадцать',
+                    17: 'семнадцать',
+                    18: 'восемнадцать',
+                    19: 'девятнадцать',
+                    20: 'двадцать',
+                    30: 'тридцать',
+                    40: 'сорок',
+                    50: 'пятьдесят',
+                    60: 'шестьдесят',
+                    70: 'семьдесят',
+                    80: 'восемьдесят',
+                    90: 'девяносто',
+                    100: 'сто',
+                    200: 'двести',
+                    300: 'триста',
+                    400: 'четыреста',
+                    500: 'пятьсот',
+                    600: 'шестьсот',
+                    700: 'семьсот',
+                    800: 'восемьсот',
+                    900: 'девятьсот'
+                };
+
+                const scales = ['', 'тысяча', 'миллион', 'миллиард', 'триллион'];
+                if (number === 0) return 'ноль сум';
+                const [integerPart, fractionalPart] = number.toFixed(2).split('.');
+                let words = convertIntegerPart(Number(integerPart), dictionary, scales) + ' сум';
+                if (fractionalPart > 0) {
+                    const fractionalWords = convertIntegerPart(Number(fractionalPart), dictionary, scales);
+                    words += ' ' + fractionalWords + ' ' + getFractionalWord(Number(fractionalPart));
+                }
+                return words.trim();
+            }
+
+            function convertIntegerPart(number, dictionary, scales) {
+                if (number === 0) return dictionary[0];
+                let words = '';
+                let scale = 0;
+                while (number > 0) {
+                    let chunk = number % 1000;
+
+                    if (chunk > 0) {
+                        let chunkWords = convertChunk(chunk, dictionary);
+                        words = chunkWords + (scale > 0 ? ' ' + scales[scale] : '') + (words ? ' ' + words : '');
+                    }
+                    number = Math.floor(number / 1000);
+                    scale++;
+                }
+                return words.trim();
+            }
+
+            function convertChunk(chunk, dictionary) {
+                let words = '';
+                if (chunk >= 100) {
+                    let hundreds = Math.floor(chunk / 100) * 100;
+                    words += dictionary[hundreds] + ' ';
+                    chunk %= 100;
+                }
+                if (chunk >= 20) {
+                    let tens = Math.floor(chunk / 10) * 10;
+                    words += dictionary[tens] + ' ';
+                    chunk %= 10;
+                }
+                if (chunk > 0) {
+                    words += dictionary[chunk] + ' ';
+                }
+                return words.trim();
+            }
+
+            function getFractionalWord(fraction) {
+                if (fraction === 1) {
+                    return 'тийин';
+                } else if (fraction >= 2 && fraction <= 4) {
+                    return 'тийина';
+                } else {
+                    return 'тийинов';
+                }
+            }
         });
     </script>
-
 @endsection

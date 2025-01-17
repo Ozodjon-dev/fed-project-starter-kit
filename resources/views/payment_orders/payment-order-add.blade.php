@@ -71,23 +71,23 @@
 
                             <div class="row row-bill-to invoice-spacing">
                                 <div class="col-lg-auto mb-md-2 col-bill-to ps-0">
-                                    <h6 class=""><b>КРЕДИТ</b></h6>
+                                    <h6 class=""><b>ДЕБЕТ</b></h6>
                                     <div class="d-flex">
                                         <div class="d-flex align-items-center mb-1" style="max-width: 1200px">
                                             <label class="d-flex align-items-center" for="applicant_bank_account"
                                                    style="min-width: 235px">
                                                 Расчетный счет плательщика:
                                             </label>
-                                            <input style="min-width: 340px" type="text" id="applicant_bank_account"
+                                            <input style="min-width: 450px" type="text" id="applicant_bank_account"
                                                    name="applicant_bank_account" readonly
                                                    class="form-control rounded">
 
                                         </div>
                                         <div class="d-flex mb-1">
-                                            <div class="col" style="min-width: 93px">
+                                            <div class="col" style="min-width: 68px">
                                             </div>
                                             <label class="d-flex align-items-center" for="applicant_tin"
-                                                   style="min-width: 134px">ИНН плательщика:</label>
+                                                   style="min-width: 50px">ИНН:</label>
                                             <input class="form-control rounded w-100" name="applicant_tin"
                                                    id="applicant_tin" style="min-width: 200px" required/>
                                         </div>
@@ -96,31 +96,28 @@
                                         <div class="d-flex align-items-center mb-0" style="max-width: 1200px">
                                             <label class="d-flex align-items-center" for="applicant_bank_name"
                                                    style="min-width: 235px">Наимен. банка плательщика:</label>
-                                            <input style="min-width: 340px" type="text" id="applicant_bank_name"
+                                            <input style="min-width: 450px" type="text" id="applicant_bank_name"
                                                    name="applicant_bank_name" readonly
                                                    class="form-control rounded">
-                                            <div class="col" style="min-width: 52px">
-                                            </div>
-                                        </div>
-                                        <div class="d-flex">
-                                            <label class="d-flex align-items-center" for="applicant_bank_code"
-                                                   style="min-width: 175px">Код банка плательщика:</label>
-                                            <input type="text" id="applicant_bank_code" name="applicant_bank_code"
-                                                   readonly
-                                                   class="form-control rounded"
-                                                   style="min-width: 200px" required>
-                                        </div>
 
+                                        </div>
+                                        <div class="d-flex" style="min-width: 28px">
+                                        </div>
+                                        <label class="d-flex align-items-center" for="applicant_bank_code"
+                                               style="min-width: 90px">Код банка:</label>
+                                        <input type="text" id="applicant_bank_code" name="applicant_bank_code"
+                                               readonly
+                                               class="form-control rounded"
+                                               style="min-width: 200px" required>
                                     </div>
                                     <div class="row">
                                         <div class="d-flex align-items-center" style="max-width: 1200px">
-                                            <div class="d-flex align-items-center" style="min-width: 237px">
-                                                <span class="title">СУММА</span>
-                                            </div>
-                                            <div class="col-xl-4 col-md-6 col-sm-12 mb-2" style="min-width: 340px">
+                                            <label class=" align-items-center" for="applicant_bank_name"
+                                                   style="min-width: 235px">СУММА</label>
+                                            <div class="col-xl-4 col-md-6 col-sm-12 mb-2" style="min-width: 450px">
                                                 <input type="text"
                                                        class="form-control numeral-mask col-12 mb-lg-0 mt-lg-0rounded"
-                                                       placeholder="10,000" id="numeral-formatting" required/>
+                                                       placeholder="0,000.00" id="numeral-formatting" required/>
                                             </div>
                                         </div>
                                     </div>
@@ -146,40 +143,39 @@
                                         <div class="d-flex align-items-center mb-1" style="max-width: 1200px">
                                             <label class="d-flex align-items-center" for="beneficiary_bank_account"
                                                    style="min-width: 235px">
-                                                Расчетный счет получателя:
+                                                Расчетный счет плательщика:
                                             </label>
-                                            <input style="min-width: 340px" type="text" id="beneficiary_bank_account"
+                                            <input style="min-width: 450px" type="text" id="beneficiary_bank_account"
                                                    name="beneficiary_bank_account" readonly
                                                    class="form-control rounded">
 
                                         </div>
                                         <div class="d-flex mb-1">
-                                            <div class="col" style="min-width: 105px">
+                                            <div class="col" style="min-width: 68px">
                                             </div>
                                             <label class="d-flex align-items-center" for="beneficiary_tin"
-                                                   style="min-width: 122px">ИНН получателя:</label>
+                                                   style="min-width: 50px">ИНН:</label>
                                             <input class="form-control rounded w-100" name="beneficiary_tin"
                                                    id="beneficiary_tin" style="min-width: 200px" required/>
                                         </div>
                                     </div>
-                                    <div class="d-flex">
+                                    <div class="d-flex mb-1">
                                         <div class="d-flex align-items-center mb-0" style="max-width: 1200px">
                                             <label class="d-flex align-items-center" for="beneficiary_bank_name"
-                                                   style="min-width: 235px">Наимен. банка получателя:</label>
-                                            <input style="min-width: 340px" type="text" id="beneficiary_bank_name"
+                                                   style="min-width: 235px">Наимен. банка плательщика:</label>
+                                            <input style="min-width: 450px" type="text" id="beneficiary_bank_name"
                                                    name="beneficiary_bank_name" readonly
                                                    class="form-control rounded">
-                                            <div class="col" style="min-width: 65px">
-                                            </div>
+
                                         </div>
-                                        <div class="d-flex">
-                                            <label class="d-flex align-items-center" for="beneficiary_bank_code"
-                                                   style="min-width: 162px">Код банка получателя:</label>
-                                            <input type="text" id="beneficiary_bank_code" name="beneficiary_bank_code"
-                                                   readonly
-                                                   class="form-control rounded"
-                                                   style="min-width: 200px" required>
+                                        <div class="d-flex" style="min-width: 28px">
                                         </div>
+                                        <label class="d-flex align-items-center" for="beneficiary_bank_code"
+                                               style="min-width: 90px">Код банка:</label>
+                                        <input type="text" id="beneficiary_bank_code" name="beneficiary_bank_code"
+                                               readonly
+                                               class="form-control rounded"
+                                               style="min-width: 200px" required>
                                     </div>
                                 </div>
                             </div>

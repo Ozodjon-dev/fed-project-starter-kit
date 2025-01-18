@@ -141,6 +141,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
 
@@ -214,7 +215,7 @@
                                     <div class="d-flex align-items-center" style="min-width: 230px">
                                         <label class="title" for="">Детали платежа</label>
                                     </div>
-                                    <textarea placeholder="Предмет договора, заголовок (краткое содержание)"
+                                    <textarea placeholder="краткое содержание"
                                               class="ms-50 form-control rounded text-sm-start"></textarea>
                                 </div>
                             </div>
@@ -379,6 +380,8 @@
     <script src="{{ asset('js/scripts/forms/form-input-mask.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+
+            // Handle applicant_bank_account input
             document.getElementById('applicant_bank_account').addEventListener('input', function () {
                 const organizations = @json($organizations);
                 const bankAccountValue = this.value;
@@ -396,6 +399,16 @@
                     document.getElementById('applicant').value = '';
                 }
             });
+
+            // Initialize Select2 for bank_account dropdown
+            $('#bank_account').select2({
+                placeholder: 'Выберите расчетный счет',
+                allowClear: true,
+                width: '100%'
+            });
+
+
+            // Handle beneficiary_tin input
             document.getElementById('beneficiary_tin').addEventListener('input', function () {
                 const contractors = @json($contractors);
                 const tinValue = this.value;
@@ -413,41 +426,36 @@
                     document.getElementById('contractor').value = '';
                 }
             });
-            $('#bank_account').select2({
-                placeholder: 'Выберите расчетный счет',
-                allowClear: true,
-                dropdownParent: $('#send-invoice-sidebar'), // Modal ichida ishlash
-                width: '100%'
-            });
+
+            // Initialize Select2 for modal dropdowns when modal is shown
             $('#send-invoice-sidebar').on('shown.bs.modal', function () {
                 $('#debit_chart_of_account').select2({
                     placeholder: 'Выберите счет',
                     allowClear: true,
-                    dropdownParent: $('#send-invoice-sidebar'), // Modal ichida ishlash
+                    dropdownParent: $('#send-invoice-sidebar'),
                     width: '100%'
                 });
                 $('#credit_chart_of_account').select2({
                     placeholder: 'Выберите счет',
                     allowClear: true,
-                    dropdownParent: $('#send-invoice-sidebar'), // Modal ichida ishlash
+                    dropdownParent: $('#send-invoice-sidebar'),
                     width: '100%'
                 });
                 $('#contract').select2({
                     placeholder: 'Выберите счет',
                     allowClear: true,
-                    dropdownParent: $('#send-invoice-sidebar'), // Modal ichida ishlash
+                    dropdownParent: $('#send-invoice-sidebar'),
                     width: '100%'
                 });
                 $('#article').select2({
                     placeholder: 'Выберите счет',
                     allowClear: true,
-                    dropdownParent: $('#send-invoice-sidebar'), // Modal ichida ishlash
+                    dropdownParent: $('#send-invoice-sidebar'),
                     width: '100%'
                 });
             });
-        });
 
-        document.addEventListener('DOMContentLoaded', function () {
+            // Handle word numeral formatting
             const amountInput = document.getElementById('word-numeral-formatting');
             const amountInWordsInput = document.getElementById('amountInWords');
             amountInput.addEventListener('input', function () {
@@ -557,8 +565,19 @@
                 }
             }
         });
-
-        // JavaScript orqali rangni o'rnatish
-        document.getElementById('placeholder-option').style.color = '#ff0000';
     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @endsection

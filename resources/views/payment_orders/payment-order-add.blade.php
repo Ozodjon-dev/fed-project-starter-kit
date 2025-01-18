@@ -11,6 +11,25 @@
     <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-validation.css')) }}">
     <link rel="stylesheet" href="{{asset('css/base/plugins/forms/pickers/form-flat-pickr.css')}}">
     <link rel="stylesheet" href="{{asset('css/base/pages/app-invoice.css')}}">
+    <style scoped>
+        input::placeholder {
+            color: red !important; /* Placeholder rangini belgilash */
+            font-style: italic !important; /* Qo'shimcha effekt */
+        }
+
+        textarea::placeholder {
+            color: red !important; /* Placeholder rangini belgilash */
+            font-style: italic !important; /* Qo'shimcha effekt */
+        }
+
+        input:focus::placeholder {
+            color: lightgray; /* Fokustagi placeholder rangi */
+        }
+
+        .placeholder-option {
+            color: #ff0000 !important;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -34,7 +53,7 @@
                                                 class="input-group input-group-merge invoice-edit-input-group">
                                                 <input type="text"
                                                        class="form-control rounded"
-                                                       required placeholder="53634"/>
+                                                       placeholder="53634"/>
                                             </div>
                                         </div>
                                     </div>
@@ -72,7 +91,9 @@
                                             <select style="min-width: 450px" name="applicant_bank_account"
                                                     id="applicant_bank_account"
                                                     class="form-select rounded">
-                                                <option disabled selected>Выберите расчетный счет</option>
+                                                <option class="placeholder-option" disabled selected>Выберите расчетный
+                                                    счет
+                                                </option>
                                                 @foreach($organizations as $organization)
                                                     <option value="{{ $organization->bank_account }}"
                                                             data-account="{{ $organization->bank_account }}">
@@ -193,8 +214,8 @@
                                     <div class="d-flex align-items-center" style="min-width: 230px">
                                         <label class="title" for="">Детали платежа</label>
                                     </div>
-                                    <textarea class="ms-50 form-control rounded text-sm-start">
-                                    </textarea>
+                                    <textarea placeholder="Предмет договора, заголовок (краткое содержание)"
+                                              class="ms-50 form-control rounded text-sm-start"></textarea>
                                 </div>
                             </div>
                             <div class="container" style="height: 25px"></div>
@@ -536,5 +557,8 @@
                 }
             }
         });
+
+        // JavaScript orqali rangni o'rnatish
+        document.getElementById('placeholder-option').style.color = '#ff0000';
     </script>
 @endsection

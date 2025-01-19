@@ -136,8 +136,8 @@
                                                    style="min-width: 235px">СУММА</label>
                                             <div class="col-xl-4 col-md-6 col-sm-12 mb-2" style="min-width: 450px">
                                                 <input type="text"
-                                                       class="form-control col-12 mb-lg-0 mt-lg-0 rounded"
-                                                       placeholder="0,000.00" id="word-numeral-formatting" required/>
+                                                       class="form-control numeral-mask col-12 mb-lg-0 mt-lg-0 rounded"
+                                                       placeholder="0,000.00" id="numeral-formatting" required/>
                                             </div>
                                         </div>
                                     </div>
@@ -456,7 +456,7 @@
             });
 
             // Handle word numeral formatting
-            const amountInput = document.getElementById('word-numeral-formatting');
+            const amountInput = document.getElementById('numeral-formatting');
             const amountInWordsInput = document.getElementById('amountInWords');
             amountInput.addEventListener('input', function () {
                 const amount = parseFloat(this.value.replace(/,/g, ''));

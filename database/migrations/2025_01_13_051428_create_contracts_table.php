@@ -23,7 +23,7 @@ return new class extends Migration {
             $table->string('category')->nullable();
             $table->text('details')->nullable();
             $table->string('article')->nullable();
-            $table->decimal('amount', 20, 2)
+            $table->decimal('amount', 15, 2)
                 ->default(0.00)
                 ->nullable()
                 ->unsigned()

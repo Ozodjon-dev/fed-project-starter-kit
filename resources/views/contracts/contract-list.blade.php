@@ -113,7 +113,7 @@
                     <td>{{ $contract->category }}</td>
                     <td>{{ $contract->details }}</td>
                     <td>{{ $contract->article }}</td>
-                    <td>{{ $contract->amount }}</td>
+                    <td>{{ number_format($contract->amount, 2, '.', ',') }}</td>
                     <td>
                         <div class="progress" style="height: 20px;">
                             <div class="progress-bar {{ $progressColor }} font-weight-bold" role="progressbar"
@@ -151,3 +151,11 @@
         </div>
     </div>
 @endsection
+@section('page-script')
+    <script src="{{asset('js/scripts/pages/app-invoice.js')}}"></script>
+    <script src="{{ asset(mix('js/scripts/forms/form-input-mask.js')) }}"></script>
+    <script>
+
+    </script>
+@endsection
+

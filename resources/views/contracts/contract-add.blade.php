@@ -137,14 +137,14 @@
                                     </select>
                                 </div>
                                 <div class="d-flex align-items-center mb-1 w-100 w-md-auto">
-                                    <label for="amount" class="title"
+                                    <label for="numeral-formatting" class="title"
                                            style="min-width: 180px; margin-right: 10px;">СУММА</label>
                                     <div class="col-xl-4">
-                                        <input type="number"
-                                               class="form-control col-12 rounded"
+                                        <input type="text"
+                                               class="form-control numeral-mask col-12 rounded"
                                                placeholder="0,000.00"
                                                name="amount"
-                                               id="amount">
+                                               id="numeral-formatting">
                                     </div>
                                 </div>
                                 <div class="invoice-number-date mt-md-0 mt-0 w-100 w-md-auto">

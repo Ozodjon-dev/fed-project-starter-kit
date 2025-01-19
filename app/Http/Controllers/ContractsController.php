@@ -100,31 +100,108 @@ class ContractsController extends Controller
         return view('contracts/contract-edit', compact('contract', 'categories', 'classificators', 'contractors'));
     }
 
-    public function update($id)
-    {
-        $contract = Contract::findOrFail($id);
-        $validated = request()->validate([
-            'registration_number' => 'required|string|max:255',
-            'registration_date' => 'required|date',
-            'type' => 'required|string',
-            'number' => 'required|string|max:255',
-            'date' => 'required|date',
-            'contractor' => 'required|string',
-            'category' => '',
-            'details' => '',
-            'article' => '',
-            'amount' => 'nullable|numeric', // Even if amount is empty, it checks it as a numeric value
-            'term' => '',
-        ]);
+//    public function update(Request $request, $id)
+//    {
+///*        $contract = Contract::findOrFail($id);
+//        $validated = request()->validate([
+//            'registration_number' => 'required|string|max:255',
+//            'registration_date' => 'required|date',
+//            'type' => 'required|string',
+//            'number' => 'required|string|max:255',
+//            'date' => 'required|date',
+//            'contractor' => 'required|string',
+//            'category' => '',
+//            'details' => '',
+//            'article' => '',
+//            'amount' => 'nullable|numeric', // Even if amount is empty, it checks it as a numeric value
+//            'term' => '',
+//        ]);
+//
+//        // If the amount value is not entered, change it to 0.00
+//        if (empty($validated['amount'])) {
+//            $validated['amount'] = 0.00;
+//        }
+//
+//        $contract->update($validated);
+//        return redirect()->route('contracts.show', $id)->with('success', 'Контракт успешно отредактирован 😊');*/
+//
+//
+//        // Foydalanuvchi kiritgan barcha ma'lumotlarni olish
+//        $input = $request->all();
+//        $contract = Contract::findOrFail($id);
+//        // 'amount' maydonini tekshirish va formatlash
+//        if (!empty($input['amount'])) {
+//            // Vergullarni olib tashlash va faqat raqamlarni saqlash
+//            $input['amount'] = preg_replace('/[^0-9.]/', '', $input['amount']);
+//        }
+//
+//        // Validatsiya qoidalari
+//        $validated = \Validator::make($input, [
+//            'registration_number' => 'required|string|max:255',
+//            'registration_date' => 'required|date',
+//            'type' => 'required|string',
+//            'number' => 'required|string|max:255',
+//            'date' => 'required|date',
+//            'contractor' => 'required|string',
+//            'category' => 'nullable|string',
+//            'details' => 'nullable|string',
+//            'article' => 'nullable|string',
+//            'amount' => 'nullable|numeric',
+//            'term' => 'nullable|string',
+//        ])->validate();
+//
+//        // Agar 'amount' qiymati bo‘sh bo‘lsa, uni 0.00 ga o‘zgartirish
+//        $validated['amount'] = $validated['amount'] ?? 0.00;
+//
+//        // Ma'lumotni saqlash
+//        $contract->update($validated);
+//
+//        // Saqlanganidan so'ng foydalanuvchini qaytarish
+//        return redirect()->route('contracts.show', $id)->with('success', 'Контракт успешно отредактирован 😊');
+//    }
 
-        // If the amount value is not entered, change it to 0.00
-        if (empty($validated['amount'])) {
-            $validated['amount'] = 0.00;
+    public function update(Request $request, $id)
+    {
+        $input = $request->all();
+
+        $contract = Contract::find($id);
+        if (!$contract) {
+            return redirect()->back()->with('error', 'Контракт не найден.');
         }
 
+        // 'amount' maydonini tekshirish va formatlash
+        if (!empty($input['amount'])) {
+            $input['amount'] = preg_replace('/[^0-9.]/', '', $input['amount']);
+        }
+
+        // Validatsiya
+        try {
+            $validated = \Validator::make($input, [
+                'registration_number' => 'required|string|max:255',
+                'registration_date' => 'required|date',
+                'type' => 'required|string',
+                'number' => 'required|string|max:255',
+                'date' => 'required|date',
+                'contractor' => 'required|string',
+                'category' => 'nullable|string',
+                'details' => 'nullable|string',
+                'article' => 'nullable|string',
+                'amount' => 'nullable|numeric',
+                'term' => 'required|date',
+            ])->validate();
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return redirect()->back()->withErrors($e->errors())->withInput();
+        }
+
+        $validated['amount'] = $validated['amount'] ?? 0.00;
+
+        // Ma'lumotni yangilash
         $contract->update($validated);
+
+        // Foydalanuvchini qaytarish
         return redirect()->route('contracts.show', $id)->with('success', 'Контракт успешно отредактирован 😊');
     }
+
 
     public function destroy($id)
     {

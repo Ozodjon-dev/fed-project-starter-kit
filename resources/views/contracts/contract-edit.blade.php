@@ -172,11 +172,11 @@
                                     </label>
                                     <div class="col-xl-4">
                                         <input type="text"
-                                               value="{{ $contract->amount }}"
-                                               class="form-control col-12 rounded"
+                                               value="{{ number_format($contract->amount, 2, '.', ',') }}"
+                                               class="form-control numeral-mask col-12 rounded"
                                                placeholder="0,000.00"
                                                name="amount"
-                                               id="amount">
+                                               id="numeral-formatting">
                                     </div>
                                 </div>
                                 <div class="invoice-number-date mt-md-0 mt-0 w-100 w-md-auto">

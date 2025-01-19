@@ -88,7 +88,7 @@
                 <td>{{ $contract->category }}</td>
                 <td>{{ $contract->details }}</td>
                 <td>{{ $contract->article }}</td>
-                <td>{{ $contract->amount }}</td>
+                <td>{{ number_format($contract->amount, 2, '.', ',') }}</td>
                 <td>{{ $contract->term }}</td>
                 <td>
                     <div class="btn-group me-2" style="max-width: 65px">

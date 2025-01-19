@@ -76,14 +76,12 @@
                                                     <option disabled selected>Выберите расчетный счет</option>
                                                     @foreach($organizations as $organization)
                                                         <option value="{{ $organization->bank_account }}"
-                                                                data-bank-account="{{ $organization->bank_account }}">
+                                                                data-account="{{ $organization->bank_account }}">
                                                             {{ $organization->bank_account }}
                                                         </option>
                                                     @endforeach
                                                 </select>
                                             </div>
-
-
                                         </div>
                                         <div class="d-flex mb-1">
                                             <div class="col" style="min-width: 68px">

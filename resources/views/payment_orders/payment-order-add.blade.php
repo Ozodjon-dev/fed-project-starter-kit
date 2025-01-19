@@ -15,24 +15,26 @@
 
 @section('content')
     <section class="invoice-add-wrapper">
-        <form class="needs-validation" action="">
+        <form class="needs-validation" action="{{ route('payment_orders.store') }}" method="post">
             @csrf
             <div class="row invoice-add">
                 <div class="col-xl-9 col-md-8 col-12">
-                    <div class="card invoice-preview-card">
+                    <div class="card invoice-preview-card">=
                         <div class="card-body invoice-padding pb-0">
                             <div class="d-flex justify-content-between flex-md-row flex-column invoice-spacing mt-0">
                                 <div class="container">
                                     <div class="logo-wrapper mt-0" style="justify-content: center">
-                                        <h3 class="text-uppercase"><b>
+                                        <h3 id="payment_title" class="text-uppercase"><b>
                                                 Платежное поручение №
                                             </b>
-                                        </h3>
+                                        </h3><label aria-labelledby="payment_title" for="number"></label>
                                         <div class="ms-1 align-items-center">
                                             <h6 class="invoice-title"></h6>
                                             <div
                                                 class="input-group input-group-merge invoice-edit-input-group">
                                                 <input type="text"
+                                                       id="number"
+                                                       name="number"
                                                        class="form-control rounded"
                                                        placeholder="53634"/>
                                             </div>
@@ -43,9 +45,9 @@
                             <div class="invoice-number-date mt-md-0 mt-0">
                                 <div class="d-flex align-items-center ">
                                     <div style="min-width: 230px">
-                                        <label class="title" for="">Дата:</label>
+                                        <label class="title" for="date">Дата:</label>
                                     </div>
-                                    <input type="text"
+                                    <input type="text" id="date" name="date"
                                            class="form-control invoice-edit-input date-picker ms-50 rounded"/>
                                 </div>
                             </div>
@@ -112,12 +114,15 @@
                                     </div>
                                     <div class="row">
                                         <div class="d-flex align-items-center" style="max-width: 1200px">
-                                            <label class=" align-items-center" for="applicant_bank_name"
+                                            <label class=" align-items-center" for="numeral-formatting"
                                                    style="min-width: 235px">СУММА</label>
                                             <div class="col-xl-4 col-md-6 col-sm-12 mb-2" style="min-width: 450px">
                                                 <input type="text"
+                                                       name="amount"
                                                        class="form-control numeral-mask col-12 mb-lg-0 mt-lg-0 rounded"
-                                                       placeholder="0,000.00" id="numeral-formatting" required/>
+                                                       placeholder="0,000.00"
+                                                       id="numeral-formatting"
+                                                       required/>
                                             </div>
                                         </div>
                                     </div>
@@ -182,19 +187,22 @@
                             <div class="mt-md-0 mt-2">
                                 <div class="d-flex align-items-center mb-1">
                                     <div class="d-flex align-items-center" style="min-width: 230px">
-                                        <label class="title">Сумма прописью</label>
+                                        <label for="amountInWords" class="title">Сумма прописью</label>
                                     </div>
                                     <textarea type="text"
                                               class="form-control ms-50 rounded"
+                                              name="amount_in_words"
                                               style="max-width: 1000px" id="amountInWords" readonly required></textarea>
                                 </div>
                             </div>
                             <div class="mt-md-0 mt-2 mb-2">
                                 <div class="d-flex align-items-center mb-1">
                                     <div class="d-flex align-items-center" style="min-width: 230px">
-                                        <label class="title" for="">Детали платежа</label>
+                                        <label class="title" for="details">Детали платежа</label>
                                     </div>
                                     <textarea placeholder="краткое содержание"
+                                              id="details"
+                                              name="details"
                                               class="ms-50 form-control rounded text-sm-start"></textarea>
                                 </div>
                             </div>
@@ -247,97 +255,69 @@
                 <div class="col-xl-3 col-md-4 col-12">
                     <div class="card">
                         <div class="card-body">
-                            <a href="{{url('/payment_order/preview')}}" class="btn btn-outline-primary w-100 mb-75">Предварительный
-                                просмотр</a>
-                            <button class="btn btn-primary w-100 mb-75" data-bs-toggle="modal"
-                                    data-bs-target="#send-invoice-sidebar">
-                                Следующий
-                                <svg height="13px" width="13px"
-                                     viewBox="0 0 185.343 185.343" xml:space="preserve"><g>
-                                        <g>
-                                            <path style="fill:#FFFFFF" d="M51.707,185.343c-2.741,0-5.493-1.044-7.593-3.149c-4.194-4.194-4.194-10.981,0-15.175
-			l74.352-74.347L44.114,18.32c-4.194-4.194-4.194-10.987,0-15.175c4.194-4.194,10.987-4.194,15.18,0l81.934,81.934
-			c4.194,4.194,4.194,10.987,0,15.175l-81.934,81.939C57.201,184.293,54.454,185.343,51.707,185.343z"/>
-                                        </g>
-                                    </g></svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            <div class="align-items-center mb-1 w-100">
+                                <label for="debit_chart_of_account" class="title">Дебет</label>
+                                <select class="form-select rounded w-100" name="debit_chart_of_account"
+                                        id="debit_chart_of_account">
+                                    <option disabled selected>Выберите счет</option>
+                                    @foreach($chart_of_accounts as $chart_of_account)
+                                        <option value="{{ $chart_of_account->number }}"
+                                                data-number="{{ $chart_of_account->number }}">
+                                            {{ $chart_of_account->number }} - {{ $chart_of_account->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="align-items-center mb-1 w-100">
+                                <label for="credit_chart_of_account" class="title">Кредит</label>
+                                <select class="form-select rounded w-100" name="credit_chart_of_account"
+                                        id="credit_chart_of_account">
+                                    <option disabled selected>Выберите счет</option>
+                                    @foreach($chart_of_accounts as $chart_of_account)
+                                        <option value="{{ $chart_of_account->number }}"
+                                                data-number="{{ $chart_of_account->number }}">
+                                            {{ $chart_of_account->number }} - {{ $chart_of_account->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <hr>
+                            <div class="align-items-center mb-1 w-100">
+                                <label for="contract" class="title">Договор</label>
+                                <select class="form-select rounded w-100" name="contract"
+                                        id="contract">
+                                    <option disabled selected>Выберите договор</option>
+                                    @foreach($contracts as $contract)
+                                        <option value="{{ $contract->number }}"
+                                                data-number="{{ $contract->number }}">
+                                            № {{ $contract->number }} от {{ $contract->date }}
+                                            с {{ $contract->contractor }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-1">
+                                <label for="article" class="title">Статья</label>
+                                <select class="form-select mb-75 rounded" name="article" id="article">
+                                    @foreach($classificators as $classificator)
+                                        <option value="{{ $classificator->article }}"
+                                                data-article="{{ $classificator->article }}">
+                                            {{ $classificator->article }} - {{ $classificator->details }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-1 flex-wrap mt-2 card-body">
 
-            <div class="modal modal-slide-in fade" id="send-invoice-sidebar" aria-hidden="true">
-                <div class="modal-dialog sidebar-lg">
-                    <div class="modal-content p-0">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
-                        <div class="modal-header mb-1">
-                            <h5 class="modal-title">
-                                <span class="align-middle">Проводка</span>
-                            </h5>
-                        </div>
-                        <div class="modal-body flex-grow-1">
-                            <form>
-                                <div class="align-items-center mb-1 w-100">
-                                    <label for="chart_of_account" class="title">Дебет</label>
-                                    <select class="form-select rounded w-100" name="chart_of_account"
-                                            id="debit_chart_of_account">
-                                        <option disabled selected>Выберите счет</option>
-                                        @foreach($chart_of_accounts as $chart_of_account)
-                                            <option value="{{ $chart_of_account->number }}"
-                                                    data-number="{{ $chart_of_account->number }}">
-                                                {{ $chart_of_account->number }} - {{ $chart_of_account->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="align-items-center mb-1 w-100">
-                                    <label for="chart_of_account" class="title">Кредит</label>
-                                    <select class="form-select rounded w-100" name="chart_of_account"
-                                            id="credit_chart_of_account">
-                                        <option disabled selected>Выберите счет</option>
-                                        @foreach($chart_of_accounts as $chart_of_account)
-                                            <option value="{{ $chart_of_account->number }}"
-                                                    data-number="{{ $chart_of_account->number }}">
-                                                {{ $chart_of_account->number }} - {{ $chart_of_account->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <hr>
-                                <div class="align-items-center mb-1 w-100">
-                                    <label for="contract" class="title">Договор</label>
-                                    <select class="form-select rounded w-100" name="contract"
-                                            id="contract">
-                                        <option disabled selected>Выберите договор</option>
-                                        @foreach($contracts as $contract)
-                                            <option value="{{ $contract->number }}"
-                                                    data-number="{{ $contract->number }}">
-                                                № {{ $contract->number }} от {{ $contract->date }}
-                                                с {{ $contract->contractor }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="mb-1">
-                                    <label for="article" class="title">Статья</label>
-                                    <select class="form-select mb-75 rounded" name="article" id="article">
-                                        @foreach($classificators as $classificator)
-                                            <option value="{{ $classificator->article }}"
-                                                    data-article="{{ $classificator->article }}">
-                                                {{ $classificator->article }} - {{ $classificator->details }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="mb-1 flex-wrap mt-2 card-body">
-                                    <a href="" class="btn btn-outline-primary w-100 mb-75"
-                                       data-bs-dismiss="modal">Отмена</a>
-                                    <button class="btn btn-primary w-100 mb-75" data-bs-toggle="modal"
-                                            data-bs-target="#send-invoice-sidebar" type="submit">
-                                        Сохранить
-                                    </button>
-                                </div>
-                            </form>
+                                <a href="{{url('/payment_order/preview')}}" class="btn btn-outline-primary w-100 mb-75">Предварительный
+                                    просмотр</a>
+                                <a href="" class="btn btn-outline-primary w-100 mb-75"
+                                   data-bs-dismiss="modal">Отмена</a>
+                                <button class="btn btn-primary w-100 mb-75"
+                                        type="submit">
+                                    Сохранить
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -359,11 +339,10 @@
     <script src="{{ asset('js/scripts/forms/form-input-mask.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Handle applicant_bank_account input with Select2
+            const organizations = @json($organizations);
 
-            // Handle applicant_bank_account input
-            document.getElementById('applicant_bank_account').addEventListener('input', function () {
-                const organizations = @json($organizations);
-                const bankAccountValue = this.value;
+            function updateApplicantFields(bankAccountValue) {
                 const matchedOrganization = organizations.find(organization => organization.bank_account === bankAccountValue);
 
                 if (matchedOrganization) {
@@ -377,19 +356,25 @@
                     document.getElementById('applicant_tin').value = '';
                     document.getElementById('applicant').value = '';
                 }
-            });
+            }
 
-            // Initialize Select2 for bank_account dropdown
+            // Initialize Select2 for applicant_bank_account
             $('#applicant_bank_account').select2({
                 placeholder: 'Выберите расчетный счет',
                 allowClear: true,
                 width: '100%'
             });
 
+            // Listen for changes in applicant_bank_account with Select2
+            $('#applicant_bank_account').on('change', function () {
+                const bankAccountValue = $(this).val(); // Get the selected value
+                updateApplicantFields(bankAccountValue);
+            });
 
             // Handle beneficiary_tin input
+            const contractors = @json($contractors);
+
             document.getElementById('beneficiary_tin').addEventListener('input', function () {
-                const contractors = @json($contractors);
                 const tinValue = this.value;
                 const matchedContractor = contractors.find(contractor => contractor.tin === tinValue);
 
@@ -406,37 +391,10 @@
                 }
             });
 
-            // Initialize Select2 for modal dropdowns when modal is shown
-            $('#send-invoice-sidebar').on('shown.bs.modal', function () {
-                $('#debit_chart_of_account').select2({
-                    placeholder: 'Выберите счет',
-                    allowClear: true,
-                    dropdownParent: $('#send-invoice-sidebar'),
-                    width: '100%'
-                });
-                $('#credit_chart_of_account').select2({
-                    placeholder: 'Выберите счет',
-                    allowClear: true,
-                    dropdownParent: $('#send-invoice-sidebar'),
-                    width: '100%'
-                });
-                $('#contract').select2({
-                    placeholder: 'Выберите счет',
-                    allowClear: true,
-                    dropdownParent: $('#send-invoice-sidebar'),
-                    width: '100%'
-                });
-                $('#article').select2({
-                    placeholder: 'Выберите счет',
-                    allowClear: true,
-                    dropdownParent: $('#send-invoice-sidebar'),
-                    width: '100%'
-                });
-            });
-
             // Handle word numeral formatting
             const amountInput = document.getElementById('numeral-formatting');
             const amountInWordsInput = document.getElementById('amountInWords');
+
             amountInput.addEventListener('input', function () {
                 const amount = parseFloat(this.value.replace(/,/g, ''));
                 if (!isNaN(amount)) {
@@ -543,20 +501,31 @@
                     return 'тийинов';
                 }
             }
+
+            // Initialize Select2 for modal dropdowns when modal is shown
+
+                $('#debit_chart_of_account').select2({
+                    placeholder: 'Выберите счет',
+                    allowClear: true,
+                    width: '100%'
+                });
+                $('#credit_chart_of_account').select2({
+                    placeholder: 'Выберите счет',
+                    allowClear: true,
+                    width: '100%'
+                });
+                $('#contract').select2({
+                    placeholder: 'Выберите счет',
+                    allowClear: true,
+                    width: '100%'
+                });
+                $('#article').select2({
+                    placeholder: 'Выберите счет',
+                    allowClear: true,
+                    width: '100%'
+                });
         });
+
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @endsection

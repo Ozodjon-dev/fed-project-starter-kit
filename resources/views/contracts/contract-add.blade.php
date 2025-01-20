@@ -92,7 +92,7 @@
                                     <label for="contractor" class="title" style="min-width: 180px; margin-right: 10px;">Контрагент:</label>
                                     <select class="form-select rounded w-100" required name="contractor"
                                             id="contractor">
-                                        <option disabled selected>Выберите контрагент</option>
+                                        <option disabled selected></option>
                                         @foreach($contractors as $contractor)
                                             <option value="{{ $contractor->name }}"
                                                     data-name="{{ $contractor->name }}">{{ $contractor->name }}</option>
@@ -102,7 +102,7 @@
                                 <div class="d-flex align-items-center mb-1 w-100">
                                     <label for="category" class="title" style="min-width: 180px; margin-right: 10px;">Категория:</label>
                                     <select class="form-select rounded w-100" name="category" id="category">
-                                        <option value="" disabled selected>Выберите категория</option>
+                                        <option value="" disabled selected></option>
                                         @foreach($categories as $category)
                                             <option value="{{ $category->name }}"
                                                     data-name="{{ $category->name }}">{{ $category->name }}</option>
@@ -127,7 +127,7 @@
                                            style="min-width: 180px; margin-right: 10px;">Статья</label>
                                     <select type="" name="article" id="article"
                                             class="form-select rounded">
-                                        <option disabled selected>Выберите статья</option>
+                                        <option disabled selected></option>
                                         @foreach($classificators as $classificator)
                                             <option value="{{ $classificator->article }}"
                                                     data-article="{{ $classificator->article }}">

@@ -19,7 +19,7 @@
             @csrf
             <div class="row invoice-add">
                 <div class="col-xl-9 col-md-8 col-12">
-                    <div class="card invoice-preview-card">=
+                    <div class="card invoice-preview-card">
                         <div class="card-body invoice-padding pb-0">
                             <div class="d-flex justify-content-between flex-md-row flex-column invoice-spacing mt-0">
                                 <div class="container">

@@ -1,5 +1,3 @@
-<!-- resources/views/contract-list.blade.php -->
-
 @extends('layouts/contentLayoutMaster')
 
 @section('title', 'Список договоров')

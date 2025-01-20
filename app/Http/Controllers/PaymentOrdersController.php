@@ -97,20 +97,26 @@ class PaymentOrdersController extends Controller
             ->with('success', 'Платежное поручение успешно сохранено 😊');
     }
 
+    public function preview($id)
+    {
+        $paymentOrder = PaymentOrder::findOrFail($id);
+        return view('payment_orders/payment-order-preview', compact('paymentOrder'));
+    }
+
+    public function print($id)
+    {
+        $paymentOrder = PaymentOrder::findOrFail($id);
+        return view('payment_orders/payment-order-print', compact('paymentOrder'));
+    }
+
     public function edit()
     {
         return view('payment_orders/payment-order-edit');
     }
 
-    public function preview()
-    {
-        return view('payment_orders/payment-order-preview');
-    }
 
-    public function print()
-    {
-        return view('payment_orders/payment-order-print');
-    }
+
+
 
 }
 

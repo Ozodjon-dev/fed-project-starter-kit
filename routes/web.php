@@ -54,10 +54,9 @@ Route::get('/',  'App\Http\Controllers\MainController@index')->name('main.index'
 Route::get('/payment_order/list',  [PaymentOrdersController::class, 'list'])->name('payment_orders.list');
 Route::get('/payment_order/add',  [PaymentOrdersController::class, 'add'])->name('payment_orders.add');
 Route::post('/payment_order',  [PaymentOrdersController::class, 'store'])->name('payment_orders.store');
-Route::post('/payment_order/{id}',  [PaymentOrdersController::class, 'show'])->name('payment_orders.show');
+Route::get('/payment_order/preview/{id}', [PaymentOrdersController::class, 'preview'])->name('payment_orders.preview');
+Route::get('/payment_order/print/{id}',  [PaymentOrdersController::class, 'print'])->name('payment_orders.print');
 Route::get('/payment_order/edit',  [PaymentOrdersController::class, 'edit'])->name('payment_orders.edit');
-Route::get('/payment_order/preview',  [PaymentOrdersController::class, 'preview'])->name('payment_orders.preview');
-Route::get('/payment_order/print',  [PaymentOrdersController::class, 'print'])->name('payment_orders.print');
 
 // contracts Route
 Route::get('/contract/list',  [ContractsController::class, 'list'])->name('contracts.list');

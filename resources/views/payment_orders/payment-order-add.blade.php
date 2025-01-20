@@ -258,7 +258,7 @@
                             <div class="align-items-center mb-1 w-100">
                                 <label for="debit_chart_of_account" class="title">Дебет</label>
                                 <select class="form-select rounded w-100" name="debit_chart_of_account"
-                                        id="debit_chart_of_account">
+                                        id="debit_chart_of_account" required>
                                     <option disabled selected>Выберите счет</option>
                                     @foreach($chart_of_accounts as $chart_of_account)
                                         <option value="{{ $chart_of_account->number }}"
@@ -271,7 +271,7 @@
                             <div class="align-items-center mb-1 w-100">
                                 <label for="credit_chart_of_account" class="title">Кредит</label>
                                 <select class="form-select rounded w-100" name="credit_chart_of_account"
-                                        id="credit_chart_of_account">
+                                        id="credit_chart_of_account" required>
                                     <option disabled selected>Выберите счет</option>
                                     @foreach($chart_of_accounts as $chart_of_account)
                                         <option value="{{ $chart_of_account->number }}"
@@ -298,7 +298,8 @@
                             </div>
                             <div class="mb-1">
                                 <label for="article" class="title">Статья</label>
-                                <select class="form-select mb-75 rounded" name="article" id="article">
+                                <select class="form-select mb-75 rounded" name="article" id="article" required>
+                                    <option disabled selected>Выберите статья</option>
                                     @foreach($classificators as $classificator)
                                         <option value="{{ $classificator->article }}"
                                                 data-article="{{ $classificator->article }}">
@@ -307,16 +308,9 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="mb-1 flex-wrap mt-2 card-body">
-
-                                <a href="{{url('/payment_order/preview')}}" class="btn btn-outline-primary w-100 mb-75">Предварительный
-                                    просмотр</a>
-                                <a href="" class="btn btn-outline-primary w-100 mb-75"
-                                   data-bs-dismiss="modal">Отмена</a>
-                                <button class="btn btn-primary w-100 mb-75"
-                                        type="submit">
-                                    Сохранить
-                                </button>
+                            <div class="flex-wrap card-body">
+                                <button class="btn btn-primary w-100" type="submit">Сохранить</button>
+                                <a href="{{route('main.index')}}" class="btn btn-outline-danger w-100 mt-1">Отмена</a>
                             </div>
                         </div>
                     </div>
@@ -504,26 +498,26 @@
 
             // Initialize Select2 for modal dropdowns when modal is shown
 
-                $('#debit_chart_of_account').select2({
-                    placeholder: 'Выберите счет',
-                    allowClear: true,
-                    width: '100%'
-                });
-                $('#credit_chart_of_account').select2({
-                    placeholder: 'Выберите счет',
-                    allowClear: true,
-                    width: '100%'
-                });
-                $('#contract').select2({
-                    placeholder: 'Выберите счет',
-                    allowClear: true,
-                    width: '100%'
-                });
-                $('#article').select2({
-                    placeholder: 'Выберите счет',
-                    allowClear: true,
-                    width: '100%'
-                });
+            $('#debit_chart_of_account').select2({
+                placeholder: 'Выберите счет',
+                allowClear: true,
+                width: '100%'
+            });
+            $('#credit_chart_of_account').select2({
+                placeholder: 'Выберите счет',
+                allowClear: true,
+                width: '100%'
+            });
+            $('#contract').select2({
+                placeholder: 'Выберите счет',
+                allowClear: true,
+                width: '100%'
+            });
+            $('#article').select2({
+                placeholder: 'Выберите счет',
+                allowClear: true,
+                width: '100%'
+            });
         });
 
     </script>

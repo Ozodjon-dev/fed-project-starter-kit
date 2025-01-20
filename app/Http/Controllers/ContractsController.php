@@ -82,9 +82,6 @@ class ContractsController extends Controller
             ->with('success', 'Контракт успешно сохранен 😊');
     }
 
-
-
-
     public function show($id)
     {
         $contract = Contract::findOrFail($id);

@@ -97,7 +97,7 @@
                     <td>{{ $paymentOrder->details }}</td>
                     <td>{{ $paymentOrder->article }}</td>
                     <td style="max-width: 50px">
-                        <a href="" type="button"
+                        <a href="{{ route('payment_orders.preview', $paymentOrder->id) }}" type="button"
                            class="btn btn-icon rounded-circle btn-flat-primary">
                             <i data-feather="eye"></i>
                         </a>

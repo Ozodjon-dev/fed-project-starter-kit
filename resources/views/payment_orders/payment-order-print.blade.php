@@ -20,7 +20,7 @@
                 padding: 10px">
                 <strong>Платежное поручение №</strong>
             </p>
-            <p class="ms-25 rounded">324</p>
+            <p class="ms-25 rounded">{{ $paymentOrder->number }}</p>
         </div>
 
 
@@ -32,7 +32,7 @@
                         ДАТА
                     </td>
                     <td class="">
-                        <p class="" style="border: 0">2024-12-21</p>
+                        <p class="" style="border: 0">{{ $paymentOrder->date }}</p>
                     </td>
                 </tr>
                 <tr>
@@ -40,7 +40,7 @@
                         Наименование плательщика
                     </td>
                     <td colspan="3">
-                        <p class="font-weight-semibold mb-25 rounded">1-организация</p>
+                        <p class="font-weight-semibold mb-25 rounded">{{ $paymentOrder->applicant }}</p>
                     </td>
                 </tr>
                 <tr>
@@ -50,14 +50,14 @@
                         плательщика:
                     </td>
                     <td>
-                        <p class="rounded">2000900876649524618</p>
+                        <p class="rounded">{{ $paymentOrder->applicant_bank_account }}</p>
                     </td>
                     <td>
                         ИНН
                         плательщика:
                     </td>
                     <td>
-                        <p class="font-weight-semibold mb-25 rounded">700306544</p>
+                        <p class="font-weight-semibold mb-25 rounded">{{ $paymentOrder->applicant_tin }}</p>
                     </td>
                 </tr>
                 <tr>
@@ -67,7 +67,7 @@
                         плательшика:
                     </td>
                     <td>
-                        <p class="rounded">РКЦ ЦБ по г. Ташкенту</p>
+                        <p class="rounded">{{ $paymentOrder->applicant_bank_name }}</p>
                     </td>
                     <td>
                         Код
@@ -75,7 +75,7 @@
                         плательщика:
                     </td>
                     <td>
-                        <p class="rounded">00014</p>
+                        <p class="rounded">{{ $paymentOrder->applicant_bank_code }}</p>
                     </td>
                 </tr>
                 <tr>
@@ -83,7 +83,7 @@
                         СУММА
                     </td>
                     <td>
-                        <p class="font-weight-semibold mb-25 rounded">0,00</p>
+                        <p class="font-weight-semibold mb-25 rounded">{{ number_format($paymentOrder->amount, 2, '.', ',') }}</p>
                     </td>
                 </tr>
                 <tr>
@@ -92,7 +92,7 @@
                         получателя:
                     </td>
                     <td colspan="3">
-                        <p class="font-weight-semibold mb-25 rounded">1-организация</p>
+                        <p class="font-weight-semibold mb-25 rounded">{{ $paymentOrder->contractor }}</p>
                     </td>
                 </tr>
                 <tr>
@@ -101,14 +101,14 @@
                         получателя:
                     </td>
                     <td>
-                        <p class="font-weight-semibold mb-15 rounded">2000900876649524618</p>
+                        <p class="font-weight-semibold mb-15 rounded">{{ $paymentOrder->beneficiary_bank_account }}</p>
                     </td>
                     <td>
                         ИНН
                         получателя:
                     </td>
                     <td>
-                        <p class="font-weight-semibold mb-25 rounded">700306544</p>
+                        <p class="font-weight-semibold mb-25 rounded">{{ $paymentOrder->beneficiary_tin }}</p>
                     </td>
                 </tr>
                 <tr>
@@ -118,7 +118,7 @@
                         получателя:
                     </td>
                     <td>
-                        <p class="font-weight-semibold mb-25 rounded">РКЦ ЦБ по г. Ташкенту</p>
+                        <p class="font-weight-semibold mb-25 rounded">{{ $paymentOrder->beneficiary_bank_name }}</p>
                     </td>
                     <td>
                         Код
@@ -126,7 +126,7 @@
                         получателя:
                     </td>
                     <td>
-                        <p class="font-weight-semibold mb-25 rounded">00014</p>
+                        <p class="font-weight-semibold mb-25 rounded">{{ $paymentOrder->beneficiary_bank_code }}</p>
                     </td>
                 </tr>
                 <tr>
@@ -134,8 +134,7 @@
                         Сумма прописью
                     </td>
                     <td colspan="3">
-                        <p class="font-weight-semibold mb-25 rounded">bir million oli yuz ming sakkiz yuz so`m 11
-                            tiyin</p>
+                        <p class="font-weight-semibold mb-25 rounded">{{ $paymentOrder->amount_in_words }}</p>
                     </td>
                 </tr>
                 <tr>
@@ -144,21 +143,18 @@
                         платежа
                     </td>
                     <td colspan="3">
-                        <p class="font-weight-semibold mb-25 rounded">2023 yil dekabr oyi uchun. 08102 to‘lov,
-                            1000218602262873111103093 12% daromad solig‘i. 2024 yil mart oyi uchun.</p>
+                        <p class="font-weight-semibold mb-25 rounded">{{ $paymentOrder->details }}</p>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <strong></strong>
+
                     </td>
                     <td>
                         Руководитель ____________________________
                     </td>
                     <td>
-                    </td>
-                    <td>
-                        Главный бухгалтер ____________
+                        Главный бухгалтер ____________________________
                     </td>
                 </tr>
                 </tbody>
@@ -167,13 +163,13 @@
 
                 <div class="d-flex align-items-center mt-2  mb-2 invoice-print">
 
-                    <div class="d-flex align-items-center" style="min-width: 370px">
+                    <div class="d-flex align-items-center" style="min-width: 265px">
                         <span class="title"></span>
                         <span class="title ms-50"></span>
                     </div>
 
-                    <div class="form-control ms-50 mt-md-0" style="height: 100px; max-width: 1000px">
-                        <div class="row invoice-print">
+                    <div class="form-control ms-50 mt-md-0" style="height: 100px; width: 1150px">
+                        <div class="row invoice-print w-100">
                             <div class="col" style="max-width: 100px">
                                 <b>БАНК</b>
                             </div>

@@ -221,7 +221,7 @@
 @section('vendor-script')
     <script src="{{asset('vendors/js/forms/repeater/jquery.repeater.min.js')}}"></script>
     <script src="{{asset('vendors/js/forms/select/select2.full.min.js')}}"></script>
-    <script src="{{asset('vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
+{{--    <script src="{{asset('vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>--}}
     <script src="{{ asset(mix('vendors/js/forms/cleave/cleave.min.js'))}}"></script>
     <script src="{{ asset(mix('vendors/js/forms/cleave/addons/cleave-phone.us.js'))}}"></script>
 @endsection

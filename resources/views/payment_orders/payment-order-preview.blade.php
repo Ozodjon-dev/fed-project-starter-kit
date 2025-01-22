@@ -243,12 +243,12 @@
 
                                 <div class="d-flex align-items-center mt-2  mb-2">
 
-                                    <div class="d-flex align-items-center" style="min-width: 210px">
+                                    <div class="d-flex align-items-center" style="min-width: 220px">
                                         <span class="title"></span>
                                         <span class="title ms-50"></span>
                                     </div>
 
-                                    <div class="form-control ms-50 mt-md-0" style="height: 100px; max-width: 780px">
+                                    <div class="form-control ms-50 mt-md-0" style="height: 100px; max-width: 770px">
                                         <div class="row invoice-print">
                                             <div class="col" style="max-width: 100px">
                                                 <b>БАНК</b>
@@ -284,7 +284,7 @@
                     <div class="card-body">
                         <a class="btn btn-primary w-100 mb-75" href="{{url('/payment_order/print', $paymentOrder->id)}}"
                            target="_blank"><i data-feather="printer"></i> Печать </a>
-                        <a class="btn btn-success w-100 mb-75" href="{{url('/payment_order/edit')}}"><i
+                        <a class="btn btn-success w-100 mb-75" href="{{ route('payment_orders.edit', $paymentOrder->id) }}"><i
                                 data-feather="edit"></i> Редактировать </a>
                         <div class="w-100 mb-75">
                             <button type="button" class="btn btn-outline-danger w-100" data-bs-toggle="modal"

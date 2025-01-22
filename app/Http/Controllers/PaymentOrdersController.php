@@ -109,9 +109,64 @@ class PaymentOrdersController extends Controller
         return view('payment_orders/payment-order-print', compact('paymentOrder'));
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('payment_orders/payment-order-edit');
+        $paymentOrder = PaymentOrder::findOrFail($id);
+        $bank_accounts = DB::table('bank_accounts')->get();
+        $organizations = DB::table('organizations')->get();
+        $chart_of_accounts = DB::table('chart_of_accounts')->get();
+        $contractors = Contractor::all();
+        $contracts = Contract::all();
+        $classificators = Classificator::all()->sortBy('article');
+        return view('payment_orders/payment-order-edit', compact('classificators', 'bank_accounts', 'paymentOrder', 'organizations', 'contractors', 'contracts', 'chart_of_accounts'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $input = $request->all();
+
+        $paymentOrder = PaymentOrder::find($id);
+
+        // 'amount' maydonini tekshirish va formatlash
+        if (!empty($input['amount'])) {
+            // Vergullarni olib tashlash va faqat raqamlarni saqlash
+            $input['amount'] = preg_replace('/[^0-9.]/', '', $input['amount']);
+        }
+
+        // Validatsiya
+        try {
+            $validated = \Validator::make($input, [
+                'number' => 'required|string|max:255',
+                'date' => 'required|date',
+                'applicant' => 'required|string',
+                'applicant_bank_account' => 'required|string',
+                'applicant_tin' => 'required|string',
+                'applicant_bank_name' => 'required|string',
+                'applicant_bank_code' => 'required|string',
+                'amount' => 'required|numeric',
+                'contractor' => 'required|string',
+                'beneficiary_bank_account' => 'required|string',
+                'beneficiary_tin' => 'required|string',
+                'beneficiary_bank_name' => 'required|string',
+                'beneficiary_bank_code' => 'required|string',
+                'amount_in_words' => 'required|string',
+                'details' => 'required|string',
+                'debit_chart_of_account' => 'required|string',
+                'credit_chart_of_account' => 'required|string',
+                'contract' => 'required|string',
+                'article' => 'required|string'
+            ])->validate();
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return redirect()->back()->withErrors($e->errors())->withInput();
+        }
+
+        $validated['amount'] = $validated['amount'] ?? 0.00;
+
+        // Ma'lumotni yangilash
+        $paymentOrder->update($validated);
+
+        // Foydalanuvchini qaytarish
+        return redirect()->route('payment_orders.preview', $id)->with('success', 'Платежное поручение успешно отредактирован 😊');
     }
 
 

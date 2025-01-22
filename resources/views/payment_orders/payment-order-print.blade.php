@@ -5,26 +5,64 @@
 @section('page-style')
     <link rel="stylesheet" href="{{asset(mix('css/base/pages/app-invoice-print.css'))}}">
     <style>
+        /* Custom Styles for Print (A5 Landscape Format) */
+        @media print {
+            @page {
+                size: A4;  /* Set the page size to A5 landscape */
+                margin: 15mm; /* Adjust margins to fit content properly */
+            }
+            body {
+                font-size: 18px; /* Increase default font size for printing */
+                line-height: 1.6; /* Adjust line height for better readability */
+            }
+            p {
+                font-size: 22px; /* Larger text for paragraph */
+                line-height: 1.8;
+                border: 2px solid black;
+                padding: 20px;
+            }
+            table {
+                font-size: 22px; /* Larger text for tables */
+                width: 100%; /* Ensure table spans across the page */
+            }
+            td {
+                padding: 0px; /* Add padding to table cells for better spacing */
+            }
+            .invoice-print {
+                width: 100%; /* Ensure invoice uses full page width when printed */
+            }
+            .container-fluid {
+                width: 100%;
+            }
+            .text-uppercase {
+                font-size: 24px; /* Larger font for headers */
+                font-weight: bold;
+            }
+            .rounded {
+                border-radius: 8px;
+            }
+        }
+
+        /* Default styling for page */
         p {
+            font-size: 24px; /* Regular font size */
             border: 2px solid black;
-            padding: 10px;
+            padding: 15px;
         }
     </style>
 @endsection
 
 @section('content')
     <div class="invoice-print mt-2" style="color: black">
-        <div class="d-flex justify-content-center">
-            <p class="text-uppercase"
-               style="border: 0px;
-                padding: 10px">
-                <strong>Платежное поручение №</strong>
-            </p>
-            <p class="ms-25 rounded">{{ $paymentOrder->number }}</p>
-        </div>
-
-
         <div class="container-fluid mt-2" style="height: 50%">
+            <div class="d-flex justify-content-center">
+                <p class="text-uppercase"
+                   style="border: 0px;
+                padding: 10px">
+                    <strong>Платежное поручение №</strong>
+                </p>
+                <p class="ms-25 rounded">{{ $paymentOrder->number }}</p>
+            </div>
             <table class="dataTable m-0 mb-2">
                 <tbody>
                 <tr>

@@ -248,19 +248,23 @@
                                         <span class="title ms-50"></span>
                                     </div>
 
-                                    <div class="form-control ms-50 mt-md-0" style="height: 100px; max-width: 770px; background-color: #E5DECF; color: black; border: 1px solid #6e6b7b">
+                                    <div class="form-control ms-50 mt-md-0"
+                                         style="height: 100px; max-width: 770px; background-color: #E5DECF; color: black; border: 1px solid #6e6b7b">
                                         <div class="row invoice-print rounded">
                                             <div class="col" style="max-width: 100px">
                                                 <b>БАНК</b>
                                             </div>
                                             <div class="col me-2">Проверен
-                                                <div type="" class="form-control" style="height: 40px; background-color: #E5DECF; border: 1px solid #6e6b7b"></div>
+                                                <div type="" class="form-control"
+                                                     style="height: 40px; background-color: #E5DECF; border: 1px solid #6e6b7b"></div>
                                             </div>
                                             <div class="col me-2">Одобрен
-                                                <div type="" class="form-control" style="height: 40px; background-color: #E5DECF; border: 1px solid #6e6b7b"></div>
+                                                <div type="" class="form-control"
+                                                     style="height: 40px; background-color: #E5DECF; border: 1px solid #6e6b7b"></div>
                                             </div>
                                             <div class="col me-2">Проведено банком
-                                                <div type="" class="form-control" style="height: 40px; background-color: #E5DECF; border: 1px solid #6e6b7b"></div>
+                                                <div type="" class="form-control"
+                                                     style="height: 40px; background-color: #E5DECF; border: 1px solid #6e6b7b"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -271,14 +275,9 @@
 
                     </div>
 
-                    <!-- Invoice Note starts -->
-
-                    <!-- Invoice Note ends -->
                 </div>
             </div>
-            <!-- /Invoice -->
 
-            <!-- Invoice Actions -->
             <div class="col-xl-3 col-md-4 col-12 invoice-actions mt-md-0 mt-2">
                 <div class="card">
                     <div class="card-body">

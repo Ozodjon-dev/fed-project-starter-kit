@@ -288,7 +288,7 @@
                                         id="contract">
                                     <option disabled selected></option>
                                     @foreach($contracts as $contract)
-                                        <option value="{{ $contract->number }}"
+                                        <option value="№ {{ $contract->number }} от {{ $contract->date }} с {{ $contract->contractor }}"
                                                 data-number="{{ $contract->number }}">
                                             № {{ $contract->number }} от {{ $contract->date }}
                                             с {{ $contract->contractor }}

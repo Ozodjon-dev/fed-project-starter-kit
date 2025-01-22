@@ -169,7 +169,13 @@ class PaymentOrdersController extends Controller
         return redirect()->route('payment_orders.preview', $id)->with('success', 'Платежное поручение успешно отредактирован 😊');
     }
 
+    public function destroy($id)
+    {
+        $paymentOrder = PaymentOrder::findOrFail($id);
+        $paymentOrder->delete();
+        return redirect()->route('payment_orders.list')->with('success', 'Платежное поручение успешно удален 😊');
 
+    }
 
 
 

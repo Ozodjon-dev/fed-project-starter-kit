@@ -284,7 +284,8 @@
                     <div class="card-body">
                         <a class="btn btn-primary w-100 mb-75" href="{{url('/payment_order/print', $paymentOrder->id)}}"
                            target="_blank"><i data-feather="printer"></i> Печать </a>
-                        <a class="btn btn-success w-100 mb-75" href="{{ route('payment_orders.edit', $paymentOrder->id) }}"><i
+                        <a class="btn btn-success w-100 mb-75"
+                           href="{{ route('payment_orders.edit', $paymentOrder->id) }}"><i
                                 data-feather="edit"></i> Редактировать </a>
                         <div class="w-100 mb-75">
                             <button type="button" class="btn btn-outline-danger w-100" data-bs-toggle="modal"
@@ -312,7 +313,7 @@
                                         </div>
                                         <div class="d-flex">
                                             <form class="ms-1 mb-2"
-                                                  {{--                                                  action="{{ route('contracts.delete', $contract->id) }}"--}}
+                                                  action="{{ route('payment_orders.delete', $paymentOrder->id) }}"
                                                   method="post">
                                                 @csrf
                                                 @method('delete')

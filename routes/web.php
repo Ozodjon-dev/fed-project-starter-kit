@@ -58,6 +58,7 @@ Route::get('/payment_order/preview/{id}', [PaymentOrdersController::class, 'prev
 Route::get('/payment_order/print/{id}',  [PaymentOrdersController::class, 'print'])->name('payment_orders.print');
 Route::get('/payment_order/{id}/edit',  [PaymentOrdersController::class, 'edit'])->name('payment_orders.edit');
 Route::patch('/payment_order/{id}',  [PaymentOrdersController::class, 'update'])->name('payment_orders.update');
+Route::delete('/payment_order/{id}',  [PaymentOrdersController::class, 'destroy'])->name('payment_orders.delete');
 
 // contracts Route
 Route::get('/contract/list',  [ContractsController::class, 'list'])->name('contracts.list');

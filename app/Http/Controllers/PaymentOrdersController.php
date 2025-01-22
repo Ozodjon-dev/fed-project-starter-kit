@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PaymentOrdersExport;
 use App\Models\Classificator;
 use App\Models\Contract;
 use App\Models\Contractor;
 use App\Models\PaymentOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PaymentOrdersController extends Controller
 {
@@ -177,7 +179,11 @@ class PaymentOrdersController extends Controller
 
     }
 
-
+    // Export payment orders in Excel format
+    public function exportPaymentOrders()
+    {
+        return Excel::download(new PaymentOrdersExport, 'payment_orders.xlsx');
+    }
 
 }
 

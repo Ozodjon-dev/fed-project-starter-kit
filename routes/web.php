@@ -59,6 +59,8 @@ Route::get('/payment_order/print/{id}',  [PaymentOrdersController::class, 'print
 Route::get('/payment_order/{id}/edit',  [PaymentOrdersController::class, 'edit'])->name('payment_orders.edit');
 Route::patch('/payment_order/{id}',  [PaymentOrdersController::class, 'update'])->name('payment_orders.update');
 Route::delete('/payment_order/{id}',  [PaymentOrdersController::class, 'destroy'])->name('payment_orders.delete');
+Route::get('/payment_order/export', [PaymentOrdersController::class, 'exportPaymentOrders'])->name('payment_orders.export');
+
 
 // contracts Route
 Route::get('/contract/list',  [ContractsController::class, 'list'])->name('contracts.list');

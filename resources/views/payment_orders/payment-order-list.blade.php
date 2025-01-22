@@ -39,7 +39,7 @@
         </a>
 
         <!-- Excel export button -->
-        <a href="{{ route('contracts.export') }}" class="btn btn-success ms-1 btn-sm">
+        <a href="{{ route('payment_orders.export') }}" class="btn btn-success ms-1 btn-sm">
             Экспортировать в Excel
         </a>
 
@@ -72,7 +72,7 @@
             <tr class="align-middle align-content-center">
                 <th scope="col">#</th>
                 <th scope="col">Номер</th>
-                <th scope="col">Дата</th>
+                <th scope="col" style="width: 90px">Дата</th>
                 <th scope="col">Наименование плательщика:</th>
                 <th scope="col">Наименование получателя:</th>
                 <th scope="col">ИНН получателя:</th>

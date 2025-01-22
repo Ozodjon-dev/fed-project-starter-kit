@@ -302,10 +302,9 @@
                                         id="contract">
                                         <option value="{{ $paymentOrder->contract }}" selected>{{ $paymentOrder->contract }}</option>
                                     @foreach($contracts as $contract)
-                                        <option value="{{ $contract->number }}"
+                                        <option value="№ {{ $contract->number }} от {{ $contract->date }} с {{ $contract->contractor }}"
                                                 data-number="{{ $contract->number }}">
-                                            № {{ $contract->number }} от {{ $contract->date }}
-                                            с {{ $contract->contractor }}
+                                            № {{ $contract->number }} от {{ $contract->date }} с {{ $contract->contractor }}
                                         </option>
                                     @endforeach
                                 </select>

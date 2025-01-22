@@ -168,14 +168,14 @@ class PaymentOrdersController extends Controller
         $paymentOrder->update($validated);
 
         // Foydalanuvchini qaytarish
-        return redirect()->route('payment_orders.preview', $id)->with('success', 'Платежное поручение успешно отредактирован 😊');
+        return redirect()->route('payment_orders.preview', $id)->with('success', 'Платежное поручение успешно отредактировано 😊');
     }
 
     public function destroy($id)
     {
         $paymentOrder = PaymentOrder::findOrFail($id);
         $paymentOrder->delete();
-        return redirect()->route('payment_orders.list')->with('success', 'Платежное поручение успешно удален 😊');
+        return redirect()->route('payment_orders.list')->with('success', 'Платежное поручение успешно удалено 😊');
 
     }
 

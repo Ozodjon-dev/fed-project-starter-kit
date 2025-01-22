@@ -82,7 +82,7 @@
         <div class="row invoice-preview">
             <!-- Invoice -->
             <div class="col-xl-9 col-md-8 col-12">
-                <div class="card invoice-preview-card">
+                <div class="card invoice-preview-card" style="background-color: #E5DECF; color: black">
 
 
                     <div class="invoice-print mt-2">
@@ -248,19 +248,19 @@
                                         <span class="title ms-50"></span>
                                     </div>
 
-                                    <div class="form-control ms-50 mt-md-0" style="height: 100px; max-width: 770px">
-                                        <div class="row invoice-print">
+                                    <div class="form-control ms-50 mt-md-0" style="height: 100px; max-width: 770px; background-color: #E5DECF; color: black; border: 1px solid black">
+                                        <div class="row invoice-print rounded">
                                             <div class="col" style="max-width: 100px">
                                                 <b>БАНК</b>
                                             </div>
                                             <div class="col me-2">Проверен
-                                                <div type="number" class="form-control" style="height: 40px"></div>
+                                                <div type="" class="form-control" style="height: 40px; background-color: #E5DECF; border: 1px solid black"></div>
                                             </div>
                                             <div class="col me-2">Одобрен
-                                                <div type="number" class="form-control" style="height: 40px"></div>
+                                                <div type="" class="form-control" style="height: 40px; background-color: #E5DECF; border: 1px solid black"></div>
                                             </div>
                                             <div class="col me-2">Проведено банком
-                                                <div type="number" class="form-control" style="height: 40px"></div>
+                                                <div type="" class="form-control" style="height: 40px; background-color: #E5DECF; border: 1px solid black"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -309,7 +309,7 @@
                                                     aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <strong>Вы уверены, что хотите удалить этот контракт?</strong>
+                                            <strong>Вы уверены, что хотите удалить этот платежное поручение?</strong>
                                         </div>
                                         <div class="d-flex">
                                             <form class="ms-1 mb-2"

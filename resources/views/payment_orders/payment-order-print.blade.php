@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-    <div class="invoice-print mt-2">
+    <div class="invoice-print mt-2" style="color: black">
         <div class="d-flex justify-content-center">
             <p class="text-uppercase"
                style="border: 0px;

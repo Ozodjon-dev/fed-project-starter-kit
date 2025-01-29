@@ -7,16 +7,12 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production",
-        "build": "vue-cli-service build"
+        "production": "mix --production"
     },
     "dependencies": {
-        "bootstrap": "~5.1.0",
-        "vue": "3.5.13",
-        "vue-the-mask": "^0.11.1"
+        "bootstrap": "~5.1.0"
     },
     "devDependencies": {
-        "@vue/cli-service": "^5.0.8",
         "axios": "^0.25",
         "browser-sync": "^2.27.7",
         "browser-sync-webpack-plugin": "2.3.0",

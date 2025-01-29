@@ -79,7 +79,7 @@ class ContractsController extends Controller
 
         // Saqlanganidan so'ng foydalanuvchini qaytarish
         return redirect()->route('contracts.list', compact('classificators'))
-            ->with('success', 'Контракт успешно сохранен 😊');
+            ->with('success', 'Контракт успешно сохранен ✅');
     }
 
     public function show($id)
@@ -136,7 +136,7 @@ class ContractsController extends Controller
         $contract->update($validated);
 
         // Foydalanuvchini qaytarish
-        return redirect()->route('contracts.show', $id)->with('success', 'Контракт успешно отредактирован 😊');
+        return redirect()->route('contracts.show', $id)->with('success', 'Контракт успешно отредактирован ✅');
     }
 
 
@@ -144,7 +144,7 @@ class ContractsController extends Controller
     {
         $contract = Contract::findOrFail($id);
         $contract->delete();
-        return redirect()->route('contracts.list')->with('success', 'Контракт успешно удален 😊');
+        return redirect()->route('contracts.list')->with('success', 'Контракт успешно удален 🗑️');
 
     }
 

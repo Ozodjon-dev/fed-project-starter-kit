@@ -97,7 +97,7 @@ class PaymentOrdersController extends Controller
 
         // Saqlanganidan so'ng foydalanuvchini qaytarish
         return redirect()->route('payment_orders.list')
-            ->with('success', 'Платежное поручение успешно сохранено 😊');
+            ->with('success', 'Платежное поручение успешно сохранено ✅');
     }
 
     public function preview($id)
@@ -169,14 +169,14 @@ class PaymentOrdersController extends Controller
         $paymentOrder->update($validated);
 
         // Foydalanuvchini qaytarish
-        return redirect()->route('payment_orders.preview', $id)->with('success', 'Платежное поручение успешно отредактировано 😊');
+        return redirect()->route('payment_orders.preview', $id)->with('success', 'Платежное поручение успешно отредактировано ✅');
     }
 
     public function destroy($id)
     {
         $paymentOrder = PaymentOrder::findOrFail($id);
         $paymentOrder->delete();
-        return redirect()->route('payment_orders.list')->with('success', 'Платежное поручение успешно удалено 😊');
+        return redirect()->route('payment_orders.list')->with('success', 'Платежное поручение успешно удалено 🗑️');
 
     }
 

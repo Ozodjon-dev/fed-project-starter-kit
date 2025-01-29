@@ -1,7 +1,7 @@
 @extends('layouts/contentLayoutMaster')
 
 
-@section('title', 'Invoice Preview')
+@section('title', 'Просмотр платежного поручения')
 
 @section('vendor-style')
     <link rel="stylesheet" href="{{asset('vendors/css/pickers/flatpickr/flatpickr.min.css')}}">

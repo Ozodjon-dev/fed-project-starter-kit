@@ -5,10 +5,14 @@
 
 @section('vendor-style')
     <link rel="stylesheet" href="{{asset('vendors/css/pickers/flatpickr/flatpickr.min.css')}}">
+    <link rel="stylesheet" href="{{asset('vendors/css/extensions/toastr.min.css')}}">
 @endsection
 @section('page-style')
     <link rel="stylesheet" href="{{asset('css/base/plugins/forms/pickers/form-flat-pickr.css')}}">
     <link rel="stylesheet" href="{{asset('css/base/pages/app-invoice.css')}}">
+    <link rel="stylesheet" href="{{asset('css/base/plugins/extensions/ext-component-toastr.css')}}">
+    <link rel="stylesheet" href="{{asset('css/base/pages/ui-feather.css')}}">
+
     <style>
         p {
             border-style: solid;
@@ -288,7 +292,7 @@
                                 data-feather="edit"></i> Редактировать </a>
                         <div class="w-100 mb-75">
                             <button type="button" class="btn btn-outline-danger w-100" data-bs-toggle="modal"
-                                    data-bs-target="#danger"><i data-feather="trash"></i> Удалить
+                                    data-bs-target="#danger"><i data-feather="trash-2"></i> Удалить
                             </button>
 
                             <!-- Modal -->
@@ -339,8 +343,10 @@
 @section('vendor-script')
     <script src="{{asset('vendors/js/forms/repeater/jquery.repeater.min.js')}}"></script>
     <script src="{{asset('vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
+    <script src="{{asset('vendors/js/extensions/toastr.min.js')}}"></script>
 @endsection
 
 @section('page-script')
     <script src="{{asset('js/scripts/pages/app-invoice.js')}}"></script>
+    <script src="{{asset('js/scripts/ui/ui-feather.js')}}"></script>
 @endsection

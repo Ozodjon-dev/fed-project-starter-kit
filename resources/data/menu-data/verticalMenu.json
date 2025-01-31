@@ -10,7 +10,7 @@
             "name": "Reference books",
             "icon": "info",
             "dropdown": "1",
-            "slug": "contractors",
+            "slug": "",
             "submenu": [
                 {
                     "name": "Contractors",
@@ -40,13 +40,13 @@
                             "url": "contracts_category/add",
                             "name": "Add category",
                             "icon": "plus",
-                            "slug": "contractors.add"
+                            "slug": "contract_categories.add"
                         },
                         {
                             "url": "contracts_category/list",
                             "name": "List of categories",
                             "icon": "list",
-                            "slug": "contractors.list"
+                            "slug": "contract_categories.list"
                         }
                     ]
                 }
@@ -94,6 +94,33 @@
                             "name": "List contracts",
                             "icon": "list",
                             "slug": "contracts.list"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Report",
+            "icon": "bar-chart",
+            "dropdown": "1",
+            "slug": "",
+            "submenu": [
+                {
+                    "name": "Memorial order",
+                    "icon": "file-text",
+                    "slug": "",
+                    "submenu": [
+                        {
+                            "url": "memorial_order_2/list",
+                            "name": "Memorial order-2",
+                            "icon": "circle",
+                            "slug": "memorial_order2.list"
+                        },
+                        {
+                            "url": "memorial_order_6/list",
+                            "name": "Memorial order-6",
+                            "icon": "circle",
+                            "slug": "memorial_order6.list"
                         }
                     ]
                 }

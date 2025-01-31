@@ -40,6 +40,7 @@
 
         <!-- Excel export button -->
         <a href="{{ route('contracts.export') }}" class="btn btn-success ms-1 btn-sm">
+            <i data-feather='download'></i>
             Экспортировать в Excel
         </a>
 

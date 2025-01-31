@@ -1,6 +1,16 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'Список платежных поручений')
+@section('title', '2 - Мемориальный ордер (Нак. вед. по движению бюджетных средств)')
+@section('vendor-style')
+    <!-- vendor css files -->
+    <link rel="stylesheet" href="{{ asset(mix('vendors/css/pickers/pickadate/pickadate.css')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('vendors/css/pickers/flatpickr/flatpickr.min.css')) }}">
+@endsection
+
+@section('page-style')
+    <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-flat-pickr.css')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-pickadate.css')) }}">
+@endsection
 
 @section('content')
     @if (session('success'))
@@ -40,82 +50,39 @@
 
         <!-- Excel export button -->
         <a href="{{ route('payment_orders.export') }}" class="btn btn-success ms-1 btn-sm">
+            <i data-feather='download'></i>
             Экспортировать в Excel
         </a>
 
-        <form method="GET" action="{{ route('payment_orders.list') }}" class="d-flex align-items-center ms-1">
-            <div class="input-group">
-                <input
-                    type="text"
-                    class="form-control form-control-sm"
-                    placeholder="Поиск"
-                    name="search"
-                    value="{{ request('search') }}"
-                >
-                <button type="submit" class="btn btn-primary btn-sm">
-                    <i data-feather="search"></i>
-                </button>
-            </div>
-        </form>
+        <div class="d-flex col-md-3 ms-auto mb-0">
+            <label style="min-width: 120px">Выберите период</label>
+            <input
+                style="padding: 0.285rem 1rem"
+                type="text"
+                id="fp-range"
+                class="ms-1 form-control flatpickr-range"
+                placeholder="YYYY-MM-DD to YYYY-MM-DD"
+            />
+        </div>
 
-        <!-- Move the plus button to the right -->
-        <a href="{{ route('payment_orders.add') }}" class="btn btn-icon btn-primary ms-auto btn-sm"
-           style="border-radius: 50%">
-            <i data-feather="plus" class="text-white"></i>
+        <a href="" class="btn btn-icon btn-primary ms-1 btn-sm" style="border-radius: 50%">
+            <i data-feather='refresh-cw'></i>
         </a>
     </div>
 
-
-    <div class="table-responsive rounded">
-        <table class="table table-responsive table-bordered table-sm" style="text-align: center">
-            <thead>
-            <tr class="align-middle align-content-center">
-                <th scope="col">#</th>
-                <th scope="col">Номер</th>
-                <th scope="col" style="width: 90px">Дата</th>
-                <th scope="col">Наименование плательщика:</th>
-                <th scope="col">Наименование получателя:</th>
-                <th scope="col">ИНН получателя:</th>
-                <th scope="col">Расчетный счет получателя:</th>
-                <th scope="col">Сумма</th>
-                <th scope="col">Детали платежа</th>
-                <th class="col">Статья</th>
-                <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($paymentOrders as $paymentOrder)
-                <tr>
-                    <th>{{ $paymentOrder->id }}</th>
-                    <th>{{ $paymentOrder->number }}</th>
-                    <td>{{ $paymentOrder->date }}</td>
-                    <td>{{ $paymentOrder->applicant }}</td>
-                    <td>{{ $paymentOrder->contractor }}</td>
-                    <td>{{ $paymentOrder->beneficiary_tin }}</td>
-                    <td>{{ $paymentOrder->beneficiary_bank_account }}</td>
-                    <td>{{ number_format($paymentOrder->amount, 2, '.', ',') }}</td>
-                    <td>{{ $paymentOrder->details }}</td>
-                    <td>{{ $paymentOrder->article }}</td>
-                    <td style="max-width: 50px">
-                        <a href="{{ route('payment_orders.preview', $paymentOrder->id) }}" type="button"
-                           class="btn btn-icon rounded-circle btn-flat-primary">
-                            <i data-feather="eye"></i>
-                        </a>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-        <div>
-            {{ $paymentOrders->links() }} <!-- Pagination -->
-        </div>
-    </div>
 @endsection
+
 @section('page-script')
     <script src="{{asset('js/scripts/pages/app-invoice.js')}}"></script>
     <script src="{{ asset(mix('js/scripts/forms/form-input-mask.js')) }}"></script>
-    <script>
-
-    </script>
+    <script src="{{ asset(mix('js/scripts/forms/pickers/form-pickers.js')) }}"></script>
 @endsection
 
+@section('vendor-script')
+    <!-- vendor files -->
+    <script src="{{ asset(mix('vendors/js/pickers/pickadate/picker.js')) }}"></script>
+    <script src="{{ asset(mix('vendors/js/pickers/pickadate/picker.date.js')) }}"></script>
+    <script src="{{ asset(mix('vendors/js/pickers/pickadate/picker.time.js')) }}"></script>
+    <script src="{{ asset(mix('vendors/js/pickers/pickadate/legacy.js')) }}"></script>
+    <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
+@endsection

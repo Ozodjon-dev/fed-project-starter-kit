@@ -38,11 +38,6 @@
             <i data-feather="arrow-left"></i> Назад
         </a>
 
-        <!-- Excel export button -->
-        <a href="{{ route('payment_orders.export') }}" class="btn btn-success ms-1 btn-sm">
-            Экспортировать в Excel
-        </a>
-
         <form method="GET" action="{{ route('payment_orders.list') }}" class="d-flex align-items-center ms-1">
             <div class="input-group">
                 <input
@@ -57,6 +52,12 @@
                 </button>
             </div>
         </form>
+
+
+        <!-- Excel export button -->
+        <a href="{{ route('payment_orders.export') }}" class="btn btn-success ms-1 btn-sm">
+            <i data-feather='download'></i> Экспортировать в Excel
+        </a>
 
         <!-- Move the plus button to the right -->
         <a href="{{ route('payment_orders.add') }}" class="btn btn-icon btn-primary ms-auto btn-sm"

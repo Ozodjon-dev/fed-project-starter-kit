@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ContractCategoriesController;
+use App\Http\Controllers\MemorialOrder2Controller;
+use App\Http\Controllers\MemorialOrder6Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaterkitController;
 use App\Http\Controllers\LanguageController;
@@ -89,3 +91,10 @@ Route::get('/contracts_category/{id}',  [ContractCategoriesController::class, 's
 Route::get('/contracts_category/{id}/edit',  [ContractCategoriesController::class, 'edit'])->name('contract_categories.edit');
 Route::patch('/contracts_category/{id}',  [ContractCategoriesController::class, 'update'])->name('contract_categories.update');
 Route::delete('/contracts_category/{id}',  [ContractCategoriesController::class, 'destroy'])->name('contract_categories.delete');
+
+// memorial order-2 Route
+Route::get('/memorial_order_2/list',  [MemorialOrder2Controller::class, 'list'])->name('memorial_order2.list');
+
+
+// memorial order-6 Route
+Route::get('/memorial_order_6/list',  [MemorialOrder6Controller::class, 'list'])->name('memorial_order6.list');

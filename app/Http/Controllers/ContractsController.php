@@ -7,6 +7,7 @@ use App\Models\Classificator;
 use App\Models\Contract;
 use App\Models\ContractCategory;
 use App\Models\Contractor;
+use App\Models\PaymentOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
@@ -85,6 +86,7 @@ class ContractsController extends Controller
     public function show($id)
     {
         $contract = Contract::findOrFail($id);
+//        $payment_orders = PaymentOrder::where('contract', $id)->get();
         return view('contracts/contract-show', compact('contract'));
     }
 

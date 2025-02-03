@@ -85,8 +85,8 @@ class PaymentOrdersController extends Controller
             'details' => 'required|string',
             'debit_chart_of_account' => 'required|string',
             'credit_chart_of_account' => 'required|string',
-            'contract' => 'required|string',
-            'article' => 'required|string'
+            'contract_id' => 'nullable|exists:contracts,id',
+            'article' => 'nullable|string'
         ])->validate();
 
         // Agar 'amount' qiymati bo‘sh bo‘lsa, uni 0.00 ga o‘zgartirish
@@ -156,8 +156,8 @@ class PaymentOrdersController extends Controller
                 'details' => 'required|string',
                 'debit_chart_of_account' => 'required|string',
                 'credit_chart_of_account' => 'required|string',
-                'contract' => 'required|string',
-                'article' => 'required|string'
+                'contract_id' => 'nullable|exists:contracts,id',
+                'article' => 'nullable|string'
             ])->validate();
         } catch (\Illuminate\Validation\ValidationException $e) {
             return redirect()->back()->withErrors($e->errors())->withInput();

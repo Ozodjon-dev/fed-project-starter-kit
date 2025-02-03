@@ -107,7 +107,7 @@
                     <th>{{ $contract->id }}</th>
                     <td style="max-width: 100px">{{ $contract->type }}</td>
                     <td>{{ $contract->number }}</td>
-                    <td>{{ $contract->date }}</td>
+                    <td>{{ \Carbon\Carbon::parse($contract->date)->format('d.m.Y') }}</td>
                     <td>{{ $contract->contractor }}</td>
                     <td>{{ $contract->category }}</td>
                     <td>{{ $contract->details }}</td>
@@ -126,7 +126,7 @@
                                 @endif
                             </div>
                         </div>
-                        <small class="text-muted">{{ $contract->term }}</small>
+                        <small class="text-muted">{{ \Carbon\Carbon::parse($contract->term)->format('d.m.Y') }}</small>
                     </td>
                     <td>
                         <div class="invoice_status">
@@ -153,8 +153,4 @@
 @section('page-script')
     <script src="{{asset('js/scripts/pages/app-invoice.js')}}"></script>
     <script src="{{ asset(mix('js/scripts/forms/form-input-mask.js')) }}"></script>
-    <script>
-
-    </script>
 @endsection
-

@@ -72,7 +72,7 @@
                 <tbody>
                 <tr>
                     <td>ДАТА</td>
-                    <td><p style="border: 0; margin: 0">{{ $paymentOrder->date }}</p></td>
+                    <td><p style="border: 0; margin: 0">{{ \Carbon\Carbon::parse($paymentOrder->date)->format('d.m.Y') }}</p></td>
                 </tr>
                 <tr>
                     <td>Наименование плательщика</td>

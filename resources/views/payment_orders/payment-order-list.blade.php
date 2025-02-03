@@ -89,7 +89,7 @@
                 <tr>
                     <th>{{ $paymentOrder->id }}</th>
                     <th>{{ $paymentOrder->number }}</th>
-                    <td>{{ $paymentOrder->date }}</td>
+                    <td>{{ \Carbon\Carbon::parse($paymentOrder->date)->format('d.m.Y') }}</td>
                     <td>{{ $paymentOrder->applicant }}</td>
                     <td>{{ $paymentOrder->contractor }}</td>
                     <td>{{ $paymentOrder->beneficiary_tin }}</td>

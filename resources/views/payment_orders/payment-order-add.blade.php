@@ -284,13 +284,13 @@
                             </div>
                             <hr>
                             <div class="align-items-center mb-1 w-100">
-                                <label for="contract" class="title">Договор</label>
-                                <select class="form-select rounded w-100" name="contract"
-                                        id="contract">
+                                <label for="contract_id" class="title">Договор</label>
+                                <select class="form-select rounded w-100" name="contract_id"
+                                        id="contract_id">
                                     <option disabled selected></option>
                                     @foreach($contracts as $contract)
-                                        <option value="№ {{ $contract->number }} от {{ $contract->date }} с {{ $contract->contractor }}"
-                                                data-number="{{ $contract->number }}">
+                                        <option value="{{ $contract->id }}"
+                                                data-number="{{ $contract->id }}">
                                             № {{ $contract->number }} от {{ $contract->date }}
                                             с {{ $contract->contractor }}
                                         </option>
@@ -509,7 +509,7 @@
                 allowClear: true,
                 width: '100%'
             });
-            $('#contract').select2({
+            $('#contract_id').select2({
                 placeholder: 'Выберите договор',
                 allowClear: true,
                 width: '100%'

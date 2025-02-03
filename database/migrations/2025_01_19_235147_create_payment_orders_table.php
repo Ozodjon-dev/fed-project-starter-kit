@@ -36,8 +36,8 @@ return new class extends Migration
             $table->text('details');
             $table->string('debit_chart_of_account');
             $table->string('credit_chart_of_account');
-            $table->string('contract')->nullable();
-            $table->string('article');
+            $table->foreignId('contract_id')->nullable()->constrained('contracts')->onDelete('cascade');
+            $table->string('article')->nullable();
             $table->timestamps();
             $table->softDeletes()->nullable();
         });

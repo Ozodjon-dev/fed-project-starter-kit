@@ -108,7 +108,9 @@
                                         ДАТА
                                     </td>
                                     <td class="">
-                                        <p class="" style="border: 0">{{ $paymentOrder->date }}</p>
+                                        <p class=""
+                                           style="border: 0">{{ \Carbon\Carbon::parse($paymentOrder->date)->format('d.m.Y') }}
+                                        </p>
                                     </td>
                                 </tr>
                                 <tr>

@@ -1,5 +1,5 @@
 @extends('layouts/contentLayoutMaster')
-@section('title', 'Категория')
+@section('title', 'Договор')
 @section('content')
     @if (session('success'))
         <div class="d-inline-block">
@@ -80,16 +80,16 @@
             <tr>
                 <th>{{ $contract->id }}</th>
                 <td>{{ $contract->registration_number }}</td>
-                <td>{{ $contract->registration_date }}</td>
+                <td>{{ \Carbon\Carbon::parse($contract->registration_date)->format('d.m.Y') }}</td>
                 <td>{{ $contract->type }}</td>
                 <td>{{ $contract->number }}</td>
-                <td>{{ $contract->date }}</td>
+                <td>{{ \Carbon\Carbon::parse($contract->date)->format('d.m.Y') }}</td>
                 <td>{{ $contract->contractor }}</td>
                 <td>{{ $contract->category }}</td>
                 <td>{{ $contract->details }}</td>
                 <td>{{ $contract->article }}</td>
                 <td>{{ number_format($contract->amount, 2, '.', ',') }}</td>
-                <td>{{ $contract->term }}</td>
+                <td>{{ \Carbon\Carbon::parse($contract->term)->format('d.m.Y') }}</td>
                 <td>
                     <div class="btn-group me-2" style="max-width: 65px">
                         <form action="{{ route('contracts.edit', $contract->id) }}">

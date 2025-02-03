@@ -149,8 +149,9 @@
                                                 Расчетный счет получателя:
                                             </label>
                                             <input style="min-width: 450px" type="text" id="beneficiary_bank_account"
-                                                   name="beneficiary_bank_account" readonly
-                                                   class="form-control rounded">
+                                                   name="beneficiary_bank_account" required
+                                                   class="form-control rounded"
+							placeholder="Введите расчетный счет">
 
                                         </div>
                                         <div class="d-flex mb-1">
@@ -159,8 +160,8 @@
                                             <label class="d-flex align-items-center" for="beneficiary_tin"
                                                    style="min-width: 50px">ИНН:</label>
                                             <input class="form-control rounded w-100" name="beneficiary_tin"
-                                                   id="beneficiary_tin" style="min-width: 200px" required
-                                                   placeholder="введите ИНН"/>
+                                                   id="beneficiary_tin" style="min-width: 200px" required readonly
+                                                 />
                                         </div>
                                     </div>
                                     <div class="d-flex mb-1">
@@ -365,22 +366,22 @@
                 updateApplicantFields(bankAccountValue);
             });
 
-            // Handle beneficiary_tin input
+            // Handle beneficiary_bank_account input
             const contractors = @json($contractors);
 
-            document.getElementById('beneficiary_tin').addEventListener('input', function () {
-                const tinValue = this.value;
-                const matchedContractor = contractors.find(contractor => contractor.tin === tinValue);
+            document.getElementById('beneficiary_bank_account').addEventListener('input', function () {
+                const accountValue = this.value;
+                const matchedContractor = contractors.find(contractor => contractor.bank_account === accountValue);
 
                 if (matchedContractor) {
                     document.getElementById('beneficiary_bank_name').value = matchedContractor.bank_name;
                     document.getElementById('beneficiary_bank_code').value = matchedContractor.bank_code;
-                    document.getElementById('beneficiary_bank_account').value = matchedContractor.bank_account;
+                    document.getElementById('beneficiary_tin').value = matchedContractor.tin;
                     document.getElementById('contractor').value = matchedContractor.name;
                 } else {
                     document.getElementById('beneficiary_bank_name').value = '';
                     document.getElementById('beneficiary_bank_code').value = '';
-                    document.getElementById('beneficiary_bank_account').value = '';
+                    document.getElementById('beneficiary_tin').value = '';
                     document.getElementById('contractor').value = '';
                 }
             });

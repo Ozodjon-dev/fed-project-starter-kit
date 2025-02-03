@@ -147,4 +147,64 @@
             </tbody>
         </table>
     </div>
+    <div class="table-responsive rounded" style="font-size: small">
+        @if($contract->paymentOrders->isNotEmpty())
+            <h5 class="mt-3">Платежные поручения по договору</h5>
+            <div class="table-responsive rounded" style="font-size: small">
+                <table class="table table-bordered table-sm" style="text-align: center">
+                    <thead>
+                    <tr class="align-middle align-content-center">
+                        <th scope="col">#</th>
+                        <th scope="col">Номер</th>
+                        <th scope="col" style="width: 90px">Дата</th>
+                        <th scope="col">Наименование плательщика</th>
+                        <th scope="col">Наименование получателя</th>
+                        <th scope="col">ИНН получателя</th>
+                        <th scope="col">Расчетный счет получателя</th>
+                        <th scope="col">Сумма</th>
+                        <th scope="col">Детали платежа</th>
+                        <th class="col">Статья</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($contract->paymentOrders as $index => $payment_order)
+                        <tr>
+                            <th>{{ $index + 1 }}</th>
+                            <td>{{ $payment_order->number }}</td>
+                            <td>{{ \Carbon\Carbon::parse($payment_order->date)->format('d.m.Y') }}</td>
+                            <td>{{ $payment_order->applicant }}</td>
+                            <td>{{ $payment_order->contractor }}</td>
+                            <td>{{ $payment_order->beneficiary_tin }}</td>
+                            <td>{{ $payment_order->beneficiary_bank_account }}</td>
+                            <td>{{ number_format($payment_order->amount, 2, '.', ',') }}</td>
+                            <td>{{ $payment_order->details }}</td>
+                            <td>{{ $payment_order->article }}</td>
+                            <td style="max-width: 50px">
+                                <a href="{{ route('payment_orders.preview', $payment_order->id) }}" type="button"
+                                   class="btn btn-icon rounded-circle btn-flat-primary">
+                                    <i data-feather="eye"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                    <!-- Umumiy summa pastda chiqariladi -->
+                    <tfoot>
+                    <tr>
+                        <th colspan="7" class="text-end">Общая сумма:</th>
+                        <th class="text-bold">{{ number_format($totalPaymentAmount, 2, '.', ',') }}</th>
+                        <th colspan="3"></th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        @else
+            <div class="alert alert-warning text-center">
+                <strong>По этому договору нет платежных поручений</strong>
+            </div>
+        @endif
+
+
+    </div>
 @endsection

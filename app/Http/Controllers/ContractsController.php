@@ -85,9 +85,9 @@ class ContractsController extends Controller
 
     public function show($id)
     {
-        $contract = Contract::findOrFail($id);
-//        $payment_orders = PaymentOrder::where('contract', $id)->get();
-        return view('contracts/contract-show', compact('contract'));
+        $contract = Contract::with('paymentOrders')->findOrFail($id);
+        $totalPaymentAmount = $contract->paymentOrders->sum('amount');
+        return view('contracts/contract-show', compact('contract', 'totalPaymentAmount'));
     }
 
     public function edit($id)

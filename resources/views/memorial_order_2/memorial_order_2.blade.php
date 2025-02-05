@@ -51,7 +51,7 @@
         </a>
 
         <!-- Excel export button -->
-        <a href="{{ route('payment_orders.export') }}" class="btn btn-success ms-1">
+        <a href="{{ route('payment_orders.export') }}" class="btn btn-success ms-auto">
             <i data-feather='download'></i>
             Экспортировать в Excel
         </a>

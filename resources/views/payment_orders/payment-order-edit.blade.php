@@ -36,7 +36,7 @@
                                                        id="number"
                                                        name="number"
                                                        class="form-control rounded"
-                                                       value="{{ $paymentOrder->number }}"/>
+                                                       value="{{ $paymentOrder->number }} required"/>
                                             </div>
                                         </div>
                                     </div>
@@ -215,7 +215,7 @@
                                     <textarea placeholder="краткое содержание"
                                               id="details"
                                               name="details"
-                                              class="ms-50 form-control rounded text-sm-start">{{ $paymentOrder->details }}</textarea>
+                                              class="ms-50 form-control rounded text-sm-start" required>{{ $paymentOrder->details }}</textarea>
                                 </div>
                             </div>
                             <div class="container" style="height: 25px"></div>
@@ -311,7 +311,7 @@
                             </div>
                             <div class="mb-1">
                                 <label for="article" class="title">Статья</label>
-                                <select class="form-select mb-75 rounded" name="article" id="article" required>
+                                <select class="form-select mb-75 rounded" name="article" id="article">
                                     <option value="{{ $paymentOrder->article }}"
                                             selected>{{ $paymentOrder->article }}</option>
                                     @foreach($classificators as $classificator)

@@ -204,7 +204,7 @@
                                     <textarea placeholder="краткое содержание"
                                               id="details"
                                               name="details"
-                                              class="ms-50 form-control rounded text-sm-start"></textarea>
+                                              class="ms-50 form-control rounded text-sm-start" required></textarea>
                                 </div>
                             </div>
                             <div class="container" style="height: 25px"></div>
@@ -299,7 +299,7 @@
                             </div>
                             <div class="mb-1">
                                 <label for="article" class="title">Статья</label>
-                                <select class="form-select mb-75 rounded" name="article" id="article" required>
+                                <select class="form-select mb-75 rounded" name="article" id="article">
                                     <option disabled selected></option>
                                     @foreach($classificators as $classificator)
                                         <option value="{{ $classificator->article }}"

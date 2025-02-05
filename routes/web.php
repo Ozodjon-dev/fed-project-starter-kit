@@ -9,6 +9,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PaymentOrdersController;
 use App\Http\Controllers\ContractsController;
 use App\Http\Controllers\ContractorsController;
+use App\Http\Controllers\ReceiptOfFundsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,6 +96,15 @@ Route::delete('/contracts_category/{id}',  [ContractCategoriesController::class,
 // memorial order-2 Route
 Route::get('/memorial_order_2/list',  [MemorialOrder2Controller::class, 'list'])->name('memorial_order2.list');
 
-
 // memorial order-6 Route
 Route::get('/memorial_order_6/list',  [MemorialOrder6Controller::class, 'list'])->name('memorial_order6.list');
+
+// receipt of funds Route
+Route::get('/receipt_of_funds/list',  [ReceiptOfFundsController::class, 'list'])->name('receipt_of_funds.list');
+Route::get('/receipt_of_funds/add',  [ReceiptOfFundsController::class, 'add'])->name('receipt_of_funds.add');
+//Route::get('/contracts_category/add',  [ContractCategoriesController::class, 'add'])->name('contract_categories.add');
+//Route::post('/contracts_category/add',  [ContractCategoriesController::class, 'store'])->name('contract_categories.store');
+//Route::get('/contracts_category/{id}',  [ContractCategoriesController::class, 'show'])->name('contract_categories.show');
+//Route::get('/contracts_category/{id}/edit',  [ContractCategoriesController::class, 'edit'])->name('contract_categories.edit');
+//Route::patch('/contracts_category/{id}',  [ContractCategoriesController::class, 'update'])->name('contract_categories.update');
+//Route::delete('/contracts_category/{id}',  [ContractCategoriesController::class, 'destroy'])->name('contract_categories.delete');

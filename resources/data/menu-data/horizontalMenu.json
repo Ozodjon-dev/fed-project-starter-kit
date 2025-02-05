@@ -110,16 +110,16 @@
                             "slug": "",
                             "submenu": [
                                 {
-                                    "url": "contract/add",
+                                    "url": "receipt_of_funds/add",
                                     "name": "Add receipt of funds",
                                     "icon": "plus",
-                                    "slug": "contracts.add"
+                                    "slug": "receipt_of_funds.add"
                                 },
                                 {
-                                    "url": "contract/list",
+                                    "url": "receipt_of_funds/list",
                                     "name": "List receipt of funds",
                                     "icon": "list",
-                                    "slug": "contracts.list"
+                                    "slug": "receipt_of_funds.list"
                                 }
                             ]
                         }

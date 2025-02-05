@@ -16,9 +16,9 @@ class MemorialOrder2Controller extends Controller
 {
     public function list()
     {
-        $bank_accounts = DB::table('bank_accounts')->get();
+        $chart_of_accounts = DB::table('chart_of_accounts')->get();
         $organizations = DB::table('organizations')->get();
-        return view('memorial_order_2/memorial_order_2', compact('bank_accounts', 'organizations'));
+        return view('memorial_order_2/memorial_order_2', compact('chart_of_accounts', 'organizations'));
     }
 
     public function add()

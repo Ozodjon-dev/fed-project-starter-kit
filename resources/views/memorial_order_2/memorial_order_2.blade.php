@@ -5,11 +5,13 @@
     <!-- vendor css files -->
     <link rel="stylesheet" href="{{ asset(mix('vendors/css/pickers/pickadate/pickadate.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('vendors/css/pickers/flatpickr/flatpickr.min.css')) }}">
+    <link rel="stylesheet" href="{{asset('vendors/css/forms/select/select2.min.css')}}">
 @endsection
 
 @section('page-style')
     <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-flat-pickr.css')) }}">
     <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-pickadate.css')) }}">
+    <link rel="stylesheet" href="{{asset('css/base/pages/app-invoice.css')}}">
 @endsection
 
 @section('content')
@@ -44,26 +46,26 @@
     @endif
 
     <div class="d-flex justify-content mb-1">
-        <a href="{{ route('main.index') }}" class="btn btn-outline-primary btn-sm">
+        <a href="{{ route('main.index') }}" class="btn btn-outline-primary">
             <i data-feather="arrow-left"></i> Назад
         </a>
 
         <!-- Excel export button -->
-        <a href="{{ route('payment_orders.export') }}" class="btn btn-success ms-1 btn-sm">
+        <a href="{{ route('payment_orders.export') }}" class="btn btn-success ms-1">
             <i data-feather='download'></i>
             Экспортировать в Excel
         </a>
 
         <div class="d-flex col-md-3 ms-auto mb-0">
-            <select name="applicant_bank_account"
+            <select name="chart_of_account"
                     style="padding: 0.285rem 1rem"
-                    id="applicant_bank_account"
+                    id="chart_of_account"
                     class="form-select form-control rounded">
-                <option disabled selected>Выберите счет</option>
-                @foreach($organizations as $organization)
-                    <option value="{{ $organization->bank_account }}"
-                            data-account="{{ $organization->bank_account }}">
-                        {{ $organization->bank_account }}
+                <option disabled selected></option>
+                @foreach($chart_of_accounts as $chart_of_account)
+                    <option value="{{ $chart_of_account->number }}"
+                            data-number="{{ $chart_of_account->number }}">
+                        {{ $chart_of_account->number }} - {{ $chart_of_account->name }}
                     </option>
                 @endforeach
             </select>
@@ -79,24 +81,37 @@
             />
         </div>
 
-        <a href="" class="btn btn-icon btn-primary ms-1 btn-sm" style="border-radius: 50%">
+        <a href="" class="btn btn-icon btn-primary ms-1 ms-auto" style="border-radius: 50%">
             <i data-feather='refresh-cw'></i>
         </a>
     </div>
 
 @endsection
 
+@section('vendor-script')
+    <!-- vendor files -->
+    <script src="{{asset('vendors/js/forms/repeater/jquery.repeater.min.js')}}"></script>
+    <script src="{{asset('vendors/js/forms/select/select2.full.min.js')}}"></script>
+    <script src="{{asset('vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
+    <script src="{{ asset(mix('vendors/js/forms/cleave/cleave.min.js'))}}"></script>
+    <script src="{{ asset(mix('vendors/js/forms/cleave/addons/cleave-phone.us.js'))}}"></script>
+@endsection
+
 @section('page-script')
     <script src="{{asset('js/scripts/pages/app-invoice.js')}}"></script>
     <script src="{{ asset(mix('js/scripts/forms/form-input-mask.js')) }}"></script>
     <script src="{{ asset(mix('js/scripts/forms/pickers/form-pickers.js')) }}"></script>
-@endsection
 
-@section('vendor-script')
-    <!-- vendor files -->
-    <script src="{{ asset(mix('vendors/js/pickers/pickadate/picker.js')) }}"></script>
-    <script src="{{ asset(mix('vendors/js/pickers/pickadate/picker.date.js')) }}"></script>
-    <script src="{{ asset(mix('vendors/js/pickers/pickadate/picker.time.js')) }}"></script>
-    <script src="{{ asset(mix('vendors/js/pickers/pickadate/legacy.js')) }}"></script>
-    <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Initialize Select2 for modal dropdowns when modal is shown
+            $('#chart_of_account').select2({
+                placeholder: 'Выберите счет',
+                allowClear: true,
+                width: '100%'
+            })
+        });
+
+    </script>
 @endsection

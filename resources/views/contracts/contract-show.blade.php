@@ -149,7 +149,7 @@
     </div>
     <div class="table-responsive rounded" style="font-size: small">
         @if($contract->paymentOrders->isNotEmpty())
-            <h5 class="mt-3">Платежные поручения по договору</h5>
+            <h5 class="mt-3"><strong>Платежные поручения по договору</strong></h5>
             <div class="table-responsive rounded" style="font-size: small">
                 <table class="table table-bordered table-sm" style="text-align: center">
                     <thead>

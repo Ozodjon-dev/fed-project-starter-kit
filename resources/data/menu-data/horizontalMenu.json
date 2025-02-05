@@ -59,41 +59,69 @@
             "slug": "",
             "submenu": [
                 {
-                    "name": "Payment orders",
-                    "icon": "layout",
-                    "slug": "",
-                    "submenu": [
-                        {
-                            "url": "payment_order/add",
-                            "name": "Add payment orders",
-                            "icon": "plus",
-                            "slug": "payment_orders.add"
-                        },
-                        {
-                            "url": "payment_order/list",
-                            "name": "List payment orders",
-                            "icon": "list",
-                            "slug": "payment_orders.list"
-                        }
-                    ]
-                },
-                {
-                    "name": "Contracts",
-                    "icon": "file-text",
+                    "name": "Payment documents",
+                    "icon": "folder",
                     "dropdown": "1",
                     "slug": "",
                     "submenu": [
                         {
-                            "url": "contract/add",
-                            "name": "Add contracts",
-                            "icon": "plus",
-                            "slug": "contracts.add"
+                            "name": "Payment orders",
+                            "icon": "layout",
+                            "slug": "",
+                            "submenu": [
+                                {
+                                    "url": "payment_order/add",
+                                    "name": "Add payment orders",
+                                    "icon": "plus",
+                                    "slug": "payment_orders.add"
+                                },
+                                {
+                                    "url": "payment_order/list",
+                                    "name": "List payment orders",
+                                    "icon": "list",
+                                    "slug": "payment_orders.list"
+                                }
+                            ]
                         },
                         {
-                            "url": "contract/list",
-                            "name": "List contracts",
-                            "icon": "list",
-                            "slug": "contracts.list"
+                            "name": "Contracts",
+                            "icon": "file-text",
+                            "dropdown": "1",
+                            "slug": "",
+                            "submenu": [
+                                {
+                                    "url": "contract/add",
+                                    "name": "Add contracts",
+                                    "icon": "plus",
+                                    "slug": "contracts.add"
+                                },
+                                {
+                                    "url": "contract/list",
+                                    "name": "List contracts",
+                                    "icon": "list",
+                                    "slug": "contracts.list"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Receipt of funds",
+                            "icon": "arrow-down",
+                            "dropdown": "1",
+                            "slug": "",
+                            "submenu": [
+                                {
+                                    "url": "contract/add",
+                                    "name": "Add receipt of funds",
+                                    "icon": "plus",
+                                    "slug": "contracts.add"
+                                },
+                                {
+                                    "url": "contract/list",
+                                    "name": "List receipt of funds",
+                                    "icon": "list",
+                                    "slug": "contracts.list"
+                                }
+                            ]
                         }
                     ]
                 }

@@ -22,6 +22,7 @@ class ContractCategoriesController extends Controller
         $categories = ContractCategory::when($search, function ($query, $search) {
             return $query->where('name', 'like', "%{$search}%");
         })
+            ->orderBy('created_at', 'desc')
             ->paginate(10); // Sahifalashni qo‘shish
 
         // Jadvalni ko'rsatish

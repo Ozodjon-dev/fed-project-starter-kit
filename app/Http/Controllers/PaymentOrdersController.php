@@ -39,6 +39,7 @@ class PaymentOrdersController extends Controller
                 ->orWhere('contract', 'like', "%{$search}%")
                 ->orWhere('article', 'like', "%{$search}%");
         })
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
 
         return view('payment_orders/payment-order-list', compact('paymentOrders'));

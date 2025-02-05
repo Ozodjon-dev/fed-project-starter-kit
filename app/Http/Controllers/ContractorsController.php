@@ -20,6 +20,7 @@ class ContractorsController extends Controller
                 ->orWhere('tin', 'like', "%{$search}%")
                 ->orWhere('bank_code', 'like', "%{$search}%");
         })
+            ->orderBy('created_at', 'desc')
             ->paginate(10); // Sahifalashni qo‘shish
 
         // Jadvalni ko'rsatish

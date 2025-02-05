@@ -55,13 +55,27 @@
         </a>
 
         <div class="d-flex col-md-3 ms-auto mb-0">
-            <label style="min-width: 120px">Выберите период</label>
+            <select name="applicant_bank_account"
+                    style="padding: 0.285rem 1rem"
+                    id="applicant_bank_account"
+                    class="form-select form-control rounded">
+                <option disabled selected>Выберите счет</option>
+                @foreach($organizations as $organization)
+                    <option value="{{ $organization->bank_account }}"
+                            data-account="{{ $organization->bank_account }}">
+                        {{ $organization->bank_account }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="d-flex col-md-3 ms-auto mb-0">
             <input
                 style="padding: 0.285rem 1rem"
                 type="text"
                 id="fp-range"
                 class="ms-1 form-control flatpickr-range"
-                placeholder="YYYY-MM-DD to YYYY-MM-DD"
+                placeholder="Выберите период"
             />
         </div>
 

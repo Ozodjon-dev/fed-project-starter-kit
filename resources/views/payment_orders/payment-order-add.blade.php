@@ -36,7 +36,7 @@
                                                        id="number"
                                                        name="number"
                                                        class="form-control rounded"
-                                                       placeholder="53634"/>
+                                                       placeholder="53634" required/>
                                             </div>
                                         </div>
                                     </div>

@@ -10,9 +10,8 @@ class Contract extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'contracts'; // 🔹 Bazada jadval nomi **contracts** bo‘lishi kerak
-
-    protected $guarded = []; // 🔹 Agar barcha maydonlarga mass-assignment ruxsat berilgan bo‘lsa
+    protected $table = 'contracts';
+    protected $guarded = [];
 
     protected $fillable = [
         'registration_number', 'registration_date', 'type', 'number',

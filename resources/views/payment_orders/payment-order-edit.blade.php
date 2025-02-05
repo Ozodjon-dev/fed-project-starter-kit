@@ -36,7 +36,7 @@
                                                        id="number"
                                                        name="number"
                                                        class="form-control rounded"
-                                                       value="{{ $paymentOrder->number }} required"/>
+                                                       value="{{ $paymentOrder->number }}" required/>
                                             </div>
                                         </div>
                                     </div>
@@ -156,9 +156,9 @@
                                                 Расчетный счет получателя:
                                             </label>
                                             <input style="min-width: 450px" type="text" id="beneficiary_bank_account"
-                                                   name="beneficiary_bank_account" readonly
+                                                   name="beneficiary_bank_account"
                                                    class="form-control rounded"
-                                                   value="{{ $paymentOrder->beneficiary_bank_account }}">
+                                                   value="{{ $paymentOrder->beneficiary_bank_account }}" required>
 
                                         </div>
                                         <div class="d-flex mb-1">
@@ -383,19 +383,19 @@
             // Handle beneficiary_tin input
             const contractors = @json($contractors);
 
-            document.getElementById('beneficiary_tin').addEventListener('input', function () {
-                const tinValue = this.value;
-                const matchedContractor = contractors.find(contractor => contractor.tin === tinValue);
+            document.getElementById('beneficiary_bank_account').addEventListener('input', function () {
+                const accountValue = this.value;
+                const matchedContractor = contractors.find(contractor => contractor.bank_account === accountValue);
 
                 if (matchedContractor) {
                     document.getElementById('beneficiary_bank_name').value = matchedContractor.bank_name;
                     document.getElementById('beneficiary_bank_code').value = matchedContractor.bank_code;
-                    document.getElementById('beneficiary_bank_account').value = matchedContractor.bank_account;
+                    document.getElementById('beneficiary_tin').value = matchedContractor.tin;
                     document.getElementById('contractor').value = matchedContractor.name;
                 } else {
                     document.getElementById('beneficiary_bank_name').value = '';
                     document.getElementById('beneficiary_bank_code').value = '';
-                    document.getElementById('beneficiary_bank_account').value = '';
+                    document.getElementById('beneficiary_tin').value = '';
                     document.getElementById('contractor').value = '';
                 }
             });

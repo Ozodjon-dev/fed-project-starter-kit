@@ -81,7 +81,7 @@
             />
         </div>
 
-        <a href="" class="btn btn-icon btn-primary ms-1 ms-auto" style="border-radius: 50%">
+        <a href="" class="btn btn-icon btn-primary ms-auto" style="border-radius: 50%">
             <i data-feather='refresh-cw'></i>
         </a>
     </div>

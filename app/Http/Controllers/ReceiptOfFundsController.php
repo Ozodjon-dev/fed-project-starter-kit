@@ -20,7 +20,10 @@ class ReceiptOfFundsController extends Controller
     }
     public function add()
     {
-        return view('receipt_of_funds/receipt_of_funds_add');
+        $organizations = DB::table('organizations')->get();
+        $chart_of_accounts = DB::table('chart_of_accounts')->get();
+        $classificators = Classificator::all();
+        return view('receipt_of_funds/receipt_of_funds_add', compact('organizations', 'chart_of_accounts', 'classificators'));
     }
 
     public function store(Request $request)

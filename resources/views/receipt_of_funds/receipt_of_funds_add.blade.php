@@ -22,120 +22,85 @@
                         <!-- Header starts -->
                         <div class="card-body invoice-padding">
                             <div class="d-flex flex-wrap justify-content-center">
-                                <h4><strong>КНИГА РЕГИСТРАЦИИ ДОГОВОРОВ</strong></h4>
                                 <div class="invoice-number-date mb-1 mt-md-0 mt-xl-2 w-100 w-md-auto">
                                     <div class="d-flex align-items-center">
                                         <label for="registration_number" class="title"
-                                               style="min-width: 180px; margin-right: 10px;">Регистрационный
-                                            номер договора:</label>
-                                        <input type="text" name="registration_number" id="registration_number" placeholder="7856" required
+                                               style="min-width: 180px; margin-right: 10px;">Номер докемента</label>
+                                        <input type="text" name="registration_number" id="registration_number"
+                                               placeholder="7856" required
                                                class="form-control invoice-edit-input rounded"/>
                                     </div>
                                 </div>
                                 <div class="invoice-number-date mb-1 mt-md-0 mt-0 w-100 w-md-auto">
                                     <div class="d-flex align-items-center">
                                         <label for="registration_date" class="title"
-                                               style="min-width: 180px; margin-right: 10px;">Дата
-                                            регистрации:</label>
+                                               style="min-width: 180px; margin-right: 10px;">Дата</label>
                                         <input type="date" name="registration_date" id="registration_date" required
                                                class="form-control invoice-edit-input date-picker rounded"/>
                                     </div>
                                 </div>
-                                <!-- Section: Тип договора -->
-                                <div class="d-flex flex-wrap mt-1 w-100">
-                                    <label class="title mb-1" for="type" style="min-width: 190px">Отметите тип договора:</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input styled-checkbox" type="radio"
-                                               id="contract_type_annual" name="type" value="Годовой">
-                                        <label class="form-check-label" for="contract_type_annual">Годовой</label>
-                                    </div>
-                                    <div class="form-check ms-xl-5">
-                                        <input class="form-check-input styled-checkbox" type="radio"
-                                               id="contract_type_pink" name="type" value="Разовый">
-                                        <label class="form-check-label" for="contract_type_pink">Разовый</label>
-                                    </div>
-                                    <div class="form-check  ms-xl-5">
-                                        <input class="form-check-input styled-checkbox" type="radio"
-                                               id="contract_type_import" name="type"
-                                               value="Импортные контракты">
-                                        <label class="form-check-label" for="contract_type_import">Импортные
-                                            контракты</label>
-                                    </div>
-                                </div>
-                                <!-- End Section -->
-
-                            </div>
-
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="card-body invoice-padding">
-                            <div class="d-flex flex-wrap">
-                                <div class="invoice-number-date mb-1 mt-md-0 mt-0 w-100 w-md-auto">
-                                    <div class="d-flex align-items-center">
-                                        <label for="number" class="title"
-                                               style="min-width: 180px; margin-right: 10px;">Номер
-                                            договора:</label>
-                                        <input type="text" name="number" id="number" placeholder="7856/MV" required
-                                               class="form-control invoice-edit-input rounded"/>
-                                    </div>
-                                </div>
-                                <div class="invoice-number-date mb-1 mt-md-0 mt-0 w-100 w-md-auto">
-                                    <div class="d-flex align-items-center">
-                                        <label for="date" class="title"
-                                               style="min-width: 180px; margin-right: 10px;">Дата
-                                            договора:</label>
-                                        <input type="date" name="date" id="date" required
-                                               class="form-control invoice-edit-input date-picker rounded"/>
-                                    </div>
-                                </div>
                                 <div class="d-flex align-items-center mb-1 w-100">
-                                    <label for="contractor" class="title" style="min-width: 180px; margin-right: 10px;">Контрагент:</label>
-                                    <select class="form-select rounded w-100" required name="contractor"
-                                            id="contractor">
+                                    <label for="category" class="title" style="min-width: 180px; margin-right: 10px;">Расчетный
+                                        счет</label>
+                                    <select name="applicant_bank_account"
+                                            id="applicant_bank_account"
+                                            class="form-select rounded">
                                         <option disabled selected></option>
-{{--                                        @foreach($contractors as $contractor)--}}
-{{--                                            <option value="{{ $contractor->name }}"--}}
-{{--                                                    data-name="{{ $contractor->name }}">{{ $contractor->name }}</option>--}}
-{{--                                        @endforeach--}}
+                                        @foreach($organizations as $organization)
+                                            <option value="{{ $organization->bank_account }}"
+                                                    data-account="{{ $organization->bank_account }}">
+                                                {{ $organization->bank_account }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="d-flex align-items-center mb-1 w-100">
-                                    <label for="category" class="title" style="min-width: 180px; margin-right: 10px;">Категория:</label>
-                                    <select class="form-select rounded w-100" name="category" id="category">
-                                        <option value="" disabled selected></option>
-{{--                                        @foreach($categories as $category)--}}
-{{--                                            <option value="{{ $category->name }}"--}}
-{{--                                                    data-name="{{ $category->name }}">{{ $category->name }}</option>--}}
-{{--                                        @endforeach--}}
+                                    <label for="category" class="title" style="min-width: 180px; margin-right: 10px;">Дебет</label>
+                                    <select class="form-select rounded w-100" name="debit_chart_of_account"
+                                            id="debit_chart_of_account" required>
+                                        <option disabled selected></option>
+                                        @foreach($chart_of_accounts as $chart_of_account)
+                                            <option value="{{ $chart_of_account->number }}"
+                                                    data-number="{{ $chart_of_account->number }}">
+                                                {{ $chart_of_account->number }} - {{ $chart_of_account->name }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
-                            </div>
-
-                            <div class="mt-md-0 mt-2 w-100">
-                                <div class="d-flex align-items-center mb-1">
-                                    <label for="details" class="title"
-                                           style="max-width: 180px; margin-right: 10px;">Предмет договора,
-                                        заголовок (краткое содержание)</label>
+                                <div class="d-flex align-items-center mb-1 w-100">
+                                    <label for="category" class="title" style="min-width: 180px; margin-right: 10px;">Кредит</label>
+                                    <select class="form-select rounded w-100" name="credit_chart_of_account"
+                                            id="credit_chart_of_account" required>
+                                        <option disabled selected></option>
+                                        @foreach($chart_of_accounts as $chart_of_account)
+                                            <option value="{{ $chart_of_account->number }}"
+                                                    data-number="{{ $chart_of_account->number }}">
+                                                {{ $chart_of_account->number }} - {{ $chart_of_account->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="d-flex align-items-center mb-1 w-100">
+                                    <label for="category" class="title" style="min-width: 180px; margin-right: 10px;">Статья</label>
+                                    <select class="form-select mb-75 rounded" name="article" id="article">
+                                        <option disabled selected></option>
+                                        @foreach($classificators as $classificator)
+                                            <option value="{{ $classificator->article }}"
+                                                    data-article="{{ $classificator->article }}">
+                                                {{ $classificator->article }} - {{ $classificator->details }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="d-flex align-items-center mb-1 w-100">
+                                    <label for="category" class="title" style="min-width: 180px; margin-right: 10px;">Предмет
+                                        (краткое содержание)</label>
                                     <textarea name="details" id="details"
                                               class="form-control rounded w-100"></textarea>
                                 </div>
                             </div>
 
                             <div class="d-flex flex-wrap w-100 mb-1">
-                                <div class="d-flex align-items-center mb-1 w-100 w-md-auto">
-                                    <label for="article" class="title"
-                                           style="min-width: 180px; margin-right: 10px;">Статья</label>
-                                    <select type="" name="article" id="article"
-                                            class="form-select rounded">
-                                        <option disabled selected></option>
-{{--                                        @foreach($classificators as $classificator)--}}
-{{--                                            <option value="{{ $classificator->article }}"--}}
-{{--                                                    data-article="{{ $classificator->article }}">--}}
-{{--                                                {{ $classificator->article }} - {{ $classificator->details }}--}}
-{{--                                            </option>--}}
-{{--                                        @endforeach--}}
-                                    </select>
-                                </div>
                                 <div class="d-flex align-items-center mb-1 w-100 w-md-auto">
                                     <label for="numeral-formatting" class="title"
                                            style="min-width: 180px; margin-right: 10px;">СУММА</label>
@@ -147,18 +112,7 @@
                                                id="numeral-formatting">
                                     </div>
                                 </div>
-                                <div class="invoice-number-date mt-md-0 mt-0 w-100 w-md-auto">
-                                    <div class="d-flex align-items-center">
-                                        <label for="term" class="title"
-                                               style="min-width: 180px; margin-right: 10px;">Сроки действия
-                                            договора:</label>
-                                        <input type="date" name="term" id="term" placeholder="7856"
-                                               class="form-control invoice-edit-input date-picker rounded">
-                                    </div>
-                                </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -166,6 +120,7 @@
                     <div class="card">
                         <div class="card-body">
                             <button type="submit" class="btn btn-primary w-100 mb-75">Сохранить</button>
+                            <a href="{{route('main.index')}}" class="btn btn-outline-danger w-100">Отмена</a>
                         </div>
                     </div>
                 </div>

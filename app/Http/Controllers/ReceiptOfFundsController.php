@@ -17,24 +17,29 @@ class ReceiptOfFundsController extends Controller
 {
     public function list(Request $request)
     {
-        $search = $request->input('search'); // Search word
+        $search = $request->input('search'); // Qidiruv so‘rovi
 
-        $receipt_of_funds = ReceiptOfFund::when($search, function ($query, $search) {
+        $receipt_of_funds = ReceiptOfFund::with('contract') // Contract ma'lumotlarini yuklash
+        ->when($search, function ($query, $search) {
             return $query->where('number', 'like', "%{$search}%")
                 ->orWhere('date', 'like', "%{$search}%")
                 ->orWhere('bank_account', 'like', "%{$search}%")
                 ->orWhere('debit_chart_of_account', 'like', "%{$search}%")
                 ->orWhere('credit_chart_of_account', 'like', "%{$search}%")
-                ->orWhere('contract_id', 'like', "%{$search}%")
                 ->orWhere('article', 'like', "%{$search}%")
                 ->orWhere('details', 'like', "%{$search}%")
-                ->orWhere('amount', 'like', "%{$search}%");
+                ->orWhere('amount', 'like', "%{$search}%")
+                ->orWhereHas('contract', function ($contractQuery) use ($search) {
+                    $contractQuery->where('number', 'like', "%{$search}%")
+                        ->orWhere('contractor', 'like', "%{$search}%");
+                });
         })
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
-        return view('receipt_of_funds/receipt_of_funds_list', compact('receipt_of_funds'));
+        return view('receipt_of_funds.receipt_of_funds_list', compact('receipt_of_funds'));
     }
+
     public function add()
     {
         $organizations = DB::table('organizations')->get();

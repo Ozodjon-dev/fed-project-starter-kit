@@ -93,22 +93,28 @@
                     <td>{{ $receipt_of_fund->bank_account }}</td>
                     <td>{{ $receipt_of_fund->debit_chart_of_account }}</td>
                     <td>{{ $receipt_of_fund->credit_chart_of_account }}</td>
-                    <td>{{ $receipt_of_fund->contract_id }}</td>
+                    <td>
+                        @if($receipt_of_fund->contract)
+                            № {{ $receipt_of_fund->contract->number }} от
+                            {{ \Carbon\Carbon::parse($receipt_of_fund->contract->date)->format('d.m.Y') }}
+                            с {{ $receipt_of_fund->contract->contractor }}
+                        @endif
+                    </td>
                     <td>{{ $receipt_of_fund->article }}</td>
                     <td>{{ $receipt_of_fund->details }}</td>
                     <td>{{ number_format($receipt_of_fund->amount, 2, '.', ',') }}</td>
                     <td style="max-width: 50px">
-{{--                        <a href="{{ route('contracts.show', $contract->id) }}" type="button"--}}
-{{--                           class="btn btn-icon rounded-circle btn-flat-primary">--}}
-{{--                            <i data-feather="eye"></i>--}}
-{{--                        </a>--}}
+                        {{--                        <a href="{{ route('contracts.show', $contract->id) }}" type="button"--}}
+                        {{--                           class="btn btn-icon rounded-circle btn-flat-primary">--}}
+                        {{--                            <i data-feather="eye"></i>--}}
+                        {{--                        </a>--}}
                     </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
         <div>
-{{--            {{ $contracts->links() }} <!-- Pagination -->--}}
+            {{--            {{ $contracts->links() }} <!-- Pagination -->--}}
         </div>
     </div>
 @endsection

@@ -13,6 +13,9 @@ class ReceiptOfFund extends Model
 
     protected $table = 'receipt_of_funds';
     protected $guarded = [];
-
+    public function contract()
+    {
+        return $this->belongsTo(Contract::class, 'contract_id');
+    }
 
 }

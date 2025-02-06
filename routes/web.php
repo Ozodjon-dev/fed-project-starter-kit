@@ -87,7 +87,7 @@ Route::delete('/contractor/{id}',  [ContractorsController::class, 'destroy'])->n
 // contract categories Route
 Route::get('/contracts_category/list',  [ContractCategoriesController::class, 'list'])->name('contract_categories.list');
 Route::get('/contracts_category/add',  [ContractCategoriesController::class, 'add'])->name('contract_categories.add');
-Route::post('/contracts_category/add',  [ContractCategoriesController::class, 'store'])->name('contract_categories.store');
+Route::post('/contracts_category',  [ContractCategoriesController::class, 'store'])->name('contract_categories.store');
 Route::get('/contracts_category/{id}',  [ContractCategoriesController::class, 'show'])->name('contract_categories.show');
 Route::get('/contracts_category/{id}/edit',  [ContractCategoriesController::class, 'edit'])->name('contract_categories.edit');
 Route::patch('/contracts_category/{id}',  [ContractCategoriesController::class, 'update'])->name('contract_categories.update');
@@ -102,8 +102,7 @@ Route::get('/memorial_order_6/list',  [MemorialOrder6Controller::class, 'list'])
 // receipt of funds Route
 Route::get('/receipt_of_funds/list',  [ReceiptOfFundsController::class, 'list'])->name('receipt_of_funds.list');
 Route::get('/receipt_of_funds/add',  [ReceiptOfFundsController::class, 'add'])->name('receipt_of_funds.add');
-//Route::get('/contracts_category/add',  [ContractCategoriesController::class, 'add'])->name('contract_categories.add');
-//Route::post('/contracts_category/add',  [ContractCategoriesController::class, 'store'])->name('contract_categories.store');
+Route::post('/receipt_of_funds',  [ReceiptOfFundsController::class, 'store'])->name('receipt_of_funds.store');
 //Route::get('/contracts_category/{id}',  [ContractCategoriesController::class, 'show'])->name('contract_categories.show');
 //Route::get('/contracts_category/{id}/edit',  [ContractCategoriesController::class, 'edit'])->name('contract_categories.edit');
 //Route::patch('/contracts_category/{id}',  [ContractCategoriesController::class, 'update'])->name('contract_categories.update');

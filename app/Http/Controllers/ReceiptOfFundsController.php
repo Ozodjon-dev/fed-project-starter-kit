@@ -8,6 +8,7 @@ use App\Models\Contract;
 use App\Models\ContractCategory;
 use App\Models\Contractor;
 use App\Models\PaymentOrder;
+use App\Models\ReceiptOfFund;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
@@ -23,13 +24,12 @@ class ReceiptOfFundsController extends Controller
         $organizations = DB::table('organizations')->get();
         $chart_of_accounts = DB::table('chart_of_accounts')->get();
         $classificators = Classificator::all();
-        return view('receipt_of_funds/receipt_of_funds_add', compact('organizations', 'chart_of_accounts', 'classificators'));
+        $contracts = Contract::all();
+        return view('receipt_of_funds/receipt_of_funds_add', compact('organizations', 'chart_of_accounts', 'classificators', 'contracts'));
     }
 
     public function store(Request $request)
     {
-        $classificators = Classificator::all()->sortBy('article');
-
         // Foydalanuvchi kiritgan barcha ma'lumotlarni olish
         $input = $request->all();
 
@@ -41,28 +41,26 @@ class ReceiptOfFundsController extends Controller
 
         // Validatsiya qoidalari
         $validated = \Validator::make($input, [
-            'registration_number' => 'required|string|max:255',
-            'registration_date' => 'required|date',
-            'type' => 'required|string',
             'number' => 'required|string|max:255',
             'date' => 'required|date',
-            'contractor' => 'required|string',
-            'category' => 'nullable|string',
-            'details' => 'nullable|string',
+            'bank_account' => 'required|string',
+            'debit_chart_of_account' => 'required|string',
+            'credit_chart_of_account' => 'required|string',
+            'contract_id' => 'nullable|exists:contracts,id',
             'article' => 'nullable|string',
-            'amount' => 'nullable|numeric',
-            'term' => 'nullable|string',
+            'details' => 'required|string',
+            'amount' => 'required|numeric'
         ])->validate();
 
         // Agar 'amount' qiymati bo‘sh bo‘lsa, uni 0.00 ga o‘zgartirish
         $validated['amount'] = $validated['amount'] ?? 0.00;
 
         // Ma'lumotni saqlash
-        Contract::create($validated);
+        ReceiptOfFund::create($validated);
 
         // Saqlanganidan so'ng foydalanuvchini qaytarish
-        return redirect()->route('contracts.list', compact('classificators'))
-            ->with('success', 'Контракт успешно сохранен ✅');
+        return redirect()->route('receipt_of_funds.list')
+            ->with('success', 'Поступление денежных средств успешно сохранено ✅');
     }
 
     public function show($id)

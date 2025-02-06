@@ -39,23 +39,30 @@
                                                class="form-control invoice-edit-input date-picker rounded"/>
                                     </div>
                                 </div>
-                                <div class="d-flex align-items-center mb-1 w-100">
-                                    <label for="category" class="title" style="min-width: 180px; margin-right: 10px;">Расчетный
-                                        счет</label>
-                                    <select name="applicant_bank_account"
-                                            id="applicant_bank_account"
-                                            class="form-select rounded">
-                                        <option disabled selected></option>
-                                        @foreach($organizations as $organization)
-                                            <option value="{{ $organization->bank_account }}"
-                                                    data-account="{{ $organization->bank_account }}">
-                                                {{ $organization->bank_account }}
-                                            </option>
-                                        @endforeach
-                                    </select>
+                                <div class="d-flex align-items-center w-100">
+                                    <div class="d-flex align-items-center mb-1" style="max-width: 1200px">
+                                        <label class="d-flex align-items-center" for="bank_account"
+                                               style="min-width: 190px">
+                                            Расчетный счет
+                                        </label>
+                                        <div style="min-width: 450px">
+                                            <select name="bank_account"
+                                                    id="bank_account"
+                                                    class="form-select rounded">
+                                                <option disabled selected></option>
+                                                @foreach($organizations as $organization)
+                                                    <option value="{{ $organization->bank_account }}"
+                                                            data-account="{{ $organization->bank_account }}">
+                                                        {{ $organization->bank_account }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
+
                                 <div class="d-flex align-items-center mb-1 w-100">
-                                    <label for="category" class="title" style="min-width: 180px; margin-right: 10px;">Дебет</label>
+                                    <label for="debit_chart_of_account" class="title" style="min-width: 180px; margin-right: 10px;">Дебет</label>
                                     <select class="form-select rounded w-100" name="debit_chart_of_account"
                                             id="debit_chart_of_account" required>
                                         <option disabled selected></option>
@@ -68,7 +75,7 @@
                                     </select>
                                 </div>
                                 <div class="d-flex align-items-center mb-1 w-100">
-                                    <label for="category" class="title" style="min-width: 180px; margin-right: 10px;">Кредит</label>
+                                    <label for="credit_chart_of_account" class="title" style="min-width: 180px; margin-right: 10px;">Кредит</label>
                                     <select class="form-select rounded w-100" name="credit_chart_of_account"
                                             id="credit_chart_of_account" required>
                                         <option disabled selected></option>
@@ -81,7 +88,21 @@
                                     </select>
                                 </div>
                                 <div class="d-flex align-items-center mb-1 w-100">
-                                    <label for="category" class="title" style="min-width: 180px; margin-right: 10px;">Статья</label>
+                                    <label for="contract_id" class="title" style="min-width: 180px; margin-right: 10px;">Договор</label>
+                                    <select class="form-select rounded w-100" name="contract_id"
+                                            id="contract_id">
+                                        <option disabled selected></option>
+                                        @foreach($contracts as $contract)
+                                            <option value="{{ $contract->id }}"
+                                                    data-number="{{ $contract->id }}">
+                                                № {{ $contract->number }} от {{ $contract->date }}
+                                                с {{ $contract->contractor }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="d-flex align-items-center mb-1 w-100">
+                                    <label for="article" class="title" style="min-width: 180px; margin-right: 10px;">Статья</label>
                                     <select class="form-select mb-75 rounded" name="article" id="article">
                                         <option disabled selected></option>
                                         @foreach($classificators as $classificator)
@@ -93,13 +114,12 @@
                                     </select>
                                 </div>
                                 <div class="d-flex align-items-center mb-1 w-100">
-                                    <label for="category" class="title" style="min-width: 180px; margin-right: 10px;">Предмет
+                                    <label for="details" class="title" style="min-width: 180px; margin-right: 10px;">Предмет
                                         (краткое содержание)</label>
                                     <textarea name="details" id="details"
-                                              class="form-control rounded w-100"></textarea>
+                                              class="form-control rounded w-100" required></textarea>
                                 </div>
                             </div>
-
                             <div class="d-flex flex-wrap w-100 mb-1">
                                 <div class="d-flex align-items-center mb-1 w-100 w-md-auto">
                                     <label for="numeral-formatting" class="title"
@@ -109,7 +129,7 @@
                                                class="form-control numeral-mask col-12 rounded"
                                                placeholder="0,000.00"
                                                name="amount"
-                                               id="numeral-formatting">
+                                               id="numeral-formatting" required>
                                     </div>
                                 </div>
                             </div>
@@ -142,23 +162,33 @@
     <script src="{{ asset(mix('js/scripts/forms/form-input-mask.js')) }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Initialize Select2 for the "Категория" dropdown with search functionality
-            $('#category').select2({
-                placeholder: 'Выберите категория',
+
+            $('#bank_account').select2({
+                placeholder: '* Выберите расчетный  счет',
                 allowClear: true,
                 width: '100%'
             });
 
-            // Initialize Select2 for the "Контрагент" dropdown with search functionality
-            $('#contractor').select2({
-                placeholder: 'Выберите контрагент',
+            $('#debit_chart_of_account').select2({
+                placeholder: '* Выберите дебет счет',
                 allowClear: true,
                 width: '100%'
             });
 
-            // Initialize Select2 for the "Статья" dropdown with search functionality
+            $('#credit_chart_of_account').select2({
+                placeholder: '* Выберите кредит счет',
+                allowClear: true,
+                width: '100%'
+            });
+
             $('#article').select2({
-                placeholder: 'Выберите статья',
+                placeholder: '* Выберите статья',
+                allowClear: true,
+                width: '100%'
+            });
+
+            $('#contract_id').select2({
+                placeholder: '* Выберите статья',
                 allowClear: true,
                 width: '100%'
             });

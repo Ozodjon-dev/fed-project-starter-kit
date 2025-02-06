@@ -24,5 +24,10 @@ class Contract extends Model
     {
         return $this->hasMany(PaymentOrder::class, 'contract_id');
     }
+
+    public function receiptOfFunds()
+    {
+        return $this->hasMany(ReceiptOfFund::class, 'contract_id');
+    }
 }
 

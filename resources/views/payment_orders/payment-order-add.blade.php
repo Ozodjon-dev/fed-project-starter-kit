@@ -15,7 +15,7 @@
 
 @section('content')
     <section class="invoice-add-wrapper">
-        <form class="needs-validation" action="{{ route('payment_orders.store') }}" method="post">
+        <form class="needs-validation" action="{{ route('receipt_of_funds.store') }}" method="post">
             @csrf
             <div class="row invoice-add">
                 <div class="col-xl-9 col-md-8 col-12">

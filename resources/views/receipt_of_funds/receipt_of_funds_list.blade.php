@@ -60,7 +60,7 @@
         </form>
 
         <!-- Move the plus button to the right -->
-        <a href="{{ route('contracts.add') }}" class="btn btn-icon btn-primary ms-auto btn-sm"
+        <a href="{{ route('receipt_of_funds.add') }}" class="btn btn-icon btn-primary ms-auto btn-sm"
            style="border-radius: 50%">
             <i data-feather="plus" class="text-white"></i>
         </a>

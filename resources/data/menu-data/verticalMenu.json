@@ -96,6 +96,26 @@
                             "slug": "contracts.list"
                         }
                     ]
+                },
+                {
+                    "name": "Receipt of funds",
+                    "icon": "arrow-down",
+                    "dropdown": "1",
+                    "slug": "",
+                    "submenu": [
+                        {
+                            "url": "receipt_of_funds/add",
+                            "name": "Add receipt of funds",
+                            "icon": "plus",
+                            "slug": "receipt_of_funds.add"
+                        },
+                        {
+                            "url": "receipt_of_funds/list",
+                            "name": "List receipt of funds",
+                            "icon": "list",
+                            "slug": "receipt_of_funds.list"
+                        }
+                    ]
                 }
             ]
         },

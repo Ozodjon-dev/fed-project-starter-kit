@@ -59,69 +59,61 @@
             "slug": "",
             "submenu": [
                 {
-                    "name": "Payment documents",
-                    "icon": "folder",
+                    "name": "Payment orders",
+                    "icon": "layout",
+                    "slug": "",
+                    "submenu": [
+                        {
+                            "url": "payment_order/add",
+                            "name": "Add payment orders",
+                            "icon": "plus",
+                            "slug": "payment_orders.add"
+                        },
+                        {
+                            "url": "payment_order/list",
+                            "name": "List payment orders",
+                            "icon": "list",
+                            "slug": "payment_orders.list"
+                        }
+                    ]
+                },
+                {
+                    "name": "Contracts",
+                    "icon": "file-text",
                     "dropdown": "1",
                     "slug": "",
                     "submenu": [
                         {
-                            "name": "Payment orders",
-                            "icon": "layout",
-                            "slug": "",
-                            "submenu": [
-                                {
-                                    "url": "payment_order/add",
-                                    "name": "Add payment orders",
-                                    "icon": "plus",
-                                    "slug": "payment_orders.add"
-                                },
-                                {
-                                    "url": "payment_order/list",
-                                    "name": "List payment orders",
-                                    "icon": "list",
-                                    "slug": "payment_orders.list"
-                                }
-                            ]
+                            "url": "contract/add",
+                            "name": "Add contracts",
+                            "icon": "plus",
+                            "slug": "contracts.add"
                         },
                         {
-                            "name": "Contracts",
-                            "icon": "file-text",
-                            "dropdown": "1",
-                            "slug": "",
-                            "submenu": [
-                                {
-                                    "url": "contract/add",
-                                    "name": "Add contracts",
-                                    "icon": "plus",
-                                    "slug": "contracts.add"
-                                },
-                                {
-                                    "url": "contract/list",
-                                    "name": "List contracts",
-                                    "icon": "list",
-                                    "slug": "contracts.list"
-                                }
-                            ]
+                            "url": "contract/list",
+                            "name": "List contracts",
+                            "icon": "list",
+                            "slug": "contracts.list"
+                        }
+                    ]
+                },
+                {
+                    "name": "Receipt of funds",
+                    "icon": "arrow-down",
+                    "dropdown": "1",
+                    "slug": "",
+                    "submenu": [
+                        {
+                            "url": "receipt_of_funds/add",
+                            "name": "Add receipt of funds",
+                            "icon": "plus",
+                            "slug": "receipt_of_funds.add"
                         },
                         {
-                            "name": "Receipt of funds",
-                            "icon": "arrow-down",
-                            "dropdown": "1",
-                            "slug": "",
-                            "submenu": [
-                                {
-                                    "url": "receipt_of_funds/add",
-                                    "name": "Add receipt of funds",
-                                    "icon": "plus",
-                                    "slug": "receipt_of_funds.add"
-                                },
-                                {
-                                    "url": "receipt_of_funds/list",
-                                    "name": "List receipt of funds",
-                                    "icon": "list",
-                                    "slug": "receipt_of_funds.list"
-                                }
-                            ]
+                            "url": "receipt_of_funds/list",
+                            "name": "List receipt of funds",
+                            "icon": "list",
+                            "slug": "receipt_of_funds.list"
                         }
                     ]
                 }

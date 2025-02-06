@@ -17,7 +17,23 @@ class ReceiptOfFundsController extends Controller
 {
     public function list(Request $request)
     {
-        return view('receipt_of_funds/receipt_of_funds_list');
+        $search = $request->input('search'); // Search word
+
+        $receipt_of_funds = ReceiptOfFund::when($search, function ($query, $search) {
+            return $query->where('number', 'like', "%{$search}%")
+                ->orWhere('date', 'like', "%{$search}%")
+                ->orWhere('bank_account', 'like', "%{$search}%")
+                ->orWhere('debit_chart_of_account', 'like', "%{$search}%")
+                ->orWhere('credit_chart_of_account', 'like', "%{$search}%")
+                ->orWhere('contract_id', 'like', "%{$search}%")
+                ->orWhere('article', 'like', "%{$search}%")
+                ->orWhere('details', 'like', "%{$search}%")
+                ->orWhere('amount', 'like', "%{$search}%");
+        })
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        return view('receipt_of_funds/receipt_of_funds_list', compact('receipt_of_funds'));
     }
     public function add()
     {
@@ -51,7 +67,6 @@ class ReceiptOfFundsController extends Controller
             'details' => 'required|string',
             'amount' => 'required|numeric'
         ])->validate();
-
         // Agar 'amount' qiymati bo‘sh bo‘lsa, uni 0.00 ga o‘zgartirish
         $validated['amount'] = $validated['amount'] ?? 0.00;
 

@@ -44,7 +44,7 @@
             Экспортировать в Excel
         </a>
 
-        <form method="GET" action="{{ route('contracts.list') }}" class="d-flex align-items-center ms-1">
+        <form method="GET" action="{{ route('receipt_of_funds.list') }}" class="d-flex align-items-center ms-1">
             <div class="input-group">
                 <input
                     type="text"
@@ -72,77 +72,39 @@
             <thead>
             <tr class="align-middle align-content-center">
                 <th scope="col">#</th>
-                <th scope="col">Тип договора</th>
                 <th scope="col">Номер</th>
-                <th scope="col" style="max-width: 90px">Дата договора</th>
-                <th scope="col">Контрагент</th>
-                <th scope="col">Категория</th>
-                <th scope="col">Предмет</th>
+                <th scope="col" style="max-width: 90px">Дата</th>
+                <th scope="col">Расчетный счет</th>
+                <th scope="col">Дебет</th>
+                <th scope="col">Кредит</th>
+                <th scope="col">Договор</th>
                 <th class="col">Статья</th>
+                <th class="col">Предмет</th>
                 <th scope="col" style="min-width: 150px">Сумма</th>
-                <th scope="col" style="min-width: 150px">Срок договора</th>
-                <th scope="col">Статус</th>
                 <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
-{{--            @foreach($contracts as $contract)--}}
-{{--                @php--}}
-{{--                    $remainingDays = now()->diffInDays($contract->term, false);--}}
-{{--                    $progress = ($remainingDays > 0) ? (100 - (now()->diffInDays($contract->term) / 30 * 100)) : 100;--}}
-{{--                    $progressColor = ($remainingDays > 30) ? 'bg-success' : (($remainingDays <= 30 && $remainingDays > 7) ? 'bg-warning' : 'bg-danger');--}}
-
-{{--                    // Ruscha okonchaniya (so'z oxiri)ni aniqlash--}}
-{{--                    if ($remainingDays == 1) {--}}
-{{--                        $dayText = '1 день остался';--}}
-{{--                    } elseif ($remainingDays >= 2 && $remainingDays <= 4) {--}}
-{{--                        $dayText = $remainingDays . ' дня осталось';--}}
-{{--                    } elseif ($remainingDays >= 5 || $remainingDays <= -1) {--}}
-{{--                        $dayText = $remainingDays . ' дней осталось';--}}
-{{--                    } else {--}}
-{{--                        $dayText = 'Срок истек';--}}
-{{--                    }--}}
-{{--                @endphp--}}
-{{--                <tr>--}}
-{{--                    <th>{{ $contract->id }}</th>--}}
-{{--                    <td style="max-width: 100px">{{ $contract->type }}</td>--}}
-{{--                    <td>{{ $contract->number }}</td>--}}
-{{--                    <td>{{ \Carbon\Carbon::parse($contract->date)->format('d.m.Y') }}</td>--}}
-{{--                    <td>{{ $contract->contractor }}</td>--}}
-{{--                    <td>{{ $contract->category }}</td>--}}
-{{--                    <td>{{ $contract->details }}</td>--}}
-{{--                    <td>{{ $contract->article }}</td>--}}
-{{--                    <td>{{ number_format($contract->amount, 2, '.', ',') }}</td>--}}
-{{--                    <td>--}}
-{{--                        <div class="progress" style="height: 20px;">--}}
-{{--                            <div class="progress-bar {{ $progressColor }} font-weight-bold" role="progressbar"--}}
-{{--                                 style="width: {{ max(0, min($progress, 100)) }}%; color: black;"--}}
-{{--                                 aria-valuenow="{{ $progress }}" aria-valuemin="0" aria-valuemax="100"--}}
-{{--                                 data-bs-toggle="tooltip"--}}
-{{--                                 title="{{ $remainingDays > 0 ? 'осталось дней: '. $remainingDays : '' }}">--}}
-{{--                                @if ($remainingDays <= 0)--}}
-{{--                                    <span style="color: #000537;">Срок истек</span>--}}
-{{--                                @else--}}
-{{--                                @endif--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <small class="text-muted">{{ \Carbon\Carbon::parse($contract->term)->format('d.m.Y') }}</small>--}}
-{{--                    </td>--}}
-{{--                    <td>--}}
-{{--                        <div class="invoice_status">--}}
-{{--                            <div class="invoice_status" role="status">--}}
-
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </td>--}}
-{{--                    <td style="max-width: 50px">--}}
+            @foreach($receipt_of_funds as $receipt_of_fund)
+                <tr>
+                    <td>{{ $receipt_of_fund->id }}</td>
+                    <td style="max-width: 100px">{{ $receipt_of_fund->number }}</td>
+                    <td>{{ \Carbon\Carbon::parse($receipt_of_fund->date)->format('d.m.Y') }}</td>
+                    <td>{{ $receipt_of_fund->bank_account }}</td>
+                    <td>{{ $receipt_of_fund->debit_chart_of_account }}</td>
+                    <td>{{ $receipt_of_fund->credit_chart_of_account }}</td>
+                    <td>{{ $receipt_of_fund->contract_id }}</td>
+                    <td>{{ $receipt_of_fund->article }}</td>
+                    <td>{{ $receipt_of_fund->details }}</td>
+                    <td>{{ number_format($receipt_of_fund->amount, 2, '.', ',') }}</td>
+                    <td style="max-width: 50px">
 {{--                        <a href="{{ route('contracts.show', $contract->id) }}" type="button"--}}
 {{--                           class="btn btn-icon rounded-circle btn-flat-primary">--}}
 {{--                            <i data-feather="eye"></i>--}}
 {{--                        </a>--}}
-{{--                    </td>--}}
-{{--                </tr>--}}
-{{--            @endforeach--}}
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
         <div>

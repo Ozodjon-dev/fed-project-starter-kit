@@ -13,7 +13,7 @@
 
 @section('content')
     <section class="invoice-add-wrapper">
-        <form class="needs-validation" action="{{ route('contracts.store') }}" method="post">
+        <form class="needs-validation" action="{{ route('receipt_of_funds.store') }}" method="post">
             @csrf
             <div class="row invoice-add">
                 <!-- Invoice Add Left starts -->
@@ -24,18 +24,18 @@
                             <div class="d-flex flex-wrap justify-content-center">
                                 <div class="invoice-number-date mb-1 mt-md-0 mt-xl-2 w-100 w-md-auto">
                                     <div class="d-flex align-items-center">
-                                        <label for="registration_number" class="title"
+                                        <label for="number" class="title"
                                                style="min-width: 180px; margin-right: 10px;">Номер докемента</label>
-                                        <input type="text" name="registration_number" id="registration_number"
+                                        <input type="text" name="number" id="number"
                                                placeholder="7856" required
                                                class="form-control invoice-edit-input rounded"/>
                                     </div>
                                 </div>
                                 <div class="invoice-number-date mb-1 mt-md-0 mt-0 w-100 w-md-auto">
                                     <div class="d-flex align-items-center">
-                                        <label for="registration_date" class="title"
+                                        <label for="date" class="title"
                                                style="min-width: 180px; margin-right: 10px;">Дата</label>
-                                        <input type="date" name="registration_date" id="registration_date" required
+                                        <input type="date" name="date" id="date" required
                                                class="form-control invoice-edit-input date-picker rounded"/>
                                     </div>
                                 </div>
@@ -60,9 +60,9 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="d-flex align-items-center mb-1 w-100">
-                                    <label for="debit_chart_of_account" class="title" style="min-width: 180px; margin-right: 10px;">Дебет</label>
+                                    <label for="debit_chart_of_account" class="title"
+                                           style="min-width: 180px; margin-right: 10px;">Дебет</label>
                                     <select class="form-select rounded w-100" name="debit_chart_of_account"
                                             id="debit_chart_of_account" required>
                                         <option disabled selected></option>
@@ -75,7 +75,8 @@
                                     </select>
                                 </div>
                                 <div class="d-flex align-items-center mb-1 w-100">
-                                    <label for="credit_chart_of_account" class="title" style="min-width: 180px; margin-right: 10px;">Кредит</label>
+                                    <label for="credit_chart_of_account" class="title"
+                                           style="min-width: 180px; margin-right: 10px;">Кредит</label>
                                     <select class="form-select rounded w-100" name="credit_chart_of_account"
                                             id="credit_chart_of_account" required>
                                         <option disabled selected></option>
@@ -88,7 +89,8 @@
                                     </select>
                                 </div>
                                 <div class="d-flex align-items-center mb-1 w-100">
-                                    <label for="contract_id" class="title" style="min-width: 180px; margin-right: 10px;">Договор</label>
+                                    <label for="contract_id" class="title"
+                                           style="min-width: 180px; margin-right: 10px;">Договор</label>
                                     <select class="form-select rounded w-100" name="contract_id"
                                             id="contract_id">
                                         <option disabled selected></option>

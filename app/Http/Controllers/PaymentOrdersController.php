@@ -187,9 +187,9 @@ class PaymentOrdersController extends Controller
     }
 
     // Export payment orders in Excel format
-    public function exportPaymentOrders()
+    public function exportPaymentOrders(Request $request)
     {
-        return Excel::download(new PaymentOrdersExport, 'payment_orders.xlsx');
+        return Excel::download(new PaymentOrdersExport($request), 'payment_orders.xlsx');
     }
 
 }

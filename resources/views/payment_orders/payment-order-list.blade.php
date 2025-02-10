@@ -70,7 +70,7 @@
 
 
         <!-- Excel export button -->
-        <a href="{{ route('payment_orders.export') }}" class="btn btn-success ms-1 btn-sm">
+        <a href="{{ route('payment_orders.export', request()->query()) }}" class="btn btn-success ms-1 btn-sm">
             <i data-feather='download'></i> Экспортировать в Excel
         </a>
 

@@ -17,6 +17,7 @@ class PaymentOrdersController extends Controller
     public function list(Request $request)
     {
         $search = $request->input('search'); // Search word
+        $applicants = $request->input('applicant', []); // Checkbox orqali tanlangan arizachilar
 
         $paymentOrders = PaymentOrder::when($search, function ($query, $search) {
             return $query->where('number', 'like', "%{$search}%")
@@ -39,11 +40,15 @@ class PaymentOrdersController extends Controller
                 ->orWhere('contract', 'like', "%{$search}%")
                 ->orWhere('article', 'like', "%{$search}%");
         })
+            ->when(!empty($applicants), function ($query) use ($applicants) {
+                return $query->whereIn('applicant', $applicants);
+            })
             ->orderBy('date', 'desc')
             ->paginate(10);
 
         return view('payment_orders/payment-order-list', compact('paymentOrders'));
     }
+
 
     public function add()
     {

@@ -16,31 +16,6 @@ class MemorialOrder6Controller extends Controller
 {
     public function list(Request $request)
     {
-        $search = $request->input('search'); // Search word
-
-        $paymentOrders = PaymentOrder::when($search, function ($query, $search) {
-            return $query->where('number', 'like', "%{$search}%")
-                ->orWhere('date', 'like', "%{$search}%")
-                ->orWhere('applicant', 'like', "%{$search}%")
-                ->orWhere('applicant_bank_account', 'like', "%{$search}%")
-                ->orWhere('applicant_tin', 'like', "%{$search}%")
-                ->orWhere('applicant_bank_name', 'like', "%{$search}%")
-                ->orWhere('applicant_bank_code', 'like', "%{$search}%")
-                ->orWhere('amount', 'like', "%{$search}%")
-                ->orWhere('contractor', 'like', "%{$search}%")
-                ->orWhere('beneficiary_bank_account', 'like', "%{$search}%")
-                ->orWhere('beneficiary_tin', 'like', "%{$search}%")
-                ->orWhere('beneficiary_bank_name', 'like', "%{$search}%")
-                ->orWhere('beneficiary_bank_code', 'like', "%{$search}%")
-                ->orWhere('amount_in_words', 'like', "%{$search}%")
-                ->orWhere('details', 'like', "%{$search}%")
-                ->orWhere('debit_chart_of_account', 'like', "%{$search}%")
-                ->orWhere('credit_chart_of_account', 'like', "%{$search}%")
-                ->orWhere('contract', 'like', "%{$search}%")
-                ->orWhere('article', 'like', "%{$search}%");
-        })
-            ->paginate(10);
-
         return view('payment_orders/payment-order-list', compact('paymentOrders'));
     }
 

@@ -1,6 +1,12 @@
 @extends('layouts/contentLayoutMaster')
 
 @section('title', 'Список платежных поручений')
+@section('vendor-style')
+    <link rel="stylesheet" href="{{asset('vendors/css/pickers/flatpickr/flatpickr.min.css')}}">
+@endsection
+@section('page-style')
+    <link rel="stylesheet" href="{{asset('css/base/plugins/forms/pickers/form-flat-pickr.css')}}">
+@endsection
 
 @section('content')
     @if (session('success'))
@@ -68,6 +74,36 @@
             <i data-feather='download'></i> Экспортировать в Excel
         </a>
 
+        <div class="dropdown ms-1">
+            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i data-feather="filter" class="me-1"></i>
+            </button>
+            <ul class="dropdown-menu p-3 shadow" aria-labelledby="filterDropdown" style="min-width: 300px;">
+                <!-- Filtr shakli -->
+                <form method="GET" action="">
+                    <div class="mb-2">
+                        <label class="form-label">Фильтр по организацию</label>
+                        <div class="form-check mt-1">
+                            <input class="form-check-input" type="checkbox" name="applicant[]" value="O‘zbekiston Respublikasi PDXX" id="pdxx"
+                                {{ request()->has('applicant') && in_array('O‘zbekiston Respublikasi PDXX', request()->applicant) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="pdxx">O‘ZBEKISTON RESPUBLIKASI PDXX</label>
+                        </div>
+                        <div class="form-check mt-1">
+                            <input class="form-check-input" type="checkbox" name="applicant[]" value="77601 Harbiy Qism" id="harbiy"
+                                {{ request()->has('applicant') && in_array('77601 Harbiy Qism', request()->applicant) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="harbiy">77601 HARBIY QISM</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm w-100 mt-2">Применить</button>
+                    <a href="{{ route('payment_orders.list') }}" class="btn btn-secondary btn-sm w-100 mt-2">Очистить фильтр</a>
+                </form>
+            </ul>
+        </div>
+
+
+
+
+
         <!-- Move the plus button to the right -->
         <a href="{{ route('payment_orders.add') }}" class="btn btn-icon btn-primary ms-auto btn-sm"
            style="border-radius: 50%">
@@ -117,15 +153,37 @@
             </tbody>
         </table>
         <div>
-            {{ $paymentOrders->links() }} <!-- Pagination -->
+            {{ $paymentOrders->appends(request()->query())->links() }}
         </div>
     </div>
 @endsection
-@section('page-script')
-    <script src="{{asset('js/scripts/pages/app-invoice.js')}}"></script>
-    <script src="{{ asset(mix('js/scripts/forms/form-input-mask.js')) }}"></script>
-    <script>
-
-    </script>
+@section('vendor-script')
+    <script src="{{asset('vendors/js/forms/repeater/jquery.repeater.min.js')}}"></script>
+    <script src="{{asset('vendors/js/forms/select/select2.full.min.js')}}"></script>
+    <script src="{{asset('vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
+    <script src="{{ asset(mix('vendors/js/forms/cleave/cleave.min.js'))}}"></script>
+    <script src="{{ asset(mix('vendors/js/forms/cleave/addons/cleave-phone.us.js'))}}"></script>
 @endsection
 
+@section('page-script')
+    <script src="{{asset('js/scripts/pages/app-invoice.js')}}"></script>
+    <script src="{{ asset('js/scripts/forms/form-input-mask.js') }}"></script>
+
+    <!-- Feather Icons aktiv qilish -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof feather !== "undefined") {
+                feather.replace();
+            }
+
+            // Filtrni tanlagandan keyin dropdownni yopish
+            document.querySelectorAll(".dropdown-menu input").forEach(input => {
+                input.addEventListener("change", function () {
+                    setTimeout(() => {
+                        document.querySelector("#filterDropdown").click();
+                    }, 300);
+                });
+            });
+        });
+    </script>
+@endsection

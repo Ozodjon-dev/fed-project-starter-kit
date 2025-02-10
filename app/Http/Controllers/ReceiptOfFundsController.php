@@ -34,7 +34,7 @@ class ReceiptOfFundsController extends Controller
                         ->orWhere('contractor', 'like', "%{$search}%");
                 });
         })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->paginate(10);
 
         return view('receipt_of_funds.receipt_of_funds_list', compact('receipt_of_funds'));

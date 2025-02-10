@@ -114,7 +114,7 @@
                             <button type="button" class="btn btn-icon btn-icon rounded-circle btn-flat-primary"
                                     data-bs-toggle="modal"
                                     data-bs-target="#danger">
-                                <i data-feather="trash"></i>
+                                <i data-feather="trash-2"></i>
                             </button>
                             <!-- Modal -->
                             <div

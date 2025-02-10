@@ -32,7 +32,7 @@ class ContractsController extends Controller
                 ->orWhere('term', 'like', "%{$search}%")
                 ->orWhere('status', 'like', "%{$search}%");
         })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->paginate(10);
 
         return view('contracts/contract-list', compact('contracts'));

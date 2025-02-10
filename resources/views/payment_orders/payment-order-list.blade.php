@@ -75,33 +75,32 @@
         </a>
 
         <div class="dropdown ms-1">
-            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <i data-feather="filter" class="me-1"></i>
-            </button>
+            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="filterDropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false"><i data-feather="filter" class="me-1"></i></button>
             <ul class="dropdown-menu p-3 shadow" aria-labelledby="filterDropdown" style="min-width: 300px;">
                 <!-- Filtr shakli -->
                 <form method="GET" action="">
                     <div class="mb-2">
                         <label class="form-label">Фильтр по организацию</label>
                         <div class="form-check mt-1">
-                            <input class="form-check-input" type="checkbox" name="applicant[]" value="O‘zbekiston Respublikasi PDXX" id="pdxx"
+                            <input class="form-check-input" type="checkbox" name="applicant[]"
+                                   value="O‘zbekiston Respublikasi PDXX" id="pdxx"
                                 {{ request()->has('applicant') && in_array('O‘zbekiston Respublikasi PDXX', request()->applicant) ? 'checked' : '' }}>
-                                <label class="form-check-label" for="pdxx">O‘ZBEKISTON RESPUBLIKASI PDXX</label>
+                            <label class="form-check-label" for="pdxx">O‘ZBEKISTON RESPUBLIKASI PDXX</label>
                         </div>
                         <div class="form-check mt-1">
-                            <input class="form-check-input" type="checkbox" name="applicant[]" value="77601 Harbiy Qism" id="harbiy"
+                            <input class="form-check-input" type="checkbox" name="applicant[]" value="77601 Harbiy Qism"
+                                   id="harbiy"
                                 {{ request()->has('applicant') && in_array('77601 Harbiy Qism', request()->applicant) ? 'checked' : '' }}>
                             <label class="form-check-label" for="harbiy">77601 HARBIY QISM</label>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-sm w-100 mt-2">Применить</button>
-                    <a href="{{ route('payment_orders.list') }}" class="btn btn-secondary btn-sm w-100 mt-1">Очистить фильтр</a>
+                    <a href="{{ route('payment_orders.list') }}" class="btn btn-secondary btn-sm w-100 mt-1">Очистить
+                        фильтр</a>
                 </form>
             </ul>
         </div>
-
-
-
 
 
         <!-- Move the plus button to the right -->

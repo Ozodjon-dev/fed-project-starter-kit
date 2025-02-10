@@ -27,7 +27,7 @@
 
     <!-- Kalkulyator tugmasi -->
     <div class="content-header-right col-md-3 col-12 d-flex justify-content-end align-items-center">
-        <svg type="button" width="40px" height=40PX" viewBox="0 0 20 20" version="1.1" data-bs-toggle="modal"
+        <svg type="button" width="32px" height=32px" viewBox="0 0 20 20" version="1.1" data-bs-toggle="modal"
              data-bs-target="#calculatorModal" style="display: flex; align-items: center; justify-content: center;">
             <g id="🔍-System-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g id="ic_fluent_calculator_20_regular" fill="#7367f0" fill-rule="nonzero">

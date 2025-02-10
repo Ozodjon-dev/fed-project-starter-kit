@@ -37,7 +37,7 @@ class PaymentOrdersController extends Controller
                 ->orWhere('details', 'like', "%{$search}%")
                 ->orWhere('debit_chart_of_account', 'like', "%{$search}%")
                 ->orWhere('credit_chart_of_account', 'like', "%{$search}%")
-                ->orWhere('contract', 'like', "%{$search}%")
+                ->orWhere('contract_id', 'like', "%{$search}%")
                 ->orWhere('article', 'like', "%{$search}%");
         })
             ->when(!empty($applicants), function ($query) use ($applicants) {

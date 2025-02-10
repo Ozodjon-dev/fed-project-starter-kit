@@ -95,7 +95,7 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-sm w-100 mt-2">Применить</button>
-                    <a href="{{ route('payment_orders.list') }}" class="btn btn-secondary btn-sm w-100 mt-2">Очистить фильтр</a>
+                    <a href="{{ route('payment_orders.list') }}" class="btn btn-secondary btn-sm w-100 mt-1">Очистить фильтр</a>
                 </form>
             </ul>
         </div>

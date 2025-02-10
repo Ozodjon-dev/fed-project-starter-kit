@@ -103,7 +103,7 @@ Route::get('/memorial_order_6/list',  [MemorialOrder6Controller::class, 'list'])
 Route::get('/receipt_of_funds/list',  [ReceiptOfFundsController::class, 'list'])->name('receipt_of_funds.list');
 Route::get('/receipt_of_funds/add',  [ReceiptOfFundsController::class, 'add'])->name('receipt_of_funds.add');
 Route::post('/receipt_of_funds',  [ReceiptOfFundsController::class, 'store'])->name('receipt_of_funds.store');
-//Route::get('/contracts_category/{id}',  [ContractCategoriesController::class, 'show'])->name('contract_categories.show');
-//Route::get('/contracts_category/{id}/edit',  [ContractCategoriesController::class, 'edit'])->name('contract_categories.edit');
-//Route::patch('/contracts_category/{id}',  [ContractCategoriesController::class, 'update'])->name('contract_categories.update');
-//Route::delete('/contracts_category/{id}',  [ContractCategoriesController::class, 'destroy'])->name('contract_categories.delete');
+Route::get('/receipt_of_funds/{id}',  [ReceiptOfFundsController::class, 'show'])->name('receipt_of_funds.show');
+Route::get('/receipt_of_funds/{id}/edit',  [ReceiptOfFundsController::class, 'edit'])->name('receipt_of_funds.edit');
+Route::patch('/receipt_of_funds/{id}',  [ReceiptOfFundsController::class, 'update'])->name('receipt_of_funds.update');
+Route::delete('/receipt_of_funds/{id}',  [ReceiptOfFundsController::class, 'destroy'])->name('receipt_of_funds.delete');

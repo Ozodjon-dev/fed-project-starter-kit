@@ -85,28 +85,28 @@ class ReceiptOfFundsController extends Controller
 
     public function show($id)
     {
-        $contract = Contract::with('paymentOrders')->findOrFail($id);
-        $totalPaymentAmount = $contract->paymentOrders->sum('amount');
-        return view('contracts/contract-show', compact('contract', 'totalPaymentAmount'));
+        $receipt_of_fund = ReceiptOfFund::with('contract')->find($id);
+        return view('receipt_of_funds/receipt_of_funds_show', compact('receipt_of_fund'));
     }
 
     public function edit($id)
     {
-        $contract = Contract::findOrFail($id);
-        $contractors = Contractor::all()->sortBy('name');
-        $categories = ContractCategory::all()->sortBy('name');
-        $classificators = Classificator::all()->sortBy('article');
-        return view('contracts/contract-edit', compact('contract', 'categories', 'classificators', 'contractors'));
+        $organizations = DB::table('organizations')->get();
+        $chart_of_accounts = DB::table('chart_of_accounts')->get();
+        $classificators = Classificator::all();
+        $contracts = Contract::all();
+        $receipt_of_fund = ReceiptOfFund::with('contract')->find($id);
+        return view('receipt_of_funds/receipt_of_funds_edit', compact('receipt_of_fund', 'organizations', 'chart_of_accounts', 'classificators', 'contracts'));
     }
 
     public function update(Request $request, $id)
     {
         $input = $request->all();
 
-        $contract = Contract::find($id);
-        if (!$contract) {
-            return redirect()->back()->with('error', 'Контракт не найден.');
-        }
+        $receipt_of_fund = ReceiptOfFund::find($id);
+//        if (!$contract) {
+//            return redirect()->back()->with('error', 'Контракт не найден.');
+//        }
 
         // 'amount' maydonini tekshirish va formatlash
         if (!empty($input['amount'])) {
@@ -116,18 +116,17 @@ class ReceiptOfFundsController extends Controller
         // Validatsiya
         try {
             $validated = \Validator::make($input, [
-                'registration_number' => 'required|string|max:255',
-                'registration_date' => 'required|date',
-                'type' => 'required|string',
                 'number' => 'required|string|max:255',
                 'date' => 'required|date',
-                'contractor' => 'required|string',
-                'category' => 'nullable|string',
-                'details' => 'nullable|string',
+                'bank_account' => 'required|string',
+                'debit_chart_of_account' => 'required|string',
+                'credit_chart_of_account' => 'required|string',
+                'contract_id' => 'nullable|exists:contracts,id',
                 'article' => 'nullable|string',
-                'amount' => 'nullable|numeric',
-                'term' => 'required|date',
+                'details' => 'required|string',
+                'amount' => 'required|numeric'
             ])->validate();
+
         } catch (\Illuminate\Validation\ValidationException $e) {
             return redirect()->back()->withErrors($e->errors())->withInput();
         }
@@ -135,18 +134,18 @@ class ReceiptOfFundsController extends Controller
         $validated['amount'] = $validated['amount'] ?? 0.00;
 
         // Ma'lumotni yangilash
-        $contract->update($validated);
+        $receipt_of_fund->update($validated);
 
         // Foydalanuvchini qaytarish
-        return redirect()->route('contracts.show', $id)->with('success', 'Контракт успешно отредактирован ✅');
+        return redirect()->route('receipt_of_funds.show', $id)->with('success', 'Поступление денежных средств успешно отредактирован ✅');
     }
 
 
     public function destroy($id)
     {
-        $contract = Contract::findOrFail($id);
-        $contract->delete();
-        return redirect()->route('contracts.list')->with('success', 'Контракт успешно удален 🗑️');
+        $receipt_of_fund = ReceiptOfFund::findOrFail($id);
+        $receipt_of_fund->delete();
+        return redirect()->route('receipt_of_funds.list')->with('success', 'Поступление денежных средств успешно удален 🗑️');
 
     }
 

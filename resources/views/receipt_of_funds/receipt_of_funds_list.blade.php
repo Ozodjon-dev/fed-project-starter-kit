@@ -104,10 +104,10 @@
                     <td>{{ $receipt_of_fund->details }}</td>
                     <td>{{ number_format($receipt_of_fund->amount, 2, '.', ',') }}</td>
                     <td style="max-width: 50px">
-                        {{--                        <a href="{{ route('contracts.show', $contract->id) }}" type="button"--}}
-                        {{--                           class="btn btn-icon rounded-circle btn-flat-primary">--}}
-                        {{--                            <i data-feather="eye"></i>--}}
-                        {{--                        </a>--}}
+                        <a href="{{ route('receipt_of_funds.show', $receipt_of_fund->id) }}" type="button"
+                           class="btn btn-icon rounded-circle btn-flat-primary">
+                            <i data-feather="eye"></i>
+                        </a>
                     </td>
                 </tr>
             @endforeach

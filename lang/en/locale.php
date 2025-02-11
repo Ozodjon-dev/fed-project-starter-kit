@@ -204,5 +204,8 @@ return [
     "Payment documents" => "Платежные документы",
     "Receipt of funds" => "Поступление денежных средств",
     "Add receipt of funds" => "Добавить пост. ден. ср.",
-    "List receipt of funds" => "Список пост. ден. ср."
+    "List receipt of funds" => "Список пост. ден. ср.",
+    "Cash accounting" => "Кассовый учет",
+    "Receipt cash order" => "Приходный кассовый ордер",
+    "Disbursement cash order" => "Расходный кассовый ордер"
 ];

@@ -2,7 +2,7 @@
 <ul class="menu-content">
   @if(isset($menu))
   @foreach($menu as $submenu)
-  <li @if($submenu->slug === Route::currentRouteName()) class="active" @endif>
+            <li class="{{ $custom_classes }} {{ (isset($submenu->submenu)) ? 'dropdown dropdown-submenu' : '' }}{{ is_array($submenu->slug) && in_array(Route::currentRouteName(), $submenu->slug) ? 'active' : '' }}"@if(isset($submenu->submenu)){{'data-menu=dropdown-submenu'}}@endif>
     <a href="{{isset($submenu->url) ? url($submenu->url):'javascript:void(0)'}}" class="d-flex align-items-center" target="{{isset($submenu->newTab) && $submenu->newTab === true  ? '_blank':'_self'}}">
       @if(isset($submenu->icon))
       <i data-feather="{{$submenu->icon}}"></i>

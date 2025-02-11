@@ -10,43 +10,38 @@
             "name": "Reference books",
             "icon": "info",
             "dropdown": "1",
-            "slug": "",
+            "slug": [
+                ""
+            ],
             "submenu": [
                 {
-                    "name": "Contractors",
-                    "icon": "user",
-                    "slug": "",
+                    "name": "Organization Directory",
+                    "icon": "info",
+                    "slug": [
+                        ""
+                    ],
                     "submenu": [
-                        {
-                            "url": "contractor/add",
-                            "name": "Add contractors",
-                            "icon": "plus",
-                            "slug": "contractors.add"
-                        },
                         {
                             "url": "contractor/list",
-                            "name": "List contractors",
-                            "icon": "list",
-                            "slug": "contractors.list"
-                        }
-                    ]
-                },
-                {
-                    "name": "Contracts categories",
-                    "icon": "grid",
-                    "slug": "",
-                    "submenu": [
-                        {
-                            "url": "contracts_category/add",
-                            "name": "Add category",
-                            "icon": "plus",
-                            "slug": "contract_categories.add"
+                            "name": "Contractors",
+                            "icon": "circle",
+                            "slug": [
+                                "contractors.list",
+                                "contractors.add",
+                                "contractors.show",
+                                "contractors.edit"
+                            ]
                         },
                         {
                             "url": "contracts_category/list",
-                            "name": "List of categories",
-                            "icon": "list",
-                            "slug": "contract_categories.list"
+                            "name": "Contracts categories",
+                            "icon": "circle",
+                            "slug": [
+                                "contract_categories.list",
+                                "contract_categories.add",
+                                "contract_categories.show",
+                                "contract_categories.edit"
+                            ]
                         }
                     ]
                 }
@@ -56,64 +51,77 @@
             "name": "Documents",
             "icon": "folder",
             "dropdown": "1",
-            "slug": "",
+            "slug": [
+                ""
+            ],
             "submenu": [
                 {
-                    "name": "Payment orders",
-                    "icon": "layout",
-                    "slug": "",
+                    "name": "Payment documents",
+                    "icon": "folder",
+                    "dropdown": "1",
+                    "slug": [
+                        ""
+                    ],
                     "submenu": [
-                        {
-                            "url": "payment_order/add",
-                            "name": "Add payment orders",
-                            "icon": "plus",
-                            "slug": "payment_orders.add"
-                        },
                         {
                             "url": "payment_order/list",
-                            "name": "List payment orders",
-                            "icon": "list",
-                            "slug": "payment_orders.list"
-                        }
-                    ]
-                },
-                {
-                    "name": "Contracts",
-                    "icon": "file-text",
-                    "dropdown": "1",
-                    "slug": "",
-                    "submenu": [
-                        {
-                            "url": "contract/add",
-                            "name": "Add contracts",
-                            "icon": "plus",
-                            "slug": "contracts.add"
+                            "name": "Payment orders",
+                            "icon": "circle",
+                            "slug": [
+                                "payment_orders.list",
+                                "payment_orders.add",
+                                "payment_orders.edit",
+                                "payment_orders.preview",
+                                "payment_orders.update"
+                            ]
                         },
                         {
                             "url": "contract/list",
-                            "name": "List contracts",
-                            "icon": "list",
-                            "slug": "contracts.list"
+                            "name": "Contracts",
+                            "icon": "circle",
+                            "slug": [
+                                "contracts.list",
+                                "contracts.add",
+                                "contracts.edit",
+                                "contracts.show"
+                            ]
+                        },
+                        {
+                            "url": "receipt_of_funds/list",
+                            "name": "Receipt of funds",
+                            "icon": "circle",
+                            "slug": [
+                                "receipt_of_funds.list",
+                                "receipt_of_funds.add",
+                                "receipt_of_funds.show",
+                                "receipt_of_funds.edit"
+                            ]
                         }
                     ]
                 },
                 {
-                    "name": "Receipt of funds",
-                    "icon": "arrow-down",
+                    "name": "Cash accounting",
+                    "icon": "file",
                     "dropdown": "1",
-                    "slug": "",
+                    "slug": [
+                        ""
+                    ],
                     "submenu": [
                         {
-                            "url": "receipt_of_funds/add",
-                            "name": "Add receipt of funds",
-                            "icon": "plus",
-                            "slug": "receipt_of_funds.add"
+                            "url": "payment_order/list",
+                            "name": "Receipt cash order",
+                            "icon": "circle",
+                            "slug": [
+                                ""
+                            ]
                         },
                         {
-                            "url": "receipt_of_funds/list",
-                            "name": "List receipt of funds",
-                            "icon": "list",
-                            "slug": "receipt_of_funds.list"
+                            "url": "contract/list",
+                            "name": "Disbursement cash order",
+                            "icon": "circle",
+                            "slug": [
+                                ""
+                            ]
                         }
                     ]
                 }
@@ -134,13 +142,17 @@
                             "url": "memorial_order_2/list",
                             "name": "Memorial order-2",
                             "icon": "circle",
-                            "slug": "memorial_order2.list"
+                            "slug": [
+                                "memorial_order2.list"
+                            ]
                         },
                         {
                             "url": "memorial_order_6/list",
                             "name": "Memorial order-6",
                             "icon": "circle",
-                            "slug": "memorial_order6.list"
+                            "slug": [
+                                "memorial_order6.list"
+                            ]
                         }
                     ]
                 }

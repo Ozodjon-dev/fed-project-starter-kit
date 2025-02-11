@@ -207,5 +207,6 @@ return [
     "List receipt of funds" => "Список пост. ден. ср.",
     "Cash accounting" => "Кассовый учет",
     "Receipt cash order" => "Приходный кассовый ордер",
-    "Disbursement cash order" => "Расходный кассовый ордер"
+    "Disbursement cash order" => "Расходный кассовый ордер",
+    "Organization Directory" => "Справочник организации"
 ];

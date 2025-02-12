@@ -29,7 +29,8 @@
                             <a href="#">$48.9k</a>
                         </h3>
                         <button type="button" class="btn btn-primary">View Sales</button>
-                        <img src="{{asset('images/illustration/badge.svg')}}" class="congratulation-medal" alt="Medal Pic" />
+                        <img src="{{asset('images/illustration/badge.svg')}}" class="congratulation-medal"
+                             alt="Medal Pic"/>
                     </div>
                 </div>
             </div>
@@ -142,7 +143,8 @@
                                         <div class="font-small-2">This Month</div>
                                         <h5 class="mb-1">$4055.56</h5>
                                         <p class="card-text text-muted font-small-2">
-                                            <span class="fw-bolder">68.2%</span><span> more earnings than last month.</span>
+                                            <span
+                                                class="fw-bolder">68.2%</span><span> more earnings than last month.</span>
                                         </p>
                                     </div>
                                     <div class="col-6">
@@ -229,7 +231,7 @@
                                         <div class="d-flex align-items-center">
                                             <div class="avatar rounded">
                                                 <div class="avatar-content">
-                                                    <img src="{{asset('images/icons/toolbox.svg')}}" alt="Toolbar svg" />
+                                                    <img src="{{asset('images/icons/toolbox.svg')}}" alt="Toolbar svg"/>
                                                 </div>
                                             </div>
                                             <div>
@@ -267,7 +269,8 @@
                                         <div class="d-flex align-items-center">
                                             <div class="avatar rounded">
                                                 <div class="avatar-content">
-                                                    <img src="{{asset('images/icons/parachute.svg')}}" alt="Parachute svg" />
+                                                    <img src="{{asset('images/icons/parachute.svg')}}"
+                                                         alt="Parachute svg"/>
                                                 </div>
                                             </div>
                                             <div>
@@ -305,7 +308,7 @@
                                         <div class="d-flex align-items-center">
                                             <div class="avatar rounded">
                                                 <div class="avatar-content">
-                                                    <img src="{{asset('images/icons/brush.svg')}}" alt="Brush svg" />
+                                                    <img src="{{asset('images/icons/brush.svg')}}" alt="Brush svg"/>
                                                 </div>
                                             </div>
                                             <div>
@@ -343,7 +346,7 @@
                                         <div class="d-flex align-items-center">
                                             <div class="avatar rounded">
                                                 <div class="avatar-content">
-                                                    <img src="{{asset('images/icons/star.svg')}}" alt="Star svg" />
+                                                    <img src="{{asset('images/icons/star.svg')}}" alt="Star svg"/>
                                                 </div>
                                             </div>
                                             <div>
@@ -381,7 +384,7 @@
                                         <div class="d-flex align-items-center">
                                             <div class="avatar rounded">
                                                 <div class="avatar-content">
-                                                    <img src="{{asset('images/icons/book.svg')}}" alt="Book svg" />
+                                                    <img src="{{asset('images/icons/book.svg')}}" alt="Book svg"/>
                                                 </div>
                                             </div>
                                             <div>
@@ -419,7 +422,7 @@
                                         <div class="d-flex align-items-center">
                                             <div class="avatar rounded">
                                                 <div class="avatar-content">
-                                                    <img src="{{asset('images/icons/rocket.svg')}}" alt="Rocket svg" />
+                                                    <img src="{{asset('images/icons/rocket.svg')}}" alt="Rocket svg"/>
                                                 </div>
                                             </div>
                                             <div>
@@ -457,7 +460,7 @@
                                         <div class="d-flex align-items-center">
                                             <div class="avatar rounded">
                                                 <div class="avatar-content">
-                                                    <img src="{{asset('images/icons/speaker.svg')}}" alt="Speaker svg" />
+                                                    <img src="{{asset('images/icons/speaker.svg')}}" alt="Speaker svg"/>
                                                 </div>
                                             </div>
                                             <div>
@@ -502,7 +505,7 @@
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="card card-developer-meetup">
                     <div class="meetup-img-wrapper rounded-top text-center">
-                        <img src="{{asset('images/illustration/email.svg')}}" alt="Meeting Pic" height="170" />
+                        <img src="{{asset('images/illustration/email.svg')}}" alt="Meeting Pic" height="170"/>
                     </div>
                     <div class="card-body">
                         <div class="meetup-header d-flex align-items-center">
@@ -545,7 +548,8 @@
                                 title="Billy Hopkins"
                                 class="avatar pull-up"
                             >
-                                <img src="{{asset('images/portrait/small/avatar-s-9.jpg')}}" alt="Avatar" width="33" height="33" />
+                                <img src="{{asset('images/portrait/small/avatar-s-9.jpg')}}" alt="Avatar" width="33"
+                                     height="33"/>
                             </div>
                             <div
                                 data-bs-toggle="tooltip"
@@ -554,7 +558,8 @@
                                 title="Amy Carson"
                                 class="avatar pull-up"
                             >
-                                <img src="{{asset('images/portrait/small/avatar-s-6.jpg')}}" alt="Avatar" width="33" height="33" />
+                                <img src="{{asset('images/portrait/small/avatar-s-6.jpg')}}" alt="Avatar" width="33"
+                                     height="33"/>
                             </div>
                             <div
                                 data-bs-toggle="tooltip"
@@ -563,7 +568,8 @@
                                 title="Brandon Miles"
                                 class="avatar pull-up"
                             >
-                                <img src="{{asset('images/portrait/small/avatar-s-8.jpg')}}" alt="Avatar" width="33" height="33" />
+                                <img src="{{asset('images/portrait/small/avatar-s-8.jpg')}}" alt="Avatar" width="33"
+                                     height="33"/>
                             </div>
                             <div
                                 data-bs-toggle="tooltip"
@@ -609,7 +615,8 @@
                             <p class="card-text font-small-2">Counter August 2020</p>
                         </div>
                         <div class="dropdown chart-dropdown">
-                            <i data-feather="more-vertical" class="font-medium-3 cursor-pointer" data-bs-toggle="dropdown"></i>
+                            <i data-feather="more-vertical" class="font-medium-3 cursor-pointer"
+                               data-bs-toggle="dropdown"></i>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="#">Last 28 Days</a>
                                 <a class="dropdown-item" href="#">Last Month</a>
@@ -680,7 +687,8 @@
                         </div>
                         <div class="browser-states">
                             <div class="d-flex">
-                                <img src="{{asset('images/icons/opera.png')}}" class="rounded me-1" height="30" alt="Opera Mini" />
+                                <img src="{{asset('images/icons/opera.png')}}" class="rounded me-1" height="30"
+                                     alt="Opera Mini"/>
                                 <h6 class="align-self-center mb-0">Opera Mini</h6>
                             </div>
                             <div class="d-flex align-items-center">
@@ -723,7 +731,8 @@
                     <div class="card-header">
                         <h4 class="card-title">Transactions</h4>
                         <div class="dropdown chart-dropdown">
-                            <i data-feather="more-vertical" class="font-medium-3 cursor-pointer" data-bs-toggle="dropdown"></i>
+                            <i data-feather="more-vertical" class="font-medium-3 cursor-pointer"
+                               data-bs-toggle="dropdown"></i>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="#">Last 28 Days</a>
                                 <a class="dropdown-item" href="#">Last Month</a>
@@ -818,5 +827,10 @@
 @endsection
 @section('page-script')
     {{-- Page js files --}}
+    <script>
+        window.userName = @json(Auth::user()->name);
+        console.log("User Name in Blade:", window.userName); // Tekshirish uchun
+    </script>
     <script src="{{ asset(mix('js/scripts/pages/dashboard-ecommerce.js')) }}"></script>
 @endsection
+

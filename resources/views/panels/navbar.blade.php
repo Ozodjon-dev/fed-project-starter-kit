@@ -2,13 +2,15 @@
     <nav
         class="header-navbar navbar-expand-lg navbar navbar-fixed align-items-center navbar-shadow navbar-brand-center {{ $configData['navbarColor'] }}"
         data-nav="brand-center">
-        <strong class="alert alert-warning text-center ms-1" style="max-width: 200px; margin-bottom: 0;">⚠ Внимание! Данный проект работает в режиме
+        <strong class="alert alert-warning text-center ms-1" style="max-width: 200px; margin-bottom: 0;">⚠ Внимание!
+            Данный проект работает в режиме
             тестирования. ⚠</strong>
         <div class="navbar-header d-xl-block d-none">
             <ul class="nav navbar-nav">
                 <li class="nav-item">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{ asset('images/ico/apple-touch-icon.png') }}" alt="" style="width: 50px; height: 50px">
+                        <img src="{{ asset('images/ico/apple-touch-icon.png') }}" alt=""
+                             style="width: 50px; height: 50px">
                         <h2 class="brand-text mb-0"> PROject</h2>
                     </a>
                 </li>
@@ -43,7 +45,8 @@
                         </li>
                         <svg id="openCalculator" type="button" width="24px" height="24px" viewBox="0 0 20 20"
                              version="1.1"
-                             style="display: flex; align-items: center; justify-content: center; cursor: pointer;" class="me-sm">
+                             style="display: flex; align-items: center; justify-content: center; cursor: pointer;"
+                             class="me-sm">
                             <g id="🔍-System-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <g id="ic_fluent_calculator_20_regular" fill="#7367f0" fill-rule="nonzero">
                                     <path
@@ -77,12 +80,12 @@
               @endauth
           </span>
                                     <span class="user-status">
-            Admin
+            {{ Auth::user()->user_status }}
           </span>
                                 </div>
                                 <span class="avatar">
           <img class="round"
-               src="{{ Auth::check() ? Auth::user()->profile_photo_url : asset('images/portrait/small/avatar-s-11.jpg') }}"
+               src="{{ asset('images/portrait/small/avatar.jpg') }}"
                alt="avatar" height="40" width="40">
                         <span class="avatar-status-online"></span>
                     </span>

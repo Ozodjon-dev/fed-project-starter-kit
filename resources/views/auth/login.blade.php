@@ -61,7 +61,7 @@
             <!-- Brand logo-->
             <a class="brand-logo" href="#">
 {{--                <img src="{{ asset('images/logo/favicon.ico') }}" alt="">--}}
-                <h2 class="brand-text text-primary ms-1">FED</h2>
+                <h2 class="brand-text text-primary ms-4 mt-4">FED</h2>
             </a>
             <!-- /Brand logo-->
 

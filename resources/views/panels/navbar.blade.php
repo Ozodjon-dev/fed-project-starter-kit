@@ -80,7 +80,7 @@
               @endauth
           </span>
                                     <span class="user-status">
-            {{ Auth::user()->user_status }}
+            {{ Auth::user()->status }}
           </span>
                                 </div>
                                 <span class="avatar">

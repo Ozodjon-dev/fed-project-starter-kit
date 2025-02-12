@@ -57,27 +57,6 @@ $(window).on('load', function () {
   var goalOverviewChart;
   var isRtl = $('html').attr('data-textdirection') === 'rtl';
 
-  // On load Toast
-
-    document.addEventListener("DOMContentLoaded", function() {
-        console.log("Sahifa yuklandi, toastr ishga tushmoqda...");
-
-        setTimeout(function () {
-            toastr.success(
-                'Вы успешно вошли в FED Project. Теперь вы можете начать исследовать!',
-                '👋 Добро пожаловать ' + window.userName,
-                {
-                    closeButton: true,
-                    timeOut: 5000,
-                    positionClass: "toast-top-right"
-                }
-            );
-        }, 3000);
-    });
-
-
-
-
     //------------ Statistics Bar Chart ------------
   //----------------------------------------------
   statisticsOrderChartOptions = {

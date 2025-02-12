@@ -38,7 +38,7 @@ Route::post('/login', function (Request $request) {
 
     if ($user && $request->password === $user->password) { // Hash o'rniga oddiy string solishtirish
         Auth::login($user);
-        return redirect()->route('dashboard');
+        return redirect()->route('main.index');
     }
 
     return back()->with('error', 'Неправильный логин или пароль');
@@ -53,12 +53,12 @@ Route::get('/login', function () {
 
 
 
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     if (!Auth::check()) {
         return redirect()->route('login')->with('error', 'Сначала войдите в систему!');
     }
-    return view('dashboard');
-})->middleware('auth')->name('dashboard');
+    return view('main');
+})->middleware('auth')->name('main.index');
 
 Route::post('/logout', function () {
     Auth::logout();
@@ -66,9 +66,9 @@ Route::post('/logout', function () {
 })->name('logout');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/', function () {
+        return view('main');
+    })->name('main');
 });
 
 
@@ -100,6 +100,7 @@ Route::get('lang/{locale}', [LanguageController::class, 'swap']);
 //Route::get('/users',  'App\Http\Controllers\UsersController@index')->name('users.index');
 //Route::get('/about',  'App\Http\Controllers\AboutController@index')->name('about.index');
 Route::get('/', 'App\Http\Controllers\MainController@index')->name('main.index');
+Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
 
 // payment orders Route
 Route::get('/payment_order/list', [PaymentOrdersController::class, 'list'])->name('payment_orders.list');

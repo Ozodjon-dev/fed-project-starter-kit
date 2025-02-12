@@ -28,7 +28,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo/favicon.ico') }}">
     <link href=""
           rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.min.css')) }}">
+    <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">
     {{-- Include core + vendor Styles --}}
     @include('panels/styles')
 
@@ -2641,3 +2642,18 @@
 @endsection
 
 @endisset
+
+@section('vendor-script')
+    {{-- vendor files --}}
+    <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
+@endsection
+
+{{-- Page js files --}}
+@section('page-script')
+    {{-- Page js files --}}
+    <script>
+        window.userName = @json(Auth::user()->name);
+        console.log("User Name in Blade:", window.userName); // Tekshirish uchun
+    </script>
+    <script src="{{ asset(mix('js/scripts/pages/main-blade.js')) }}"></script>
+@endsection

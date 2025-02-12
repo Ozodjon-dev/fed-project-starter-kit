@@ -1,10 +1,10 @@
 {
     "menu": [
         {
-            "url": "home",
+            "url": "/dashboard",
             "name": "Home",
             "icon": "home",
-            "slug": "home"
+            "slug": "dashboard"
         },
         {
             "name": "Reference books",

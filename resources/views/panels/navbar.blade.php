@@ -54,9 +54,19 @@
                                 </g>
                             </g>
                         </svg>
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon"
-                                                                                                     data-feather="{{ $configData['theme'] === 'dark' ? 'sun' : 'moon' }}"></i></a>
+
+                        @php
+                            $theme = isset($_COOKIE['theme']) ? $_COOKIE['theme'] : 'light';
+                        @endphp
+
+                        <li class="nav-item d-none d-lg-block">
+                            <a class="nav-link nav-link-style">
+                                <i class="ficon" data-feather="{{ $theme === 'dark' ? 'sun' : 'moon' }}"></i>
+                            </a>
                         </li>
+
+
+
                         <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon"
                                                                                                data-feather="search"></i></a>
                             <div class="search-input">
@@ -150,3 +160,5 @@
             </ul>
             {{-- Search Ends --}}
             <!-- END: Header-->
+
+            <script src="{{ asset('js/custom.js') }}"></script>

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -13,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        Paginator::defaultView('vendor.pagination.bootstrap-5');
     }
 
     /**
@@ -23,6 +24,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Paginator::defaultView('vendor.pagination.bootstrap-5');
+        if (isset($_COOKIE['theme'])) {
+            config(['custom.theme' => $_COOKIE['theme']]);
+        } else {
+            config(['custom.theme' => 'light']);
+        }
+
+        // Cookie to'g'ri o'qilayotganini tekshirish
+        \Log::info('Current theme from cookie: ' . ($_COOKIE['theme'] ?? 'not set'));
     }
+
+
+
 }

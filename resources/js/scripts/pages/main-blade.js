@@ -59,8 +59,6 @@ $(window).on('load', function () {
 
   // On load Toast
 
-    console.log("User Name in JS:", window.userName); // Foydalanuvchi ismini tekshirish
-
         setTimeout(function () {
             toastr['success'](
                 'Вы успешно вошли в проект FED. Теперь вы можете приступить к работе!',

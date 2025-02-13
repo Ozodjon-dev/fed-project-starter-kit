@@ -29,6 +29,11 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 
+Route::get('/check-cookie', function () {
+    return response()->json([
+        'theme' => $_COOKIE['theme'] ?? 'not set'
+    ]);
+});
 
 
 // Authentication

@@ -2653,7 +2653,6 @@
     {{-- Page js files --}}
     <script>
         window.userName = @json(Auth::user()->name);
-        console.log("User Name in Blade:", window.userName); // Tekshirish uchun
     </script>
     <script src="{{ asset(mix('js/scripts/pages/main-blade.js')) }}"></script>
 @endsection

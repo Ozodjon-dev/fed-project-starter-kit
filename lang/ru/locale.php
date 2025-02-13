@@ -187,7 +187,7 @@ return [
     "Add payment orders" => "Создать плат. поручение",
     "List payment orders" => "Список плат. поручений",
     "Contracts" => "Договор",
-    "Documents" => "Documents",
+    "Documents" => "Документы",
     "Add contracts" => "Добавить договор",
     "List contracts" => "Список договоров",
     "Reference books" => "Справочники",

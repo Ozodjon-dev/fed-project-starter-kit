@@ -16,12 +16,16 @@ class LocaleMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-         // available language in template array
-        $availLocale = ['en' => 'en', 'fr' => 'fr', 'de' => 'de', 'pt' => 'pt'];
+        // Qo‘llab-quvvatlanadigan tillar
+        $availLocale = ['en' => 'en', 'ru' => 'ru', 'uz' => 'uz'];
 
-        // Locale is enabled and allowed to be change
+        // Agar sessiyada til bo‘lmasa, standart tilni o‘rnatamiz
+        if (!session()->has('locale')) {
+            session()->put('locale', config('app.locale'));
+        }
+
+        // Agar sessiyada mavjud bo'lsa va qo‘llab-quvvatlanadigan til bo‘lsa, uni o‘rnatamiz
         if (session()->has('locale') && array_key_exists(session()->get('locale'), $availLocale)) {
-            // Set the Laravel locale
             app()->setLocale(session()->get('locale'));
         }
 

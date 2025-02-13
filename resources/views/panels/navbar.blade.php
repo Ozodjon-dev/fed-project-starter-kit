@@ -26,23 +26,21 @@
                             <a class="nav-link dropdown-toggle" id="dropdown-flag" href="#" data-bs-toggle="dropdown"
                                aria-haspopup="true">
                                 <i class="flag-icon flag-icon-us"></i>
-                                <span class="selected-language">English</span>
+                                <span class="selected-language">{{ __('navbar.language') }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-flag">
                                 <a class="dropdown-item" href="{{ url('lang/en') }}" data-language="en">
-                                    <i class="flag-icon flag-icon-us"></i> English
+                                    <i class="flag-icon flag-icon-us"></i> {{ __('navbar.english') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ url('lang/fr') }}" data-language="fr">
-                                    <i class="flag-icon flag-icon-fr"></i> French
+                                <a class="dropdown-item" href="{{ url('lang/ru') }}" data-language="ru">
+                                    <i class="flag-icon flag-icon-ru"></i> {{ __('navbar.russian') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ url('lang/de') }}" data-language="de">
-                                    <i class="flag-icon flag-icon-de"></i> German
-                                </a>
-                                <a class="dropdown-item" href="{{ url('lang/pt') }}" data-language="pt">
-                                    <i class="flag-icon flag-icon-pt"></i> Portuguese
+                                <a class="dropdown-item" href="{{ url('lang/uz') }}" data-language="uz">
+                                    <i class="flag-icon flag-icon-uz"></i> {{ __('navbar.uzbek') }}
                                 </a>
                             </div>
                         </li>
+
                         <svg id="openCalculator" type="button" width="24px" height="24px" viewBox="0 0 20 20"
                              version="1.1"
                              style="display: flex; align-items: center; justify-content: center; cursor: pointer;"

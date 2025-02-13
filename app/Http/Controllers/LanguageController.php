@@ -8,13 +8,18 @@ use Illuminate\Http\Request;
 class LanguageController extends Controller
 {
     //
-    public function swap($locale){
-        // available language in template array
-        $availLocale=['en'=>'en', 'fr'=>'fr','de'=>'de','pt'=>'pt'];
-        // check for existing language
-        if(array_key_exists($locale,$availLocale)){
-            session()->put('locale',$locale);
+    public function swap($locale)
+    {
+        // Qo‘llab-quvvatlanadigan tillar ro‘yxati
+        $availLocale = ['en', 'ru', 'uz'];
+
+        // Foydalanuvchi tanlagan til qo‘llab-quvvatlansa, sessiyaga yozamiz
+        if (in_array($locale, $availLocale)) {
+            session()->put('locale', $locale);
+            app()->setLocale($locale);
         }
+//        dd(session('locale'));
         return redirect()->back();
     }
+
 }

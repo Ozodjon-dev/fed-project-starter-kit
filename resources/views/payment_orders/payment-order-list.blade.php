@@ -112,7 +112,7 @@
 
 
     <div class="table-responsive rounded">
-        <table class="table table-responsive table-striped table-bordered table-sm" style="text-align: center">
+        <table class="table table-responsive table-bordered table-sm" style="text-align: center">
             <thead>
             <tr class="align-middle align-content-center">
                 <th scope="col">#</th>
